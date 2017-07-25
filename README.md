@@ -51,3 +51,7 @@ gen_bs.byte -dir test/servo_idl > servo_dom.ml
 * although BucklScript has DOM type definitions, this tool does not associate generated types with those types.
   * because some types in Web IDL are absent from BucklScript, inheritance relations could be fail.
 
+# License
+* Web IDL files under `test/servo_idl` are Mozilla Public License Version 2.0
+* Web IDL files under `test/blink_idl` is https://chromium.googlesource.com/chromium/blink/+/master/LICENSE
+* The Others are MIT
