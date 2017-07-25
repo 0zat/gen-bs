@@ -1,0 +1,3 @@
+interface testVariadic {
+    long test(long a, optional DOMString b, long... c);
+};

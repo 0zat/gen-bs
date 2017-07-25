@@ -1,0 +1,4 @@
+/_build/
+/.vs_code/
+/node_modules/
+*.byte

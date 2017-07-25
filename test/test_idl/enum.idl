@@ -1,0 +1,6 @@
+enum enum_type { "a", "b", "c+", "-d"};
+
+interface testEnum {
+    long test(long a, optional DOMString b, sequence<enum_type?> c);
+    enum_type test2(optional sequence<enum_type?> c);
+};

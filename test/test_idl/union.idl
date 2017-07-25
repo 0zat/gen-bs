@@ -1,0 +1,4 @@
+interface testUnion {
+    (DOMString or Node) test((DOMString or long) a);
+    sequence<(DOMString or Node)> test2(sequence<(DOMString or Node)> a);
+};
