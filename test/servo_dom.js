@@ -26,6 +26,51 @@ function access_undef(f, x) {
   return Js_undefined.bind(x, Curry.__1(f));
 }
 
+function assert_($$console, condition, message, _) {
+  var message$1 = Js_undefined.from_opt(message);
+  $$console.assert(condition, message$1);
+  return /* () */0;
+}
+
+function debug($$console, messages) {
+  var func = $$console.debug;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function error($$console, messages) {
+  var func = $$console.error;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function info($$console, messages) {
+  var func = $$console.info;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function log($$console, messages) {
+  var func = $$console.log;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function warn($$console, messages) {
+  var func = $$console.warn;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+var Console = /* module */[
+  /* assert_ */assert_,
+  /* debug */debug,
+  /* error */error,
+  /* info */info,
+  /* log */log,
+  /* warn */warn
+];
+
 var Performance = /* module */[];
 
 function define(customElementRegistry, name, constructor_, options, _) {
@@ -4348,6 +4393,7 @@ exports.unsafe_add                                = unsafe_add;
 exports.access_array                              = access_array;
 exports.access_null                               = access_null;
 exports.access_undef                              = access_undef;
+exports.Console                                   = Console;
 exports.Performance                               = Performance;
 exports.CustomElementRegistry                     = CustomElementRegistry;
 exports.GamepadList                               = GamepadList;

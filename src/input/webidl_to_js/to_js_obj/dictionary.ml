@@ -15,6 +15,7 @@ let to_js_obj dictionary =
     ~inherits: dictionary.inheritance
     ~attrs: attrs 
     ~meths: []
+    ~constants: []
 
 let append_partial patrials dictionaries =
   let append_partial_aux patrials dictionary =

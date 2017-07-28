@@ -2,14 +2,25 @@ open Webidl.Data
 open Idl_type
 open Js
 
+let stringifier = 
+  let name = "toString" in
+  let args = [] in
+  let return_type = `String in 
+  let special = `None in
+  Js.to_meth ~name ~args ~return_type ~special 
+
+let const_to_attr type_ name =
+  let type_ = to_js_type type_ in
+  Js.to_attr ~name ~is_readonly:true ~type_ ~is_required:true
+
 let to_js_obj interface =
   let member_to_js attrs methods (extAttr, interface_member) = 
     match (interface_member : Webidl.Data.interface_member) with 
-    | `Stringifier _
+    | `Stringifier _ -> BatRefList.add methods [stringifier]
     | `Iterable _
     | `Maplike _
-    | `Setlike _
-    | `Const _ -> () (*STUB*)
+    | `Setlike _ -> () (*STUB*)
+    | `Const (type_, name, _) -> BatRefList.add attrs (const_to_attr type_ name)
     | `Attribute {is_readonly; type_with_ext; name; _} ->
       if not (String.contains name '-') then
         let type_ = to_js_type (snd type_with_ext) in
@@ -26,6 +37,7 @@ let to_js_obj interface =
     ~inherits: interface.inheritance
     ~attrs: (BatRefList.to_list attrs)
     ~meths: (BatRefList.to_list meths |> List.flatten)
+    ~constants: []
 
 let append_partial partials interface =
   let partials = List.filter (fun x -> x.name = interface.name) partials in

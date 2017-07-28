@@ -36,11 +36,42 @@ module Let_expr = struct
   let to_def_args owner_name js_args =
     (to_label owner_name) :: (List.map to_def_arg js_args) @ [`Unit]
 
+  let rec convert_return type_ =
+    let rec convert_return_type type_ =
+      match (type_: Js.type_) with
+      | `Array t -> "List.map" :: (convert_return_type t)
+      | `Null t ->  "Js_null.to_opt" :: (convert_return_type t)
+      | `Undef t ->  "Js_undefined.to_opt" :: (convert_return_type t)
+      | `Promise t -> (convert_return_type t)
+      | `Callback _ -> failwith "callback is returned"
+      | _ -> []
+    in
+    List.rev_map (Override.override "conv_return") (convert_return_type type_)
+
+  let rec has_null_undef type_ =
+    match (type_: Js.type_) with
+    | `Array t -> has_null_undef t
+    | `Null t ->  true
+    | `Undef t ->  true
+    | `Promise t -> has_null_undef t
+    | _ -> false
+
+  let sould_return_overrride (js_meth: js_meth) =
+    Variadic.has_variadic js_meth.args &&
+    has_null_undef js_meth.return_type 
+
   let to_let owner_name (js_meth: js_meth) =
     let args = to_def_args owner_name js_meth.args  in
     let lets = make_args_to_undef js_meth.args in
-    let eval = Override.to_eval_origilal owner_name js_meth in
-    to_let_def js_meth.name args lets eval
+    let eval_original = Override.to_eval_origilal owner_name js_meth in
+    if sould_return_overrride js_meth then
+      let let_return = to_let_var "return" (to_eval eval_original) in
+      let convert_return = convert_return js_meth.return_type in
+      let lets = lets @ (let_return :: convert_return) in
+      let eval = [to_eval_ident "return"] in
+      to_let_def js_meth.name args lets eval
+    else
+      to_let_def js_meth.name args lets eval_original
 
 end
 
@@ -49,7 +80,7 @@ let has_optional args =
   List.exists (fun x -> x.necessity = `Optional) args
 
 let to_let_if_optional owner_name js_meth =
-  if has_optional js_meth.args then
+  if has_optional js_meth.args || Let_expr.sould_return_overrride js_meth then
     Some(Let_expr.to_let owner_name js_meth)
   else
     None

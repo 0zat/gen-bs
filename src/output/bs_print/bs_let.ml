@@ -12,6 +12,9 @@ type eval = [
   | `String of string
   | `Ident of capital Bs_str.t list * uncapital Bs_str.t (* A.B.C.a *)
   | `Label of uncapital Bs_str.t
+  | `Int of int
+  | `Float of float
+  | `Bool of bool
 ]
 
 type eval_line = eval list
@@ -48,6 +51,9 @@ module Print = struct
 
   let print_eval ppf eval =
     match (eval: eval) with
+    | `Int i -> fprintf ppf "%i" i
+    | `Float f -> fprintf ppf "%f" f
+    | `Bool b -> fprintf ppf "%B" b
     | `Variant v -> fprintf ppf "`%s" v
     | `String s -> fprintf ppf "\"%s\"" s
     | `Label l -> fprintf ppf "~%s" (to_string l)

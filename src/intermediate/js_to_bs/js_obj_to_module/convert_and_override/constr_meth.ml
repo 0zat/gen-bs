@@ -30,17 +30,9 @@ let rec gather_inherits ans all_objs name =
     with
     | Not_found -> failwith ("inheritance of " ^ name ^ "does not exists")
 
-let append_objs name objs =
-  {
-    name;
-    meths = List.map (fun x -> x.meths) objs |> List.flatten;
-    attrs = List.map (fun x -> x.attrs) objs |> List.flatten;
-    inherits = None
-  }
-
 let to_external all_objs js_obj = 
   let inherits = gather_inherits [js_obj] all_objs js_obj.inherits in
-  let obj = append_objs js_obj.name inherits in
+  let obj = Js.append_objs inherits js_obj.name None in
   let attrs = List.map attr_to_arg obj.attrs in
   let meths = List.map meth_to_arg obj.meths  in
   to_constr obj.name (attrs @ meths)
