@@ -1475,10 +1475,6 @@ end
     external endOffset : range:(_) range_like -> int = "endOffset" [@@bs.get] 
     external collapsed : range:(_) range_like -> bool = "collapsed" [@@bs.get] 
     external commonAncestorContainer : range:(_) range_like -> node = "commonAncestorContainer" [@@bs.get] 
-    external sTART_TO_START : range:(_) range_like -> int = "START_TO_START" [@@bs.get] 
-    external sTART_TO_END : range:(_) range_like -> int = "START_TO_END" [@@bs.get] 
-    external eND_TO_END : range:(_) range_like -> int = "END_TO_END" [@@bs.get] 
-    external eND_TO_START : range:(_) range_like -> int = "END_TO_START" [@@bs.get] 
     external cloneContents : range:(_) range_like -> documentFragment = "cloneContents" [@@bs.send] 
     external cloneRange : range:(_) range_like -> range = "cloneRange" [@@bs.send] 
     external collapse : range:(_) range_like -> ?toStart:Js.boolean Js.undefined -> unit = "collapse" [@@bs.send] 
@@ -1501,6 +1497,22 @@ end
     external setStartBefore : range:(_) range_like -> refNode:(_) node_like -> unit = "setStartBefore" [@@bs.send] 
     external surroundContents : range:(_) range_like -> newParent:(_) node_like -> unit = "surroundContents" [@@bs.send] 
     external toString : range:(_) range_like -> string = "toString" [@@bs.send] 
+    
+    let start_to_start  =
+      
+      0
+    
+    let start_to_end  =
+      
+      1
+    
+    let end_to_end  =
+      
+      2
+    
+    let end_to_start  =
+      
+      3
     
     let collapse ~range ?toStart () =
       let conv_toStart = Js_undefined.from_opt in
@@ -1548,19 +1560,24 @@ end
  module OESTextureHalfFloat = struct
     
     
-    external hALF_FLOAT_OES : oESTextureHalfFloat:(_) oESTextureHalfFloat_like -> int = "HALF_FLOAT_OES" [@@bs.get] 
     
+    
+    let half_float_oes  =
+      
+      36193
     
 end
  module OESVertexArrayObject = struct
     
     
-    external vERTEX_ARRAY_BINDING_OES : oESVertexArrayObject:(_) oESVertexArrayObject_like -> int = "VERTEX_ARRAY_BINDING_OES" [@@bs.get] 
     external bindVertexArrayOES : oESVertexArrayObject:(_) oESVertexArrayObject_like -> arrayObject:(_) webGLVertexArrayObjectOES_like Js.null -> unit = "bindVertexArrayOES" [@@bs.send] 
     external createVertexArrayOES : oESVertexArrayObject:(_) oESVertexArrayObject_like -> webGLVertexArrayObjectOES option = "createVertexArrayOES" [@@bs.send] [@@bs.return null_to_opt]
     external deleteVertexArrayOES : oESVertexArrayObject:(_) oESVertexArrayObject_like -> arrayObject:(_) webGLVertexArrayObjectOES_like Js.null -> unit = "deleteVertexArrayOES" [@@bs.send] 
     external isVertexArrayOES : oESVertexArrayObject:(_) oESVertexArrayObject_like -> arrayObject:(_) webGLVertexArrayObjectOES_like Js.null -> bool = "isVertexArrayOES" [@@bs.send] 
     
+    let vertex_array_binding_oes  =
+      
+      34229
     
 end
  module TestRunner = struct
@@ -1640,303 +1657,6 @@ end
  module WebGLRenderingContextBase = struct
     
     
-    external dEPTH_BUFFER_BIT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_BUFFER_BIT" [@@bs.get] 
-    external sTENCIL_BUFFER_BIT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BUFFER_BIT" [@@bs.get] 
-    external cOLOR_BUFFER_BIT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "COLOR_BUFFER_BIT" [@@bs.get] 
-    external pOINTS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "POINTS" [@@bs.get] 
-    external lINES : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINES" [@@bs.get] 
-    external lINE_LOOP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINE_LOOP" [@@bs.get] 
-    external lINE_STRIP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINE_STRIP" [@@bs.get] 
-    external tRIANGLES : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TRIANGLES" [@@bs.get] 
-    external tRIANGLE_STRIP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TRIANGLE_STRIP" [@@bs.get] 
-    external tRIANGLE_FAN : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TRIANGLE_FAN" [@@bs.get] 
-    external zERO : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ZERO" [@@bs.get] 
-    external oNE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE" [@@bs.get] 
-    external sRC_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SRC_COLOR" [@@bs.get] 
-    external oNE_MINUS_SRC_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE_MINUS_SRC_COLOR" [@@bs.get] 
-    external sRC_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SRC_ALPHA" [@@bs.get] 
-    external oNE_MINUS_SRC_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE_MINUS_SRC_ALPHA" [@@bs.get] 
-    external dST_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DST_ALPHA" [@@bs.get] 
-    external oNE_MINUS_DST_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE_MINUS_DST_ALPHA" [@@bs.get] 
-    external dST_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DST_COLOR" [@@bs.get] 
-    external oNE_MINUS_DST_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE_MINUS_DST_COLOR" [@@bs.get] 
-    external sRC_ALPHA_SATURATE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SRC_ALPHA_SATURATE" [@@bs.get] 
-    external fUNC_ADD : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FUNC_ADD" [@@bs.get] 
-    external bLEND_EQUATION : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_EQUATION" [@@bs.get] 
-    external bLEND_EQUATION_RGB : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_EQUATION_RGB" [@@bs.get] 
-    external bLEND_EQUATION_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_EQUATION_ALPHA" [@@bs.get] 
-    external fUNC_SUBTRACT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FUNC_SUBTRACT" [@@bs.get] 
-    external fUNC_REVERSE_SUBTRACT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FUNC_REVERSE_SUBTRACT" [@@bs.get] 
-    external bLEND_DST_RGB : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_DST_RGB" [@@bs.get] 
-    external bLEND_SRC_RGB : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_SRC_RGB" [@@bs.get] 
-    external bLEND_DST_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_DST_ALPHA" [@@bs.get] 
-    external bLEND_SRC_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_SRC_ALPHA" [@@bs.get] 
-    external cONSTANT_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CONSTANT_COLOR" [@@bs.get] 
-    external oNE_MINUS_CONSTANT_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE_MINUS_CONSTANT_COLOR" [@@bs.get] 
-    external cONSTANT_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CONSTANT_ALPHA" [@@bs.get] 
-    external oNE_MINUS_CONSTANT_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ONE_MINUS_CONSTANT_ALPHA" [@@bs.get] 
-    external bLEND_COLOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND_COLOR" [@@bs.get] 
-    external aRRAY_BUFFER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ARRAY_BUFFER" [@@bs.get] 
-    external eLEMENT_ARRAY_BUFFER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ELEMENT_ARRAY_BUFFER" [@@bs.get] 
-    external aRRAY_BUFFER_BINDING : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ARRAY_BUFFER_BINDING" [@@bs.get] 
-    external eLEMENT_ARRAY_BUFFER_BINDING : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ELEMENT_ARRAY_BUFFER_BINDING" [@@bs.get] 
-    external sTREAM_DRAW : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STREAM_DRAW" [@@bs.get] 
-    external sTATIC_DRAW : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STATIC_DRAW" [@@bs.get] 
-    external dYNAMIC_DRAW : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DYNAMIC_DRAW" [@@bs.get] 
-    external bUFFER_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BUFFER_SIZE" [@@bs.get] 
-    external bUFFER_USAGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BUFFER_USAGE" [@@bs.get] 
-    external cURRENT_VERTEX_ATTRIB : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CURRENT_VERTEX_ATTRIB" [@@bs.get] 
-    external fRONT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRONT" [@@bs.get] 
-    external bACK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BACK" [@@bs.get] 
-    external fRONT_AND_BACK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRONT_AND_BACK" [@@bs.get] 
-    external cULL_FACE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CULL_FACE" [@@bs.get] 
-    external bLEND : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLEND" [@@bs.get] 
-    external dITHER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DITHER" [@@bs.get] 
-    external sTENCIL_TEST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_TEST" [@@bs.get] 
-    external dEPTH_TEST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_TEST" [@@bs.get] 
-    external sCISSOR_TEST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SCISSOR_TEST" [@@bs.get] 
-    external pOLYGON_OFFSET_FILL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "POLYGON_OFFSET_FILL" [@@bs.get] 
-    external sAMPLE_ALPHA_TO_COVERAGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLE_ALPHA_TO_COVERAGE" [@@bs.get] 
-    external sAMPLE_COVERAGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLE_COVERAGE" [@@bs.get] 
-    external nO_ERROR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NO_ERROR" [@@bs.get] 
-    external iNVALID_ENUM : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INVALID_ENUM" [@@bs.get] 
-    external iNVALID_VALUE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INVALID_VALUE" [@@bs.get] 
-    external iNVALID_OPERATION : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INVALID_OPERATION" [@@bs.get] 
-    external oUT_OF_MEMORY : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "OUT_OF_MEMORY" [@@bs.get] 
-    external cW : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CW" [@@bs.get] 
-    external cCW : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CCW" [@@bs.get] 
-    external lINE_WIDTH : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINE_WIDTH" [@@bs.get] 
-    external aLIASED_POINT_SIZE_RANGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ALIASED_POINT_SIZE_RANGE" [@@bs.get] 
-    external aLIASED_LINE_WIDTH_RANGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ALIASED_LINE_WIDTH_RANGE" [@@bs.get] 
-    external cULL_FACE_MODE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CULL_FACE_MODE" [@@bs.get] 
-    external fRONT_FACE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRONT_FACE" [@@bs.get] 
-    external dEPTH_RANGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_RANGE" [@@bs.get] 
-    external dEPTH_WRITEMASK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_WRITEMASK" [@@bs.get] 
-    external dEPTH_CLEAR_VALUE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_CLEAR_VALUE" [@@bs.get] 
-    external dEPTH_FUNC : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_FUNC" [@@bs.get] 
-    external sTENCIL_CLEAR_VALUE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_CLEAR_VALUE" [@@bs.get] 
-    external sTENCIL_FUNC : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_FUNC" [@@bs.get] 
-    external sTENCIL_FAIL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_FAIL" [@@bs.get] 
-    external sTENCIL_PASS_DEPTH_FAIL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_PASS_DEPTH_FAIL" [@@bs.get] 
-    external sTENCIL_PASS_DEPTH_PASS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_PASS_DEPTH_PASS" [@@bs.get] 
-    external sTENCIL_REF : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_REF" [@@bs.get] 
-    external sTENCIL_VALUE_MASK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_VALUE_MASK" [@@bs.get] 
-    external sTENCIL_WRITEMASK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_WRITEMASK" [@@bs.get] 
-    external sTENCIL_BACK_FUNC : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_FUNC" [@@bs.get] 
-    external sTENCIL_BACK_FAIL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_FAIL" [@@bs.get] 
-    external sTENCIL_BACK_PASS_DEPTH_FAIL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_PASS_DEPTH_FAIL" [@@bs.get] 
-    external sTENCIL_BACK_PASS_DEPTH_PASS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_PASS_DEPTH_PASS" [@@bs.get] 
-    external sTENCIL_BACK_REF : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_REF" [@@bs.get] 
-    external sTENCIL_BACK_VALUE_MASK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_VALUE_MASK" [@@bs.get] 
-    external sTENCIL_BACK_WRITEMASK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BACK_WRITEMASK" [@@bs.get] 
-    external vIEWPORT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VIEWPORT" [@@bs.get] 
-    external sCISSOR_BOX : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SCISSOR_BOX" [@@bs.get] 
-    external cOLOR_CLEAR_VALUE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "COLOR_CLEAR_VALUE" [@@bs.get] 
-    external cOLOR_WRITEMASK : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "COLOR_WRITEMASK" [@@bs.get] 
-    external uNPACK_ALIGNMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNPACK_ALIGNMENT" [@@bs.get] 
-    external pACK_ALIGNMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "PACK_ALIGNMENT" [@@bs.get] 
-    external mAX_TEXTURE_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_TEXTURE_SIZE" [@@bs.get] 
-    external mAX_VIEWPORT_DIMS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_VIEWPORT_DIMS" [@@bs.get] 
-    external sUBPIXEL_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SUBPIXEL_BITS" [@@bs.get] 
-    external rED_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RED_BITS" [@@bs.get] 
-    external gREEN_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "GREEN_BITS" [@@bs.get] 
-    external bLUE_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BLUE_BITS" [@@bs.get] 
-    external aLPHA_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ALPHA_BITS" [@@bs.get] 
-    external dEPTH_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_BITS" [@@bs.get] 
-    external sTENCIL_BITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_BITS" [@@bs.get] 
-    external pOLYGON_OFFSET_UNITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "POLYGON_OFFSET_UNITS" [@@bs.get] 
-    external pOLYGON_OFFSET_FACTOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "POLYGON_OFFSET_FACTOR" [@@bs.get] 
-    external tEXTURE_BINDING_2D : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_BINDING_2D" [@@bs.get] 
-    external sAMPLE_BUFFERS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLE_BUFFERS" [@@bs.get] 
-    external sAMPLES : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLES" [@@bs.get] 
-    external sAMPLE_COVERAGE_VALUE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLE_COVERAGE_VALUE" [@@bs.get] 
-    external sAMPLE_COVERAGE_INVERT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLE_COVERAGE_INVERT" [@@bs.get] 
-    external cOMPRESSED_TEXTURE_FORMATS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "COMPRESSED_TEXTURE_FORMATS" [@@bs.get] 
-    external dONT_CARE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DONT_CARE" [@@bs.get] 
-    external fASTEST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FASTEST" [@@bs.get] 
-    external nICEST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NICEST" [@@bs.get] 
-    external gENERATE_MIPMAP_HINT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "GENERATE_MIPMAP_HINT" [@@bs.get] 
-    external bYTE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BYTE" [@@bs.get] 
-    external uNSIGNED_BYTE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNSIGNED_BYTE" [@@bs.get] 
-    external sHORT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SHORT" [@@bs.get] 
-    external uNSIGNED_SHORT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNSIGNED_SHORT" [@@bs.get] 
-    external iNT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INT" [@@bs.get] 
-    external uNSIGNED_INT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNSIGNED_INT" [@@bs.get] 
-    external fLOAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT" [@@bs.get] 
-    external dEPTH_COMPONENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_COMPONENT" [@@bs.get] 
-    external aLPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ALPHA" [@@bs.get] 
-    external rGB : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RGB" [@@bs.get] 
-    external rGBA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RGBA" [@@bs.get] 
-    external lUMINANCE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LUMINANCE" [@@bs.get] 
-    external lUMINANCE_ALPHA : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LUMINANCE_ALPHA" [@@bs.get] 
-    external uNSIGNED_SHORT_4_4_4_4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNSIGNED_SHORT_4_4_4_4" [@@bs.get] 
-    external uNSIGNED_SHORT_5_5_5_1 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNSIGNED_SHORT_5_5_5_1" [@@bs.get] 
-    external uNSIGNED_SHORT_5_6_5 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNSIGNED_SHORT_5_6_5" [@@bs.get] 
-    external fRAGMENT_SHADER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAGMENT_SHADER" [@@bs.get] 
-    external vERTEX_SHADER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_SHADER" [@@bs.get] 
-    external mAX_VERTEX_ATTRIBS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_VERTEX_ATTRIBS" [@@bs.get] 
-    external mAX_VERTEX_UNIFORM_VECTORS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_VERTEX_UNIFORM_VECTORS" [@@bs.get] 
-    external mAX_VARYING_VECTORS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_VARYING_VECTORS" [@@bs.get] 
-    external mAX_COMBINED_TEXTURE_IMAGE_UNITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_COMBINED_TEXTURE_IMAGE_UNITS" [@@bs.get] 
-    external mAX_VERTEX_TEXTURE_IMAGE_UNITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_VERTEX_TEXTURE_IMAGE_UNITS" [@@bs.get] 
-    external mAX_TEXTURE_IMAGE_UNITS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_TEXTURE_IMAGE_UNITS" [@@bs.get] 
-    external mAX_FRAGMENT_UNIFORM_VECTORS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_FRAGMENT_UNIFORM_VECTORS" [@@bs.get] 
-    external sHADER_TYPE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SHADER_TYPE" [@@bs.get] 
-    external dELETE_STATUS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DELETE_STATUS" [@@bs.get] 
-    external lINK_STATUS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINK_STATUS" [@@bs.get] 
-    external vALIDATE_STATUS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VALIDATE_STATUS" [@@bs.get] 
-    external aTTACHED_SHADERS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ATTACHED_SHADERS" [@@bs.get] 
-    external aCTIVE_UNIFORMS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ACTIVE_UNIFORMS" [@@bs.get] 
-    external aCTIVE_ATTRIBUTES : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ACTIVE_ATTRIBUTES" [@@bs.get] 
-    external sHADING_LANGUAGE_VERSION : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SHADING_LANGUAGE_VERSION" [@@bs.get] 
-    external cURRENT_PROGRAM : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CURRENT_PROGRAM" [@@bs.get] 
-    external nEVER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NEVER" [@@bs.get] 
-    external lESS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LESS" [@@bs.get] 
-    external eQUAL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "EQUAL" [@@bs.get] 
-    external lEQUAL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LEQUAL" [@@bs.get] 
-    external gREATER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "GREATER" [@@bs.get] 
-    external nOTEQUAL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NOTEQUAL" [@@bs.get] 
-    external gEQUAL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "GEQUAL" [@@bs.get] 
-    external aLWAYS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ALWAYS" [@@bs.get] 
-    external kEEP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "KEEP" [@@bs.get] 
-    external rEPLACE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "REPLACE" [@@bs.get] 
-    external iNCR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INCR" [@@bs.get] 
-    external dECR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DECR" [@@bs.get] 
-    external iNVERT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INVERT" [@@bs.get] 
-    external iNCR_WRAP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INCR_WRAP" [@@bs.get] 
-    external dECR_WRAP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DECR_WRAP" [@@bs.get] 
-    external vENDOR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VENDOR" [@@bs.get] 
-    external rENDERER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERER" [@@bs.get] 
-    external vERSION : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERSION" [@@bs.get] 
-    external nEAREST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NEAREST" [@@bs.get] 
-    external lINEAR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINEAR" [@@bs.get] 
-    external nEAREST_MIPMAP_NEAREST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NEAREST_MIPMAP_NEAREST" [@@bs.get] 
-    external lINEAR_MIPMAP_NEAREST : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINEAR_MIPMAP_NEAREST" [@@bs.get] 
-    external nEAREST_MIPMAP_LINEAR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NEAREST_MIPMAP_LINEAR" [@@bs.get] 
-    external lINEAR_MIPMAP_LINEAR : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LINEAR_MIPMAP_LINEAR" [@@bs.get] 
-    external tEXTURE_MAG_FILTER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_MAG_FILTER" [@@bs.get] 
-    external tEXTURE_MIN_FILTER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_MIN_FILTER" [@@bs.get] 
-    external tEXTURE_WRAP_S : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_WRAP_S" [@@bs.get] 
-    external tEXTURE_WRAP_T : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_WRAP_T" [@@bs.get] 
-    external tEXTURE_2D : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_2D" [@@bs.get] 
-    external tEXTURE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE" [@@bs.get] 
-    external tEXTURE_CUBE_MAP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP" [@@bs.get] 
-    external tEXTURE_BINDING_CUBE_MAP : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_BINDING_CUBE_MAP" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_POSITIVE_X : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP_POSITIVE_X" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_NEGATIVE_X : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP_NEGATIVE_X" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_POSITIVE_Y : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP_POSITIVE_Y" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_NEGATIVE_Y : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP_NEGATIVE_Y" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_POSITIVE_Z : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP_POSITIVE_Z" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_NEGATIVE_Z : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE_CUBE_MAP_NEGATIVE_Z" [@@bs.get] 
-    external mAX_CUBE_MAP_TEXTURE_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_CUBE_MAP_TEXTURE_SIZE" [@@bs.get] 
-    external tEXTURE0 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE0" [@@bs.get] 
-    external tEXTURE1 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE1" [@@bs.get] 
-    external tEXTURE2 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE2" [@@bs.get] 
-    external tEXTURE3 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE3" [@@bs.get] 
-    external tEXTURE4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE4" [@@bs.get] 
-    external tEXTURE5 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE5" [@@bs.get] 
-    external tEXTURE6 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE6" [@@bs.get] 
-    external tEXTURE7 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE7" [@@bs.get] 
-    external tEXTURE8 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE8" [@@bs.get] 
-    external tEXTURE9 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE9" [@@bs.get] 
-    external tEXTURE10 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE10" [@@bs.get] 
-    external tEXTURE11 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE11" [@@bs.get] 
-    external tEXTURE12 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE12" [@@bs.get] 
-    external tEXTURE13 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE13" [@@bs.get] 
-    external tEXTURE14 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE14" [@@bs.get] 
-    external tEXTURE15 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE15" [@@bs.get] 
-    external tEXTURE16 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE16" [@@bs.get] 
-    external tEXTURE17 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE17" [@@bs.get] 
-    external tEXTURE18 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE18" [@@bs.get] 
-    external tEXTURE19 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE19" [@@bs.get] 
-    external tEXTURE20 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE20" [@@bs.get] 
-    external tEXTURE21 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE21" [@@bs.get] 
-    external tEXTURE22 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE22" [@@bs.get] 
-    external tEXTURE23 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE23" [@@bs.get] 
-    external tEXTURE24 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE24" [@@bs.get] 
-    external tEXTURE25 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE25" [@@bs.get] 
-    external tEXTURE26 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE26" [@@bs.get] 
-    external tEXTURE27 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE27" [@@bs.get] 
-    external tEXTURE28 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE28" [@@bs.get] 
-    external tEXTURE29 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE29" [@@bs.get] 
-    external tEXTURE30 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE30" [@@bs.get] 
-    external tEXTURE31 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "TEXTURE31" [@@bs.get] 
-    external aCTIVE_TEXTURE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "ACTIVE_TEXTURE" [@@bs.get] 
-    external rEPEAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "REPEAT" [@@bs.get] 
-    external cLAMP_TO_EDGE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CLAMP_TO_EDGE" [@@bs.get] 
-    external mIRRORED_REPEAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MIRRORED_REPEAT" [@@bs.get] 
-    external fLOAT_VEC2 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT_VEC2" [@@bs.get] 
-    external fLOAT_VEC3 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT_VEC3" [@@bs.get] 
-    external fLOAT_VEC4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT_VEC4" [@@bs.get] 
-    external iNT_VEC2 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INT_VEC2" [@@bs.get] 
-    external iNT_VEC3 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INT_VEC3" [@@bs.get] 
-    external iNT_VEC4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INT_VEC4" [@@bs.get] 
-    external bOOL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BOOL" [@@bs.get] 
-    external bOOL_VEC2 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BOOL_VEC2" [@@bs.get] 
-    external bOOL_VEC3 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BOOL_VEC3" [@@bs.get] 
-    external bOOL_VEC4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BOOL_VEC4" [@@bs.get] 
-    external fLOAT_MAT2 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT_MAT2" [@@bs.get] 
-    external fLOAT_MAT3 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT_MAT3" [@@bs.get] 
-    external fLOAT_MAT4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FLOAT_MAT4" [@@bs.get] 
-    external sAMPLER_2D : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLER_2D" [@@bs.get] 
-    external sAMPLER_CUBE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "SAMPLER_CUBE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_ENABLED : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_ENABLED" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_SIZE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_STRIDE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_STRIDE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_TYPE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_TYPE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_NORMALIZED : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_NORMALIZED" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_POINTER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_POINTER" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_BUFFER_BINDING : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "VERTEX_ATTRIB_ARRAY_BUFFER_BINDING" [@@bs.get] 
-    external iMPLEMENTATION_COLOR_READ_TYPE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "IMPLEMENTATION_COLOR_READ_TYPE" [@@bs.get] 
-    external iMPLEMENTATION_COLOR_READ_FORMAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "IMPLEMENTATION_COLOR_READ_FORMAT" [@@bs.get] 
-    external cOMPILE_STATUS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "COMPILE_STATUS" [@@bs.get] 
-    external lOW_FLOAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LOW_FLOAT" [@@bs.get] 
-    external mEDIUM_FLOAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MEDIUM_FLOAT" [@@bs.get] 
-    external hIGH_FLOAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "HIGH_FLOAT" [@@bs.get] 
-    external lOW_INT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "LOW_INT" [@@bs.get] 
-    external mEDIUM_INT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MEDIUM_INT" [@@bs.get] 
-    external hIGH_INT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "HIGH_INT" [@@bs.get] 
-    external fRAMEBUFFER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER" [@@bs.get] 
-    external rENDERBUFFER : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER" [@@bs.get] 
-    external rGBA4 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RGBA4" [@@bs.get] 
-    external rGB5_A1 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RGB5_A1" [@@bs.get] 
-    external rGB565 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RGB565" [@@bs.get] 
-    external dEPTH_COMPONENT16 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_COMPONENT16" [@@bs.get] 
-    external sTENCIL_INDEX : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_INDEX" [@@bs.get] 
-    external sTENCIL_INDEX8 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_INDEX8" [@@bs.get] 
-    external dEPTH_STENCIL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_STENCIL" [@@bs.get] 
-    external rENDERBUFFER_WIDTH : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_WIDTH" [@@bs.get] 
-    external rENDERBUFFER_HEIGHT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_HEIGHT" [@@bs.get] 
-    external rENDERBUFFER_INTERNAL_FORMAT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_INTERNAL_FORMAT" [@@bs.get] 
-    external rENDERBUFFER_RED_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_RED_SIZE" [@@bs.get] 
-    external rENDERBUFFER_GREEN_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_GREEN_SIZE" [@@bs.get] 
-    external rENDERBUFFER_BLUE_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_BLUE_SIZE" [@@bs.get] 
-    external rENDERBUFFER_ALPHA_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_ALPHA_SIZE" [@@bs.get] 
-    external rENDERBUFFER_DEPTH_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_DEPTH_SIZE" [@@bs.get] 
-    external rENDERBUFFER_STENCIL_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_STENCIL_SIZE" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_OBJECT_TYPE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_OBJECT_NAME : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE" [@@bs.get] 
-    external cOLOR_ATTACHMENT0 : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "COLOR_ATTACHMENT0" [@@bs.get] 
-    external dEPTH_ATTACHMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_ATTACHMENT" [@@bs.get] 
-    external sTENCIL_ATTACHMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "STENCIL_ATTACHMENT" [@@bs.get] 
-    external dEPTH_STENCIL_ATTACHMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "DEPTH_STENCIL_ATTACHMENT" [@@bs.get] 
-    external nONE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "NONE" [@@bs.get] 
-    external fRAMEBUFFER_COMPLETE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_COMPLETE" [@@bs.get] 
-    external fRAMEBUFFER_INCOMPLETE_ATTACHMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_INCOMPLETE_ATTACHMENT" [@@bs.get] 
-    external fRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT" [@@bs.get] 
-    external fRAMEBUFFER_INCOMPLETE_DIMENSIONS : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_INCOMPLETE_DIMENSIONS" [@@bs.get] 
-    external fRAMEBUFFER_UNSUPPORTED : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_UNSUPPORTED" [@@bs.get] 
-    external fRAMEBUFFER_BINDING : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "FRAMEBUFFER_BINDING" [@@bs.get] 
-    external rENDERBUFFER_BINDING : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "RENDERBUFFER_BINDING" [@@bs.get] 
-    external mAX_RENDERBUFFER_SIZE : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "MAX_RENDERBUFFER_SIZE" [@@bs.get] 
-    external iNVALID_FRAMEBUFFER_OPERATION : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "INVALID_FRAMEBUFFER_OPERATION" [@@bs.get] 
-    external uNPACK_FLIP_Y_WEBGL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNPACK_FLIP_Y_WEBGL" [@@bs.get] 
-    external uNPACK_PREMULTIPLY_ALPHA_WEBGL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNPACK_PREMULTIPLY_ALPHA_WEBGL" [@@bs.get] 
-    external cONTEXT_LOST_WEBGL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "CONTEXT_LOST_WEBGL" [@@bs.get] 
-    external uNPACK_COLORSPACE_CONVERSION_WEBGL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "UNPACK_COLORSPACE_CONVERSION_WEBGL" [@@bs.get] 
-    external bROWSER_DEFAULT_WEBGL : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "BROWSER_DEFAULT_WEBGL" [@@bs.get] 
     external canvas : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> hTMLCanvasElement = "canvas" [@@bs.get] 
     external drawingBufferWidth : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "drawingBufferWidth" [@@bs.get] 
     external drawingBufferHeight : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> int = "drawingBufferHeight" [@@bs.get] 
@@ -2071,6 +1791,1194 @@ end
     external vertexAttribPointer : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> indx:int -> size:int -> type_:int -> normalized:Js.boolean -> stride:int -> offset:int -> unit = "vertexAttribPointer" [@@bs.send] 
     external viewport : webGLRenderingContextBase:(_) webGLRenderingContextBase_like -> x:int -> y:int -> width:int -> height:int -> unit = "viewport" [@@bs.send] 
     
+    let depth_buffer_bit  =
+      
+      256
+    
+    let stencil_buffer_bit  =
+      
+      1024
+    
+    let color_buffer_bit  =
+      
+      16384
+    
+    let points  =
+      
+      0
+    
+    let lines  =
+      
+      1
+    
+    let line_loop  =
+      
+      2
+    
+    let line_strip  =
+      
+      3
+    
+    let triangles  =
+      
+      4
+    
+    let triangle_strip  =
+      
+      5
+    
+    let triangle_fan  =
+      
+      6
+    
+    let zero  =
+      
+      0
+    
+    let one  =
+      
+      1
+    
+    let src_color  =
+      
+      768
+    
+    let one_minus_src_color  =
+      
+      769
+    
+    let src_alpha  =
+      
+      770
+    
+    let one_minus_src_alpha  =
+      
+      771
+    
+    let dst_alpha  =
+      
+      772
+    
+    let one_minus_dst_alpha  =
+      
+      773
+    
+    let dst_color  =
+      
+      774
+    
+    let one_minus_dst_color  =
+      
+      775
+    
+    let src_alpha_saturate  =
+      
+      776
+    
+    let func_add  =
+      
+      32774
+    
+    let blend_equation  =
+      
+      32777
+    
+    let blend_equation_rgb  =
+      
+      32777
+    
+    let blend_equation_alpha  =
+      
+      34877
+    
+    let func_subtract  =
+      
+      32778
+    
+    let func_reverse_subtract  =
+      
+      32779
+    
+    let blend_dst_rgb  =
+      
+      32968
+    
+    let blend_src_rgb  =
+      
+      32969
+    
+    let blend_dst_alpha  =
+      
+      32970
+    
+    let blend_src_alpha  =
+      
+      32971
+    
+    let constant_color  =
+      
+      32769
+    
+    let one_minus_constant_color  =
+      
+      32770
+    
+    let constant_alpha  =
+      
+      32771
+    
+    let one_minus_constant_alpha  =
+      
+      32772
+    
+    let blend_color  =
+      
+      32773
+    
+    let array_buffer  =
+      
+      34962
+    
+    let element_array_buffer  =
+      
+      34963
+    
+    let array_buffer_binding  =
+      
+      34964
+    
+    let element_array_buffer_binding  =
+      
+      34965
+    
+    let stream_draw  =
+      
+      35040
+    
+    let static_draw  =
+      
+      35044
+    
+    let dynamic_draw  =
+      
+      35048
+    
+    let buffer_size  =
+      
+      34660
+    
+    let buffer_usage  =
+      
+      34661
+    
+    let current_vertex_attrib  =
+      
+      34342
+    
+    let front  =
+      
+      1028
+    
+    let back  =
+      
+      1029
+    
+    let front_and_back  =
+      
+      1032
+    
+    let cull_face  =
+      
+      2884
+    
+    let blend  =
+      
+      3042
+    
+    let dither  =
+      
+      3024
+    
+    let stencil_test  =
+      
+      2960
+    
+    let depth_test  =
+      
+      2929
+    
+    let scissor_test  =
+      
+      3089
+    
+    let polygon_offset_fill  =
+      
+      32823
+    
+    let sample_alpha_to_coverage  =
+      
+      32926
+    
+    let sample_coverage  =
+      
+      32928
+    
+    let no_error  =
+      
+      0
+    
+    let invalid_enum  =
+      
+      1280
+    
+    let invalid_value  =
+      
+      1281
+    
+    let invalid_operation  =
+      
+      1282
+    
+    let out_of_memory  =
+      
+      1285
+    
+    let cw  =
+      
+      2304
+    
+    let ccw  =
+      
+      2305
+    
+    let line_width  =
+      
+      2849
+    
+    let aliased_point_size_range  =
+      
+      33901
+    
+    let aliased_line_width_range  =
+      
+      33902
+    
+    let cull_face_mode  =
+      
+      2885
+    
+    let front_face  =
+      
+      2886
+    
+    let depth_range  =
+      
+      2928
+    
+    let depth_writemask  =
+      
+      2930
+    
+    let depth_clear_value  =
+      
+      2931
+    
+    let depth_func  =
+      
+      2932
+    
+    let stencil_clear_value  =
+      
+      2961
+    
+    let stencil_func  =
+      
+      2962
+    
+    let stencil_fail  =
+      
+      2964
+    
+    let stencil_pass_depth_fail  =
+      
+      2965
+    
+    let stencil_pass_depth_pass  =
+      
+      2966
+    
+    let stencil_ref  =
+      
+      2967
+    
+    let stencil_value_mask  =
+      
+      2963
+    
+    let stencil_writemask  =
+      
+      2968
+    
+    let stencil_back_func  =
+      
+      34816
+    
+    let stencil_back_fail  =
+      
+      34817
+    
+    let stencil_back_pass_depth_fail  =
+      
+      34818
+    
+    let stencil_back_pass_depth_pass  =
+      
+      34819
+    
+    let stencil_back_ref  =
+      
+      36003
+    
+    let stencil_back_value_mask  =
+      
+      36004
+    
+    let stencil_back_writemask  =
+      
+      36005
+    
+    let viewport  =
+      
+      2978
+    
+    let scissor_box  =
+      
+      3088
+    
+    let color_clear_value  =
+      
+      3106
+    
+    let color_writemask  =
+      
+      3107
+    
+    let unpack_alignment  =
+      
+      3317
+    
+    let pack_alignment  =
+      
+      3333
+    
+    let max_texture_size  =
+      
+      3379
+    
+    let max_viewport_dims  =
+      
+      3386
+    
+    let subpixel_bits  =
+      
+      3408
+    
+    let red_bits  =
+      
+      3410
+    
+    let green_bits  =
+      
+      3411
+    
+    let blue_bits  =
+      
+      3412
+    
+    let alpha_bits  =
+      
+      3413
+    
+    let depth_bits  =
+      
+      3414
+    
+    let stencil_bits  =
+      
+      3415
+    
+    let polygon_offset_units  =
+      
+      10752
+    
+    let polygon_offset_factor  =
+      
+      32824
+    
+    let texture_binding_2d  =
+      
+      32873
+    
+    let sample_buffers  =
+      
+      32936
+    
+    let samples  =
+      
+      32937
+    
+    let sample_coverage_value  =
+      
+      32938
+    
+    let sample_coverage_invert  =
+      
+      32939
+    
+    let compressed_texture_formats  =
+      
+      34467
+    
+    let dont_care  =
+      
+      4352
+    
+    let fastest  =
+      
+      4353
+    
+    let nicest  =
+      
+      4354
+    
+    let generate_mipmap_hint  =
+      
+      33170
+    
+    let byte  =
+      
+      5120
+    
+    let unsigned_byte  =
+      
+      5121
+    
+    let short  =
+      
+      5122
+    
+    let unsigned_short  =
+      
+      5123
+    
+    let int  =
+      
+      5124
+    
+    let unsigned_int  =
+      
+      5125
+    
+    let float  =
+      
+      5126
+    
+    let depth_component  =
+      
+      6402
+    
+    let alpha  =
+      
+      6406
+    
+    let rgb  =
+      
+      6407
+    
+    let rgba  =
+      
+      6408
+    
+    let luminance  =
+      
+      6409
+    
+    let luminance_alpha  =
+      
+      6410
+    
+    let unsigned_short_4_4_4_4  =
+      
+      32819
+    
+    let unsigned_short_5_5_5_1  =
+      
+      32820
+    
+    let unsigned_short_5_6_5  =
+      
+      33635
+    
+    let fragment_shader  =
+      
+      35632
+    
+    let vertex_shader  =
+      
+      35633
+    
+    let max_vertex_attribs  =
+      
+      34921
+    
+    let max_vertex_uniform_vectors  =
+      
+      36347
+    
+    let max_varying_vectors  =
+      
+      36348
+    
+    let max_combined_texture_image_units  =
+      
+      35661
+    
+    let max_vertex_texture_image_units  =
+      
+      35660
+    
+    let max_texture_image_units  =
+      
+      34930
+    
+    let max_fragment_uniform_vectors  =
+      
+      36349
+    
+    let shader_type  =
+      
+      35663
+    
+    let delete_status  =
+      
+      35712
+    
+    let link_status  =
+      
+      35714
+    
+    let validate_status  =
+      
+      35715
+    
+    let attached_shaders  =
+      
+      35717
+    
+    let active_uniforms  =
+      
+      35718
+    
+    let active_attributes  =
+      
+      35721
+    
+    let shading_language_version  =
+      
+      35724
+    
+    let current_program  =
+      
+      35725
+    
+    let never  =
+      
+      512
+    
+    let less  =
+      
+      513
+    
+    let equal  =
+      
+      514
+    
+    let lequal  =
+      
+      515
+    
+    let greater  =
+      
+      516
+    
+    let notequal  =
+      
+      517
+    
+    let gequal  =
+      
+      518
+    
+    let always  =
+      
+      519
+    
+    let keep  =
+      
+      7680
+    
+    let replace  =
+      
+      7681
+    
+    let incr  =
+      
+      7682
+    
+    let decr  =
+      
+      7683
+    
+    let invert  =
+      
+      5386
+    
+    let incr_wrap  =
+      
+      34055
+    
+    let decr_wrap  =
+      
+      34056
+    
+    let vendor  =
+      
+      7936
+    
+    let renderer  =
+      
+      7937
+    
+    let version  =
+      
+      7938
+    
+    let nearest  =
+      
+      9728
+    
+    let linear  =
+      
+      9729
+    
+    let nearest_mipmap_nearest  =
+      
+      9984
+    
+    let linear_mipmap_nearest  =
+      
+      9985
+    
+    let nearest_mipmap_linear  =
+      
+      9986
+    
+    let linear_mipmap_linear  =
+      
+      9987
+    
+    let texture_mag_filter  =
+      
+      10240
+    
+    let texture_min_filter  =
+      
+      10241
+    
+    let texture_wrap_s  =
+      
+      10242
+    
+    let texture_wrap_t  =
+      
+      10243
+    
+    let texture_2d  =
+      
+      3553
+    
+    let texture  =
+      
+      5890
+    
+    let texture_cube_map  =
+      
+      34067
+    
+    let texture_binding_cube_map  =
+      
+      34068
+    
+    let texture_cube_map_positive_x  =
+      
+      34069
+    
+    let texture_cube_map_negative_x  =
+      
+      34070
+    
+    let texture_cube_map_positive_y  =
+      
+      34071
+    
+    let texture_cube_map_negative_y  =
+      
+      34072
+    
+    let texture_cube_map_positive_z  =
+      
+      34073
+    
+    let texture_cube_map_negative_z  =
+      
+      34074
+    
+    let max_cube_map_texture_size  =
+      
+      34076
+    
+    let texture0  =
+      
+      33984
+    
+    let texture1  =
+      
+      33985
+    
+    let texture2  =
+      
+      33986
+    
+    let texture3  =
+      
+      33987
+    
+    let texture4  =
+      
+      33988
+    
+    let texture5  =
+      
+      33989
+    
+    let texture6  =
+      
+      33990
+    
+    let texture7  =
+      
+      33991
+    
+    let texture8  =
+      
+      33992
+    
+    let texture9  =
+      
+      33993
+    
+    let texture10  =
+      
+      33994
+    
+    let texture11  =
+      
+      33995
+    
+    let texture12  =
+      
+      33996
+    
+    let texture13  =
+      
+      33997
+    
+    let texture14  =
+      
+      33998
+    
+    let texture15  =
+      
+      33999
+    
+    let texture16  =
+      
+      34000
+    
+    let texture17  =
+      
+      34001
+    
+    let texture18  =
+      
+      34002
+    
+    let texture19  =
+      
+      34003
+    
+    let texture20  =
+      
+      34004
+    
+    let texture21  =
+      
+      34005
+    
+    let texture22  =
+      
+      34006
+    
+    let texture23  =
+      
+      34007
+    
+    let texture24  =
+      
+      34008
+    
+    let texture25  =
+      
+      34009
+    
+    let texture26  =
+      
+      34010
+    
+    let texture27  =
+      
+      34011
+    
+    let texture28  =
+      
+      34012
+    
+    let texture29  =
+      
+      34013
+    
+    let texture30  =
+      
+      34014
+    
+    let texture31  =
+      
+      34015
+    
+    let active_texture  =
+      
+      34016
+    
+    let repeat  =
+      
+      10497
+    
+    let clamp_to_edge  =
+      
+      33071
+    
+    let mirrored_repeat  =
+      
+      33648
+    
+    let float_vec2  =
+      
+      35664
+    
+    let float_vec3  =
+      
+      35665
+    
+    let float_vec4  =
+      
+      35666
+    
+    let int_vec2  =
+      
+      35667
+    
+    let int_vec3  =
+      
+      35668
+    
+    let int_vec4  =
+      
+      35669
+    
+    let bool  =
+      
+      35670
+    
+    let bool_vec2  =
+      
+      35671
+    
+    let bool_vec3  =
+      
+      35672
+    
+    let bool_vec4  =
+      
+      35673
+    
+    let float_mat2  =
+      
+      35674
+    
+    let float_mat3  =
+      
+      35675
+    
+    let float_mat4  =
+      
+      35676
+    
+    let sampler_2d  =
+      
+      35678
+    
+    let sampler_cube  =
+      
+      35680
+    
+    let vertex_attrib_array_enabled  =
+      
+      34338
+    
+    let vertex_attrib_array_size  =
+      
+      34339
+    
+    let vertex_attrib_array_stride  =
+      
+      34340
+    
+    let vertex_attrib_array_type  =
+      
+      34341
+    
+    let vertex_attrib_array_normalized  =
+      
+      34922
+    
+    let vertex_attrib_array_pointer  =
+      
+      34373
+    
+    let vertex_attrib_array_buffer_binding  =
+      
+      34975
+    
+    let implementation_color_read_type  =
+      
+      35738
+    
+    let implementation_color_read_format  =
+      
+      35739
+    
+    let compile_status  =
+      
+      35713
+    
+    let low_float  =
+      
+      36336
+    
+    let medium_float  =
+      
+      36337
+    
+    let high_float  =
+      
+      36338
+    
+    let low_int  =
+      
+      36339
+    
+    let medium_int  =
+      
+      36340
+    
+    let high_int  =
+      
+      36341
+    
+    let framebuffer  =
+      
+      36160
+    
+    let renderbuffer  =
+      
+      36161
+    
+    let rgba4  =
+      
+      32854
+    
+    let rgb5_a1  =
+      
+      32855
+    
+    let rgb565  =
+      
+      36194
+    
+    let depth_component16  =
+      
+      33189
+    
+    let stencil_index  =
+      
+      6401
+    
+    let stencil_index8  =
+      
+      36168
+    
+    let depth_stencil  =
+      
+      34041
+    
+    let renderbuffer_width  =
+      
+      36162
+    
+    let renderbuffer_height  =
+      
+      36163
+    
+    let renderbuffer_internal_format  =
+      
+      36164
+    
+    let renderbuffer_red_size  =
+      
+      36176
+    
+    let renderbuffer_green_size  =
+      
+      36177
+    
+    let renderbuffer_blue_size  =
+      
+      36178
+    
+    let renderbuffer_alpha_size  =
+      
+      36179
+    
+    let renderbuffer_depth_size  =
+      
+      36180
+    
+    let renderbuffer_stencil_size  =
+      
+      36181
+    
+    let framebuffer_attachment_object_type  =
+      
+      36048
+    
+    let framebuffer_attachment_object_name  =
+      
+      36049
+    
+    let framebuffer_attachment_texture_level  =
+      
+      36050
+    
+    let framebuffer_attachment_texture_cube_map_face  =
+      
+      36051
+    
+    let color_attachment0  =
+      
+      36064
+    
+    let depth_attachment  =
+      
+      36096
+    
+    let stencil_attachment  =
+      
+      36128
+    
+    let depth_stencil_attachment  =
+      
+      33306
+    
+    let none  =
+      
+      0
+    
+    let framebuffer_complete  =
+      
+      36053
+    
+    let framebuffer_incomplete_attachment  =
+      
+      36054
+    
+    let framebuffer_incomplete_missing_attachment  =
+      
+      36055
+    
+    let framebuffer_incomplete_dimensions  =
+      
+      36057
+    
+    let framebuffer_unsupported  =
+      
+      36061
+    
+    let framebuffer_binding  =
+      
+      36006
+    
+    let renderbuffer_binding  =
+      
+      36007
+    
+    let max_renderbuffer_size  =
+      
+      34024
+    
+    let invalid_framebuffer_operation  =
+      
+      1286
+    
+    let unpack_flip_y_webgl  =
+      
+      37440
+    
+    let unpack_premultiply_alpha_webgl  =
+      
+      37441
+    
+    let context_lost_webgl  =
+      
+      37442
+    
+    let unpack_colorspace_conversion_webgl  =
+      
+      37443
+    
+    let browser_default_webgl  =
+      
+      37444
+    
     let bufferData ~webGLRenderingContextBase ~target ~data ~usage =
       let conv_data = function
         | `Any_Null (x: 'a39 Js.null) -> Obj.magic x
@@ -2108,303 +3016,6 @@ end
  module WebGLRenderingContext = struct
     
     
-    external dEPTH_BUFFER_BIT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_BUFFER_BIT" [@@bs.get] 
-    external sTENCIL_BUFFER_BIT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BUFFER_BIT" [@@bs.get] 
-    external cOLOR_BUFFER_BIT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "COLOR_BUFFER_BIT" [@@bs.get] 
-    external pOINTS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "POINTS" [@@bs.get] 
-    external lINES : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINES" [@@bs.get] 
-    external lINE_LOOP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINE_LOOP" [@@bs.get] 
-    external lINE_STRIP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINE_STRIP" [@@bs.get] 
-    external tRIANGLES : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TRIANGLES" [@@bs.get] 
-    external tRIANGLE_STRIP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TRIANGLE_STRIP" [@@bs.get] 
-    external tRIANGLE_FAN : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TRIANGLE_FAN" [@@bs.get] 
-    external zERO : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ZERO" [@@bs.get] 
-    external oNE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE" [@@bs.get] 
-    external sRC_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SRC_COLOR" [@@bs.get] 
-    external oNE_MINUS_SRC_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE_MINUS_SRC_COLOR" [@@bs.get] 
-    external sRC_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SRC_ALPHA" [@@bs.get] 
-    external oNE_MINUS_SRC_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE_MINUS_SRC_ALPHA" [@@bs.get] 
-    external dST_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DST_ALPHA" [@@bs.get] 
-    external oNE_MINUS_DST_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE_MINUS_DST_ALPHA" [@@bs.get] 
-    external dST_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DST_COLOR" [@@bs.get] 
-    external oNE_MINUS_DST_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE_MINUS_DST_COLOR" [@@bs.get] 
-    external sRC_ALPHA_SATURATE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SRC_ALPHA_SATURATE" [@@bs.get] 
-    external fUNC_ADD : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FUNC_ADD" [@@bs.get] 
-    external bLEND_EQUATION : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_EQUATION" [@@bs.get] 
-    external bLEND_EQUATION_RGB : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_EQUATION_RGB" [@@bs.get] 
-    external bLEND_EQUATION_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_EQUATION_ALPHA" [@@bs.get] 
-    external fUNC_SUBTRACT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FUNC_SUBTRACT" [@@bs.get] 
-    external fUNC_REVERSE_SUBTRACT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FUNC_REVERSE_SUBTRACT" [@@bs.get] 
-    external bLEND_DST_RGB : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_DST_RGB" [@@bs.get] 
-    external bLEND_SRC_RGB : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_SRC_RGB" [@@bs.get] 
-    external bLEND_DST_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_DST_ALPHA" [@@bs.get] 
-    external bLEND_SRC_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_SRC_ALPHA" [@@bs.get] 
-    external cONSTANT_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CONSTANT_COLOR" [@@bs.get] 
-    external oNE_MINUS_CONSTANT_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE_MINUS_CONSTANT_COLOR" [@@bs.get] 
-    external cONSTANT_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CONSTANT_ALPHA" [@@bs.get] 
-    external oNE_MINUS_CONSTANT_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ONE_MINUS_CONSTANT_ALPHA" [@@bs.get] 
-    external bLEND_COLOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND_COLOR" [@@bs.get] 
-    external aRRAY_BUFFER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ARRAY_BUFFER" [@@bs.get] 
-    external eLEMENT_ARRAY_BUFFER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ELEMENT_ARRAY_BUFFER" [@@bs.get] 
-    external aRRAY_BUFFER_BINDING : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ARRAY_BUFFER_BINDING" [@@bs.get] 
-    external eLEMENT_ARRAY_BUFFER_BINDING : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ELEMENT_ARRAY_BUFFER_BINDING" [@@bs.get] 
-    external sTREAM_DRAW : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STREAM_DRAW" [@@bs.get] 
-    external sTATIC_DRAW : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STATIC_DRAW" [@@bs.get] 
-    external dYNAMIC_DRAW : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DYNAMIC_DRAW" [@@bs.get] 
-    external bUFFER_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BUFFER_SIZE" [@@bs.get] 
-    external bUFFER_USAGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BUFFER_USAGE" [@@bs.get] 
-    external cURRENT_VERTEX_ATTRIB : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CURRENT_VERTEX_ATTRIB" [@@bs.get] 
-    external fRONT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRONT" [@@bs.get] 
-    external bACK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BACK" [@@bs.get] 
-    external fRONT_AND_BACK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRONT_AND_BACK" [@@bs.get] 
-    external cULL_FACE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CULL_FACE" [@@bs.get] 
-    external bLEND : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLEND" [@@bs.get] 
-    external dITHER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DITHER" [@@bs.get] 
-    external sTENCIL_TEST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_TEST" [@@bs.get] 
-    external dEPTH_TEST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_TEST" [@@bs.get] 
-    external sCISSOR_TEST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SCISSOR_TEST" [@@bs.get] 
-    external pOLYGON_OFFSET_FILL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "POLYGON_OFFSET_FILL" [@@bs.get] 
-    external sAMPLE_ALPHA_TO_COVERAGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLE_ALPHA_TO_COVERAGE" [@@bs.get] 
-    external sAMPLE_COVERAGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLE_COVERAGE" [@@bs.get] 
-    external nO_ERROR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NO_ERROR" [@@bs.get] 
-    external iNVALID_ENUM : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INVALID_ENUM" [@@bs.get] 
-    external iNVALID_VALUE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INVALID_VALUE" [@@bs.get] 
-    external iNVALID_OPERATION : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INVALID_OPERATION" [@@bs.get] 
-    external oUT_OF_MEMORY : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "OUT_OF_MEMORY" [@@bs.get] 
-    external cW : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CW" [@@bs.get] 
-    external cCW : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CCW" [@@bs.get] 
-    external lINE_WIDTH : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINE_WIDTH" [@@bs.get] 
-    external aLIASED_POINT_SIZE_RANGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ALIASED_POINT_SIZE_RANGE" [@@bs.get] 
-    external aLIASED_LINE_WIDTH_RANGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ALIASED_LINE_WIDTH_RANGE" [@@bs.get] 
-    external cULL_FACE_MODE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CULL_FACE_MODE" [@@bs.get] 
-    external fRONT_FACE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRONT_FACE" [@@bs.get] 
-    external dEPTH_RANGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_RANGE" [@@bs.get] 
-    external dEPTH_WRITEMASK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_WRITEMASK" [@@bs.get] 
-    external dEPTH_CLEAR_VALUE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_CLEAR_VALUE" [@@bs.get] 
-    external dEPTH_FUNC : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_FUNC" [@@bs.get] 
-    external sTENCIL_CLEAR_VALUE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_CLEAR_VALUE" [@@bs.get] 
-    external sTENCIL_FUNC : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_FUNC" [@@bs.get] 
-    external sTENCIL_FAIL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_FAIL" [@@bs.get] 
-    external sTENCIL_PASS_DEPTH_FAIL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_PASS_DEPTH_FAIL" [@@bs.get] 
-    external sTENCIL_PASS_DEPTH_PASS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_PASS_DEPTH_PASS" [@@bs.get] 
-    external sTENCIL_REF : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_REF" [@@bs.get] 
-    external sTENCIL_VALUE_MASK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_VALUE_MASK" [@@bs.get] 
-    external sTENCIL_WRITEMASK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_WRITEMASK" [@@bs.get] 
-    external sTENCIL_BACK_FUNC : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_FUNC" [@@bs.get] 
-    external sTENCIL_BACK_FAIL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_FAIL" [@@bs.get] 
-    external sTENCIL_BACK_PASS_DEPTH_FAIL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_PASS_DEPTH_FAIL" [@@bs.get] 
-    external sTENCIL_BACK_PASS_DEPTH_PASS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_PASS_DEPTH_PASS" [@@bs.get] 
-    external sTENCIL_BACK_REF : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_REF" [@@bs.get] 
-    external sTENCIL_BACK_VALUE_MASK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_VALUE_MASK" [@@bs.get] 
-    external sTENCIL_BACK_WRITEMASK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BACK_WRITEMASK" [@@bs.get] 
-    external vIEWPORT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VIEWPORT" [@@bs.get] 
-    external sCISSOR_BOX : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SCISSOR_BOX" [@@bs.get] 
-    external cOLOR_CLEAR_VALUE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "COLOR_CLEAR_VALUE" [@@bs.get] 
-    external cOLOR_WRITEMASK : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "COLOR_WRITEMASK" [@@bs.get] 
-    external uNPACK_ALIGNMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNPACK_ALIGNMENT" [@@bs.get] 
-    external pACK_ALIGNMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "PACK_ALIGNMENT" [@@bs.get] 
-    external mAX_TEXTURE_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_TEXTURE_SIZE" [@@bs.get] 
-    external mAX_VIEWPORT_DIMS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_VIEWPORT_DIMS" [@@bs.get] 
-    external sUBPIXEL_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SUBPIXEL_BITS" [@@bs.get] 
-    external rED_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RED_BITS" [@@bs.get] 
-    external gREEN_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "GREEN_BITS" [@@bs.get] 
-    external bLUE_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BLUE_BITS" [@@bs.get] 
-    external aLPHA_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ALPHA_BITS" [@@bs.get] 
-    external dEPTH_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_BITS" [@@bs.get] 
-    external sTENCIL_BITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_BITS" [@@bs.get] 
-    external pOLYGON_OFFSET_UNITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "POLYGON_OFFSET_UNITS" [@@bs.get] 
-    external pOLYGON_OFFSET_FACTOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "POLYGON_OFFSET_FACTOR" [@@bs.get] 
-    external tEXTURE_BINDING_2D : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_BINDING_2D" [@@bs.get] 
-    external sAMPLE_BUFFERS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLE_BUFFERS" [@@bs.get] 
-    external sAMPLES : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLES" [@@bs.get] 
-    external sAMPLE_COVERAGE_VALUE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLE_COVERAGE_VALUE" [@@bs.get] 
-    external sAMPLE_COVERAGE_INVERT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLE_COVERAGE_INVERT" [@@bs.get] 
-    external cOMPRESSED_TEXTURE_FORMATS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "COMPRESSED_TEXTURE_FORMATS" [@@bs.get] 
-    external dONT_CARE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DONT_CARE" [@@bs.get] 
-    external fASTEST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FASTEST" [@@bs.get] 
-    external nICEST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NICEST" [@@bs.get] 
-    external gENERATE_MIPMAP_HINT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "GENERATE_MIPMAP_HINT" [@@bs.get] 
-    external bYTE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BYTE" [@@bs.get] 
-    external uNSIGNED_BYTE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNSIGNED_BYTE" [@@bs.get] 
-    external sHORT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SHORT" [@@bs.get] 
-    external uNSIGNED_SHORT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNSIGNED_SHORT" [@@bs.get] 
-    external iNT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INT" [@@bs.get] 
-    external uNSIGNED_INT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNSIGNED_INT" [@@bs.get] 
-    external fLOAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT" [@@bs.get] 
-    external dEPTH_COMPONENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_COMPONENT" [@@bs.get] 
-    external aLPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ALPHA" [@@bs.get] 
-    external rGB : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RGB" [@@bs.get] 
-    external rGBA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RGBA" [@@bs.get] 
-    external lUMINANCE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LUMINANCE" [@@bs.get] 
-    external lUMINANCE_ALPHA : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LUMINANCE_ALPHA" [@@bs.get] 
-    external uNSIGNED_SHORT_4_4_4_4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNSIGNED_SHORT_4_4_4_4" [@@bs.get] 
-    external uNSIGNED_SHORT_5_5_5_1 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNSIGNED_SHORT_5_5_5_1" [@@bs.get] 
-    external uNSIGNED_SHORT_5_6_5 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNSIGNED_SHORT_5_6_5" [@@bs.get] 
-    external fRAGMENT_SHADER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAGMENT_SHADER" [@@bs.get] 
-    external vERTEX_SHADER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_SHADER" [@@bs.get] 
-    external mAX_VERTEX_ATTRIBS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_VERTEX_ATTRIBS" [@@bs.get] 
-    external mAX_VERTEX_UNIFORM_VECTORS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_VERTEX_UNIFORM_VECTORS" [@@bs.get] 
-    external mAX_VARYING_VECTORS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_VARYING_VECTORS" [@@bs.get] 
-    external mAX_COMBINED_TEXTURE_IMAGE_UNITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_COMBINED_TEXTURE_IMAGE_UNITS" [@@bs.get] 
-    external mAX_VERTEX_TEXTURE_IMAGE_UNITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_VERTEX_TEXTURE_IMAGE_UNITS" [@@bs.get] 
-    external mAX_TEXTURE_IMAGE_UNITS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_TEXTURE_IMAGE_UNITS" [@@bs.get] 
-    external mAX_FRAGMENT_UNIFORM_VECTORS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_FRAGMENT_UNIFORM_VECTORS" [@@bs.get] 
-    external sHADER_TYPE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SHADER_TYPE" [@@bs.get] 
-    external dELETE_STATUS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DELETE_STATUS" [@@bs.get] 
-    external lINK_STATUS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINK_STATUS" [@@bs.get] 
-    external vALIDATE_STATUS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VALIDATE_STATUS" [@@bs.get] 
-    external aTTACHED_SHADERS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ATTACHED_SHADERS" [@@bs.get] 
-    external aCTIVE_UNIFORMS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ACTIVE_UNIFORMS" [@@bs.get] 
-    external aCTIVE_ATTRIBUTES : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ACTIVE_ATTRIBUTES" [@@bs.get] 
-    external sHADING_LANGUAGE_VERSION : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SHADING_LANGUAGE_VERSION" [@@bs.get] 
-    external cURRENT_PROGRAM : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CURRENT_PROGRAM" [@@bs.get] 
-    external nEVER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NEVER" [@@bs.get] 
-    external lESS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LESS" [@@bs.get] 
-    external eQUAL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "EQUAL" [@@bs.get] 
-    external lEQUAL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LEQUAL" [@@bs.get] 
-    external gREATER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "GREATER" [@@bs.get] 
-    external nOTEQUAL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NOTEQUAL" [@@bs.get] 
-    external gEQUAL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "GEQUAL" [@@bs.get] 
-    external aLWAYS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ALWAYS" [@@bs.get] 
-    external kEEP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "KEEP" [@@bs.get] 
-    external rEPLACE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "REPLACE" [@@bs.get] 
-    external iNCR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INCR" [@@bs.get] 
-    external dECR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DECR" [@@bs.get] 
-    external iNVERT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INVERT" [@@bs.get] 
-    external iNCR_WRAP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INCR_WRAP" [@@bs.get] 
-    external dECR_WRAP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DECR_WRAP" [@@bs.get] 
-    external vENDOR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VENDOR" [@@bs.get] 
-    external rENDERER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERER" [@@bs.get] 
-    external vERSION : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERSION" [@@bs.get] 
-    external nEAREST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NEAREST" [@@bs.get] 
-    external lINEAR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINEAR" [@@bs.get] 
-    external nEAREST_MIPMAP_NEAREST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NEAREST_MIPMAP_NEAREST" [@@bs.get] 
-    external lINEAR_MIPMAP_NEAREST : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINEAR_MIPMAP_NEAREST" [@@bs.get] 
-    external nEAREST_MIPMAP_LINEAR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NEAREST_MIPMAP_LINEAR" [@@bs.get] 
-    external lINEAR_MIPMAP_LINEAR : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LINEAR_MIPMAP_LINEAR" [@@bs.get] 
-    external tEXTURE_MAG_FILTER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_MAG_FILTER" [@@bs.get] 
-    external tEXTURE_MIN_FILTER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_MIN_FILTER" [@@bs.get] 
-    external tEXTURE_WRAP_S : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_WRAP_S" [@@bs.get] 
-    external tEXTURE_WRAP_T : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_WRAP_T" [@@bs.get] 
-    external tEXTURE_2D : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_2D" [@@bs.get] 
-    external tEXTURE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE" [@@bs.get] 
-    external tEXTURE_CUBE_MAP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP" [@@bs.get] 
-    external tEXTURE_BINDING_CUBE_MAP : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_BINDING_CUBE_MAP" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_POSITIVE_X : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP_POSITIVE_X" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_NEGATIVE_X : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP_NEGATIVE_X" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_POSITIVE_Y : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP_POSITIVE_Y" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_NEGATIVE_Y : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP_NEGATIVE_Y" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_POSITIVE_Z : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP_POSITIVE_Z" [@@bs.get] 
-    external tEXTURE_CUBE_MAP_NEGATIVE_Z : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE_CUBE_MAP_NEGATIVE_Z" [@@bs.get] 
-    external mAX_CUBE_MAP_TEXTURE_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_CUBE_MAP_TEXTURE_SIZE" [@@bs.get] 
-    external tEXTURE0 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE0" [@@bs.get] 
-    external tEXTURE1 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE1" [@@bs.get] 
-    external tEXTURE2 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE2" [@@bs.get] 
-    external tEXTURE3 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE3" [@@bs.get] 
-    external tEXTURE4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE4" [@@bs.get] 
-    external tEXTURE5 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE5" [@@bs.get] 
-    external tEXTURE6 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE6" [@@bs.get] 
-    external tEXTURE7 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE7" [@@bs.get] 
-    external tEXTURE8 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE8" [@@bs.get] 
-    external tEXTURE9 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE9" [@@bs.get] 
-    external tEXTURE10 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE10" [@@bs.get] 
-    external tEXTURE11 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE11" [@@bs.get] 
-    external tEXTURE12 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE12" [@@bs.get] 
-    external tEXTURE13 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE13" [@@bs.get] 
-    external tEXTURE14 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE14" [@@bs.get] 
-    external tEXTURE15 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE15" [@@bs.get] 
-    external tEXTURE16 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE16" [@@bs.get] 
-    external tEXTURE17 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE17" [@@bs.get] 
-    external tEXTURE18 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE18" [@@bs.get] 
-    external tEXTURE19 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE19" [@@bs.get] 
-    external tEXTURE20 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE20" [@@bs.get] 
-    external tEXTURE21 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE21" [@@bs.get] 
-    external tEXTURE22 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE22" [@@bs.get] 
-    external tEXTURE23 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE23" [@@bs.get] 
-    external tEXTURE24 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE24" [@@bs.get] 
-    external tEXTURE25 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE25" [@@bs.get] 
-    external tEXTURE26 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE26" [@@bs.get] 
-    external tEXTURE27 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE27" [@@bs.get] 
-    external tEXTURE28 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE28" [@@bs.get] 
-    external tEXTURE29 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE29" [@@bs.get] 
-    external tEXTURE30 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE30" [@@bs.get] 
-    external tEXTURE31 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "TEXTURE31" [@@bs.get] 
-    external aCTIVE_TEXTURE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "ACTIVE_TEXTURE" [@@bs.get] 
-    external rEPEAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "REPEAT" [@@bs.get] 
-    external cLAMP_TO_EDGE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CLAMP_TO_EDGE" [@@bs.get] 
-    external mIRRORED_REPEAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MIRRORED_REPEAT" [@@bs.get] 
-    external fLOAT_VEC2 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT_VEC2" [@@bs.get] 
-    external fLOAT_VEC3 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT_VEC3" [@@bs.get] 
-    external fLOAT_VEC4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT_VEC4" [@@bs.get] 
-    external iNT_VEC2 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INT_VEC2" [@@bs.get] 
-    external iNT_VEC3 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INT_VEC3" [@@bs.get] 
-    external iNT_VEC4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INT_VEC4" [@@bs.get] 
-    external bOOL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BOOL" [@@bs.get] 
-    external bOOL_VEC2 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BOOL_VEC2" [@@bs.get] 
-    external bOOL_VEC3 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BOOL_VEC3" [@@bs.get] 
-    external bOOL_VEC4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BOOL_VEC4" [@@bs.get] 
-    external fLOAT_MAT2 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT_MAT2" [@@bs.get] 
-    external fLOAT_MAT3 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT_MAT3" [@@bs.get] 
-    external fLOAT_MAT4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FLOAT_MAT4" [@@bs.get] 
-    external sAMPLER_2D : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLER_2D" [@@bs.get] 
-    external sAMPLER_CUBE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "SAMPLER_CUBE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_ENABLED : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_ENABLED" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_SIZE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_STRIDE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_STRIDE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_TYPE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_TYPE" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_NORMALIZED : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_NORMALIZED" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_POINTER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_POINTER" [@@bs.get] 
-    external vERTEX_ATTRIB_ARRAY_BUFFER_BINDING : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "VERTEX_ATTRIB_ARRAY_BUFFER_BINDING" [@@bs.get] 
-    external iMPLEMENTATION_COLOR_READ_TYPE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "IMPLEMENTATION_COLOR_READ_TYPE" [@@bs.get] 
-    external iMPLEMENTATION_COLOR_READ_FORMAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "IMPLEMENTATION_COLOR_READ_FORMAT" [@@bs.get] 
-    external cOMPILE_STATUS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "COMPILE_STATUS" [@@bs.get] 
-    external lOW_FLOAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LOW_FLOAT" [@@bs.get] 
-    external mEDIUM_FLOAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MEDIUM_FLOAT" [@@bs.get] 
-    external hIGH_FLOAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "HIGH_FLOAT" [@@bs.get] 
-    external lOW_INT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "LOW_INT" [@@bs.get] 
-    external mEDIUM_INT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MEDIUM_INT" [@@bs.get] 
-    external hIGH_INT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "HIGH_INT" [@@bs.get] 
-    external fRAMEBUFFER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER" [@@bs.get] 
-    external rENDERBUFFER : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER" [@@bs.get] 
-    external rGBA4 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RGBA4" [@@bs.get] 
-    external rGB5_A1 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RGB5_A1" [@@bs.get] 
-    external rGB565 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RGB565" [@@bs.get] 
-    external dEPTH_COMPONENT16 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_COMPONENT16" [@@bs.get] 
-    external sTENCIL_INDEX : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_INDEX" [@@bs.get] 
-    external sTENCIL_INDEX8 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_INDEX8" [@@bs.get] 
-    external dEPTH_STENCIL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_STENCIL" [@@bs.get] 
-    external rENDERBUFFER_WIDTH : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_WIDTH" [@@bs.get] 
-    external rENDERBUFFER_HEIGHT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_HEIGHT" [@@bs.get] 
-    external rENDERBUFFER_INTERNAL_FORMAT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_INTERNAL_FORMAT" [@@bs.get] 
-    external rENDERBUFFER_RED_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_RED_SIZE" [@@bs.get] 
-    external rENDERBUFFER_GREEN_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_GREEN_SIZE" [@@bs.get] 
-    external rENDERBUFFER_BLUE_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_BLUE_SIZE" [@@bs.get] 
-    external rENDERBUFFER_ALPHA_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_ALPHA_SIZE" [@@bs.get] 
-    external rENDERBUFFER_DEPTH_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_DEPTH_SIZE" [@@bs.get] 
-    external rENDERBUFFER_STENCIL_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_STENCIL_SIZE" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_OBJECT_TYPE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_OBJECT_NAME : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_ATTACHMENT_OBJECT_NAME" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL" [@@bs.get] 
-    external fRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE" [@@bs.get] 
-    external cOLOR_ATTACHMENT0 : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "COLOR_ATTACHMENT0" [@@bs.get] 
-    external dEPTH_ATTACHMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_ATTACHMENT" [@@bs.get] 
-    external sTENCIL_ATTACHMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "STENCIL_ATTACHMENT" [@@bs.get] 
-    external dEPTH_STENCIL_ATTACHMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "DEPTH_STENCIL_ATTACHMENT" [@@bs.get] 
-    external nONE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "NONE" [@@bs.get] 
-    external fRAMEBUFFER_COMPLETE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_COMPLETE" [@@bs.get] 
-    external fRAMEBUFFER_INCOMPLETE_ATTACHMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_INCOMPLETE_ATTACHMENT" [@@bs.get] 
-    external fRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT" [@@bs.get] 
-    external fRAMEBUFFER_INCOMPLETE_DIMENSIONS : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_INCOMPLETE_DIMENSIONS" [@@bs.get] 
-    external fRAMEBUFFER_UNSUPPORTED : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_UNSUPPORTED" [@@bs.get] 
-    external fRAMEBUFFER_BINDING : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "FRAMEBUFFER_BINDING" [@@bs.get] 
-    external rENDERBUFFER_BINDING : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "RENDERBUFFER_BINDING" [@@bs.get] 
-    external mAX_RENDERBUFFER_SIZE : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "MAX_RENDERBUFFER_SIZE" [@@bs.get] 
-    external iNVALID_FRAMEBUFFER_OPERATION : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "INVALID_FRAMEBUFFER_OPERATION" [@@bs.get] 
-    external uNPACK_FLIP_Y_WEBGL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNPACK_FLIP_Y_WEBGL" [@@bs.get] 
-    external uNPACK_PREMULTIPLY_ALPHA_WEBGL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNPACK_PREMULTIPLY_ALPHA_WEBGL" [@@bs.get] 
-    external cONTEXT_LOST_WEBGL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "CONTEXT_LOST_WEBGL" [@@bs.get] 
-    external uNPACK_COLORSPACE_CONVERSION_WEBGL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "UNPACK_COLORSPACE_CONVERSION_WEBGL" [@@bs.get] 
-    external bROWSER_DEFAULT_WEBGL : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "BROWSER_DEFAULT_WEBGL" [@@bs.get] 
     external canvas : webGLRenderingContext:(_) webGLRenderingContext_like -> hTMLCanvasElement = "canvas" [@@bs.get] 
     external drawingBufferWidth : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "drawingBufferWidth" [@@bs.get] 
     external drawingBufferHeight : webGLRenderingContext:(_) webGLRenderingContext_like -> int = "drawingBufferHeight" [@@bs.get] 
@@ -2538,6 +3149,1194 @@ end
     external vertexAttrib4fv : webGLRenderingContext:(_) webGLRenderingContext_like -> indx:int -> values:'a67 -> unit = "vertexAttrib4fv" [@@bs.send] 
     external vertexAttribPointer : webGLRenderingContext:(_) webGLRenderingContext_like -> indx:int -> size:int -> type_:int -> normalized:Js.boolean -> stride:int -> offset:int -> unit = "vertexAttribPointer" [@@bs.send] 
     external viewport : webGLRenderingContext:(_) webGLRenderingContext_like -> x:int -> y:int -> width:int -> height:int -> unit = "viewport" [@@bs.send] 
+    
+    let depth_buffer_bit  =
+      
+      256
+    
+    let stencil_buffer_bit  =
+      
+      1024
+    
+    let color_buffer_bit  =
+      
+      16384
+    
+    let points  =
+      
+      0
+    
+    let lines  =
+      
+      1
+    
+    let line_loop  =
+      
+      2
+    
+    let line_strip  =
+      
+      3
+    
+    let triangles  =
+      
+      4
+    
+    let triangle_strip  =
+      
+      5
+    
+    let triangle_fan  =
+      
+      6
+    
+    let zero  =
+      
+      0
+    
+    let one  =
+      
+      1
+    
+    let src_color  =
+      
+      768
+    
+    let one_minus_src_color  =
+      
+      769
+    
+    let src_alpha  =
+      
+      770
+    
+    let one_minus_src_alpha  =
+      
+      771
+    
+    let dst_alpha  =
+      
+      772
+    
+    let one_minus_dst_alpha  =
+      
+      773
+    
+    let dst_color  =
+      
+      774
+    
+    let one_minus_dst_color  =
+      
+      775
+    
+    let src_alpha_saturate  =
+      
+      776
+    
+    let func_add  =
+      
+      32774
+    
+    let blend_equation  =
+      
+      32777
+    
+    let blend_equation_rgb  =
+      
+      32777
+    
+    let blend_equation_alpha  =
+      
+      34877
+    
+    let func_subtract  =
+      
+      32778
+    
+    let func_reverse_subtract  =
+      
+      32779
+    
+    let blend_dst_rgb  =
+      
+      32968
+    
+    let blend_src_rgb  =
+      
+      32969
+    
+    let blend_dst_alpha  =
+      
+      32970
+    
+    let blend_src_alpha  =
+      
+      32971
+    
+    let constant_color  =
+      
+      32769
+    
+    let one_minus_constant_color  =
+      
+      32770
+    
+    let constant_alpha  =
+      
+      32771
+    
+    let one_minus_constant_alpha  =
+      
+      32772
+    
+    let blend_color  =
+      
+      32773
+    
+    let array_buffer  =
+      
+      34962
+    
+    let element_array_buffer  =
+      
+      34963
+    
+    let array_buffer_binding  =
+      
+      34964
+    
+    let element_array_buffer_binding  =
+      
+      34965
+    
+    let stream_draw  =
+      
+      35040
+    
+    let static_draw  =
+      
+      35044
+    
+    let dynamic_draw  =
+      
+      35048
+    
+    let buffer_size  =
+      
+      34660
+    
+    let buffer_usage  =
+      
+      34661
+    
+    let current_vertex_attrib  =
+      
+      34342
+    
+    let front  =
+      
+      1028
+    
+    let back  =
+      
+      1029
+    
+    let front_and_back  =
+      
+      1032
+    
+    let cull_face  =
+      
+      2884
+    
+    let blend  =
+      
+      3042
+    
+    let dither  =
+      
+      3024
+    
+    let stencil_test  =
+      
+      2960
+    
+    let depth_test  =
+      
+      2929
+    
+    let scissor_test  =
+      
+      3089
+    
+    let polygon_offset_fill  =
+      
+      32823
+    
+    let sample_alpha_to_coverage  =
+      
+      32926
+    
+    let sample_coverage  =
+      
+      32928
+    
+    let no_error  =
+      
+      0
+    
+    let invalid_enum  =
+      
+      1280
+    
+    let invalid_value  =
+      
+      1281
+    
+    let invalid_operation  =
+      
+      1282
+    
+    let out_of_memory  =
+      
+      1285
+    
+    let cw  =
+      
+      2304
+    
+    let ccw  =
+      
+      2305
+    
+    let line_width  =
+      
+      2849
+    
+    let aliased_point_size_range  =
+      
+      33901
+    
+    let aliased_line_width_range  =
+      
+      33902
+    
+    let cull_face_mode  =
+      
+      2885
+    
+    let front_face  =
+      
+      2886
+    
+    let depth_range  =
+      
+      2928
+    
+    let depth_writemask  =
+      
+      2930
+    
+    let depth_clear_value  =
+      
+      2931
+    
+    let depth_func  =
+      
+      2932
+    
+    let stencil_clear_value  =
+      
+      2961
+    
+    let stencil_func  =
+      
+      2962
+    
+    let stencil_fail  =
+      
+      2964
+    
+    let stencil_pass_depth_fail  =
+      
+      2965
+    
+    let stencil_pass_depth_pass  =
+      
+      2966
+    
+    let stencil_ref  =
+      
+      2967
+    
+    let stencil_value_mask  =
+      
+      2963
+    
+    let stencil_writemask  =
+      
+      2968
+    
+    let stencil_back_func  =
+      
+      34816
+    
+    let stencil_back_fail  =
+      
+      34817
+    
+    let stencil_back_pass_depth_fail  =
+      
+      34818
+    
+    let stencil_back_pass_depth_pass  =
+      
+      34819
+    
+    let stencil_back_ref  =
+      
+      36003
+    
+    let stencil_back_value_mask  =
+      
+      36004
+    
+    let stencil_back_writemask  =
+      
+      36005
+    
+    let viewport  =
+      
+      2978
+    
+    let scissor_box  =
+      
+      3088
+    
+    let color_clear_value  =
+      
+      3106
+    
+    let color_writemask  =
+      
+      3107
+    
+    let unpack_alignment  =
+      
+      3317
+    
+    let pack_alignment  =
+      
+      3333
+    
+    let max_texture_size  =
+      
+      3379
+    
+    let max_viewport_dims  =
+      
+      3386
+    
+    let subpixel_bits  =
+      
+      3408
+    
+    let red_bits  =
+      
+      3410
+    
+    let green_bits  =
+      
+      3411
+    
+    let blue_bits  =
+      
+      3412
+    
+    let alpha_bits  =
+      
+      3413
+    
+    let depth_bits  =
+      
+      3414
+    
+    let stencil_bits  =
+      
+      3415
+    
+    let polygon_offset_units  =
+      
+      10752
+    
+    let polygon_offset_factor  =
+      
+      32824
+    
+    let texture_binding_2d  =
+      
+      32873
+    
+    let sample_buffers  =
+      
+      32936
+    
+    let samples  =
+      
+      32937
+    
+    let sample_coverage_value  =
+      
+      32938
+    
+    let sample_coverage_invert  =
+      
+      32939
+    
+    let compressed_texture_formats  =
+      
+      34467
+    
+    let dont_care  =
+      
+      4352
+    
+    let fastest  =
+      
+      4353
+    
+    let nicest  =
+      
+      4354
+    
+    let generate_mipmap_hint  =
+      
+      33170
+    
+    let byte  =
+      
+      5120
+    
+    let unsigned_byte  =
+      
+      5121
+    
+    let short  =
+      
+      5122
+    
+    let unsigned_short  =
+      
+      5123
+    
+    let int  =
+      
+      5124
+    
+    let unsigned_int  =
+      
+      5125
+    
+    let float  =
+      
+      5126
+    
+    let depth_component  =
+      
+      6402
+    
+    let alpha  =
+      
+      6406
+    
+    let rgb  =
+      
+      6407
+    
+    let rgba  =
+      
+      6408
+    
+    let luminance  =
+      
+      6409
+    
+    let luminance_alpha  =
+      
+      6410
+    
+    let unsigned_short_4_4_4_4  =
+      
+      32819
+    
+    let unsigned_short_5_5_5_1  =
+      
+      32820
+    
+    let unsigned_short_5_6_5  =
+      
+      33635
+    
+    let fragment_shader  =
+      
+      35632
+    
+    let vertex_shader  =
+      
+      35633
+    
+    let max_vertex_attribs  =
+      
+      34921
+    
+    let max_vertex_uniform_vectors  =
+      
+      36347
+    
+    let max_varying_vectors  =
+      
+      36348
+    
+    let max_combined_texture_image_units  =
+      
+      35661
+    
+    let max_vertex_texture_image_units  =
+      
+      35660
+    
+    let max_texture_image_units  =
+      
+      34930
+    
+    let max_fragment_uniform_vectors  =
+      
+      36349
+    
+    let shader_type  =
+      
+      35663
+    
+    let delete_status  =
+      
+      35712
+    
+    let link_status  =
+      
+      35714
+    
+    let validate_status  =
+      
+      35715
+    
+    let attached_shaders  =
+      
+      35717
+    
+    let active_uniforms  =
+      
+      35718
+    
+    let active_attributes  =
+      
+      35721
+    
+    let shading_language_version  =
+      
+      35724
+    
+    let current_program  =
+      
+      35725
+    
+    let never  =
+      
+      512
+    
+    let less  =
+      
+      513
+    
+    let equal  =
+      
+      514
+    
+    let lequal  =
+      
+      515
+    
+    let greater  =
+      
+      516
+    
+    let notequal  =
+      
+      517
+    
+    let gequal  =
+      
+      518
+    
+    let always  =
+      
+      519
+    
+    let keep  =
+      
+      7680
+    
+    let replace  =
+      
+      7681
+    
+    let incr  =
+      
+      7682
+    
+    let decr  =
+      
+      7683
+    
+    let invert  =
+      
+      5386
+    
+    let incr_wrap  =
+      
+      34055
+    
+    let decr_wrap  =
+      
+      34056
+    
+    let vendor  =
+      
+      7936
+    
+    let renderer  =
+      
+      7937
+    
+    let version  =
+      
+      7938
+    
+    let nearest  =
+      
+      9728
+    
+    let linear  =
+      
+      9729
+    
+    let nearest_mipmap_nearest  =
+      
+      9984
+    
+    let linear_mipmap_nearest  =
+      
+      9985
+    
+    let nearest_mipmap_linear  =
+      
+      9986
+    
+    let linear_mipmap_linear  =
+      
+      9987
+    
+    let texture_mag_filter  =
+      
+      10240
+    
+    let texture_min_filter  =
+      
+      10241
+    
+    let texture_wrap_s  =
+      
+      10242
+    
+    let texture_wrap_t  =
+      
+      10243
+    
+    let texture_2d  =
+      
+      3553
+    
+    let texture  =
+      
+      5890
+    
+    let texture_cube_map  =
+      
+      34067
+    
+    let texture_binding_cube_map  =
+      
+      34068
+    
+    let texture_cube_map_positive_x  =
+      
+      34069
+    
+    let texture_cube_map_negative_x  =
+      
+      34070
+    
+    let texture_cube_map_positive_y  =
+      
+      34071
+    
+    let texture_cube_map_negative_y  =
+      
+      34072
+    
+    let texture_cube_map_positive_z  =
+      
+      34073
+    
+    let texture_cube_map_negative_z  =
+      
+      34074
+    
+    let max_cube_map_texture_size  =
+      
+      34076
+    
+    let texture0  =
+      
+      33984
+    
+    let texture1  =
+      
+      33985
+    
+    let texture2  =
+      
+      33986
+    
+    let texture3  =
+      
+      33987
+    
+    let texture4  =
+      
+      33988
+    
+    let texture5  =
+      
+      33989
+    
+    let texture6  =
+      
+      33990
+    
+    let texture7  =
+      
+      33991
+    
+    let texture8  =
+      
+      33992
+    
+    let texture9  =
+      
+      33993
+    
+    let texture10  =
+      
+      33994
+    
+    let texture11  =
+      
+      33995
+    
+    let texture12  =
+      
+      33996
+    
+    let texture13  =
+      
+      33997
+    
+    let texture14  =
+      
+      33998
+    
+    let texture15  =
+      
+      33999
+    
+    let texture16  =
+      
+      34000
+    
+    let texture17  =
+      
+      34001
+    
+    let texture18  =
+      
+      34002
+    
+    let texture19  =
+      
+      34003
+    
+    let texture20  =
+      
+      34004
+    
+    let texture21  =
+      
+      34005
+    
+    let texture22  =
+      
+      34006
+    
+    let texture23  =
+      
+      34007
+    
+    let texture24  =
+      
+      34008
+    
+    let texture25  =
+      
+      34009
+    
+    let texture26  =
+      
+      34010
+    
+    let texture27  =
+      
+      34011
+    
+    let texture28  =
+      
+      34012
+    
+    let texture29  =
+      
+      34013
+    
+    let texture30  =
+      
+      34014
+    
+    let texture31  =
+      
+      34015
+    
+    let active_texture  =
+      
+      34016
+    
+    let repeat  =
+      
+      10497
+    
+    let clamp_to_edge  =
+      
+      33071
+    
+    let mirrored_repeat  =
+      
+      33648
+    
+    let float_vec2  =
+      
+      35664
+    
+    let float_vec3  =
+      
+      35665
+    
+    let float_vec4  =
+      
+      35666
+    
+    let int_vec2  =
+      
+      35667
+    
+    let int_vec3  =
+      
+      35668
+    
+    let int_vec4  =
+      
+      35669
+    
+    let bool  =
+      
+      35670
+    
+    let bool_vec2  =
+      
+      35671
+    
+    let bool_vec3  =
+      
+      35672
+    
+    let bool_vec4  =
+      
+      35673
+    
+    let float_mat2  =
+      
+      35674
+    
+    let float_mat3  =
+      
+      35675
+    
+    let float_mat4  =
+      
+      35676
+    
+    let sampler_2d  =
+      
+      35678
+    
+    let sampler_cube  =
+      
+      35680
+    
+    let vertex_attrib_array_enabled  =
+      
+      34338
+    
+    let vertex_attrib_array_size  =
+      
+      34339
+    
+    let vertex_attrib_array_stride  =
+      
+      34340
+    
+    let vertex_attrib_array_type  =
+      
+      34341
+    
+    let vertex_attrib_array_normalized  =
+      
+      34922
+    
+    let vertex_attrib_array_pointer  =
+      
+      34373
+    
+    let vertex_attrib_array_buffer_binding  =
+      
+      34975
+    
+    let implementation_color_read_type  =
+      
+      35738
+    
+    let implementation_color_read_format  =
+      
+      35739
+    
+    let compile_status  =
+      
+      35713
+    
+    let low_float  =
+      
+      36336
+    
+    let medium_float  =
+      
+      36337
+    
+    let high_float  =
+      
+      36338
+    
+    let low_int  =
+      
+      36339
+    
+    let medium_int  =
+      
+      36340
+    
+    let high_int  =
+      
+      36341
+    
+    let framebuffer  =
+      
+      36160
+    
+    let renderbuffer  =
+      
+      36161
+    
+    let rgba4  =
+      
+      32854
+    
+    let rgb5_a1  =
+      
+      32855
+    
+    let rgb565  =
+      
+      36194
+    
+    let depth_component16  =
+      
+      33189
+    
+    let stencil_index  =
+      
+      6401
+    
+    let stencil_index8  =
+      
+      36168
+    
+    let depth_stencil  =
+      
+      34041
+    
+    let renderbuffer_width  =
+      
+      36162
+    
+    let renderbuffer_height  =
+      
+      36163
+    
+    let renderbuffer_internal_format  =
+      
+      36164
+    
+    let renderbuffer_red_size  =
+      
+      36176
+    
+    let renderbuffer_green_size  =
+      
+      36177
+    
+    let renderbuffer_blue_size  =
+      
+      36178
+    
+    let renderbuffer_alpha_size  =
+      
+      36179
+    
+    let renderbuffer_depth_size  =
+      
+      36180
+    
+    let renderbuffer_stencil_size  =
+      
+      36181
+    
+    let framebuffer_attachment_object_type  =
+      
+      36048
+    
+    let framebuffer_attachment_object_name  =
+      
+      36049
+    
+    let framebuffer_attachment_texture_level  =
+      
+      36050
+    
+    let framebuffer_attachment_texture_cube_map_face  =
+      
+      36051
+    
+    let color_attachment0  =
+      
+      36064
+    
+    let depth_attachment  =
+      
+      36096
+    
+    let stencil_attachment  =
+      
+      36128
+    
+    let depth_stencil_attachment  =
+      
+      33306
+    
+    let none  =
+      
+      0
+    
+    let framebuffer_complete  =
+      
+      36053
+    
+    let framebuffer_incomplete_attachment  =
+      
+      36054
+    
+    let framebuffer_incomplete_missing_attachment  =
+      
+      36055
+    
+    let framebuffer_incomplete_dimensions  =
+      
+      36057
+    
+    let framebuffer_unsupported  =
+      
+      36061
+    
+    let framebuffer_binding  =
+      
+      36006
+    
+    let renderbuffer_binding  =
+      
+      36007
+    
+    let max_renderbuffer_size  =
+      
+      34024
+    
+    let invalid_framebuffer_operation  =
+      
+      1286
+    
+    let unpack_flip_y_webgl  =
+      
+      37440
+    
+    let unpack_premultiply_alpha_webgl  =
+      
+      37441
+    
+    let context_lost_webgl  =
+      
+      37442
+    
+    let unpack_colorspace_conversion_webgl  =
+      
+      37443
+    
+    let browser_default_webgl  =
+      
+      37444
     
     let bufferData ~webGLRenderingContext ~target ~data ~usage =
       let conv_data = function
@@ -3109,16 +4908,12 @@ end
     external setBooleanAttributeStatic : testBinding:(_) testBinding_like -> booleanAttributeStatic:Js.boolean -> unit = "booleanAttributeStatic" [@@bs.set]
     external prefControlledAttributeDisabled : testBinding:(_) testBinding_like -> bool = "prefControlledAttributeDisabled" [@@bs.get] 
     external prefControlledStaticAttributeDisabled : testBinding:(_) testBinding_like -> bool = "prefControlledStaticAttributeDisabled" [@@bs.get] 
-    external prefControlledConstDisabled : testBinding:(_) testBinding_like -> int = "prefControlledConstDisabled" [@@bs.get] 
     external prefControlledAttributeEnabled : testBinding:(_) testBinding_like -> bool = "prefControlledAttributeEnabled" [@@bs.get] 
     external prefControlledStaticAttributeEnabled : testBinding:(_) testBinding_like -> bool = "prefControlledStaticAttributeEnabled" [@@bs.get] 
-    external prefControlledConstEnabled : testBinding:(_) testBinding_like -> int = "prefControlledConstEnabled" [@@bs.get] 
     external funcControlledAttributeDisabled : testBinding:(_) testBinding_like -> bool = "funcControlledAttributeDisabled" [@@bs.get] 
     external funcControlledStaticAttributeDisabled : testBinding:(_) testBinding_like -> bool = "funcControlledStaticAttributeDisabled" [@@bs.get] 
-    external funcControlledConstDisabled : testBinding:(_) testBinding_like -> int = "funcControlledConstDisabled" [@@bs.get] 
     external funcControlledAttributeEnabled : testBinding:(_) testBinding_like -> bool = "funcControlledAttributeEnabled" [@@bs.get] 
     external funcControlledStaticAttributeEnabled : testBinding:(_) testBinding_like -> bool = "funcControlledStaticAttributeEnabled" [@@bs.get] 
-    external funcControlledConstEnabled : testBinding:(_) testBinding_like -> int = "funcControlledConstEnabled" [@@bs.get] 
     external promiseAttribute : testBinding:(_) testBinding_like -> Js.boolean Js.Promise.t = "promiseAttribute" [@@bs.get] 
     external booleanMozPreference : testBinding:(_) testBinding_like -> pref_name:string -> bool = "BooleanMozPreference" [@@bs.send] 
     external stringMozPreference : testBinding:(_) testBinding_like -> pref_name:string -> string = "StringMozPreference" [@@bs.send] 
@@ -3425,6 +5220,22 @@ end
     external returnRejectedPromise : testBinding:(_) testBinding_like -> value:'a224 -> 'a223 Js.Promise.t = "returnRejectedPromise" [@@bs.send] 
     external returnResolvedPromise : testBinding:(_) testBinding_like -> value:'a226 -> 'a225 Js.Promise.t = "returnResolvedPromise" [@@bs.send] 
     external returnSequenceSequence : testBinding:(_) testBinding_like -> int array array = "returnSequenceSequence" [@@bs.send] 
+    
+    let prefcontrolledconstdisabled  =
+      
+      0
+    
+    let prefcontrolledconstenabled  =
+      
+      0
+    
+    let funccontrolledconstdisabled  =
+      
+      0
+    
+    let funccontrolledconstenabled  =
+      
+      0
     
     let advanceClock ~testBinding ~millis ?forceLayoutTick () =
       let conv_forceLayoutTick = Js_undefined.from_opt in
@@ -5435,12 +7246,23 @@ end
  module MediaError = struct
     
     
-    external mEDIA_ERR_ABORTED : mediaError:(_) mediaError_like -> int = "MEDIA_ERR_ABORTED" [@@bs.get] 
-    external mEDIA_ERR_NETWORK : mediaError:(_) mediaError_like -> int = "MEDIA_ERR_NETWORK" [@@bs.get] 
-    external mEDIA_ERR_DECODE : mediaError:(_) mediaError_like -> int = "MEDIA_ERR_DECODE" [@@bs.get] 
-    external mEDIA_ERR_SRC_NOT_SUPPORTED : mediaError:(_) mediaError_like -> int = "MEDIA_ERR_SRC_NOT_SUPPORTED" [@@bs.get] 
     external code : mediaError:(_) mediaError_like -> int = "code" [@@bs.get] 
     
+    let media_err_aborted  =
+      
+      1
+    
+    let media_err_network  =
+      
+      2
+    
+    let media_err_decode  =
+      
+      3
+    
+    let media_err_src_not_supported  =
+      
+      4
     
 end
  module VRStageParameters = struct
@@ -5475,23 +7297,58 @@ end
  module CSSRule = struct
     
     
-    external sTYLE_RULE : cSSRule:(_) cSSRule_like -> int = "STYLE_RULE" [@@bs.get] 
-    external cHARSET_RULE : cSSRule:(_) cSSRule_like -> int = "CHARSET_RULE" [@@bs.get] 
-    external iMPORT_RULE : cSSRule:(_) cSSRule_like -> int = "IMPORT_RULE" [@@bs.get] 
-    external mEDIA_RULE : cSSRule:(_) cSSRule_like -> int = "MEDIA_RULE" [@@bs.get] 
-    external fONT_FACE_RULE : cSSRule:(_) cSSRule_like -> int = "FONT_FACE_RULE" [@@bs.get] 
-    external pAGE_RULE : cSSRule:(_) cSSRule_like -> int = "PAGE_RULE" [@@bs.get] 
-    external mARGIN_RULE : cSSRule:(_) cSSRule_like -> int = "MARGIN_RULE" [@@bs.get] 
-    external nAMESPACE_RULE : cSSRule:(_) cSSRule_like -> int = "NAMESPACE_RULE" [@@bs.get] 
     external type_ : cSSRule:(_) cSSRule_like -> int = "type" [@@bs.get] 
     external cssText : cSSRule:(_) cSSRule_like -> string = "cssText" [@@bs.get] 
     external setCssText : cSSRule:(_) cSSRule_like -> cssText:string -> unit = "cssText" [@@bs.set]
     external parentStyleSheet : cSSRule:(_) cSSRule_like -> cSSStyleSheet option = "parentStyleSheet" [@@bs.get] [@@bs.return null_to_opt]
-    external kEYFRAMES_RULE : cSSRule:(_) cSSRule_like -> int = "KEYFRAMES_RULE" [@@bs.get] 
-    external kEYFRAME_RULE : cSSRule:(_) cSSRule_like -> int = "KEYFRAME_RULE" [@@bs.get] 
-    external vIEWPORT_RULE : cSSRule:(_) cSSRule_like -> int = "VIEWPORT_RULE" [@@bs.get] 
-    external sUPPORTS_RULE : cSSRule:(_) cSSRule_like -> int = "SUPPORTS_RULE" [@@bs.get] 
     
+    let style_rule  =
+      
+      1
+    
+    let charset_rule  =
+      
+      2
+    
+    let import_rule  =
+      
+      3
+    
+    let media_rule  =
+      
+      4
+    
+    let font_face_rule  =
+      
+      5
+    
+    let page_rule  =
+      
+      6
+    
+    let margin_rule  =
+      
+      9
+    
+    let namespace_rule  =
+      
+      10
+    
+    let keyframes_rule  =
+      
+      7
+    
+    let keyframe_rule  =
+      
+      8
+    
+    let viewport_rule  =
+      
+      15
+    
+    let supports_rule  =
+      
+      12
     
 end
  module BluetoothUUID = struct
@@ -6002,10 +7859,6 @@ end
     external type_ : event:(_) event_like -> string = "type" [@@bs.get] 
     external target : event:(_) event_like -> eventTarget option = "target" [@@bs.get] [@@bs.return null_to_opt]
     external currentTarget : event:(_) event_like -> eventTarget option = "currentTarget" [@@bs.get] [@@bs.return null_to_opt]
-    external nONE : event:(_) event_like -> int = "NONE" [@@bs.get] 
-    external cAPTURING_PHASE : event:(_) event_like -> int = "CAPTURING_PHASE" [@@bs.get] 
-    external aT_TARGET : event:(_) event_like -> int = "AT_TARGET" [@@bs.get] 
-    external bUBBLING_PHASE : event:(_) event_like -> int = "BUBBLING_PHASE" [@@bs.get] 
     external eventPhase : event:(_) event_like -> int = "eventPhase" [@@bs.get] 
     external bubbles : event:(_) event_like -> bool = "bubbles" [@@bs.get] 
     external cancelable : event:(_) event_like -> bool = "cancelable" [@@bs.get] 
@@ -6017,6 +7870,21 @@ end
     external stopImmediatePropagation : event:(_) event_like -> unit = "stopImmediatePropagation" [@@bs.send] 
     external stopPropagation : event:(_) event_like -> unit = "stopPropagation" [@@bs.send] 
     
+    let none  =
+      
+      0
+    
+    let capturing_phase  =
+      
+      1
+    
+    let at_target  =
+      
+      2
+    
+    let bubbling_phase  =
+      
+      3
     
 end
  module ValidityState = struct
@@ -6977,25 +8845,72 @@ end
  module NodeFilter = struct
     
     
-    external make : fILTER_ACCEPT:int -> fILTER_REJECT:int -> fILTER_SKIP:int -> sHOW_ALL:int -> sHOW_ELEMENT:int -> sHOW_ATTRIBUTE:int -> sHOW_TEXT:int -> sHOW_CDATA_SECTION:int -> sHOW_ENTITY_REFERENCE:int -> sHOW_ENTITY:int -> sHOW_PROCESSING_INSTRUCTION:int -> sHOW_COMMENT:int -> sHOW_DOCUMENT:int -> sHOW_DOCUMENT_TYPE:int -> sHOW_DOCUMENT_FRAGMENT:int -> sHOW_NOTATION:int -> acceptNode:((_) node_like -> int [@bs]) -> unit -> nodeFilter = "" [@@bs.obj]
-    external fILTER_ACCEPT : nodeFilter:(_) nodeFilter_like -> int = "FILTER_ACCEPT" [@@bs.get] 
-    external fILTER_REJECT : nodeFilter:(_) nodeFilter_like -> int = "FILTER_REJECT" [@@bs.get] 
-    external fILTER_SKIP : nodeFilter:(_) nodeFilter_like -> int = "FILTER_SKIP" [@@bs.get] 
-    external sHOW_ALL : nodeFilter:(_) nodeFilter_like -> int = "SHOW_ALL" [@@bs.get] 
-    external sHOW_ELEMENT : nodeFilter:(_) nodeFilter_like -> int = "SHOW_ELEMENT" [@@bs.get] 
-    external sHOW_ATTRIBUTE : nodeFilter:(_) nodeFilter_like -> int = "SHOW_ATTRIBUTE" [@@bs.get] 
-    external sHOW_TEXT : nodeFilter:(_) nodeFilter_like -> int = "SHOW_TEXT" [@@bs.get] 
-    external sHOW_CDATA_SECTION : nodeFilter:(_) nodeFilter_like -> int = "SHOW_CDATA_SECTION" [@@bs.get] 
-    external sHOW_ENTITY_REFERENCE : nodeFilter:(_) nodeFilter_like -> int = "SHOW_ENTITY_REFERENCE" [@@bs.get] 
-    external sHOW_ENTITY : nodeFilter:(_) nodeFilter_like -> int = "SHOW_ENTITY" [@@bs.get] 
-    external sHOW_PROCESSING_INSTRUCTION : nodeFilter:(_) nodeFilter_like -> int = "SHOW_PROCESSING_INSTRUCTION" [@@bs.get] 
-    external sHOW_COMMENT : nodeFilter:(_) nodeFilter_like -> int = "SHOW_COMMENT" [@@bs.get] 
-    external sHOW_DOCUMENT : nodeFilter:(_) nodeFilter_like -> int = "SHOW_DOCUMENT" [@@bs.get] 
-    external sHOW_DOCUMENT_TYPE : nodeFilter:(_) nodeFilter_like -> int = "SHOW_DOCUMENT_TYPE" [@@bs.get] 
-    external sHOW_DOCUMENT_FRAGMENT : nodeFilter:(_) nodeFilter_like -> int = "SHOW_DOCUMENT_FRAGMENT" [@@bs.get] 
-    external sHOW_NOTATION : nodeFilter:(_) nodeFilter_like -> int = "SHOW_NOTATION" [@@bs.get] 
+    external make : acceptNode:((_) node_like -> int [@bs]) -> unit -> nodeFilter = "" [@@bs.obj]
     external acceptNode : nodeFilter:(_) nodeFilter_like -> node:(_) node_like -> int = "acceptNode" [@@bs.send] 
     
+    let filter_accept  =
+      
+      1
+    
+    let filter_reject  =
+      
+      2
+    
+    let filter_skip  =
+      
+      3
+    
+    let show_all  =
+      
+      4294967295
+    
+    let show_element  =
+      
+      1
+    
+    let show_attribute  =
+      
+      2
+    
+    let show_text  =
+      
+      4
+    
+    let show_cdata_section  =
+      
+      8
+    
+    let show_entity_reference  =
+      
+      16
+    
+    let show_entity  =
+      
+      32
+    
+    let show_processing_instruction  =
+      
+      64
+    
+    let show_comment  =
+      
+      128
+    
+    let show_document  =
+      
+      256
+    
+    let show_document_type  =
+      
+      512
+    
+    let show_document_fragment  =
+      
+      1024
+    
+    let show_notation  =
+      
+      2048
     
 end
  module EventListener = struct
@@ -7011,9 +8926,6 @@ end
     
     external url : eventSource:(_) eventSource_like -> string = "url" [@@bs.get] 
     external withCredentials : eventSource:(_) eventSource_like -> bool = "withCredentials" [@@bs.get] 
-    external cONNECTING : eventSource:(_) eventSource_like -> int = "CONNECTING" [@@bs.get] 
-    external oPEN : eventSource:(_) eventSource_like -> int = "OPEN" [@@bs.get] 
-    external cLOSED : eventSource:(_) eventSource_like -> int = "CLOSED" [@@bs.get] 
     external readyState : eventSource:(_) eventSource_like -> int = "readyState" [@@bs.get] 
     external onopen : eventSource:(_) eventSource_like -> (event -> 'a476 [@bs]) option = "onopen" [@@bs.get] [@@bs.return null_to_opt]
     external setOnopen : eventSource:(_) eventSource_like -> onopen:(event -> 'a477 [@bs]) Js.null -> unit = "onopen" [@@bs.set]
@@ -7023,6 +8935,17 @@ end
     external setOnerror : eventSource:(_) eventSource_like -> onerror:(event -> 'a481 [@bs]) Js.null -> unit = "onerror" [@@bs.set]
     external close : eventSource:(_) eventSource_like -> unit = "close" [@@bs.send] 
     
+    let connecting  =
+      
+      0
+    
+    let open_  =
+      
+      1
+    
+    let closed_  =
+      
+      2
     
 end
  module CSSStyleRule = struct
@@ -7373,18 +9296,6 @@ end
  module Node = struct
     include EventTarget
     
-    external eLEMENT_NODE : node:(_) node_like -> int = "ELEMENT_NODE" [@@bs.get] 
-    external aTTRIBUTE_NODE : node:(_) node_like -> int = "ATTRIBUTE_NODE" [@@bs.get] 
-    external tEXT_NODE : node:(_) node_like -> int = "TEXT_NODE" [@@bs.get] 
-    external cDATA_SECTION_NODE : node:(_) node_like -> int = "CDATA_SECTION_NODE" [@@bs.get] 
-    external eNTITY_REFERENCE_NODE : node:(_) node_like -> int = "ENTITY_REFERENCE_NODE" [@@bs.get] 
-    external eNTITY_NODE : node:(_) node_like -> int = "ENTITY_NODE" [@@bs.get] 
-    external pROCESSING_INSTRUCTION_NODE : node:(_) node_like -> int = "PROCESSING_INSTRUCTION_NODE" [@@bs.get] 
-    external cOMMENT_NODE : node:(_) node_like -> int = "COMMENT_NODE" [@@bs.get] 
-    external dOCUMENT_NODE : node:(_) node_like -> int = "DOCUMENT_NODE" [@@bs.get] 
-    external dOCUMENT_TYPE_NODE : node:(_) node_like -> int = "DOCUMENT_TYPE_NODE" [@@bs.get] 
-    external dOCUMENT_FRAGMENT_NODE : node:(_) node_like -> int = "DOCUMENT_FRAGMENT_NODE" [@@bs.get] 
-    external nOTATION_NODE : node:(_) node_like -> int = "NOTATION_NODE" [@@bs.get] 
     external nodeType : node:(_) node_like -> int = "nodeType" [@@bs.get] 
     external nodeName : node:(_) node_like -> string = "nodeName" [@@bs.get] 
     external baseURI : node:(_) node_like -> string = "baseURI" [@@bs.get] 
@@ -7400,12 +9311,6 @@ end
     external setNodeValue : node:(_) node_like -> nodeValue:string Js.null -> unit = "nodeValue" [@@bs.set]
     external textContent : node:(_) node_like -> string option = "textContent" [@@bs.get] [@@bs.return null_to_opt]
     external setTextContent : node:(_) node_like -> textContent:string Js.null -> unit = "textContent" [@@bs.set]
-    external dOCUMENT_POSITION_DISCONNECTED : node:(_) node_like -> int = "DOCUMENT_POSITION_DISCONNECTED" [@@bs.get] 
-    external dOCUMENT_POSITION_PRECEDING : node:(_) node_like -> int = "DOCUMENT_POSITION_PRECEDING" [@@bs.get] 
-    external dOCUMENT_POSITION_FOLLOWING : node:(_) node_like -> int = "DOCUMENT_POSITION_FOLLOWING" [@@bs.get] 
-    external dOCUMENT_POSITION_CONTAINS : node:(_) node_like -> int = "DOCUMENT_POSITION_CONTAINS" [@@bs.get] 
-    external dOCUMENT_POSITION_CONTAINED_BY : node:(_) node_like -> int = "DOCUMENT_POSITION_CONTAINED_BY" [@@bs.get] 
-    external dOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC : node:(_) node_like -> int = "DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC" [@@bs.get] 
     external appendChild : node:(_) node_like -> node:(_) node_like -> node = "appendChild" [@@bs.send] 
     external cloneNode : node:(_) node_like -> ?deep:Js.boolean Js.undefined -> node = "cloneNode" [@@bs.send] 
     external compareDocumentPosition : node:(_) node_like -> other:(_) node_like -> int = "compareDocumentPosition" [@@bs.send] 
@@ -7421,6 +9326,78 @@ end
     external normalize : node:(_) node_like -> unit = "normalize" [@@bs.send] 
     external removeChild : node:(_) node_like -> child:(_) node_like -> node = "removeChild" [@@bs.send] 
     external replaceChild : node:(_) node_like -> node:(_) node_like -> child:(_) node_like -> node = "replaceChild" [@@bs.send] 
+    
+    let element_node  =
+      
+      1
+    
+    let attribute_node  =
+      
+      2
+    
+    let text_node  =
+      
+      3
+    
+    let cdata_section_node  =
+      
+      4
+    
+    let entity_reference_node  =
+      
+      5
+    
+    let entity_node  =
+      
+      6
+    
+    let processing_instruction_node  =
+      
+      7
+    
+    let comment_node  =
+      
+      8
+    
+    let document_node  =
+      
+      9
+    
+    let document_type_node  =
+      
+      10
+    
+    let document_fragment_node  =
+      
+      11
+    
+    let notation_node  =
+      
+      12
+    
+    let document_position_disconnected  =
+      
+      1
+    
+    let document_position_preceding  =
+      
+      2
+    
+    let document_position_following  =
+      
+      4
+    
+    let document_position_contains  =
+      
+      8
+    
+    let document_position_contained_by  =
+      
+      16
+    
+    let document_position_implementation_specific  =
+      
+      32
     
     let cloneNode ~node ?deep () =
       let conv_deep = Js_undefined.from_opt in
@@ -7634,10 +9611,6 @@ end
     include EventTarget
     
     external url : webSocket:(_) webSocket_like -> string = "url" [@@bs.get] 
-    external cONNECTING : webSocket:(_) webSocket_like -> int = "CONNECTING" [@@bs.get] 
-    external oPEN : webSocket:(_) webSocket_like -> int = "OPEN" [@@bs.get] 
-    external cLOSING : webSocket:(_) webSocket_like -> int = "CLOSING" [@@bs.get] 
-    external cLOSED : webSocket:(_) webSocket_like -> int = "CLOSED" [@@bs.get] 
     external readyState : webSocket:(_) webSocket_like -> int = "readyState" [@@bs.get] 
     external bufferedAmount : webSocket:(_) webSocket_like -> int = "bufferedAmount" [@@bs.get] 
     external onopen : webSocket:(_) webSocket_like -> (event -> 'a503 [@bs]) option = "onopen" [@@bs.get] [@@bs.return null_to_opt]
@@ -7653,6 +9626,22 @@ end
     external setBinaryType : webSocket:(_) webSocket_like -> binaryType:string -> unit = "binaryType" [@@bs.set]
     external close : webSocket:(_) webSocket_like -> ?code:int Js.undefined -> ?reason:string Js.undefined -> unit = "close" [@@bs.send] 
     external send : webSocket:(_) webSocket_like -> data:'a511 -> unit = "send" [@@bs.send] 
+    
+    let connecting  =
+      
+      0
+    
+    let open_  =
+      
+      1
+    
+    let closing  =
+      
+      2
+    
+    let closed_  =
+      
+      3
     
     let close ~webSocket ?code ?reason () =
       let conv_code = Js_undefined.from_opt in
@@ -7907,9 +9896,6 @@ end
  module FileReader = struct
     include EventTarget
     
-    external eMPTY : fileReader:(_) fileReader_like -> int = "EMPTY" [@@bs.get] 
-    external lOADING : fileReader:(_) fileReader_like -> int = "LOADING" [@@bs.get] 
-    external dONE : fileReader:(_) fileReader_like -> int = "DONE" [@@bs.get] 
     external readyState : fileReader:(_) fileReader_like -> int = "readyState" [@@bs.get] 
     external result : fileReader:(_) fileReader_like -> 'a546 option = "result" [@@bs.get] [@@bs.return null_to_opt]
     external error : fileReader:(_) fileReader_like -> 'a547 option = "error" [@@bs.get] [@@bs.return null_to_opt]
@@ -7929,6 +9915,18 @@ end
     external readAsArrayBuffer : fileReader:(_) fileReader_like -> blob:(_) blob_like -> unit = "readAsArrayBuffer" [@@bs.send] 
     external readAsDataURL : fileReader:(_) fileReader_like -> blob:(_) blob_like -> unit = "readAsDataURL" [@@bs.send] 
     external readAsText : fileReader:(_) fileReader_like -> blob:(_) blob_like -> ?label:string Js.undefined -> unit = "readAsText" [@@bs.send] 
+    
+    let empty  =
+      
+      0
+    
+    let loading  =
+      
+      1
+    
+    let done_  =
+      
+      2
     
     let readAsText ~fileReader ~blob ?label () =
       let conv_label = Js_undefined.from_opt in
@@ -8218,11 +10216,6 @@ end
     
     external onreadystatechange : xMLHttpRequest:(_) xMLHttpRequest_like -> (event -> 'a575 [@bs]) option = "onreadystatechange" [@@bs.get] [@@bs.return null_to_opt]
     external setOnreadystatechange : xMLHttpRequest:(_) xMLHttpRequest_like -> onreadystatechange:(event -> 'a576 [@bs]) Js.null -> unit = "onreadystatechange" [@@bs.set]
-    external uNSENT : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "UNSENT" [@@bs.get] 
-    external oPENED : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "OPENED" [@@bs.get] 
-    external hEADERS_RECEIVED : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "HEADERS_RECEIVED" [@@bs.get] 
-    external lOADING : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "LOADING" [@@bs.get] 
-    external dONE : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "DONE" [@@bs.get] 
     external readyState : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "readyState" [@@bs.get] 
     external timeout : xMLHttpRequest:(_) xMLHttpRequest_like -> int = "timeout" [@@bs.get] 
     external setTimeout : xMLHttpRequest:(_) xMLHttpRequest_like -> timeout:int -> unit = "timeout" [@@bs.set]
@@ -8244,6 +10237,26 @@ end
     external overrideMimeType : xMLHttpRequest:(_) xMLHttpRequest_like -> mime:string -> unit = "overrideMimeType" [@@bs.send] 
     external send : xMLHttpRequest:(_) xMLHttpRequest_like -> ?data:'a578 Js.undefined -> unit = "send" [@@bs.send] 
     external setRequestHeader : xMLHttpRequest:(_) xMLHttpRequest_like -> name:string -> value:string -> unit = "setRequestHeader" [@@bs.send] 
+    
+    let unsent  =
+      
+      0
+    
+    let opened  =
+      
+      1
+    
+    let headers_received  =
+      
+      2
+    
+    let loading  =
+      
+      3
+    
+    let done_  =
+      
+      4
     
     let send ~xMLHttpRequest ~data =
       let conv_data = function
@@ -8300,10 +10313,6 @@ end
  module KeyboardEvent = struct
     include UIEvent
     
-    external dOM_KEY_LOCATION_STANDARD : keyboardEvent:(_) keyboardEvent_like -> int = "DOM_KEY_LOCATION_STANDARD" [@@bs.get] 
-    external dOM_KEY_LOCATION_LEFT : keyboardEvent:(_) keyboardEvent_like -> int = "DOM_KEY_LOCATION_LEFT" [@@bs.get] 
-    external dOM_KEY_LOCATION_RIGHT : keyboardEvent:(_) keyboardEvent_like -> int = "DOM_KEY_LOCATION_RIGHT" [@@bs.get] 
-    external dOM_KEY_LOCATION_NUMPAD : keyboardEvent:(_) keyboardEvent_like -> int = "DOM_KEY_LOCATION_NUMPAD" [@@bs.get] 
     external key : keyboardEvent:(_) keyboardEvent_like -> string = "key" [@@bs.get] 
     external code : keyboardEvent:(_) keyboardEvent_like -> string = "code" [@@bs.get] 
     external location : keyboardEvent:(_) keyboardEvent_like -> int = "location" [@@bs.get] 
@@ -8319,6 +10328,21 @@ end
     external getModifierState : keyboardEvent:(_) keyboardEvent_like -> keyArg:string -> bool = "getModifierState" [@@bs.send] 
     external initKeyboardEvent : keyboardEvent:(_) keyboardEvent_like -> typeArg:string -> bubblesArg:Js.boolean -> cancelableArg:Js.boolean -> viewArg:(_) window_like Js.null -> keyArg:string -> locationArg:int -> modifiersListArg:string -> repeat:Js.boolean -> locale:string -> unit = "initKeyboardEvent" [@@bs.send] 
     
+    let dom_key_location_standard  =
+      
+      0
+    
+    let dom_key_location_left  =
+      
+      1
+    
+    let dom_key_location_right  =
+      
+      2
+    
+    let dom_key_location_numpad  =
+      
+      3
     
 end
  module TouchEvent = struct
@@ -9795,18 +11819,9 @@ end
     external src : hTMLMediaElement:(_) hTMLMediaElement_like -> string = "src" [@@bs.get] 
     external setSrc : hTMLMediaElement:(_) hTMLMediaElement_like -> src:string -> unit = "src" [@@bs.set]
     external currentSrc : hTMLMediaElement:(_) hTMLMediaElement_like -> string = "currentSrc" [@@bs.get] 
-    external nETWORK_EMPTY : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "NETWORK_EMPTY" [@@bs.get] 
-    external nETWORK_IDLE : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "NETWORK_IDLE" [@@bs.get] 
-    external nETWORK_LOADING : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "NETWORK_LOADING" [@@bs.get] 
-    external nETWORK_NO_SOURCE : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "NETWORK_NO_SOURCE" [@@bs.get] 
     external networkState : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "networkState" [@@bs.get] 
     external preload : hTMLMediaElement:(_) hTMLMediaElement_like -> string = "preload" [@@bs.get] 
     external setPreload : hTMLMediaElement:(_) hTMLMediaElement_like -> preload:string -> unit = "preload" [@@bs.set]
-    external hAVE_NOTHING : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "HAVE_NOTHING" [@@bs.get] 
-    external hAVE_METADATA : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "HAVE_METADATA" [@@bs.get] 
-    external hAVE_CURRENT_DATA : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "HAVE_CURRENT_DATA" [@@bs.get] 
-    external hAVE_FUTURE_DATA : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "HAVE_FUTURE_DATA" [@@bs.get] 
-    external hAVE_ENOUGH_DATA : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "HAVE_ENOUGH_DATA" [@@bs.get] 
     external readyState : hTMLMediaElement:(_) hTMLMediaElement_like -> int = "readyState" [@@bs.get] 
     external paused : hTMLMediaElement:(_) hTMLMediaElement_like -> bool = "paused" [@@bs.get] 
     external autoplay : hTMLMediaElement:(_) hTMLMediaElement_like -> bool = "autoplay" [@@bs.get] 
@@ -9816,6 +11831,41 @@ end
     external pause : hTMLMediaElement:(_) hTMLMediaElement_like -> unit = "pause" [@@bs.send] 
     external play : hTMLMediaElement:(_) hTMLMediaElement_like -> unit = "play" [@@bs.send] 
     
+    let network_empty  =
+      
+      0
+    
+    let network_idle  =
+      
+      1
+    
+    let network_loading  =
+      
+      2
+    
+    let network_no_source  =
+      
+      3
+    
+    let have_nothing  =
+      
+      0
+    
+    let have_metadata  =
+      
+      1
+    
+    let have_current_data  =
+      
+      2
+    
+    let have_future_data  =
+      
+      3
+    
+    let have_enough_data  =
+      
+      4
     
 end
  module HTMLImageElement = struct
