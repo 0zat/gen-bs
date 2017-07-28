@@ -1,2 +1,16 @@
 ### Starting build.
+Backtrace:
+                      - Failed to build the target gen_bs.byte
+                          - Building gen_bs.byte:
+                              - Building gen_bs.cmo:
+                                  - Failed to build all of these:
+                                      - Building gen_bs.ml:
+                                          - Failed to build all of these:
+                                              - Building gen_bs.mly
+                                              - Building gen_bs.mll
+                                      - Building gen_bs.mli:
+                                          - Building gen_bs.mly
+                                      - Building gen_bs.mlpack
+                                      - Building gen_bs.mli:
+                                          - Building gen_bs.mly
 # Compilation unsuccessful.

@@ -27,6 +27,10 @@ let access_null f x = Js_null.bind x (Js_unsafe.fn_mk1 f)
 let access_undef f x = Js_undefined.bind x (Js_unsafe.fn_mk1 f) 
 (*let access_promise f x = Js_promise.then_ f x*)
 
+let undef_to_opt x = Js_undefined.to_opt
+let null_to_opt x = Js_null.to_opt
+let identity x = x
+
 
 (* types of javascript objects*)
 type _console
@@ -12569,8 +12573,10 @@ end
       apply func hTMLCanvasElement args
     
     let getContext ~hTMLCanvasElement ~contextId ~arguments () =
+      let conv_return = identity in
       let return = getContext ~hTMLCanvasElement ~contextId ~arguments in
-      let conv_return = js_null.to_opt conv_return in
+      let conv_return = null_to_opt conv_return in
+      let return = conv_return return in
       return
     
     let toDataURL ~hTMLCanvasElement ~type_ ~arguments =
