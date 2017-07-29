@@ -35,7 +35,7 @@ let to_js_obj interface =
     ~attrs: (BatRefList.to_list attrs)
     ~meths: (BatRefList.to_list meths |> List.flatten)
     ~constants: (BatRefList.to_list consts)
-
+    
 let append_partial partials interface =
   let partials = List.filter (fun x -> x.name = interface.name) partials in
   Js.append_objs (interface :: partials) interface.name interface.inherits

@@ -14,5 +14,4 @@ let to_eval_line const : eval_line =
   [eval]
 
 let to_let (name, const) =
-  let ident = String.lowercase_ascii name in
-  to_let_def ident [] [] (to_eval_line const)
+  to_let_def ("_" ^ name) [] [] (to_eval_line const)
