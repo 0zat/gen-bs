@@ -12,7 +12,7 @@ external apply : ('own, 'return, 'args) variadic_func ->
 
 let to_arg ary =
   let to_arg : 'a array -> 'a variadic_args [@bs] = 
-    [%bs.raw "function(a){ return a}"]
+    [%bs.raw "function(a){ return a }"]
   in
   Js_unsafe.fn_run1 to_arg ary
 

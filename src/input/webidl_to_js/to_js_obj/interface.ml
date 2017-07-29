@@ -9,13 +9,6 @@ let stringifier =
   let special = `None in
   Js.to_meth ~name ~args ~return_type ~special 
 
-let to_js_const value =
-  match value with
-  | `Bool b -> `Boolean b
-  | `Float f -> `Float f 
-  | `Int i -> `Int i 
-  | `Null -> `Null
-
 let to_js_obj interface =
   let attrs = BatRefList.empty () in
   let meths = BatRefList.empty () in
@@ -26,7 +19,7 @@ let to_js_obj interface =
     | `Iterable _
     | `Maplike _
     | `Setlike _ -> () (*STUB*)
-    | `Const (type_, name, value) -> BatRefList.add consts (name, to_js_const value)
+    | `Const (type_, name, value) -> BatRefList.add consts (name, value)
     | `Attribute {is_readonly; type_with_ext; name; _} ->
       if not (String.contains name '-') then
         let type_ = to_js_type (snd type_with_ext) in

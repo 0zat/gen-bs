@@ -7,8 +7,8 @@ let to_eval_line const : eval_line =
     match (const: Js.constant ) with
     | `Int i -> `Int i
     | `Float f -> `Float f 
-    | `Boolean true -> to_eval_ident ~modules:["Js"] "true_"
-    | `Boolean false -> to_eval_ident ~modules:["Js"] "false_"
+    | `Bool true -> to_eval_ident ~modules:["Js"] "true_"
+    | `Bool false -> to_eval_ident ~modules:["Js"] "false_"
     | `Null -> to_eval_ident ~modules:["Js"] "null"
   in
   [eval]
