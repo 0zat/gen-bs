@@ -1,4 +1,3 @@
-open Bs_args
 open Js
 
 let rec get_union (type_: Js.type_) =

@@ -47,7 +47,7 @@ type js_attr = {
 }
 
 type js_meth = {
-  special : [`Getter | `Setter | `Deleter | `Call | `To_string | `To_object | `None ]  ;
+  special : [`Getter | `Setter | `Deleter | `Call | `None ]  ;
   name : string ;
   args : js_arg list ;
   return_type : type_ ; 

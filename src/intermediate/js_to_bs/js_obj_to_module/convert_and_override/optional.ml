@@ -1,4 +1,3 @@
-open Bs_args
 open Js
 
 module Predefined = struct
