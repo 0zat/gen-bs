@@ -43,7 +43,7 @@ gen_bs.byte -dir test/servo_idl > servo_dom.ml
 |:-----------:|:------------:|
 |`enum {"a", "b", "c"}`| \[\`a \|\`b \|\`c\] |
 |`(long or DOMString)`| \[\`Int of int \| \`String of string\] |
-|`interface sample{  }` | `type sample ... module Sample = ...`|
+|`interface Sample{  }` | `type _Sample ... module Sample = ...`|
 |`long...`|`int array`|
 |`long method_a(optional long arg, ...)`|`let method_a ?arg ... =`|
 |`const VALUE=1`| `let value = 1`|
