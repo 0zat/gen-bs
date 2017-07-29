@@ -2,8 +2,8 @@ open Js
 
 module Predefined = struct
   let code ="
-let undef_to_opt x = Js_undefined.to_opt
-let null_to_opt x = Js_null.to_opt
+let undef_to_opt f x = Js_undefined.to_opt (f x)
+let null_to_opt f x = Js_null.to_opt (f x)
 let identity x = x
 "
 end

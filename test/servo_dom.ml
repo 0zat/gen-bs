@@ -27,8 +27,8 @@ let access_null f x = Js_null.bind x (Js_unsafe.fn_mk1 f)
 let access_undef f x = Js_undefined.bind x (Js_unsafe.fn_mk1 f) 
 (*let access_promise f x = Js_promise.then_ f x*)
 
-let undef_to_opt x = Js_undefined.to_opt
-let null_to_opt x = Js_null.to_opt
+let undef_to_opt f x = Js_undefined.to_opt (f x)
+let null_to_opt f x = Js_null.to_opt (f x)
 let identity x = x
 
 
