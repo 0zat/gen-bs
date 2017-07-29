@@ -46,7 +46,7 @@ gen_bs.byte -dir test/servo_idl > servo_dom.ml
 |`interface Sample{  }` | `type _Sample ... module Sample = ...`|
 |`long...`|`int array`|
 |`long method_a(optional long arg, ...)`|`let method_a ?arg ... =`|
-|`const VALUE=1`| `let value = 1`|
+|`const VALUE=1`| `let _VALUE = 1`|
 
 # Note
 * This tool is experimental
