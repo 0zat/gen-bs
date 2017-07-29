@@ -9,7 +9,7 @@ let to_getter owner type_ action =
 
 let to_setter owner type_ action = 
   let type_ = to_attr_type type_ in
-  let arg = Bs_args.to_label action type_ in
+  let arg = to_label_arg action type_ in
   let name = "set" ^ (String.capitalize_ascii action) in
   to_external_expr name [owner; arg] `Unit action [Set]
 

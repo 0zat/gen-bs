@@ -2,3 +2,4 @@
 /.vs_code/
 /node_modules/
 *.byte
+*.cm*

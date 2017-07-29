@@ -4,6 +4,7 @@
 var $$Array      = require("bs-platform/lib/js/array.js");
 var Curry        = require("bs-platform/lib/js/curry.js");
 var Js_null      = require("bs-platform/lib/js/js_null.js");
+var Js_primitive = require("bs-platform/lib/js/js_primitive.js");
 var Js_undefined = require("bs-platform/lib/js/js_undefined.js");
 
 function to_arg(ary) {
@@ -26,9 +27,78 @@ function access_undef(f, x) {
   return Js_undefined.bind(x, Curry.__1(f));
 }
 
+function undef_to_opt() {
+  return (function (prim) {
+      if (prim === undefined) {
+        return /* None */0;
+      } else {
+        return [prim];
+      }
+    });
+}
+
+function null_to_opt() {
+  return (function (prim) {
+      if (prim === null) {
+        return /* None */0;
+      } else {
+        return [prim];
+      }
+    });
+}
+
+function identity(x) {
+  return x;
+}
+
+function assert_(condition, message, $$console) {
+  var message$1 = Js_undefined.from_opt(message);
+  $$console.assert(condition, message$1);
+  return /* () */0;
+}
+
+function debug(messages, $$console) {
+  var func = $$console.debug;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function error(messages, $$console) {
+  var func = $$console.error;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function info(messages, $$console) {
+  var func = $$console.info;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function log(messages, $$console) {
+  var func = $$console.log;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+function warn(messages, $$console) {
+  var func = $$console.warn;
+  var args = to_arg(messages);
+  return func.apply($$console, args);
+}
+
+var Console = /* module */[
+  /* assert_ */assert_,
+  /* debug */debug,
+  /* error */error,
+  /* info */info,
+  /* log */log,
+  /* warn */warn
+];
+
 var Performance = /* module */[];
 
-function define(customElementRegistry, name, constructor_, options, _) {
+function define(name, constructor_, options, customElementRegistry) {
   var options$1 = Js_undefined.from_opt(options);
   customElementRegistry.define(name, constructor_, options$1);
   return /* () */0;
@@ -46,13 +116,13 @@ var ElementContentEditable = /* module */[];
 
 var MimeTypeArray = /* module */[];
 
-function append(formData, name, value, filename, _) {
+function append(name, value, filename, formData) {
   var filename$1 = Js_undefined.from_opt(filename);
   formData.append(name, value, filename$1);
   return /* () */0;
 }
 
-function set(formData, name, value, filename, _) {
+function set(name, value, filename, formData) {
   var filename$1 = Js_undefined.from_opt(filename);
   formData.set(name, value, filename$1);
   return /* () */0;
@@ -65,24 +135,24 @@ var FormData = /* module */[
 
 var TreeWalker = /* module */[];
 
-function fromMatrix(dOMMatrixReadOnly, other, _) {
+function fromMatrix(other, dOMMatrixReadOnly) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMMatrixReadOnly.fromMatrix(other$1);
 }
 
-function multiply(dOMMatrixReadOnly, other, _) {
+function multiply(other, dOMMatrixReadOnly) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMMatrixReadOnly.multiply(other$1);
 }
 
-function rotate(dOMMatrixReadOnly, rotX, rotY, rotZ, _) {
+function rotate(rotX, rotY, rotZ, dOMMatrixReadOnly) {
   var rotX$1 = Js_undefined.from_opt(rotX);
   var rotY$1 = Js_undefined.from_opt(rotY);
   var rotZ$1 = Js_undefined.from_opt(rotZ);
   return dOMMatrixReadOnly.rotate(rotX$1, rotY$1, rotZ$1);
 }
 
-function rotateAxisAngle(dOMMatrixReadOnly, x, y, z, angle, _) {
+function rotateAxisAngle(x, y, z, angle, dOMMatrixReadOnly) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
   var z$1 = Js_undefined.from_opt(z);
@@ -90,13 +160,13 @@ function rotateAxisAngle(dOMMatrixReadOnly, x, y, z, angle, _) {
   return dOMMatrixReadOnly.rotateAxisAngle(x$1, y$1, z$1, angle$1);
 }
 
-function rotateFromVector(dOMMatrixReadOnly, x, y, _) {
+function rotateFromVector(x, y, dOMMatrixReadOnly) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
   return dOMMatrixReadOnly.rotateFromVector(x$1, y$1);
 }
 
-function scale(dOMMatrixReadOnly, scaleX, scaleY, scaleZ, originX, originY, originZ, _) {
+function scale(scaleX, scaleY, scaleZ, originX, originY, originZ, dOMMatrixReadOnly) {
   var scaleX$1 = Js_undefined.from_opt(scaleX);
   var scaleY$1 = Js_undefined.from_opt(scaleY);
   var scaleZ$1 = Js_undefined.from_opt(scaleZ);
@@ -106,7 +176,7 @@ function scale(dOMMatrixReadOnly, scaleX, scaleY, scaleZ, originX, originY, orig
   return dOMMatrixReadOnly.scale(scaleX$1, scaleY$1, scaleZ$1, originX$1, originY$1, originZ$1);
 }
 
-function scale3d(dOMMatrixReadOnly, scale, originX, originY, originZ, _) {
+function scale3d(scale, originX, originY, originZ, dOMMatrixReadOnly) {
   var scale$1 = Js_undefined.from_opt(scale);
   var originX$1 = Js_undefined.from_opt(originX);
   var originY$1 = Js_undefined.from_opt(originY);
@@ -114,22 +184,22 @@ function scale3d(dOMMatrixReadOnly, scale, originX, originY, originZ, _) {
   return dOMMatrixReadOnly.scale3d(scale$1, originX$1, originY$1, originZ$1);
 }
 
-function skewX(dOMMatrixReadOnly, sx, _) {
+function skewX(sx, dOMMatrixReadOnly) {
   var sx$1 = Js_undefined.from_opt(sx);
   return dOMMatrixReadOnly.skewX(sx$1);
 }
 
-function skewY(dOMMatrixReadOnly, sy, _) {
+function skewY(sy, dOMMatrixReadOnly) {
   var sy$1 = Js_undefined.from_opt(sy);
   return dOMMatrixReadOnly.skewY(sy$1);
 }
 
-function transformPoint(dOMMatrixReadOnly, point, _) {
+function transformPoint(point, dOMMatrixReadOnly) {
   var point$1 = Js_undefined.from_opt(point);
   return dOMMatrixReadOnly.transformPoint(point$1);
 }
 
-function translate(dOMMatrixReadOnly, tx, ty, tz, _) {
+function translate(tx, ty, tz, dOMMatrixReadOnly) {
   var tx$1 = Js_undefined.from_opt(tx);
   var ty$1 = Js_undefined.from_opt(ty);
   var tz$1 = Js_undefined.from_opt(tz);
@@ -150,25 +220,25 @@ var DOMMatrixReadOnly = /* module */[
   /* translate */translate
 ];
 
-function append$1(parentNode, nodes) {
+function append$1(nodes, parentNode) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var parentNode$1 = parentNode;
   var nodes$2 = nodes$1;
+  var parentNode$1 = parentNode;
   var func = parentNode$1.append;
   var args = to_arg(nodes$2);
   return func.apply(parentNode$1, args);
 }
 
-function prepend(parentNode, nodes) {
+function prepend(nodes, parentNode) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var parentNode$1 = parentNode;
   var nodes$2 = nodes$1;
+  var parentNode$1 = parentNode;
   var func = parentNode$1.prepend;
   var args = to_arg(nodes$2);
   return func.apply(parentNode$1, args);
@@ -179,19 +249,25 @@ var ParentNode = /* module */[
   /* prepend */prepend
 ];
 
-function collapse(range, toStart, _) {
+function collapse(toStart, range) {
   var toStart$1 = Js_undefined.from_opt(toStart);
   range.collapse(toStart$1);
   return /* () */0;
 }
 
-var Range = /* module */[/* collapse */collapse];
+var Range = /* module */[
+  /* start_to_start */0,
+  /* start_to_end */1,
+  /* end_to_end */2,
+  /* end_to_start */3,
+  /* collapse */collapse
+];
 
-function fetch(windowOrWorkerGlobalScope, input, init, _) {
+function fetch(input, init, windowOrWorkerGlobalScope) {
   var init$1 = Js_undefined.from_opt(init);
-  var windowOrWorkerGlobalScope$1 = windowOrWorkerGlobalScope;
   var input$1 = input;
   var init$2 = init$1;
+  var windowOrWorkerGlobalScope$1 = windowOrWorkerGlobalScope;
   var input$2 = input$1[1];
   return windowOrWorkerGlobalScope$1.fetch(input$2, init$2);
 }
@@ -202,19 +278,19 @@ var VREyeParameters = /* module */[];
 
 var WebGLUniformLocation = /* module */[];
 
-var OESTextureHalfFloat = /* module */[];
+var OESTextureHalfFloat = /* module */[/* half_float_oes */36193];
 
-var OESVertexArrayObject = /* module */[];
+var OESVertexArrayObject = /* module */[/* vertex_array_binding_oes */34229];
 
 var TestRunner = /* module */[];
 
-function addEventListener(eventTarget, type_, listener, capture, _) {
+function addEventListener(type_, listener, capture, eventTarget) {
   var capture$1 = Js_undefined.from_opt(capture);
   eventTarget.addEventListener(type_, listener, capture$1);
   return /* () */0;
 }
 
-function removeEventListener(eventTarget, type_, listener, capture, _) {
+function removeEventListener(type_, listener, capture, eventTarget) {
   var capture$1 = Js_undefined.from_opt(capture);
   eventTarget.removeEventListener(type_, listener, capture$1);
   return /* () */0;
@@ -227,15 +303,15 @@ var EventTarget = /* module */[
 
 var NodeIterator = /* module */[];
 
-function getPrimaryService(bluetoothRemoteGATTServer, service) {
+function getPrimaryService(service, bluetoothRemoteGATTServer) {
   var service$1 = service[1];
   return bluetoothRemoteGATTServer.getPrimaryService(service$1);
 }
 
-function getPrimaryServices(bluetoothRemoteGATTServer, service, _) {
+function getPrimaryServices(service, bluetoothRemoteGATTServer) {
   var service$1 = Js_undefined.from_opt(service);
-  var bluetoothRemoteGATTServer$1 = bluetoothRemoteGATTServer;
   var service$2 = service$1;
+  var bluetoothRemoteGATTServer$1 = bluetoothRemoteGATTServer;
   var conv_service = function (param) {
     return param[1];
   };
@@ -248,13 +324,13 @@ var BluetoothRemoteGATTServer = /* module */[
   /* getPrimaryServices */getPrimaryServices
 ];
 
-function bufferData(webGLRenderingContextBase, target, data, usage) {
+function bufferData(target, data, usage, webGLRenderingContextBase) {
   var data$1 = data[1];
   webGLRenderingContextBase.bufferData(target, data$1, usage);
   return /* () */0;
 }
 
-function texImage2D(webGLRenderingContextBase, target, level, internalformat, format, type_, source) {
+function texImage2D(target, level, internalformat, format, type_, source, webGLRenderingContextBase) {
   var conv_source = function (param) {
     return param[1];
   };
@@ -263,7 +339,7 @@ function texImage2D(webGLRenderingContextBase, target, level, internalformat, fo
   return /* () */0;
 }
 
-function texSubImage2D(webGLRenderingContextBase, target, level, xoffset, yoffset, format, type_, source) {
+function texSubImage2D(target, level, xoffset, yoffset, format, type_, source, webGLRenderingContextBase) {
   var conv_source = function (param) {
     return param[1];
   };
@@ -273,18 +349,315 @@ function texSubImage2D(webGLRenderingContextBase, target, level, xoffset, yoffse
 }
 
 var WebGLRenderingContextBase = /* module */[
+  /* depth_buffer_bit */256,
+  /* stencil_buffer_bit */1024,
+  /* color_buffer_bit */16384,
+  /* points */0,
+  /* lines */1,
+  /* line_loop */2,
+  /* line_strip */3,
+  /* triangles */4,
+  /* triangle_strip */5,
+  /* triangle_fan */6,
+  /* zero */0,
+  /* one */1,
+  /* src_color */768,
+  /* one_minus_src_color */769,
+  /* src_alpha */770,
+  /* one_minus_src_alpha */771,
+  /* dst_alpha */772,
+  /* one_minus_dst_alpha */773,
+  /* dst_color */774,
+  /* one_minus_dst_color */775,
+  /* src_alpha_saturate */776,
+  /* func_add */32774,
+  /* blend_equation */32777,
+  /* blend_equation_rgb */32777,
+  /* blend_equation_alpha */34877,
+  /* func_subtract */32778,
+  /* func_reverse_subtract */32779,
+  /* blend_dst_rgb */32968,
+  /* blend_src_rgb */32969,
+  /* blend_dst_alpha */32970,
+  /* blend_src_alpha */32971,
+  /* constant_color */32769,
+  /* one_minus_constant_color */32770,
+  /* constant_alpha */32771,
+  /* one_minus_constant_alpha */32772,
+  /* blend_color */32773,
+  /* array_buffer */34962,
+  /* element_array_buffer */34963,
+  /* array_buffer_binding */34964,
+  /* element_array_buffer_binding */34965,
+  /* stream_draw */35040,
+  /* static_draw */35044,
+  /* dynamic_draw */35048,
+  /* buffer_size */34660,
+  /* buffer_usage */34661,
+  /* current_vertex_attrib */34342,
+  /* front */1028,
+  /* back */1029,
+  /* front_and_back */1032,
+  /* cull_face */2884,
+  /* blend */3042,
+  /* dither */3024,
+  /* stencil_test */2960,
+  /* depth_test */2929,
+  /* scissor_test */3089,
+  /* polygon_offset_fill */32823,
+  /* sample_alpha_to_coverage */32926,
+  /* sample_coverage */32928,
+  /* no_error */0,
+  /* invalid_enum */1280,
+  /* invalid_value */1281,
+  /* invalid_operation */1282,
+  /* out_of_memory */1285,
+  /* cw */2304,
+  /* ccw */2305,
+  /* line_width */2849,
+  /* aliased_point_size_range */33901,
+  /* aliased_line_width_range */33902,
+  /* cull_face_mode */2885,
+  /* front_face */2886,
+  /* depth_range */2928,
+  /* depth_writemask */2930,
+  /* depth_clear_value */2931,
+  /* depth_func */2932,
+  /* stencil_clear_value */2961,
+  /* stencil_func */2962,
+  /* stencil_fail */2964,
+  /* stencil_pass_depth_fail */2965,
+  /* stencil_pass_depth_pass */2966,
+  /* stencil_ref */2967,
+  /* stencil_value_mask */2963,
+  /* stencil_writemask */2968,
+  /* stencil_back_func */34816,
+  /* stencil_back_fail */34817,
+  /* stencil_back_pass_depth_fail */34818,
+  /* stencil_back_pass_depth_pass */34819,
+  /* stencil_back_ref */36003,
+  /* stencil_back_value_mask */36004,
+  /* stencil_back_writemask */36005,
+  /* viewport */2978,
+  /* scissor_box */3088,
+  /* color_clear_value */3106,
+  /* color_writemask */3107,
+  /* unpack_alignment */3317,
+  /* pack_alignment */3333,
+  /* max_texture_size */3379,
+  /* max_viewport_dims */3386,
+  /* subpixel_bits */3408,
+  /* red_bits */3410,
+  /* green_bits */3411,
+  /* blue_bits */3412,
+  /* alpha_bits */3413,
+  /* depth_bits */3414,
+  /* stencil_bits */3415,
+  /* polygon_offset_units */10752,
+  /* polygon_offset_factor */32824,
+  /* texture_binding_2d */32873,
+  /* sample_buffers */32936,
+  /* samples */32937,
+  /* sample_coverage_value */32938,
+  /* sample_coverage_invert */32939,
+  /* compressed_texture_formats */34467,
+  /* dont_care */4352,
+  /* fastest */4353,
+  /* nicest */4354,
+  /* generate_mipmap_hint */33170,
+  /* byte */5120,
+  /* unsigned_byte */5121,
+  /* short */5122,
+  /* unsigned_short */5123,
+  /* int */5124,
+  /* unsigned_int */5125,
+  /* float */5126,
+  /* depth_component */6402,
+  /* alpha */6406,
+  /* rgb */6407,
+  /* rgba */6408,
+  /* luminance */6409,
+  /* luminance_alpha */6410,
+  /* unsigned_short_4_4_4_4 */32819,
+  /* unsigned_short_5_5_5_1 */32820,
+  /* unsigned_short_5_6_5 */33635,
+  /* fragment_shader */35632,
+  /* vertex_shader */35633,
+  /* max_vertex_attribs */34921,
+  /* max_vertex_uniform_vectors */36347,
+  /* max_varying_vectors */36348,
+  /* max_combined_texture_image_units */35661,
+  /* max_vertex_texture_image_units */35660,
+  /* max_texture_image_units */34930,
+  /* max_fragment_uniform_vectors */36349,
+  /* shader_type */35663,
+  /* delete_status */35712,
+  /* link_status */35714,
+  /* validate_status */35715,
+  /* attached_shaders */35717,
+  /* active_uniforms */35718,
+  /* active_attributes */35721,
+  /* shading_language_version */35724,
+  /* current_program */35725,
+  /* never */512,
+  /* less */513,
+  /* equal */514,
+  /* lequal */515,
+  /* greater */516,
+  /* notequal */517,
+  /* gequal */518,
+  /* always */519,
+  /* keep */7680,
+  /* replace */7681,
+  /* incr */7682,
+  /* decr */7683,
+  /* invert */5386,
+  /* incr_wrap */34055,
+  /* decr_wrap */34056,
+  /* vendor */7936,
+  /* renderer */7937,
+  /* version */7938,
+  /* nearest */9728,
+  /* linear */9729,
+  /* nearest_mipmap_nearest */9984,
+  /* linear_mipmap_nearest */9985,
+  /* nearest_mipmap_linear */9986,
+  /* linear_mipmap_linear */9987,
+  /* texture_mag_filter */10240,
+  /* texture_min_filter */10241,
+  /* texture_wrap_s */10242,
+  /* texture_wrap_t */10243,
+  /* texture_2d */3553,
+  /* texture */5890,
+  /* texture_cube_map */34067,
+  /* texture_binding_cube_map */34068,
+  /* texture_cube_map_positive_x */34069,
+  /* texture_cube_map_negative_x */34070,
+  /* texture_cube_map_positive_y */34071,
+  /* texture_cube_map_negative_y */34072,
+  /* texture_cube_map_positive_z */34073,
+  /* texture_cube_map_negative_z */34074,
+  /* max_cube_map_texture_size */34076,
+  /* texture0 */33984,
+  /* texture1 */33985,
+  /* texture2 */33986,
+  /* texture3 */33987,
+  /* texture4 */33988,
+  /* texture5 */33989,
+  /* texture6 */33990,
+  /* texture7 */33991,
+  /* texture8 */33992,
+  /* texture9 */33993,
+  /* texture10 */33994,
+  /* texture11 */33995,
+  /* texture12 */33996,
+  /* texture13 */33997,
+  /* texture14 */33998,
+  /* texture15 */33999,
+  /* texture16 */34000,
+  /* texture17 */34001,
+  /* texture18 */34002,
+  /* texture19 */34003,
+  /* texture20 */34004,
+  /* texture21 */34005,
+  /* texture22 */34006,
+  /* texture23 */34007,
+  /* texture24 */34008,
+  /* texture25 */34009,
+  /* texture26 */34010,
+  /* texture27 */34011,
+  /* texture28 */34012,
+  /* texture29 */34013,
+  /* texture30 */34014,
+  /* texture31 */34015,
+  /* active_texture */34016,
+  /* repeat */10497,
+  /* clamp_to_edge */33071,
+  /* mirrored_repeat */33648,
+  /* float_vec2 */35664,
+  /* float_vec3 */35665,
+  /* float_vec4 */35666,
+  /* int_vec2 */35667,
+  /* int_vec3 */35668,
+  /* int_vec4 */35669,
+  /* bool */35670,
+  /* bool_vec2 */35671,
+  /* bool_vec3 */35672,
+  /* bool_vec4 */35673,
+  /* float_mat2 */35674,
+  /* float_mat3 */35675,
+  /* float_mat4 */35676,
+  /* sampler_2d */35678,
+  /* sampler_cube */35680,
+  /* vertex_attrib_array_enabled */34338,
+  /* vertex_attrib_array_size */34339,
+  /* vertex_attrib_array_stride */34340,
+  /* vertex_attrib_array_type */34341,
+  /* vertex_attrib_array_normalized */34922,
+  /* vertex_attrib_array_pointer */34373,
+  /* vertex_attrib_array_buffer_binding */34975,
+  /* implementation_color_read_type */35738,
+  /* implementation_color_read_format */35739,
+  /* compile_status */35713,
+  /* low_float */36336,
+  /* medium_float */36337,
+  /* high_float */36338,
+  /* low_int */36339,
+  /* medium_int */36340,
+  /* high_int */36341,
+  /* framebuffer */36160,
+  /* renderbuffer */36161,
+  /* rgba4 */32854,
+  /* rgb5_a1 */32855,
+  /* rgb565 */36194,
+  /* depth_component16 */33189,
+  /* stencil_index */6401,
+  /* stencil_index8 */36168,
+  /* depth_stencil */34041,
+  /* renderbuffer_width */36162,
+  /* renderbuffer_height */36163,
+  /* renderbuffer_internal_format */36164,
+  /* renderbuffer_red_size */36176,
+  /* renderbuffer_green_size */36177,
+  /* renderbuffer_blue_size */36178,
+  /* renderbuffer_alpha_size */36179,
+  /* renderbuffer_depth_size */36180,
+  /* renderbuffer_stencil_size */36181,
+  /* framebuffer_attachment_object_type */36048,
+  /* framebuffer_attachment_object_name */36049,
+  /* framebuffer_attachment_texture_level */36050,
+  /* framebuffer_attachment_texture_cube_map_face */36051,
+  /* color_attachment0 */36064,
+  /* depth_attachment */36096,
+  /* stencil_attachment */36128,
+  /* depth_stencil_attachment */33306,
+  /* none */0,
+  /* framebuffer_complete */36053,
+  /* framebuffer_incomplete_attachment */36054,
+  /* framebuffer_incomplete_missing_attachment */36055,
+  /* framebuffer_incomplete_dimensions */36057,
+  /* framebuffer_unsupported */36061,
+  /* framebuffer_binding */36006,
+  /* renderbuffer_binding */36007,
+  /* max_renderbuffer_size */34024,
+  /* invalid_framebuffer_operation */1286,
+  /* unpack_flip_y_webgl */37440,
+  /* unpack_premultiply_alpha_webgl */37441,
+  /* context_lost_webgl */37442,
+  /* unpack_colorspace_conversion_webgl */37443,
+  /* browser_default_webgl */37444,
   /* bufferData */bufferData,
   /* texImage2D */texImage2D,
   /* texSubImage2D */texSubImage2D
 ];
 
-function bufferData$1(webGLRenderingContext, target, data, usage) {
+function bufferData$1(target, data, usage, webGLRenderingContext) {
   var data$1 = data[1];
   webGLRenderingContext.bufferData(target, data$1, usage);
   return /* () */0;
 }
 
-function texImage2D$1(webGLRenderingContext, target, level, internalformat, format, type_, source) {
+function texImage2D$1(target, level, internalformat, format, type_, source, webGLRenderingContext) {
   var conv_source = function (param) {
     return param[1];
   };
@@ -293,7 +666,7 @@ function texImage2D$1(webGLRenderingContext, target, level, internalformat, form
   return /* () */0;
 }
 
-function texSubImage2D$1(webGLRenderingContext, target, level, xoffset, yoffset, format, type_, source) {
+function texSubImage2D$1(target, level, xoffset, yoffset, format, type_, source, webGLRenderingContext) {
   var conv_source = function (param) {
     return param[1];
   };
@@ -303,6 +676,303 @@ function texSubImage2D$1(webGLRenderingContext, target, level, xoffset, yoffset,
 }
 
 var WebGLRenderingContext = /* module */[
+  /* depth_buffer_bit */256,
+  /* stencil_buffer_bit */1024,
+  /* color_buffer_bit */16384,
+  /* points */0,
+  /* lines */1,
+  /* line_loop */2,
+  /* line_strip */3,
+  /* triangles */4,
+  /* triangle_strip */5,
+  /* triangle_fan */6,
+  /* zero */0,
+  /* one */1,
+  /* src_color */768,
+  /* one_minus_src_color */769,
+  /* src_alpha */770,
+  /* one_minus_src_alpha */771,
+  /* dst_alpha */772,
+  /* one_minus_dst_alpha */773,
+  /* dst_color */774,
+  /* one_minus_dst_color */775,
+  /* src_alpha_saturate */776,
+  /* func_add */32774,
+  /* blend_equation */32777,
+  /* blend_equation_rgb */32777,
+  /* blend_equation_alpha */34877,
+  /* func_subtract */32778,
+  /* func_reverse_subtract */32779,
+  /* blend_dst_rgb */32968,
+  /* blend_src_rgb */32969,
+  /* blend_dst_alpha */32970,
+  /* blend_src_alpha */32971,
+  /* constant_color */32769,
+  /* one_minus_constant_color */32770,
+  /* constant_alpha */32771,
+  /* one_minus_constant_alpha */32772,
+  /* blend_color */32773,
+  /* array_buffer */34962,
+  /* element_array_buffer */34963,
+  /* array_buffer_binding */34964,
+  /* element_array_buffer_binding */34965,
+  /* stream_draw */35040,
+  /* static_draw */35044,
+  /* dynamic_draw */35048,
+  /* buffer_size */34660,
+  /* buffer_usage */34661,
+  /* current_vertex_attrib */34342,
+  /* front */1028,
+  /* back */1029,
+  /* front_and_back */1032,
+  /* cull_face */2884,
+  /* blend */3042,
+  /* dither */3024,
+  /* stencil_test */2960,
+  /* depth_test */2929,
+  /* scissor_test */3089,
+  /* polygon_offset_fill */32823,
+  /* sample_alpha_to_coverage */32926,
+  /* sample_coverage */32928,
+  /* no_error */0,
+  /* invalid_enum */1280,
+  /* invalid_value */1281,
+  /* invalid_operation */1282,
+  /* out_of_memory */1285,
+  /* cw */2304,
+  /* ccw */2305,
+  /* line_width */2849,
+  /* aliased_point_size_range */33901,
+  /* aliased_line_width_range */33902,
+  /* cull_face_mode */2885,
+  /* front_face */2886,
+  /* depth_range */2928,
+  /* depth_writemask */2930,
+  /* depth_clear_value */2931,
+  /* depth_func */2932,
+  /* stencil_clear_value */2961,
+  /* stencil_func */2962,
+  /* stencil_fail */2964,
+  /* stencil_pass_depth_fail */2965,
+  /* stencil_pass_depth_pass */2966,
+  /* stencil_ref */2967,
+  /* stencil_value_mask */2963,
+  /* stencil_writemask */2968,
+  /* stencil_back_func */34816,
+  /* stencil_back_fail */34817,
+  /* stencil_back_pass_depth_fail */34818,
+  /* stencil_back_pass_depth_pass */34819,
+  /* stencil_back_ref */36003,
+  /* stencil_back_value_mask */36004,
+  /* stencil_back_writemask */36005,
+  /* viewport */2978,
+  /* scissor_box */3088,
+  /* color_clear_value */3106,
+  /* color_writemask */3107,
+  /* unpack_alignment */3317,
+  /* pack_alignment */3333,
+  /* max_texture_size */3379,
+  /* max_viewport_dims */3386,
+  /* subpixel_bits */3408,
+  /* red_bits */3410,
+  /* green_bits */3411,
+  /* blue_bits */3412,
+  /* alpha_bits */3413,
+  /* depth_bits */3414,
+  /* stencil_bits */3415,
+  /* polygon_offset_units */10752,
+  /* polygon_offset_factor */32824,
+  /* texture_binding_2d */32873,
+  /* sample_buffers */32936,
+  /* samples */32937,
+  /* sample_coverage_value */32938,
+  /* sample_coverage_invert */32939,
+  /* compressed_texture_formats */34467,
+  /* dont_care */4352,
+  /* fastest */4353,
+  /* nicest */4354,
+  /* generate_mipmap_hint */33170,
+  /* byte */5120,
+  /* unsigned_byte */5121,
+  /* short */5122,
+  /* unsigned_short */5123,
+  /* int */5124,
+  /* unsigned_int */5125,
+  /* float */5126,
+  /* depth_component */6402,
+  /* alpha */6406,
+  /* rgb */6407,
+  /* rgba */6408,
+  /* luminance */6409,
+  /* luminance_alpha */6410,
+  /* unsigned_short_4_4_4_4 */32819,
+  /* unsigned_short_5_5_5_1 */32820,
+  /* unsigned_short_5_6_5 */33635,
+  /* fragment_shader */35632,
+  /* vertex_shader */35633,
+  /* max_vertex_attribs */34921,
+  /* max_vertex_uniform_vectors */36347,
+  /* max_varying_vectors */36348,
+  /* max_combined_texture_image_units */35661,
+  /* max_vertex_texture_image_units */35660,
+  /* max_texture_image_units */34930,
+  /* max_fragment_uniform_vectors */36349,
+  /* shader_type */35663,
+  /* delete_status */35712,
+  /* link_status */35714,
+  /* validate_status */35715,
+  /* attached_shaders */35717,
+  /* active_uniforms */35718,
+  /* active_attributes */35721,
+  /* shading_language_version */35724,
+  /* current_program */35725,
+  /* never */512,
+  /* less */513,
+  /* equal */514,
+  /* lequal */515,
+  /* greater */516,
+  /* notequal */517,
+  /* gequal */518,
+  /* always */519,
+  /* keep */7680,
+  /* replace */7681,
+  /* incr */7682,
+  /* decr */7683,
+  /* invert */5386,
+  /* incr_wrap */34055,
+  /* decr_wrap */34056,
+  /* vendor */7936,
+  /* renderer */7937,
+  /* version */7938,
+  /* nearest */9728,
+  /* linear */9729,
+  /* nearest_mipmap_nearest */9984,
+  /* linear_mipmap_nearest */9985,
+  /* nearest_mipmap_linear */9986,
+  /* linear_mipmap_linear */9987,
+  /* texture_mag_filter */10240,
+  /* texture_min_filter */10241,
+  /* texture_wrap_s */10242,
+  /* texture_wrap_t */10243,
+  /* texture_2d */3553,
+  /* texture */5890,
+  /* texture_cube_map */34067,
+  /* texture_binding_cube_map */34068,
+  /* texture_cube_map_positive_x */34069,
+  /* texture_cube_map_negative_x */34070,
+  /* texture_cube_map_positive_y */34071,
+  /* texture_cube_map_negative_y */34072,
+  /* texture_cube_map_positive_z */34073,
+  /* texture_cube_map_negative_z */34074,
+  /* max_cube_map_texture_size */34076,
+  /* texture0 */33984,
+  /* texture1 */33985,
+  /* texture2 */33986,
+  /* texture3 */33987,
+  /* texture4 */33988,
+  /* texture5 */33989,
+  /* texture6 */33990,
+  /* texture7 */33991,
+  /* texture8 */33992,
+  /* texture9 */33993,
+  /* texture10 */33994,
+  /* texture11 */33995,
+  /* texture12 */33996,
+  /* texture13 */33997,
+  /* texture14 */33998,
+  /* texture15 */33999,
+  /* texture16 */34000,
+  /* texture17 */34001,
+  /* texture18 */34002,
+  /* texture19 */34003,
+  /* texture20 */34004,
+  /* texture21 */34005,
+  /* texture22 */34006,
+  /* texture23 */34007,
+  /* texture24 */34008,
+  /* texture25 */34009,
+  /* texture26 */34010,
+  /* texture27 */34011,
+  /* texture28 */34012,
+  /* texture29 */34013,
+  /* texture30 */34014,
+  /* texture31 */34015,
+  /* active_texture */34016,
+  /* repeat */10497,
+  /* clamp_to_edge */33071,
+  /* mirrored_repeat */33648,
+  /* float_vec2 */35664,
+  /* float_vec3 */35665,
+  /* float_vec4 */35666,
+  /* int_vec2 */35667,
+  /* int_vec3 */35668,
+  /* int_vec4 */35669,
+  /* bool */35670,
+  /* bool_vec2 */35671,
+  /* bool_vec3 */35672,
+  /* bool_vec4 */35673,
+  /* float_mat2 */35674,
+  /* float_mat3 */35675,
+  /* float_mat4 */35676,
+  /* sampler_2d */35678,
+  /* sampler_cube */35680,
+  /* vertex_attrib_array_enabled */34338,
+  /* vertex_attrib_array_size */34339,
+  /* vertex_attrib_array_stride */34340,
+  /* vertex_attrib_array_type */34341,
+  /* vertex_attrib_array_normalized */34922,
+  /* vertex_attrib_array_pointer */34373,
+  /* vertex_attrib_array_buffer_binding */34975,
+  /* implementation_color_read_type */35738,
+  /* implementation_color_read_format */35739,
+  /* compile_status */35713,
+  /* low_float */36336,
+  /* medium_float */36337,
+  /* high_float */36338,
+  /* low_int */36339,
+  /* medium_int */36340,
+  /* high_int */36341,
+  /* framebuffer */36160,
+  /* renderbuffer */36161,
+  /* rgba4 */32854,
+  /* rgb5_a1 */32855,
+  /* rgb565 */36194,
+  /* depth_component16 */33189,
+  /* stencil_index */6401,
+  /* stencil_index8 */36168,
+  /* depth_stencil */34041,
+  /* renderbuffer_width */36162,
+  /* renderbuffer_height */36163,
+  /* renderbuffer_internal_format */36164,
+  /* renderbuffer_red_size */36176,
+  /* renderbuffer_green_size */36177,
+  /* renderbuffer_blue_size */36178,
+  /* renderbuffer_alpha_size */36179,
+  /* renderbuffer_depth_size */36180,
+  /* renderbuffer_stencil_size */36181,
+  /* framebuffer_attachment_object_type */36048,
+  /* framebuffer_attachment_object_name */36049,
+  /* framebuffer_attachment_texture_level */36050,
+  /* framebuffer_attachment_texture_cube_map_face */36051,
+  /* color_attachment0 */36064,
+  /* depth_attachment */36096,
+  /* stencil_attachment */36128,
+  /* depth_stencil_attachment */33306,
+  /* none */0,
+  /* framebuffer_complete */36053,
+  /* framebuffer_incomplete_attachment */36054,
+  /* framebuffer_incomplete_missing_attachment */36055,
+  /* framebuffer_incomplete_dimensions */36057,
+  /* framebuffer_unsupported */36061,
+  /* framebuffer_binding */36006,
+  /* renderbuffer_binding */36007,
+  /* max_renderbuffer_size */34024,
+  /* invalid_framebuffer_operation */1286,
+  /* unpack_flip_y_webgl */37440,
+  /* unpack_premultiply_alpha_webgl */37441,
+  /* context_lost_webgl */37442,
+  /* unpack_colorspace_conversion_webgl */37443,
+  /* browser_default_webgl */37444,
   /* bufferData */bufferData$1,
   /* texImage2D */texImage2D$1,
   /* texSubImage2D */texSubImage2D$1
@@ -312,7 +982,7 @@ var Location = /* module */[];
 
 var Body = /* module */[];
 
-function go(history, delta, _) {
+function go(delta, history) {
   var delta$1 = Js_undefined.from_opt(delta);
   history.go(delta$1);
   return /* () */0;
@@ -326,7 +996,7 @@ var BluetoothDeviceEventHandlers = /* module */[];
 
 var Screen = /* module */[];
 
-function refresh(pluginArray, reload, _) {
+function refresh(reload, pluginArray) {
   var reload$1 = Js_undefined.from_opt(reload);
   pluginArray.refresh(reload$1);
   return /* () */0;
@@ -340,37 +1010,37 @@ var DOMRectReadOnly = /* module */[];
 
 var BluetoothRemoteGATTDescriptor = /* module */[];
 
-function after(childNode, nodes) {
+function after(nodes, childNode) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var childNode$1 = childNode;
   var nodes$2 = nodes$1;
+  var childNode$1 = childNode;
   var func = childNode$1.after;
   var args = to_arg(nodes$2);
   return func.apply(childNode$1, args);
 }
 
-function before(childNode, nodes) {
+function before(nodes, childNode) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var childNode$1 = childNode;
   var nodes$2 = nodes$1;
+  var childNode$1 = childNode;
   var func = childNode$1.before;
   var args = to_arg(nodes$2);
   return func.apply(childNode$1, args);
 }
 
-function replaceWith(childNode, nodes) {
+function replaceWith(nodes, childNode) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var childNode$1 = childNode;
   var nodes$2 = nodes$1;
+  var childNode$1 = childNode;
   var func = childNode$1.replaceWith;
   var args = to_arg(nodes$2);
   return func.apply(childNode$1, args);
@@ -384,7 +1054,7 @@ var ChildNode = /* module */[
 
 var NonDocumentTypeChildNode = /* module */[];
 
-function parseFromString(dOMParser, str, type_) {
+function parseFromString(str, type_, dOMParser) {
   var conv_type = function (param) {
     if (param >= -173717976) {
       if (param >= -35139203) {
@@ -412,7 +1082,7 @@ var FileList = /* module */[];
 
 var WebGLObject = /* module */[];
 
-function reload(browserElement, hardReload, _) {
+function reload(hardReload, browserElement) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
   browserElement.reload(hardReload$1);
   return /* () */0;
@@ -422,7 +1092,7 @@ var BrowserElement = /* module */[/* reload */reload];
 
 var BrowserElementCommon = /* module */[];
 
-function reload$1(browserElementPrivileged, hardReload, _) {
+function reload$1(hardReload, browserElementPrivileged) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
   browserElementPrivileged.reload(hardReload$1);
   return /* () */0;
@@ -448,12 +1118,12 @@ var CSSRuleList = /* module */[];
 
 var DissimilarOriginLocation = /* module */[];
 
-function createDocument(dOMImplementation, namespace, qualifiedName, doctype, _) {
+function createDocument(namespace, qualifiedName, doctype, dOMImplementation) {
   var doctype$1 = Js_undefined.from_opt(doctype);
   return dOMImplementation.createDocument(namespace, qualifiedName, doctype$1);
 }
 
-function createHTMLDocument(dOMImplementation, title, _) {
+function createHTMLDocument(title, dOMImplementation) {
   var title$1 = Js_undefined.from_opt(title);
   return dOMImplementation.createHTMLDocument(title$1);
 }
@@ -463,13 +1133,13 @@ var DOMImplementation = /* module */[
   /* createHTMLDocument */createHTMLDocument
 ];
 
-function advanceClock(testBinding, millis, forceLayoutTick, _) {
+function advanceClock(millis, forceLayoutTick, testBinding) {
   var forceLayoutTick$1 = Js_undefined.from_opt(forceLayoutTick);
   testBinding.advanceClock(millis, forceLayoutTick$1);
   return /* () */0;
 }
 
-function passEnum(testBinding, arg) {
+function passEnum(arg, testBinding) {
   var conv_arg = function (param) {
     if (param !== 5097222) {
       if (param >= 870530776) {
@@ -486,130 +1156,130 @@ function passEnum(testBinding, arg) {
   return /* () */0;
 }
 
-function passMozMapUnion(testBinding, init) {
+function passMozMapUnion(init, testBinding) {
   var init$1 = init[1];
   testBinding.passMozMapUnion(init$1);
   return /* () */0;
 }
 
-function passMozMapUnion2(testBinding, init) {
+function passMozMapUnion2(init, testBinding) {
   var init$1 = init[1];
   testBinding.passMozMapUnion2(init$1);
   return /* () */0;
 }
 
-function passMozMapUnion3(testBinding, init) {
+function passMozMapUnion3(init, testBinding) {
   var init$1 = init[1];
   testBinding.passMozMapUnion3(init$1);
   return /* () */0;
 }
 
-function passNullableUnion(testBinding, arg) {
+function passNullableUnion(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passNullableUnion(arg$1);
   return /* () */0;
 }
 
-function passNullableUnion2(testBinding, data) {
+function passNullableUnion2(data, testBinding) {
   var data$1 = data[1];
   testBinding.passNullableUnion2(data$1);
   return /* () */0;
 }
 
-function passNullableUnion3(testBinding, data) {
+function passNullableUnion3(data, testBinding) {
   var data$1 = data[1];
   testBinding.passNullableUnion3(data$1);
   return /* () */0;
 }
 
-function passNullableUnion4(testBinding, bool) {
+function passNullableUnion4(bool, testBinding) {
   var bool$1 = bool[1];
   testBinding.passNullableUnion4(bool$1);
   return /* () */0;
 }
 
-function passNullableUnion5(testBinding, arg) {
+function passNullableUnion5(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passNullableUnion5(arg$1);
   return /* () */0;
 }
 
-function passNullableUnion6(testBinding, arg) {
+function passNullableUnion6(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passNullableUnion6(arg$1);
   return /* () */0;
 }
 
-function passOptionalAny(testBinding, arg, _) {
+function passOptionalAny(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalAny(arg$1);
   return /* () */0;
 }
 
-function passOptionalAnyWithDefault(testBinding, arg, _) {
+function passOptionalAnyWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalAnyWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalBoolean(testBinding, arg, _) {
+function passOptionalBoolean(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalBoolean(arg$1);
   return /* () */0;
 }
 
-function passOptionalBooleanWithDefault(testBinding, arg, _) {
+function passOptionalBooleanWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalBooleanWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalByte(testBinding, arg, _) {
+function passOptionalByte(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalByte(arg$1);
   return /* () */0;
 }
 
-function passOptionalByteString(testBinding, arg, _) {
+function passOptionalByteString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalByteString(arg$1);
   return /* () */0;
 }
 
-function passOptionalByteWithDefault(testBinding, arg, _) {
+function passOptionalByteWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalByteWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalBytestringWithDefault(testBinding, arg, _) {
+function passOptionalBytestringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalBytestringWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalCallbackFunction(testBinding, fun_, _) {
+function passOptionalCallbackFunction(fun_, testBinding) {
   var fun_$1 = Js_undefined.from_opt(fun_);
   testBinding.passOptionalCallbackFunction(fun_$1);
   return /* () */0;
 }
 
-function passOptionalCallbackInterface(testBinding, listener, _) {
+function passOptionalCallbackInterface(listener, testBinding) {
   var listener$1 = Js_undefined.from_opt(listener);
   testBinding.passOptionalCallbackInterface(listener$1);
   return /* () */0;
 }
 
-function passOptionalDouble(testBinding, arg, _) {
+function passOptionalDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalDouble(arg$1);
   return /* () */0;
 }
 
-function passOptionalEnum(testBinding, arg, _) {
+function passOptionalEnum(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     if (param !== 5097222) {
       if (param >= 870530776) {
@@ -626,10 +1296,10 @@ function passOptionalEnum(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalEnumWithDefault(testBinding, arg, _) {
+function passOptionalEnumWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     if (param !== 5097222) {
       if (param >= 870530776) {
@@ -646,274 +1316,274 @@ function passOptionalEnumWithDefault(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalFloat(testBinding, arg, _) {
+function passOptionalFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalFloat(arg$1);
   return /* () */0;
 }
 
-function passOptionalInterface(testBinding, arg, _) {
+function passOptionalInterface(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalInterface(arg$1);
   return /* () */0;
 }
 
-function passOptionalLong(testBinding, arg, _) {
+function passOptionalLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalLongLong(testBinding, arg, _) {
+function passOptionalLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalLongLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalLongLongWithDefault(testBinding, arg, _) {
+function passOptionalLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalLongLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalLongWithDefault(testBinding, arg, _) {
+function passOptionalLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalMozMap(testBinding, arg, _) {
+function passOptionalMozMap(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalMozMap(arg$1);
   return /* () */0;
 }
 
-function passOptionalMozMapOfNullableInts(testBinding, arg, _) {
+function passOptionalMozMapOfNullableInts(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalMozMapOfNullableInts(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableBoolean(testBinding, arg, _) {
+function passOptionalNullableBoolean(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableBoolean(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableBooleanWithDefault(testBinding, arg, _) {
+function passOptionalNullableBooleanWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableBooleanWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableBooleanWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableBooleanWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableBooleanWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableByte(testBinding, arg, _) {
+function passOptionalNullableByte(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableByte(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableByteString(testBinding, arg, _) {
+function passOptionalNullableByteString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableByteString(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableByteStringWithDefault(testBinding, arg, _) {
+function passOptionalNullableByteStringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableByteStringWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableByteWithDefault(testBinding, arg, _) {
+function passOptionalNullableByteWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableByteWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableByteWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableByteWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableByteWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableCallbackFunction(testBinding, fun_, _) {
+function passOptionalNullableCallbackFunction(fun_, testBinding) {
   var fun_$1 = Js_undefined.from_opt(fun_);
   testBinding.passOptionalNullableCallbackFunction(fun_$1);
   return /* () */0;
 }
 
-function passOptionalNullableCallbackInterface(testBinding, listener, _) {
+function passOptionalNullableCallbackInterface(listener, testBinding) {
   var listener$1 = Js_undefined.from_opt(listener);
   testBinding.passOptionalNullableCallbackInterface(listener$1);
   return /* () */0;
 }
 
-function passOptionalNullableCallbackInterfaceWithDefault(testBinding, listener, _) {
+function passOptionalNullableCallbackInterfaceWithDefault(listener, testBinding) {
   var listener$1 = Js_undefined.from_opt(listener);
   testBinding.passOptionalNullableCallbackInterfaceWithDefault(listener$1);
   return /* () */0;
 }
 
-function passOptionalNullableDouble(testBinding, arg, _) {
+function passOptionalNullableDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableDouble(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableFloat(testBinding, arg, _) {
+function passOptionalNullableFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableFloat(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableInterface(testBinding, arg, _) {
+function passOptionalNullableInterface(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableInterface(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableInterfaceWithDefault(testBinding, arg, _) {
+function passOptionalNullableInterfaceWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableInterfaceWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableLong(testBinding, arg, _) {
+function passOptionalNullableLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableLongLong(testBinding, arg, _) {
+function passOptionalNullableLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableLongLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableLongLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableLongLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableLongLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableLongLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableLongLongWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableLongWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableMozMap(testBinding, arg, _) {
+function passOptionalNullableMozMap(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableMozMap(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableMozMapOfNullableInts(testBinding, arg, _) {
+function passOptionalNullableMozMapOfNullableInts(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableMozMapOfNullableInts(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableMozMapWithDefaultValue(testBinding, arg, _) {
+function passOptionalNullableMozMapWithDefaultValue(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableMozMapWithDefaultValue(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableObject(testBinding, arg, _) {
+function passOptionalNullableObject(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableObject(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableObjectWithDefault(testBinding, arg, _) {
+function passOptionalNullableObjectWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableObjectWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableOctet(testBinding, arg, _) {
+function passOptionalNullableOctet(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableOctet(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableOctetWithDefault(testBinding, arg, _) {
+function passOptionalNullableOctetWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableOctetWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableOctetWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableOctetWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableOctetWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableSequence(testBinding, seq, _) {
+function passOptionalNullableSequence(seq, testBinding) {
   var seq$1 = Js_undefined.from_opt(seq);
   testBinding.passOptionalNullableSequence(seq$1);
   return /* () */0;
 }
 
-function passOptionalNullableShort(testBinding, arg, _) {
+function passOptionalNullableShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableShort(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableShortWithDefault(testBinding, arg, _) {
+function passOptionalNullableShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableShortWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableShortWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableShortWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableShortWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableString(testBinding, arg, _) {
+function passOptionalNullableString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableString(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableStringWithDefault(testBinding, arg, _) {
+function passOptionalNullableStringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableStringWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableStringWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableStringWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableStringWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnion(testBinding, arg, _) {
+function passOptionalNullableUnion(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -922,10 +1592,10 @@ function passOptionalNullableUnion(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnion2(testBinding, data, _) {
+function passOptionalNullableUnion2(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
-  var testBinding$1 = testBinding;
   var data$2 = data$1;
+  var testBinding$1 = testBinding;
   var conv_data = function (param) {
     return param[1];
   };
@@ -934,10 +1604,10 @@ function passOptionalNullableUnion2(testBinding, data, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnion2WithDefault(testBinding, data, _) {
+function passOptionalNullableUnion2WithDefault(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
-  var testBinding$1 = testBinding;
   var data$2 = data$1;
+  var testBinding$1 = testBinding;
   var conv_data = function (param) {
     return param[1];
   };
@@ -946,10 +1616,10 @@ function passOptionalNullableUnion2WithDefault(testBinding, data, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnion3(testBinding, arg, _) {
+function passOptionalNullableUnion3(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -958,10 +1628,10 @@ function passOptionalNullableUnion3(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnion4(testBinding, data, _) {
+function passOptionalNullableUnion4(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
-  var testBinding$1 = testBinding;
   var data$2 = data$1;
+  var testBinding$1 = testBinding;
   var conv_data = function (param) {
     return param[1];
   };
@@ -970,10 +1640,10 @@ function passOptionalNullableUnion4(testBinding, data, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnion5(testBinding, bool, _) {
+function passOptionalNullableUnion5(bool, testBinding) {
   var bool$1 = Js_undefined.from_opt(bool);
-  var testBinding$1 = testBinding;
   var bool$2 = bool$1;
+  var testBinding$1 = testBinding;
   var conv_bool = function (param) {
     return param[1];
   };
@@ -982,10 +1652,10 @@ function passOptionalNullableUnion5(testBinding, bool, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnion6(testBinding, arg, _) {
+function passOptionalNullableUnion6(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -994,10 +1664,10 @@ function passOptionalNullableUnion6(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnionWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnionWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -1006,148 +1676,148 @@ function passOptionalNullableUnionWithDefault(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalNullableUnrestrictedDouble(testBinding, arg, _) {
+function passOptionalNullableUnrestrictedDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnrestrictedDouble(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnrestrictedFloat(testBinding, arg, _) {
+function passOptionalNullableUnrestrictedFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnrestrictedFloat(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedLong(testBinding, arg, _) {
+function passOptionalNullableUnsignedLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongLong(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedLongLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedLongLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedLongLongWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedLongWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedShort(testBinding, arg, _) {
+function passOptionalNullableUnsignedShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedShort(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedShortWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedShortWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUnsignedShortWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedShortWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUnsignedShortWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUsvstring(testBinding, arg, _) {
+function passOptionalNullableUsvstring(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUsvstring(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUsvstringWithDefault(testBinding, arg, _) {
+function passOptionalNullableUsvstringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUsvstringWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalNullableUsvstringWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUsvstringWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalNullableUsvstringWithNonNullDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalObject(testBinding, arg, _) {
+function passOptionalObject(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalObject(arg$1);
   return /* () */0;
 }
 
-function passOptionalObjectMozMap(testBinding, arg, _) {
+function passOptionalObjectMozMap(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalObjectMozMap(arg$1);
   return /* () */0;
 }
 
-function passOptionalOctet(testBinding, arg, _) {
+function passOptionalOctet(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalOctet(arg$1);
   return /* () */0;
 }
 
-function passOptionalOctetWithDefault(testBinding, arg, _) {
+function passOptionalOctetWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalOctetWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalSequence(testBinding, seq, _) {
+function passOptionalSequence(seq, testBinding) {
   var seq$1 = Js_undefined.from_opt(seq);
   testBinding.passOptionalSequence(seq$1);
   return /* () */0;
 }
 
-function passOptionalShort(testBinding, arg, _) {
+function passOptionalShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalShort(arg$1);
   return /* () */0;
 }
 
-function passOptionalShortWithDefault(testBinding, arg, _) {
+function passOptionalShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalShortWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalString(testBinding, arg, _) {
+function passOptionalString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalString(arg$1);
   return /* () */0;
 }
 
-function passOptionalStringWithDefault(testBinding, arg, _) {
+function passOptionalStringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalStringWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnion(testBinding, arg, _) {
+function passOptionalUnion(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -1156,10 +1826,10 @@ function passOptionalUnion(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalUnion2(testBinding, data, _) {
+function passOptionalUnion2(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
-  var testBinding$1 = testBinding;
   var data$2 = data$1;
+  var testBinding$1 = testBinding;
   var conv_data = function (param) {
     return param[1];
   };
@@ -1168,10 +1838,10 @@ function passOptionalUnion2(testBinding, data, _) {
   return /* () */0;
 }
 
-function passOptionalUnion3(testBinding, arg, _) {
+function passOptionalUnion3(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -1180,10 +1850,10 @@ function passOptionalUnion3(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalUnion4(testBinding, data, _) {
+function passOptionalUnion4(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
-  var testBinding$1 = testBinding;
   var data$2 = data$1;
+  var testBinding$1 = testBinding;
   var conv_data = function (param) {
     return param[1];
   };
@@ -1192,10 +1862,10 @@ function passOptionalUnion4(testBinding, data, _) {
   return /* () */0;
 }
 
-function passOptionalUnion5(testBinding, bool, _) {
+function passOptionalUnion5(bool, testBinding) {
   var bool$1 = Js_undefined.from_opt(bool);
-  var testBinding$1 = testBinding;
   var bool$2 = bool$1;
+  var testBinding$1 = testBinding;
   var conv_bool = function (param) {
     return param[1];
   };
@@ -1204,10 +1874,10 @@ function passOptionalUnion5(testBinding, bool, _) {
   return /* () */0;
 }
 
-function passOptionalUnion6(testBinding, arg, _) {
+function passOptionalUnion6(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
+  var testBinding$1 = testBinding;
   var conv_arg = function (param) {
     return param[1];
   };
@@ -1216,186 +1886,186 @@ function passOptionalUnion6(testBinding, arg, _) {
   return /* () */0;
 }
 
-function passOptionalUnrestrictedDouble(testBinding, arg, _) {
+function passOptionalUnrestrictedDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnrestrictedDouble(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnrestrictedFloat(testBinding, arg, _) {
+function passOptionalUnrestrictedFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnrestrictedFloat(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnsignedLong(testBinding, arg, _) {
+function passOptionalUnsignedLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnsignedLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnsignedLongLong(testBinding, arg, _) {
+function passOptionalUnsignedLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnsignedLongLong(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnsignedLongLongWithDefault(testBinding, arg, _) {
+function passOptionalUnsignedLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnsignedLongLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnsignedLongWithDefault(testBinding, arg, _) {
+function passOptionalUnsignedLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnsignedLongWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnsignedShort(testBinding, arg, _) {
+function passOptionalUnsignedShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnsignedShort(arg$1);
   return /* () */0;
 }
 
-function passOptionalUnsignedShortWithDefault(testBinding, arg, _) {
+function passOptionalUnsignedShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUnsignedShortWithDefault(arg$1);
   return /* () */0;
 }
 
-function passOptionalUsvstring(testBinding, arg, _) {
+function passOptionalUsvstring(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUsvstring(arg$1);
   return /* () */0;
 }
 
-function passOptionalUsvstringWithDefault(testBinding, arg, _) {
+function passOptionalUsvstringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   testBinding.passOptionalUsvstringWithDefault(arg$1);
   return /* () */0;
 }
 
-function passUnion(testBinding, arg) {
+function passUnion(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnion(arg$1);
   return /* () */0;
 }
 
-function passUnion10(testBinding, arg) {
+function passUnion10(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnion10(arg$1);
   return /* () */0;
 }
 
-function passUnion2(testBinding, data) {
+function passUnion2(data, testBinding) {
   var data$1 = data[1];
   testBinding.passUnion2(data$1);
   return /* () */0;
 }
 
-function passUnion3(testBinding, data) {
+function passUnion3(data, testBinding) {
   var data$1 = data[1];
   testBinding.passUnion3(data$1);
   return /* () */0;
 }
 
-function passUnion4(testBinding, seq) {
+function passUnion4(seq, testBinding) {
   var seq$1 = seq[1];
   testBinding.passUnion4(seq$1);
   return /* () */0;
 }
 
-function passUnion5(testBinding, data) {
+function passUnion5(data, testBinding) {
   var data$1 = data[1];
   testBinding.passUnion5(data$1);
   return /* () */0;
 }
 
-function passUnion6(testBinding, bool) {
+function passUnion6(bool, testBinding) {
   var bool$1 = bool[1];
   testBinding.passUnion6(bool$1);
   return /* () */0;
 }
 
-function passUnion7(testBinding, arg) {
+function passUnion7(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnion7(arg$1);
   return /* () */0;
 }
 
-function passUnion8(testBinding, arg) {
+function passUnion8(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnion8(arg$1);
   return /* () */0;
 }
 
-function passUnion9(testBinding, arg) {
+function passUnion9(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnion9(arg$1);
   return /* () */0;
 }
 
-function passUnionSequenceSequence(testBinding, seq) {
+function passUnionSequenceSequence(seq, testBinding) {
   var seq$1 = seq[1];
   testBinding.passUnionSequenceSequence(seq$1);
   return /* () */0;
 }
 
-function passUnionWithTypedef(testBinding, arg) {
+function passUnionWithTypedef(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnionWithTypedef(arg$1);
   return /* () */0;
 }
 
-function passUnionWithTypedef2(testBinding, arg) {
+function passUnionWithTypedef2(arg, testBinding) {
   var arg$1 = arg[1];
   testBinding.passUnionWithTypedef2(arg$1);
   return /* () */0;
 }
 
-function passVariadicAny(testBinding, args) {
+function passVariadicAny(args, testBinding) {
   var func = testBinding.passVariadicAny;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicBoolean(testBinding, args) {
+function passVariadicBoolean(args, testBinding) {
   var func = testBinding.passVariadicBoolean;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicBooleanAndDefault(testBinding, arg, args, _) {
+function passVariadicBooleanAndDefault(arg, args, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var testBinding$1 = testBinding;
   var arg$2 = arg$1;
   var args$1 = args;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicBooleanAndDefault;
   var args$2 = to_arg(args$1);
   var args$3 = unsafe_add(args$2, arg$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicByte(testBinding, args) {
+function passVariadicByte(args, testBinding) {
   var func = testBinding.passVariadicByte;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicByteString(testBinding, args) {
+function passVariadicByteString(args, testBinding) {
   var func = testBinding.passVariadicByteString;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicDouble(testBinding, args) {
+function passVariadicDouble(args, testBinding) {
   var func = testBinding.passVariadicDouble;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicEnum(testBinding, args) {
+function passVariadicEnum(args, testBinding) {
   var conv_args = function (param) {
     if (param !== 5097222) {
       if (param >= 870530776) {
@@ -1408,182 +2078,186 @@ function passVariadicEnum(testBinding, args) {
     }
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicEnum;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicFloat(testBinding, args) {
+function passVariadicFloat(args, testBinding) {
   var func = testBinding.passVariadicFloat;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicInterface(testBinding, args) {
+function passVariadicInterface(args, testBinding) {
   var func = testBinding.passVariadicInterface;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicLong(testBinding, args) {
+function passVariadicLong(args, testBinding) {
   var func = testBinding.passVariadicLong;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicLongLong(testBinding, args) {
+function passVariadicLongLong(args, testBinding) {
   var func = testBinding.passVariadicLongLong;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicObject(testBinding, args) {
+function passVariadicObject(args, testBinding) {
   var func = testBinding.passVariadicObject;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicOctet(testBinding, args) {
+function passVariadicOctet(args, testBinding) {
   var func = testBinding.passVariadicOctet;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicShort(testBinding, args) {
+function passVariadicShort(args, testBinding) {
   var func = testBinding.passVariadicShort;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicString(testBinding, args) {
+function passVariadicString(args, testBinding) {
   var func = testBinding.passVariadicString;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicUnion(testBinding, args) {
+function passVariadicUnion(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnion2(testBinding, args) {
+function passVariadicUnion2(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion2;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnion3(testBinding, args) {
+function passVariadicUnion3(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion3;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnion4(testBinding, args) {
+function passVariadicUnion4(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion4;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnion5(testBinding, args) {
+function passVariadicUnion5(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion5;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnion6(testBinding, args) {
+function passVariadicUnion6(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion6;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnion7(testBinding, args) {
+function passVariadicUnion7(args, testBinding) {
   var conv_args = function (param) {
     return param[1];
   };
   var args$1 = $$Array.map(conv_args, args);
-  var testBinding$1 = testBinding;
   var args$2 = args$1;
+  var testBinding$1 = testBinding;
   var func = testBinding$1.passVariadicUnion7;
   var args$3 = to_arg(args$2);
   return func.apply(testBinding$1, args$3);
 }
 
-function passVariadicUnrestrictedDouble(testBinding, args) {
+function passVariadicUnrestrictedDouble(args, testBinding) {
   var func = testBinding.passVariadicUnrestrictedDouble;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicUnrestrictedFloat(testBinding, args) {
+function passVariadicUnrestrictedFloat(args, testBinding) {
   var func = testBinding.passVariadicUnrestrictedFloat;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicUnsignedLong(testBinding, args) {
+function passVariadicUnsignedLong(args, testBinding) {
   var func = testBinding.passVariadicUnsignedLong;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicUnsignedLongLong(testBinding, args) {
+function passVariadicUnsignedLongLong(args, testBinding) {
   var func = testBinding.passVariadicUnsignedLongLong;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicUnsignedShort(testBinding, args) {
+function passVariadicUnsignedShort(args, testBinding) {
   var func = testBinding.passVariadicUnsignedShort;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicUsvstring(testBinding, args) {
+function passVariadicUsvstring(args, testBinding) {
   var func = testBinding.passVariadicUsvstring;
   var args$1 = to_arg(args);
   return func.apply(testBinding, args$1);
 }
 
 var TestBinding = /* module */[
+  /* prefcontrolledconstdisabled */0,
+  /* prefcontrolledconstenabled */0,
+  /* funccontrolledconstdisabled */0,
+  /* funccontrolledconstenabled */0,
   /* advanceClock */advanceClock,
   /* passEnum */passEnum,
   /* passMozMapUnion */passMozMapUnion,
@@ -1754,7 +2428,7 @@ var CharacteristicEventHandlers = /* module */[];
 
 var Gamepad = /* module */[];
 
-function decode(textDecoder, input, _) {
+function decode(input, textDecoder) {
   var input$1 = Js_undefined.from_opt(input);
   return textDecoder.decode(input$1);
 }
@@ -1779,7 +2453,7 @@ var Headers = /* module */[];
 
 var OESTextureHalfFloatLinear = /* module */[];
 
-function addModule(worklet, moduleURL, options, _) {
+function addModule(moduleURL, options, worklet) {
   var options$1 = Js_undefined.from_opt(options);
   return worklet.addModule(moduleURL, options$1);
 }
@@ -1808,7 +2482,7 @@ var GlobalCrypto = /* module */[];
 
 var Crypto = /* module */[];
 
-function setProperty(cSSStyleDeclaration, property, value, priority, _) {
+function setProperty(property, value, priority, cSSStyleDeclaration) {
   var priority$1 = Js_undefined.from_opt(priority);
   cSSStyleDeclaration.setProperty(property, value, priority$1);
   return /* () */0;
@@ -1816,12 +2490,12 @@ function setProperty(cSSStyleDeclaration, property, value, priority, _) {
 
 var CSSStyleDeclaration = /* module */[/* setProperty */setProperty];
 
-function fromQuad(dOMQuad, other, _) {
+function fromQuad(other, dOMQuad) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMQuad.fromQuad(other$1);
 }
 
-function fromRect(dOMQuad, other, _) {
+function fromRect(other, dOMQuad) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMQuad.fromRect(other$1);
 }
@@ -1833,19 +2507,19 @@ var DOMQuad = /* module */[
 
 var Request = /* module */[];
 
-function add(dOMTokenList, tokens) {
+function add(tokens, dOMTokenList) {
   var func = dOMTokenList.add;
   var args = to_arg(tokens);
   return func.apply(dOMTokenList, args);
 }
 
-function remove(dOMTokenList, tokens) {
+function remove(tokens, dOMTokenList) {
   var func = dOMTokenList.remove;
   var args = to_arg(tokens);
   return func.apply(dOMTokenList, args);
 }
 
-function toggle(dOMTokenList, token, force, _) {
+function toggle(token, force, dOMTokenList) {
   var force$1 = Js_undefined.from_opt(force);
   return +dOMTokenList.toggle(token, force$1);
 }
@@ -1870,39 +2544,57 @@ var OESTextureFloatLinear = /* module */[];
 
 var WebGLShaderPrecisionFormat = /* module */[];
 
-function redirect(response, url, status, _) {
+function redirect(url, status, response) {
   var status$1 = Js_undefined.from_opt(status);
   return response.redirect(url, status$1);
 }
 
 var Response = /* module */[/* redirect */redirect];
 
-var MediaError = /* module */[];
+var MediaError = /* module */[
+  /* media_err_aborted */1,
+  /* media_err_network */2,
+  /* media_err_decode */3,
+  /* media_err_src_not_supported */4
+];
 
 var VRStageParameters = /* module */[];
 
 var AbstractWorker = /* module */[];
 
-function addModule$1(testWorklet, moduleURL, options, _) {
+function addModule$1(moduleURL, options, testWorklet) {
   var options$1 = Js_undefined.from_opt(options);
   return testWorklet.addModule(moduleURL, options$1);
 }
 
 var TestWorklet = /* module */[/* addModule */addModule$1];
 
-var CSSRule = /* module */[];
+var CSSRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-function getCharacteristic(bluetoothUUID, name) {
+function getCharacteristic(name, bluetoothUUID) {
   var name$1 = name[1];
   return bluetoothUUID.getCharacteristic(name$1);
 }
 
-function getDescriptor(bluetoothUUID, name) {
+function getDescriptor(name, bluetoothUUID) {
   var name$1 = name[1];
   return bluetoothUUID.getDescriptor(name$1);
 }
 
-function getService(bluetoothUUID, name) {
+function getService(name, bluetoothUUID) {
   var name$1 = name[1];
   return bluetoothUUID.getService(name$1);
 }
@@ -1913,16 +2605,16 @@ var BluetoothUUID = /* module */[
   /* getService */getService
 ];
 
-function arc(canvasRenderingContext2D, x, y, radius, startAngle, endAngle, anticlockwise, _) {
+function arc(x, y, radius, startAngle, endAngle, anticlockwise, canvasRenderingContext2D) {
   var anticlockwise$1 = Js_undefined.from_opt(anticlockwise);
   canvasRenderingContext2D.arc(x, y, radius, startAngle, endAngle, anticlockwise$1);
   return /* () */0;
 }
 
-function clip(canvasRenderingContext2D, fillRule, _) {
+function clip(fillRule, canvasRenderingContext2D) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
-  var canvasRenderingContext2D$1 = canvasRenderingContext2D;
   var fillRule$2 = fillRule$1;
+  var canvasRenderingContext2D$1 = canvasRenderingContext2D;
   var conv_fillRule = function (param) {
     if (param >= 110563029) {
       return "evenodd";
@@ -1935,21 +2627,21 @@ function clip(canvasRenderingContext2D, fillRule, _) {
   return /* () */0;
 }
 
-function createPattern(canvasRenderingContext2D, image, repetition) {
+function createPattern(image, repetition, canvasRenderingContext2D) {
   var image$1 = image[1];
   return canvasRenderingContext2D.createPattern(image$1, repetition);
 }
 
-function drawImage(canvasRenderingContext2D, image, dx, dy) {
+function drawImage(image, dx, dy, canvasRenderingContext2D) {
   var image$1 = image[1];
   canvasRenderingContext2D.drawImage(image$1, dx, dy);
   return /* () */0;
 }
 
-function fill(canvasRenderingContext2D, fillRule, _) {
+function fill(fillRule, canvasRenderingContext2D) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
-  var canvasRenderingContext2D$1 = canvasRenderingContext2D;
   var fillRule$2 = fillRule$1;
+  var canvasRenderingContext2D$1 = canvasRenderingContext2D;
   var conv_fillRule = function (param) {
     if (param >= 110563029) {
       return "evenodd";
@@ -1962,12 +2654,12 @@ function fill(canvasRenderingContext2D, fillRule, _) {
   return /* () */0;
 }
 
-function isPointInPath(canvasRenderingContext2D, x, y, fillRule, _) {
+function isPointInPath(x, y, fillRule, canvasRenderingContext2D) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
-  var canvasRenderingContext2D$1 = canvasRenderingContext2D;
   var x$1 = x;
   var y$1 = y;
   var fillRule$2 = fillRule$1;
+  var canvasRenderingContext2D$1 = canvasRenderingContext2D;
   var conv_fillRule = function (param) {
     if (param >= 110563029) {
       return "evenodd";
@@ -1996,7 +2688,7 @@ var CanvasCompositing = /* module */[];
 
 var CanvasImageSmoothing = /* module */[];
 
-function createPattern$1(canvasFillStrokeStyles, image, repetition) {
+function createPattern$1(image, repetition, canvasFillStrokeStyles) {
   var image$1 = image[1];
   return canvasFillStrokeStyles.createPattern(image$1, repetition);
 }
@@ -2007,10 +2699,10 @@ var CanvasShadowStyles = /* module */[];
 
 var CanvasRect = /* module */[];
 
-function clip$1(canvasDrawPath, fillRule, _) {
+function clip$1(fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
-  var canvasDrawPath$1 = canvasDrawPath;
   var fillRule$2 = fillRule$1;
+  var canvasDrawPath$1 = canvasDrawPath;
   var conv_fillRule = function (param) {
     if (param >= 110563029) {
       return "evenodd";
@@ -2023,10 +2715,10 @@ function clip$1(canvasDrawPath, fillRule, _) {
   return /* () */0;
 }
 
-function fill$1(canvasDrawPath, fillRule, _) {
+function fill$1(fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
-  var canvasDrawPath$1 = canvasDrawPath;
   var fillRule$2 = fillRule$1;
+  var canvasDrawPath$1 = canvasDrawPath;
   var conv_fillRule = function (param) {
     if (param >= 110563029) {
       return "evenodd";
@@ -2039,12 +2731,12 @@ function fill$1(canvasDrawPath, fillRule, _) {
   return /* () */0;
 }
 
-function isPointInPath$1(canvasDrawPath, x, y, fillRule, _) {
+function isPointInPath$1(x, y, fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
-  var canvasDrawPath$1 = canvasDrawPath;
   var x$1 = x;
   var y$1 = y;
   var fillRule$2 = fillRule$1;
+  var canvasDrawPath$1 = canvasDrawPath;
   var conv_fillRule = function (param) {
     if (param >= 110563029) {
       return "evenodd";
@@ -2066,7 +2758,7 @@ var CanvasUserInterface = /* module */[];
 
 var CanvasText = /* module */[];
 
-function drawImage$1(canvasDrawImage, image, dx, dy) {
+function drawImage$1(image, dx, dy, canvasDrawImage) {
   var image$1 = image[1];
   canvasDrawImage.drawImage(image$1, dx, dy);
   return /* () */0;
@@ -2082,7 +2774,7 @@ var CanvasPathDrawingStyles = /* module */[];
 
 var CanvasTextDrawingStyles = /* module */[];
 
-function arc$1(canvasPath, x, y, radius, startAngle, endAngle, anticlockwise, _) {
+function arc$1(x, y, radius, startAngle, endAngle, anticlockwise, canvasPath) {
   var anticlockwise$1 = Js_undefined.from_opt(anticlockwise);
   canvasPath.arc(x, y, radius, startAngle, endAngle, anticlockwise$1);
   return /* () */0;
@@ -2102,7 +2794,7 @@ var MutationRecord = /* module */[];
 
 var Storage = /* module */[];
 
-function observe(mutationObserver, target, options, _) {
+function observe(target, options, mutationObserver) {
   var options$1 = Js_undefined.from_opt(options);
   mutationObserver.observe(target, options$1);
   return /* () */0;
@@ -2114,42 +2806,47 @@ var TestBindingIterable = /* module */[];
 
 var ServiceEventHandlers = /* module */[];
 
-function encode(textEncoder, input, _) {
+function encode(input, textEncoder) {
   var input$1 = Js_undefined.from_opt(input);
   return textEncoder.encode(input$1);
 }
 
 var TextEncoder = /* module */[/* encode */encode];
 
-var Event = /* module */[];
+var Event = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var ValidityState = /* module */[];
 
 var WindowProxy = /* module */[];
 
-function $$clearInterval(windowTimers, handle, _) {
+function $$clearInterval(handle, windowTimers) {
   var handle$1 = Js_undefined.from_opt(handle);
   windowTimers.clearInterval(handle$1);
   return /* () */0;
 }
 
-function $$clearTimeout(windowTimers, handle, _) {
+function $$clearTimeout(handle, windowTimers) {
   var handle$1 = Js_undefined.from_opt(handle);
   windowTimers.clearTimeout(handle$1);
   return /* () */0;
 }
 
-function $$setInterval(windowTimers, handler, timeout, $$arguments, _) {
+function $$setInterval(handler, timeout, $$arguments, windowTimers) {
   var timeout$1 = Js_undefined.from_opt(timeout);
-  var windowTimers$1 = windowTimers;
   var handler$1 = handler;
   var timeout$2 = timeout$1;
   var $$arguments$1 = $$arguments;
+  var windowTimers$1 = windowTimers;
   var handler$2 = handler$1[1];
-  var windowTimers$2 = windowTimers$1;
   var handler$3 = handler$2;
   var timeout$3 = timeout$2;
   var $$arguments$2 = $$arguments$1;
+  var windowTimers$2 = windowTimers$1;
   var func = windowTimers$2.setInterval;
   var args = to_arg($$arguments$2);
   var args$1 = unsafe_add(args, timeout$3);
@@ -2157,17 +2854,17 @@ function $$setInterval(windowTimers, handler, timeout, $$arguments, _) {
   return func.apply(windowTimers$2, args$2);
 }
 
-function $$setTimeout(windowTimers, handler, timeout, $$arguments, _) {
+function $$setTimeout(handler, timeout, $$arguments, windowTimers) {
   var timeout$1 = Js_undefined.from_opt(timeout);
-  var windowTimers$1 = windowTimers;
   var handler$1 = handler;
   var timeout$2 = timeout$1;
   var $$arguments$1 = $$arguments;
+  var windowTimers$1 = windowTimers;
   var handler$2 = handler$1[1];
-  var windowTimers$2 = windowTimers$1;
   var handler$3 = handler$2;
   var timeout$3 = timeout$2;
   var $$arguments$2 = $$arguments$1;
+  var windowTimers$2 = windowTimers$1;
   var func = windowTimers$2.setTimeout;
   var args = to_arg($$arguments$2);
   var args$1 = unsafe_add(args, timeout$3);
@@ -2196,7 +2893,7 @@ var WindowEventHandlers = /* module */[];
 
 var DocumentAndElementEventHandlers = /* module */[];
 
-function slice(blob, start, end_, contentType, _) {
+function slice(start, end_, contentType, blob) {
   var start$1 = Js_undefined.from_opt(start);
   var end_$1 = Js_undefined.from_opt(end_);
   var contentType$1 = Js_undefined.from_opt(contentType);
@@ -2283,28 +2980,84 @@ var ScrollOptions = /* module */[];
 
 var BlobPropertyBag = /* module */[];
 
-var NodeFilter = /* module */[];
+var NodeFilter = /* module */[
+  /* filter_accept */1,
+  /* filter_reject */2,
+  /* filter_skip */3,
+  /* show_all */-1,
+  /* show_element */1,
+  /* show_attribute */2,
+  /* show_text */4,
+  /* show_cdata_section */8,
+  /* show_entity_reference */16,
+  /* show_entity */32,
+  /* show_processing_instruction */64,
+  /* show_comment */128,
+  /* show_document */256,
+  /* show_document_type */512,
+  /* show_document_fragment */1024,
+  /* show_notation */2048
+];
 
 var EventListener = /* module */[];
 
 var EventSource = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* connecting */0,
+  /* open_ */1,
+  /* closed_ */2
 ];
 
-var CSSStyleRule = /* module */[];
+var CSSStyleRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-var CSSFontFaceRule = /* module */[];
+var CSSFontFaceRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-var UIEvent = /* module */[];
+var UIEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var GamepadEvent = /* module */[];
+var GamepadEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function add$1(hTMLOptionsCollection, element, before, _) {
+function add$1(element, before, hTMLOptionsCollection) {
   var before$1 = Js_undefined.from_opt(before);
-  var hTMLOptionsCollection$1 = hTMLOptionsCollection;
   var element$1 = element;
   var before$2 = before$1;
+  var hTMLOptionsCollection$1 = hTMLOptionsCollection;
   var element$2 = element$1[1];
   var conv_before = function (param) {
     return param[1];
@@ -2316,22 +3069,22 @@ function add$1(hTMLOptionsCollection, element, before, _) {
 
 var HTMLOptionsCollection = /* module */[/* add */add$1];
 
-function fromMatrix$1(dOMMatrix, other, _) {
+function fromMatrix$1(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMMatrix.fromMatrix(other$1);
 }
 
-function multiplySelf(dOMMatrix, other, _) {
+function multiplySelf(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMMatrix.multiplySelf(other$1);
 }
 
-function preMultiplySelf(dOMMatrix, other, _) {
+function preMultiplySelf(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
   return dOMMatrix.preMultiplySelf(other$1);
 }
 
-function rotateAxisAngleSelf(dOMMatrix, x, y, z, angle, _) {
+function rotateAxisAngleSelf(x, y, z, angle, dOMMatrix) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
   var z$1 = Js_undefined.from_opt(z);
@@ -2339,20 +3092,20 @@ function rotateAxisAngleSelf(dOMMatrix, x, y, z, angle, _) {
   return dOMMatrix.rotateAxisAngleSelf(x$1, y$1, z$1, angle$1);
 }
 
-function rotateFromVectorSelf(dOMMatrix, x, y, _) {
+function rotateFromVectorSelf(x, y, dOMMatrix) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
   return dOMMatrix.rotateFromVectorSelf(x$1, y$1);
 }
 
-function rotateSelf(dOMMatrix, rotX, rotY, rotZ, _) {
+function rotateSelf(rotX, rotY, rotZ, dOMMatrix) {
   var rotX$1 = Js_undefined.from_opt(rotX);
   var rotY$1 = Js_undefined.from_opt(rotY);
   var rotZ$1 = Js_undefined.from_opt(rotZ);
   return dOMMatrix.rotateSelf(rotX$1, rotY$1, rotZ$1);
 }
 
-function scale3dSelf(dOMMatrix, scale, originX, originY, originZ, _) {
+function scale3dSelf(scale, originX, originY, originZ, dOMMatrix) {
   var scale$1 = Js_undefined.from_opt(scale);
   var originX$1 = Js_undefined.from_opt(originX);
   var originY$1 = Js_undefined.from_opt(originY);
@@ -2360,7 +3113,7 @@ function scale3dSelf(dOMMatrix, scale, originX, originY, originZ, _) {
   return dOMMatrix.scale3dSelf(scale$1, originX$1, originY$1, originZ$1);
 }
 
-function scaleSelf(dOMMatrix, scaleX, scaleY, scaleZ, originX, originY, originZ, _) {
+function scaleSelf(scaleX, scaleY, scaleZ, originX, originY, originZ, dOMMatrix) {
   var scaleX$1 = Js_undefined.from_opt(scaleX);
   var scaleY$1 = Js_undefined.from_opt(scaleY);
   var scaleZ$1 = Js_undefined.from_opt(scaleZ);
@@ -2370,17 +3123,17 @@ function scaleSelf(dOMMatrix, scaleX, scaleY, scaleZ, originX, originY, originZ,
   return dOMMatrix.scaleSelf(scaleX$1, scaleY$1, scaleZ$1, originX$1, originY$1, originZ$1);
 }
 
-function skewXSelf(dOMMatrix, sx, _) {
+function skewXSelf(sx, dOMMatrix) {
   var sx$1 = Js_undefined.from_opt(sx);
   return dOMMatrix.skewXSelf(sx$1);
 }
 
-function skewYSelf(dOMMatrix, sy, _) {
+function skewYSelf(sy, dOMMatrix) {
   var sy$1 = Js_undefined.from_opt(sy);
   return dOMMatrix.skewYSelf(sy$1);
 }
 
-function translateSelf(dOMMatrix, tx, ty, tz, _) {
+function translateSelf(tx, ty, tz, dOMMatrix) {
   var tx$1 = Js_undefined.from_opt(tx);
   var ty$1 = Js_undefined.from_opt(ty);
   var tz$1 = Js_undefined.from_opt(tz);
@@ -2418,7 +3171,7 @@ var ServiceWorkerRegistration = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-function register(serviceWorkerContainer, scriptURL, options, _) {
+function register(scriptURL, options, serviceWorkerContainer) {
   var options$1 = Js_undefined.from_opt(options);
   return serviceWorkerContainer.register(scriptURL, options$1);
 }
@@ -2429,16 +3182,31 @@ var ServiceWorkerContainer = /* module */[
   /* register */register
 ];
 
-var ErrorEvent = /* module */[];
+var ErrorEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var PermissionStatus = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener
 ];
 
-var MessageEvent = /* module */[];
+var MessageEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var BeforeUnloadEvent = /* module */[];
+var BeforeUnloadEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var VR = /* module */[
   /* addEventListener */addEventListener,
@@ -2452,15 +3220,33 @@ var BluetoothDevice = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-var CSSImportRule = /* module */[];
+var CSSImportRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
 var RadioNodeList = /* module */[];
 
 var File = /* module */[/* slice */slice];
 
-var StorageEvent = /* module */[];
+var StorageEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function cloneNode(node, deep, _) {
+function cloneNode(deep, node) {
   var deep$1 = Js_undefined.from_opt(deep);
   return node.cloneNode(deep$1);
 }
@@ -2468,14 +3254,42 @@ function cloneNode(node, deep, _) {
 var Node = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode
 ];
 
-var VRDisplayEvent = /* module */[];
+var VRDisplayEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var PopStateEvent = /* module */[];
+var PopStateEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function getEyeParameters(vRDisplay, whichEye) {
+function getEyeParameters(whichEye, vRDisplay) {
   var conv_whichEye = function (param) {
     if (param >= -379319332) {
       return "right";
@@ -2493,19 +3307,24 @@ var VRDisplay = /* module */[
   /* getEyeParameters */getEyeParameters
 ];
 
-var WebGLContextEvent = /* module */[];
+var WebGLContextEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var WebGLProgram = /* module */[];
 
-function getDescriptor$1(bluetoothRemoteGATTCharacteristic, descriptor) {
+function getDescriptor$1(descriptor, bluetoothRemoteGATTCharacteristic) {
   var descriptor$1 = descriptor[1];
   return bluetoothRemoteGATTCharacteristic.getDescriptor(descriptor$1);
 }
 
-function getDescriptors(bluetoothRemoteGATTCharacteristic, descriptor, _) {
+function getDescriptors(descriptor, bluetoothRemoteGATTCharacteristic) {
   var descriptor$1 = Js_undefined.from_opt(descriptor);
-  var bluetoothRemoteGATTCharacteristic$1 = bluetoothRemoteGATTCharacteristic;
   var descriptor$2 = descriptor$1;
+  var bluetoothRemoteGATTCharacteristic$1 = bluetoothRemoteGATTCharacteristic;
   var conv_descriptor = function (param) {
     return param[1];
   };
@@ -2520,7 +3339,20 @@ var BluetoothRemoteGATTCharacteristic = /* module */[
   /* getDescriptors */getDescriptors
 ];
 
-var CSSKeyframeRule = /* module */[];
+var CSSKeyframeRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
 var WebGLVertexArrayObjectOES = /* module */[];
 
@@ -2532,6 +3364,10 @@ var GlobalScope = /* module */[
 ];
 
 var TestBindingProxy = /* module */[
+  /* prefcontrolledconstdisabled */0,
+  /* prefcontrolledconstenabled */0,
+  /* funccontrolledconstdisabled */0,
+  /* funccontrolledconstenabled */0,
   /* advanceClock */advanceClock,
   /* passEnum */passEnum,
   /* passMozMapUnion */passMozMapUnion,
@@ -2692,27 +3528,42 @@ var TestBindingProxy = /* module */[
 
 var HTMLFormControlsCollection = /* module */[];
 
-var CustomEvent = /* module */[];
+var CustomEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var DOMPoint = /* module */[];
 
-var PageTransitionEvent = /* module */[];
+var PageTransitionEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var ServiceWorker = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener
 ];
 
-var CloseEvent = /* module */[];
+var CloseEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function close(webSocket, code, reason, _) {
+function close(code, reason, webSocket) {
   var code$1 = Js_undefined.from_opt(code);
   var reason$1 = Js_undefined.from_opt(reason);
   webSocket.close(code$1, reason$1);
   return /* () */0;
 }
 
-function send(webSocket, data) {
+function send(data, webSocket) {
   var data$1 = data[1];
   webSocket.send(data$1);
   return /* () */0;
@@ -2721,23 +3572,55 @@ function send(webSocket, data) {
 var WebSocket = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* connecting */0,
+  /* open_ */1,
+  /* closing */2,
+  /* closed_ */3,
   /* close */close,
   /* send */send
 ];
 
-var MediaQueryListEvent = /* module */[];
+var MediaQueryListEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var WebGLBuffer = /* module */[];
 
-var CSSViewportRule = /* module */[];
+var CSSViewportRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-var ExtendableEvent = /* module */[];
+var ExtendableEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var ProgressEvent = /* module */[];
+var ProgressEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var WebGLRenderbuffer = /* module */[];
 
-function requestDevice(bluetooth, options, _) {
+function requestDevice(options, bluetooth) {
   var options$1 = Js_undefined.from_opt(options);
   return bluetooth.requestDevice(options$1);
 }
@@ -2753,7 +3636,12 @@ var Worker = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-var TransitionEvent = /* module */[];
+var TransitionEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var MediaQueryList = /* module */[
   /* addEventListener */addEventListener,
@@ -2765,25 +3653,74 @@ var XMLHttpRequestEventTarget = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-var CSSKeyframesRule = /* module */[];
+var CSSKeyframesRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-var BluetoothAdvertisingEvent = /* module */[];
+var BluetoothAdvertisingEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var CSSNamespaceRule = /* module */[];
+var CSSNamespaceRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-var HashChangeEvent = /* module */[];
+var HashChangeEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var CSSGroupingRule = /* module */[];
+var CSSGroupingRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-function getCharacteristic$1(bluetoothRemoteGATTService, characteristic) {
+function getCharacteristic$1(characteristic, bluetoothRemoteGATTService) {
   var characteristic$1 = characteristic[1];
   return bluetoothRemoteGATTService.getCharacteristic(characteristic$1);
 }
 
-function getCharacteristics(bluetoothRemoteGATTService, characteristic, _) {
+function getCharacteristics(characteristic, bluetoothRemoteGATTService) {
   var characteristic$1 = Js_undefined.from_opt(characteristic);
-  var bluetoothRemoteGATTService$1 = bluetoothRemoteGATTService;
   var characteristic$2 = characteristic$1;
+  var bluetoothRemoteGATTService$1 = bluetoothRemoteGATTService;
   var conv_characteristic = function (param) {
     return param[1];
   };
@@ -2791,15 +3728,15 @@ function getCharacteristics(bluetoothRemoteGATTService, characteristic, _) {
   return bluetoothRemoteGATTService$1.getCharacteristics(characteristic$3);
 }
 
-function getIncludedService(bluetoothRemoteGATTService, service) {
+function getIncludedService(service, bluetoothRemoteGATTService) {
   var service$1 = service[1];
   return bluetoothRemoteGATTService.getIncludedService(service$1);
 }
 
-function getIncludedServices(bluetoothRemoteGATTService, service, _) {
+function getIncludedServices(service, bluetoothRemoteGATTService) {
   var service$1 = Js_undefined.from_opt(service);
-  var bluetoothRemoteGATTService$1 = bluetoothRemoteGATTService;
   var service$2 = service$1;
+  var bluetoothRemoteGATTService$1 = bluetoothRemoteGATTService;
   var conv_service = function (param) {
     return param[1];
   };
@@ -2818,7 +3755,7 @@ var BluetoothRemoteGATTService = /* module */[
 
 var WebGLTexture = /* module */[];
 
-function readAsText(fileReader, blob, label, _) {
+function readAsText(blob, label, fileReader) {
   var label$1 = Js_undefined.from_opt(label);
   fileReader.readAsText(blob, label$1);
   return /* () */0;
@@ -2827,6 +3764,9 @@ function readAsText(fileReader, blob, label, _) {
 var FileReader = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* empty */0,
+  /* loading */1,
+  /* done_ */2,
   /* readAsText */readAsText
 ];
 
@@ -2883,10 +3823,10 @@ var XMLHttpRequestUpload = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-function send$1(xMLHttpRequest, data, _) {
+function send$1(data, xMLHttpRequest) {
   var data$1 = Js_undefined.from_opt(data);
-  var xMLHttpRequest$1 = xMLHttpRequest;
   var data$2 = data$1;
+  var xMLHttpRequest$1 = xMLHttpRequest;
   var conv_data = function (param) {
     return param[1];
   };
@@ -2898,6 +3838,11 @@ function send$1(xMLHttpRequest, data, _) {
 var $$XMLHttpRequest = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* unsent */0,
+  /* opened */1,
+  /* headers_received */2,
+  /* loading */3,
+  /* done_ */4,
   /* send */send$1
 ];
 
@@ -2906,36 +3851,55 @@ var BluetoothPermissionResult = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-var ForceTouchEvent = /* module */[];
+var ForceTouchEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
 var DissimilarOriginWindow = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener
 ];
 
-var KeyboardEvent = /* module */[];
+var KeyboardEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3,
+  /* dom_key_location_standard */0,
+  /* dom_key_location_left */1,
+  /* dom_key_location_right */2,
+  /* dom_key_location_numpad */3
+];
 
-var TouchEvent = /* module */[];
+var TouchEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function append$2(documentFragment, nodes) {
+function append$2(nodes, documentFragment) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var documentFragment$1 = documentFragment;
   var nodes$2 = nodes$1;
+  var documentFragment$1 = documentFragment;
   var func = documentFragment$1.append;
   var args = to_arg(nodes$2);
   return func.apply(documentFragment$1, args);
 }
 
-function prepend$1(documentFragment, nodes) {
+function prepend$1(nodes, documentFragment) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var documentFragment$1 = documentFragment;
   var nodes$2 = nodes$1;
+  var documentFragment$1 = documentFragment;
   var func = documentFragment$1.prepend;
   var args = to_arg(nodes$2);
   return func.apply(documentFragment$1, args);
@@ -2944,46 +3908,82 @@ function prepend$1(documentFragment, nodes) {
 var DocumentFragment = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* append */append$2,
   /* prepend */prepend$1
 ];
 
-var ExtendableMessageEvent = /* module */[];
+var ExtendableMessageEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-var CSSConditionRule = /* module */[];
+var CSSConditionRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
-function after$1(documentType, nodes) {
+function after$1(nodes, documentType) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var documentType$1 = documentType;
   var nodes$2 = nodes$1;
+  var documentType$1 = documentType;
   var func = documentType$1.after;
   var args = to_arg(nodes$2);
   return func.apply(documentType$1, args);
 }
 
-function before$1(documentType, nodes) {
+function before$1(nodes, documentType) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var documentType$1 = documentType;
   var nodes$2 = nodes$1;
+  var documentType$1 = documentType;
   var func = documentType$1.before;
   var args = to_arg(nodes$2);
   return func.apply(documentType$1, args);
 }
 
-function replaceWith$1(documentType, nodes) {
+function replaceWith$1(nodes, documentType) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var documentType$1 = documentType;
   var nodes$2 = nodes$1;
+  var documentType$1 = documentType;
   var func = documentType$1.replaceWith;
   var args = to_arg(nodes$2);
   return func.apply(documentType$1, args);
@@ -2992,82 +3992,100 @@ function replaceWith$1(documentType, nodes) {
 var DocumentType = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$1,
   /* before */before$1,
   /* replaceWith */replaceWith$1
 ];
 
-function append$3($$document, nodes) {
+function append$3(nodes, $$document) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var $$document$1 = $$document;
   var nodes$2 = nodes$1;
+  var $$document$1 = $$document;
   var func = $$document$1.append;
   var args = to_arg(nodes$2);
   return func.apply($$document$1, args);
 }
 
-function createElement($$document, localName, options, _) {
+function createElement(localName, options, $$document) {
   var options$1 = Js_undefined.from_opt(options);
   return $$document.createElement(localName, options$1);
 }
 
-function createElementNS($$document, namespace, qualifiedName, options, _) {
+function createElementNS(namespace, qualifiedName, options, $$document) {
   var options$1 = Js_undefined.from_opt(options);
   return $$document.createElementNS(namespace, qualifiedName, options$1);
 }
 
-function createNodeIterator($$document, root, whatToShow, filter, _) {
+function createNodeIterator(root, whatToShow, filter, $$document) {
   var whatToShow$1 = Js_undefined.from_opt(whatToShow);
   var filter$1 = Js_undefined.from_opt(filter);
   return $$document.createNodeIterator(root, whatToShow$1, filter$1);
 }
 
-function createTouchList($$document, touches) {
+function createTouchList(touches, $$document) {
   var func = $$document.createTouchList;
   var args = to_arg(touches);
   return func.apply($$document, args);
 }
 
-function createTreeWalker($$document, root, whatToShow, filter, _) {
+function createTreeWalker(root, whatToShow, filter, $$document) {
   var whatToShow$1 = Js_undefined.from_opt(whatToShow);
   var filter$1 = Js_undefined.from_opt(filter);
   return $$document.createTreeWalker(root, whatToShow$1, filter$1);
 }
 
-function importNode($$document, node, deep, _) {
+function importNode(node, deep, $$document) {
   var deep$1 = Js_undefined.from_opt(deep);
   return $$document.importNode(node, deep$1);
 }
 
-function open_($$document, type_, replace, _) {
+function open_(type_, replace, $$document) {
   var type_$1 = Js_undefined.from_opt(type_);
   var replace$1 = Js_undefined.from_opt(replace);
   return $$document.open(type_$1, replace$1);
 }
 
-function prepend$2($$document, nodes) {
+function prepend$2(nodes, $$document) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var $$document$1 = $$document;
   var nodes$2 = nodes$1;
+  var $$document$1 = $$document;
   var func = $$document$1.prepend;
   var args = to_arg(nodes$2);
   return func.apply($$document$1, args);
 }
 
-function write($$document, text) {
+function write(text, $$document) {
   var func = $$document.write;
   var args = to_arg(text);
   return func.apply($$document, args);
 }
 
-function writeln($$document, text) {
+function writeln(text, $$document) {
   var func = $$document.writeln;
   var args = to_arg(text);
   return func.apply($$document, args);
@@ -3076,6 +4094,24 @@ function writeln($$document, text) {
 var Document = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* append */append$3,
   /* createElement */createElement,
@@ -3090,37 +4126,37 @@ var Document = /* module */[
   /* writeln */writeln
 ];
 
-function after$2(characterData, nodes) {
+function after$2(nodes, characterData) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var characterData$1 = characterData;
   var nodes$2 = nodes$1;
+  var characterData$1 = characterData;
   var func = characterData$1.after;
   var args = to_arg(nodes$2);
   return func.apply(characterData$1, args);
 }
 
-function before$2(characterData, nodes) {
+function before$2(nodes, characterData) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var characterData$1 = characterData;
   var nodes$2 = nodes$1;
+  var characterData$1 = characterData;
   var func = characterData$1.before;
   var args = to_arg(nodes$2);
   return func.apply(characterData$1, args);
 }
 
-function replaceWith$2(characterData, nodes) {
+function replaceWith$2(nodes, characterData) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var characterData$1 = characterData;
   var nodes$2 = nodes$1;
+  var characterData$1 = characterData;
   var func = characterData$1.replaceWith;
   var args = to_arg(nodes$2);
   return func.apply(characterData$1, args);
@@ -3129,69 +4165,92 @@ function replaceWith$2(characterData, nodes) {
 var CharacterData = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
   /* replaceWith */replaceWith$2
 ];
 
-var MouseEvent = /* module */[];
+var MouseEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function after$3(element, nodes) {
+function after$3(nodes, element) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var element$1 = element;
   var nodes$2 = nodes$1;
+  var element$1 = element;
   var func = element$1.after;
   var args = to_arg(nodes$2);
   return func.apply(element$1, args);
 }
 
-function append$4(element, nodes) {
+function append$4(nodes, element) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var element$1 = element;
   var nodes$2 = nodes$1;
+  var element$1 = element;
   var func = element$1.append;
   var args = to_arg(nodes$2);
   return func.apply(element$1, args);
 }
 
-function before$3(element, nodes) {
+function before$3(nodes, element) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var element$1 = element;
   var nodes$2 = nodes$1;
+  var element$1 = element;
   var func = element$1.before;
   var args = to_arg(nodes$2);
   return func.apply(element$1, args);
 }
 
-function prepend$3(element, nodes) {
+function prepend$3(nodes, element) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var element$1 = element;
   var nodes$2 = nodes$1;
+  var element$1 = element;
   var func = element$1.prepend;
   var args = to_arg(nodes$2);
   return func.apply(element$1, args);
 }
 
-function replaceWith$3(element, nodes) {
+function replaceWith$3(nodes, element) {
   var conv_nodes = function (param) {
     return param[1];
   };
   var nodes$1 = $$Array.map(conv_nodes, nodes);
-  var element$1 = element;
   var nodes$2 = nodes$1;
+  var element$1 = element;
   var func = element$1.replaceWith;
   var args = to_arg(nodes$2);
   return func.apply(element$1, args);
@@ -3200,6 +4259,24 @@ function replaceWith$3(element, nodes) {
 var Element = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3208,45 +4285,50 @@ var Element = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-var FocusEvent = /* module */[];
+var FocusEvent = /* module */[
+  /* none */0,
+  /* capturing_phase */1,
+  /* at_target */2,
+  /* bubbling_phase */3
+];
 
-function $$clearInterval$1($$window, handle, _) {
+function $$clearInterval$1(handle, $$window) {
   var handle$1 = Js_undefined.from_opt(handle);
   $$window.clearInterval(handle$1);
   return /* () */0;
 }
 
-function $$clearTimeout$1($$window, handle, _) {
+function $$clearTimeout$1(handle, $$window) {
   var handle$1 = Js_undefined.from_opt(handle);
   $$window.clearTimeout(handle$1);
   return /* () */0;
 }
 
-function fetch$1($$window, input, init, _) {
+function fetch$1(input, init, $$window) {
   var init$1 = Js_undefined.from_opt(init);
-  var $$window$1 = $$window;
   var input$1 = input;
   var init$2 = init$1;
+  var $$window$1 = $$window;
   var input$2 = input$1[1];
   return $$window$1.fetch(input$2, init$2);
 }
 
-function getComputedStyle($$window, elt, pseudoElt, _) {
+function getComputedStyle(elt, pseudoElt, $$window) {
   var pseudoElt$1 = Js_undefined.from_opt(pseudoElt);
   return $$window.getComputedStyle(elt, pseudoElt$1);
 }
 
-function $$setInterval$1($$window, handler, timeout, $$arguments, _) {
+function $$setInterval$1(handler, timeout, $$arguments, $$window) {
   var timeout$1 = Js_undefined.from_opt(timeout);
-  var $$window$1 = $$window;
   var handler$1 = handler;
   var timeout$2 = timeout$1;
   var $$arguments$1 = $$arguments;
+  var $$window$1 = $$window;
   var handler$2 = handler$1[1];
-  var $$window$2 = $$window$1;
   var handler$3 = handler$2;
   var timeout$3 = timeout$2;
   var $$arguments$2 = $$arguments$1;
+  var $$window$2 = $$window$1;
   var func = $$window$2.setInterval;
   var args = to_arg($$arguments$2);
   var args$1 = unsafe_add(args, timeout$3);
@@ -3254,17 +4336,17 @@ function $$setInterval$1($$window, handler, timeout, $$arguments, _) {
   return func.apply($$window$2, args$2);
 }
 
-function $$setTimeout$1($$window, handler, timeout, $$arguments, _) {
+function $$setTimeout$1(handler, timeout, $$arguments, $$window) {
   var timeout$1 = Js_undefined.from_opt(timeout);
-  var $$window$1 = $$window;
   var handler$1 = handler;
   var timeout$2 = timeout$1;
   var $$arguments$1 = $$arguments;
+  var $$window$1 = $$window;
   var handler$2 = handler$1[1];
-  var $$window$2 = $$window$1;
   var handler$3 = handler$2;
   var timeout$3 = timeout$2;
   var $$arguments$2 = $$arguments$1;
+  var $$window$2 = $$window$1;
   var func = $$window$2.setTimeout;
   var args = to_arg($$arguments$2);
   var args$1 = unsafe_add(args, timeout$3);
@@ -3272,7 +4354,7 @@ function $$setTimeout$1($$window, handler, timeout, $$arguments, _) {
   return func.apply($$window$2, args$2);
 }
 
-function webdriverCallback($$window, result, _) {
+function webdriverCallback(result, $$window) {
   var result$1 = Js_undefined.from_opt(result);
   $$window.webdriverCallback(result$1);
   return /* () */0;
@@ -3290,44 +4372,44 @@ var Window = /* module */[
   /* webdriverCallback */webdriverCallback
 ];
 
-function $$clearInterval$2(workerGlobalScope, handle, _) {
+function $$clearInterval$2(handle, workerGlobalScope) {
   var handle$1 = Js_undefined.from_opt(handle);
   workerGlobalScope.clearInterval(handle$1);
   return /* () */0;
 }
 
-function $$clearTimeout$2(workerGlobalScope, handle, _) {
+function $$clearTimeout$2(handle, workerGlobalScope) {
   var handle$1 = Js_undefined.from_opt(handle);
   workerGlobalScope.clearTimeout(handle$1);
   return /* () */0;
 }
 
-function fetch$2(workerGlobalScope, input, init, _) {
+function fetch$2(input, init, workerGlobalScope) {
   var init$1 = Js_undefined.from_opt(init);
-  var workerGlobalScope$1 = workerGlobalScope;
   var input$1 = input;
   var init$2 = init$1;
+  var workerGlobalScope$1 = workerGlobalScope;
   var input$2 = input$1[1];
   return workerGlobalScope$1.fetch(input$2, init$2);
 }
 
-function importScripts(workerGlobalScope, urls) {
+function importScripts(urls, workerGlobalScope) {
   var func = workerGlobalScope.importScripts;
   var args = to_arg(urls);
   return func.apply(workerGlobalScope, args);
 }
 
-function $$setInterval$2(workerGlobalScope, handler, timeout, $$arguments, _) {
+function $$setInterval$2(handler, timeout, $$arguments, workerGlobalScope) {
   var timeout$1 = Js_undefined.from_opt(timeout);
-  var workerGlobalScope$1 = workerGlobalScope;
   var handler$1 = handler;
   var timeout$2 = timeout$1;
   var $$arguments$1 = $$arguments;
+  var workerGlobalScope$1 = workerGlobalScope;
   var handler$2 = handler$1[1];
-  var workerGlobalScope$2 = workerGlobalScope$1;
   var handler$3 = handler$2;
   var timeout$3 = timeout$2;
   var $$arguments$2 = $$arguments$1;
+  var workerGlobalScope$2 = workerGlobalScope$1;
   var func = workerGlobalScope$2.setInterval;
   var args = to_arg($$arguments$2);
   var args$1 = unsafe_add(args, timeout$3);
@@ -3335,17 +4417,17 @@ function $$setInterval$2(workerGlobalScope, handler, timeout, $$arguments, _) {
   return func.apply(workerGlobalScope$2, args$2);
 }
 
-function $$setTimeout$2(workerGlobalScope, handler, timeout, $$arguments, _) {
+function $$setTimeout$2(handler, timeout, $$arguments, workerGlobalScope) {
   var timeout$1 = Js_undefined.from_opt(timeout);
-  var workerGlobalScope$1 = workerGlobalScope;
   var handler$1 = handler;
   var timeout$2 = timeout$1;
   var $$arguments$1 = $$arguments;
+  var workerGlobalScope$1 = workerGlobalScope;
   var handler$2 = handler$1[1];
-  var workerGlobalScope$2 = workerGlobalScope$1;
   var handler$3 = handler$2;
   var timeout$3 = timeout$2;
   var $$arguments$2 = $$arguments$1;
+  var workerGlobalScope$2 = workerGlobalScope$1;
   var func = workerGlobalScope$2.setTimeout;
   var args = to_arg($$arguments$2);
   var args$1 = unsafe_add(args, timeout$3);
@@ -3378,6 +4460,24 @@ var FocusEventInit = /* module */[];
 var Comment = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
@@ -3387,6 +4487,24 @@ var Comment = /* module */[
 var HTMLElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3395,7 +4513,20 @@ var HTMLElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-var CSSSupportsRule = /* module */[];
+var CSSSupportsRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
 var PaintWorkletGlobalScope = /* module */[
   /* addEventListener */addEventListener,
@@ -3424,11 +4555,42 @@ var DedicatedWorkerGlobalScope = /* module */[
   /* setTimeout */$$setTimeout$2
 ];
 
-var CSSMediaRule = /* module */[];
+var CSSMediaRule = /* module */[
+  /* style_rule */1,
+  /* charset_rule */2,
+  /* import_rule */3,
+  /* media_rule */4,
+  /* font_face_rule */5,
+  /* page_rule */6,
+  /* margin_rule */9,
+  /* namespace_rule */10,
+  /* keyframes_rule */7,
+  /* keyframe_rule */8,
+  /* viewport_rule */15,
+  /* supports_rule */12
+];
 
 var ProcessingInstruction = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
@@ -3438,6 +4600,24 @@ var ProcessingInstruction = /* module */[
 var XMLDocument = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* append */append$3,
   /* createElement */createElement,
@@ -3460,6 +4640,24 @@ var TestWorkletGlobalScope = /* module */[
 var SVGElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3471,6 +4669,24 @@ var SVGElement = /* module */[
 var Text = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
@@ -3481,7 +4697,7 @@ var KeyboardEventInit = /* module */[];
 
 var MouseEventInit = /* module */[];
 
-function reload$2(hTMLIFrameElement, hardReload, _) {
+function reload$2(hardReload, hTMLIFrameElement) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
   hTMLIFrameElement.reload(hardReload$1);
   return /* () */0;
@@ -3490,6 +4706,24 @@ function reload$2(hTMLIFrameElement, hardReload, _) {
 var HTMLIFrameElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3502,6 +4736,24 @@ var HTMLIFrameElement = /* module */[
 var SVGGraphicsElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3513,6 +4765,24 @@ var SVGGraphicsElement = /* module */[
 var HTMLScriptElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3524,6 +4794,24 @@ var HTMLScriptElement = /* module */[
 var HTMLObjectElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3535,17 +4823,62 @@ var HTMLObjectElement = /* module */[
 var HTMLMediaElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* network_empty */0,
+  /* network_idle */1,
+  /* network_loading */2,
+  /* network_no_source */3,
+  /* have_nothing */0,
+  /* have_metadata */1,
+  /* have_current_data */2,
+  /* have_future_data */3,
+  /* have_enough_data */4
 ];
 
 var HTMLImageElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3557,6 +4890,24 @@ var HTMLImageElement = /* module */[
 var HTMLTableColElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3568,6 +4919,24 @@ var HTMLTableColElement = /* module */[
 var HTMLTitleElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3579,6 +4948,24 @@ var HTMLTitleElement = /* module */[
 var HTMLDataElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3590,6 +4977,24 @@ var HTMLDataElement = /* module */[
 var HTMLMetaElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3601,6 +5006,24 @@ var HTMLMetaElement = /* module */[
 var HTMLLIElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3612,6 +5035,24 @@ var HTMLLIElement = /* module */[
 var HTMLOptGroupElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3623,6 +5064,24 @@ var HTMLOptGroupElement = /* module */[
 var HTMLFieldSetElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3634,6 +5093,24 @@ var HTMLFieldSetElement = /* module */[
 var HTMLDListElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3645,6 +5122,24 @@ var HTMLDListElement = /* module */[
 var HTMLBodyElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3656,6 +5151,24 @@ var HTMLBodyElement = /* module */[
 var HTMLLegendElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3667,6 +5180,24 @@ var HTMLLegendElement = /* module */[
 var HTMLBaseElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3678,6 +5209,24 @@ var HTMLBaseElement = /* module */[
 var HTMLUListElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3689,6 +5238,24 @@ var HTMLUListElement = /* module */[
 var HTMLHtmlElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3700,6 +5267,24 @@ var HTMLHtmlElement = /* module */[
 var HTMLTimeElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3708,7 +5293,7 @@ var HTMLTimeElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function insertRow(hTMLTableSectionElement, index, _) {
+function insertRow(index, hTMLTableSectionElement) {
   var index$1 = Js_undefined.from_opt(index);
   return hTMLTableSectionElement.insertRow(index$1);
 }
@@ -3716,6 +5301,24 @@ function insertRow(hTMLTableSectionElement, index, _) {
 var HTMLTableSectionElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3728,6 +5331,24 @@ var HTMLTableSectionElement = /* module */[
 var HTMLFrameElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3739,6 +5360,24 @@ var HTMLFrameElement = /* module */[
 var HTMLLinkElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3750,6 +5389,24 @@ var HTMLLinkElement = /* module */[
 var HTMLEmbedElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3761,6 +5418,24 @@ var HTMLEmbedElement = /* module */[
 var HTMLMeterElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3772,6 +5447,24 @@ var HTMLMeterElement = /* module */[
 var HTMLTableCaptionElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3783,6 +5476,24 @@ var HTMLTableCaptionElement = /* module */[
 var HTMLLabelElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3794,6 +5505,24 @@ var HTMLLabelElement = /* module */[
 var HTMLAnchorElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3805,6 +5534,24 @@ var HTMLAnchorElement = /* module */[
 var HTMLHeadElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3816,6 +5563,24 @@ var HTMLHeadElement = /* module */[
 var HTMLOutputElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3827,6 +5592,24 @@ var HTMLOutputElement = /* module */[
 var HTMLUnknownElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3838,6 +5621,24 @@ var HTMLUnknownElement = /* module */[
 var HTMLParamElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3849,6 +5650,24 @@ var HTMLParamElement = /* module */[
 var HTMLOptionElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3860,6 +5679,24 @@ var HTMLOptionElement = /* module */[
 var HTMLOListElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3868,11 +5705,11 @@ var HTMLOListElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function add$2(hTMLSelectElement, element, before, _) {
+function add$2(element, before, hTMLSelectElement) {
   var before$1 = Js_undefined.from_opt(before);
-  var hTMLSelectElement$1 = hTMLSelectElement;
   var element$1 = element;
   var before$2 = before$1;
+  var hTMLSelectElement$1 = hTMLSelectElement;
   var element$2 = element$1[1];
   var conv_before = function (param) {
     return param[1];
@@ -3885,6 +5722,24 @@ function add$2(hTMLSelectElement, element, before, _) {
 var HTMLSelectElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3897,6 +5752,24 @@ var HTMLSelectElement = /* module */[
 var HTMLStyleElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3908,6 +5781,24 @@ var HTMLStyleElement = /* module */[
 var HTMLQuoteElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3919,6 +5810,24 @@ var HTMLQuoteElement = /* module */[
 var HTMLBRElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3930,6 +5839,24 @@ var HTMLBRElement = /* module */[
 var HTMLButtonElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3941,6 +5868,24 @@ var HTMLButtonElement = /* module */[
 var HTMLHRElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3949,7 +5894,7 @@ var HTMLHRElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function setSelectionRange(hTMLTextAreaElement, start, end_, direction, _) {
+function setSelectionRange(start, end_, direction, hTMLTextAreaElement) {
   var direction$1 = Js_undefined.from_opt(direction);
   hTMLTextAreaElement.setSelectionRange(start, end_, direction$1);
   return /* () */0;
@@ -3958,6 +5903,24 @@ function setSelectionRange(hTMLTextAreaElement, start, end_, direction, _) {
 var HTMLTextAreaElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3970,6 +5933,24 @@ var HTMLTextAreaElement = /* module */[
 var HTMLSourceElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3981,6 +5962,24 @@ var HTMLSourceElement = /* module */[
 var HTMLPreElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -3992,6 +5991,24 @@ var HTMLPreElement = /* module */[
 var HTMLModElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4003,6 +6020,24 @@ var HTMLModElement = /* module */[
 var HTMLMapElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4014,6 +6049,24 @@ var HTMLMapElement = /* module */[
 var HTMLTemplateElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4025,6 +6078,24 @@ var HTMLTemplateElement = /* module */[
 var HTMLDirectoryElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4033,7 +6104,7 @@ var HTMLDirectoryElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function setSelectionRange$1(hTMLInputElement, start, end_, direction, _) {
+function setSelectionRange$1(start, end_, direction, hTMLInputElement) {
   var direction$1 = Js_undefined.from_opt(direction);
   hTMLInputElement.setSelectionRange(start, end_, direction$1);
   return /* () */0;
@@ -4042,6 +6113,24 @@ function setSelectionRange$1(hTMLInputElement, start, end_, direction, _) {
 var HTMLInputElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4054,6 +6143,24 @@ var HTMLInputElement = /* module */[
 var HTMLParagraphElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4065,6 +6172,24 @@ var HTMLParagraphElement = /* module */[
 var HTMLAreaElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4076,6 +6201,24 @@ var HTMLAreaElement = /* module */[
 var HTMLSpanElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4087,6 +6230,24 @@ var HTMLSpanElement = /* module */[
 var HTMLFormElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4098,6 +6259,24 @@ var HTMLFormElement = /* module */[
 var HTMLDataListElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4106,18 +6285,22 @@ var HTMLDataListElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function getContext(hTMLCanvasElement, contextId, $$arguments) {
+function getContext(contextId, $$arguments, hTMLCanvasElement) {
   var func = hTMLCanvasElement.getContext;
   var args = to_arg($$arguments);
   var args$1 = unsafe_add(args, contextId);
   return func.apply(hTMLCanvasElement, args$1);
 }
 
-function toDataURL(hTMLCanvasElement, type_, $$arguments, _) {
+function getContext$1(contextId, $$arguments, hTMLCanvasElement) {
+  return Js_primitive.null_to_opt(getContext(contextId, $$arguments, hTMLCanvasElement));
+}
+
+function toDataURL(type_, $$arguments, hTMLCanvasElement) {
   var type_$1 = Js_undefined.from_opt(type_);
-  var hTMLCanvasElement$1 = hTMLCanvasElement;
   var type_$2 = type_$1;
   var $$arguments$1 = $$arguments;
+  var hTMLCanvasElement$1 = hTMLCanvasElement;
   var func = hTMLCanvasElement$1.toDataURL;
   var args = to_arg($$arguments$1);
   var args$1 = unsafe_add(args, type_$2);
@@ -4127,19 +6310,55 @@ function toDataURL(hTMLCanvasElement, type_, $$arguments, _) {
 var HTMLCanvasElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
-  /* getContext */getContext,
+  /* getContext */getContext$1,
   /* toDataURL */toDataURL
 ];
 
 var HTMLTrackElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4148,7 +6367,7 @@ var HTMLTrackElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function insertCell(hTMLTableRowElement, index, _) {
+function insertCell(index, hTMLTableRowElement) {
   var index$1 = Js_undefined.from_opt(index);
   return hTMLTableRowElement.insertCell(index$1);
 }
@@ -4156,6 +6375,24 @@ function insertCell(hTMLTableRowElement, index, _) {
 var HTMLTableRowElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4168,6 +6405,24 @@ var HTMLTableRowElement = /* module */[
 var HTMLDivElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4179,6 +6434,24 @@ var HTMLDivElement = /* module */[
 var HTMLAppletElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4187,7 +6460,7 @@ var HTMLAppletElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function close$1(hTMLDialogElement, returnValue, _) {
+function close$1(returnValue, hTMLDialogElement) {
   var returnValue$1 = Js_undefined.from_opt(returnValue);
   hTMLDialogElement.close(returnValue$1);
   return /* () */0;
@@ -4196,6 +6469,24 @@ function close$1(hTMLDialogElement, returnValue, _) {
 var HTMLDialogElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4208,6 +6499,24 @@ var HTMLDialogElement = /* module */[
 var HTMLFrameSetElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4219,6 +6528,24 @@ var HTMLFrameSetElement = /* module */[
 var HTMLDetailsElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4230,6 +6557,24 @@ var HTMLDetailsElement = /* module */[
 var HTMLProgressElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4241,6 +6586,24 @@ var HTMLProgressElement = /* module */[
 var HTMLFontElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4252,6 +6615,24 @@ var HTMLFontElement = /* module */[
 var HTMLTableCellElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4260,7 +6641,7 @@ var HTMLTableCellElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function insertRow$1(hTMLTableElement, index, _) {
+function insertRow$1(index, hTMLTableElement) {
   var index$1 = Js_undefined.from_opt(index);
   return hTMLTableElement.insertRow(index$1);
 }
@@ -4268,6 +6649,24 @@ function insertRow$1(hTMLTableElement, index, _) {
 var HTMLTableElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4280,6 +6679,24 @@ var HTMLTableElement = /* module */[
 var HTMLHeadingElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4291,17 +6708,62 @@ var HTMLHeadingElement = /* module */[
 var HTMLAudioElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* network_empty */0,
+  /* network_idle */1,
+  /* network_loading */2,
+  /* network_no_source */3,
+  /* have_nothing */0,
+  /* have_metadata */1,
+  /* have_current_data */2,
+  /* have_future_data */3,
+  /* have_enough_data */4
 ];
 
 var HTMLTableHeaderCellElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4313,6 +6775,24 @@ var HTMLTableHeaderCellElement = /* module */[
 var SVGSVGElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4324,17 +6804,62 @@ var SVGSVGElement = /* module */[
 var HTMLVideoElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* network_empty */0,
+  /* network_idle */1,
+  /* network_loading */2,
+  /* network_no_source */3,
+  /* have_nothing */0,
+  /* have_metadata */1,
+  /* have_current_data */2,
+  /* have_future_data */3,
+  /* have_enough_data */4
 ];
 
 var HTMLTableDataCellElement = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* element_node */1,
+  /* attribute_node */2,
+  /* text_node */3,
+  /* cdata_section_node */4,
+  /* entity_reference_node */5,
+  /* entity_node */6,
+  /* processing_instruction_node */7,
+  /* comment_node */8,
+  /* document_node */9,
+  /* document_type_node */10,
+  /* document_fragment_node */11,
+  /* notation_node */12,
+  /* document_position_disconnected */1,
+  /* document_position_preceding */2,
+  /* document_position_following */4,
+  /* document_position_contains */8,
+  /* document_position_contained_by */16,
+  /* document_position_implementation_specific */32,
   /* cloneNode */cloneNode,
   /* after */after$3,
   /* append */append$4,
@@ -4348,6 +6873,10 @@ exports.unsafe_add                                = unsafe_add;
 exports.access_array                              = access_array;
 exports.access_null                               = access_null;
 exports.access_undef                              = access_undef;
+exports.undef_to_opt                              = undef_to_opt;
+exports.null_to_opt                               = null_to_opt;
+exports.identity                                  = identity;
+exports.Console                                   = Console;
 exports.Performance                               = Performance;
 exports.CustomElementRegistry                     = CustomElementRegistry;
 exports.GamepadList                               = GamepadList;

@@ -19,3 +19,4 @@ let to_js_obj (namespece: namespace) =
     ~inherits: None
     ~attrs: (BatRefList.to_list attrs)
     ~meths: (BatRefList.to_list meths |> List.flatten)
+    ~constants: []

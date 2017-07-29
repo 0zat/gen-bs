@@ -15,7 +15,7 @@ let get_dictionary_obj (idl_list : Idl.definitions) =
   let partials = BatRefList.to_list partials in
   let dictionaries = BatRefList.to_list dictionaries in
   Dictionary.to_js_objs partials dictionaries
-
+  
 let get_interface_obj (idl_list : Idl.definitions) =
   let interfaces = BatRefList.empty () in
   let partials = BatRefList.empty () in

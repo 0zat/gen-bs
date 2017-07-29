@@ -1,3 +1,4 @@
+open Bs_type
 
 let rec to_bs_type return_or_arg : Js.type_ -> Bs_type.type_ = function
   | `Int -> `Int
@@ -13,8 +14,8 @@ let rec to_bs_type return_or_arg : Js.type_ -> Bs_type.type_ = function
   | `Promise type_ -> `Promise(to_bs_type return_or_arg type_)
   | `Obj name ->
     begin match return_or_arg with
-      | `Return -> Bs_type.to_ident name
-      | `Arg -> Bs_type.(to_ident ~variables:[`Underbar] (name ^ "_like"))
+      | `Return -> to_ident name
+      | `Arg -> to_ident ~variables:[`Underbar] (name ^ "_like")
     end
   | #Bs_type.buffer as buffer -> buffer
   | `Union _ -> `Any
@@ -43,3 +44,6 @@ let to_return type_ =
 let to_arg_type = to_bs_type `Arg
 
 let to_attr_type =  to_bs_type `Return
+
+let to_owner_type name = 
+  to_ident ~variables:[to_variable "own"] (name ^ "_like")

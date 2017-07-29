@@ -12,6 +12,9 @@ type eval = [
   | `String of string
   | `Ident of capital Bs_str.t list * uncapital Bs_str.t (* A.B.C.a *)
   | `Label of uncapital Bs_str.t
+  | `Int of int
+  | `Float of float
+  | `Bool of bool
 ]
 
 type eval_line = eval list
@@ -25,6 +28,7 @@ and expr =
 type arg = [
   | `Label of uncapital Bs_str.t
   | `Optional of uncapital Bs_str.t
+  | `Nolabel of uncapital Bs_str.t
   | `Unit
 ]
 
@@ -48,6 +52,9 @@ module Print = struct
 
   let print_eval ppf eval =
     match (eval: eval) with
+    | `Int i -> fprintf ppf "%i" i
+    | `Float f -> fprintf ppf "%f" f
+    | `Bool b -> fprintf ppf "%B" b
     | `Variant v -> fprintf ppf "`%s" v
     | `String s -> fprintf ppf "\"%s\"" s
     | `Label l -> fprintf ppf "~%s" (to_string l)
@@ -84,6 +91,7 @@ module Print = struct
     | `Label l -> asprintf "~%s" (to_string l)
     | `Unit -> "()"
     | `Optional o -> asprintf "?%s" (to_string o)
+    | `Nolabel n -> to_string n
 
     let print_t ppf t =
       fprintf ppf "@[<v 2>let %s %s =@,%a@,@[<h>%a@]@]@,"
@@ -136,6 +144,9 @@ module Construct = struct
 
   let to_optional str =
     `Optional(to_uncapital str)
+
+  let to_nolabel str =
+    `Nolabel(to_uncapital str)
 
   let to_let_def ident args let_lines eval_line : t =
     {ident = to_uncapital ident; args; let_lines; eval_line}

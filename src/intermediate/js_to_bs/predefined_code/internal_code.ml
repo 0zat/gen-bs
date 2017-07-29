@@ -6,4 +6,9 @@ let internal_use_code = "
 type _baseClass
 "
 
-let get () = header_comment ^ internal_use_code ^ Variadic.predefined_code ^ Override.Predefined.code
+let get () = 
+  header_comment ^ 
+  internal_use_code ^ 
+  Variadic.predefined_code ^ 
+  Override.Predefined.code ^
+  Optional.Predefined.code 
