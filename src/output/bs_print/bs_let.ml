@@ -28,6 +28,7 @@ and expr =
 type arg = [
   | `Label of uncapital Bs_str.t
   | `Optional of uncapital Bs_str.t
+  | `Nolabel of uncapital Bs_str.t
   | `Unit
 ]
 
@@ -90,6 +91,7 @@ module Print = struct
     | `Label l -> asprintf "~%s" (to_string l)
     | `Unit -> "()"
     | `Optional o -> asprintf "?%s" (to_string o)
+    | `Nolabel n -> to_string n
 
     let print_t ppf t =
       fprintf ppf "@[<v 2>let %s %s =@,%a@,@[<h>%a@]@]@,"
@@ -142,6 +144,9 @@ module Construct = struct
 
   let to_optional str =
     `Optional(to_uncapital str)
+
+  let to_nolabel str =
+    `Nolabel(to_uncapital str)
 
   let to_let_def ident args let_lines eval_line : t =
     {ident = to_uncapital ident; args; let_lines; eval_line}

@@ -81,7 +81,7 @@ module Let_expr = struct
 
   let to_let owner_name (js_meth: js_meth) =
     let args = List.map to_eval_label (args_to_names js_meth.args) in
-    let owner = to_eval_label owner_name in
+    let owner = to_nolabel owner_name in
     let meth_name = js_meth.name in
     let let_lines = make_let_lines owner_name js_meth in
     let eval_line = make_eval owner_name in

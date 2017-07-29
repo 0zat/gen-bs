@@ -51,13 +51,10 @@ function identity(x) {
   return x;
 }
 
-function assert_($$console, condition, message, _) {
+function assert_(condition, message, $$console) {
   var message$1 = Js_undefined.from_opt(message);
-  var partial_arg = /* Some */[message$1];
-  return (function (param) {
-      param.assert(condition, partial_arg ? partial_arg[0] : undefined, $$console);
-      return /* () */0;
-    });
+  $$console.assert(condition, message$1);
+  return /* () */0;
 }
 
 function debug(messages, $$console) {
@@ -101,13 +98,10 @@ var Console = /* module */[
 
 var Performance = /* module */[];
 
-function define(customElementRegistry, name, constructor_, options, _) {
+function define(name, constructor_, options, customElementRegistry) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      param.define(name, constructor_, partial_arg ? partial_arg[0] : undefined, customElementRegistry);
-      return /* () */0;
-    });
+  customElementRegistry.define(name, constructor_, options$1);
+  return /* () */0;
 }
 
 var CustomElementRegistry = /* module */[/* define */define];
@@ -122,22 +116,16 @@ var ElementContentEditable = /* module */[];
 
 var MimeTypeArray = /* module */[];
 
-function append(formData, name, value, filename, _) {
+function append(name, value, filename, formData) {
   var filename$1 = Js_undefined.from_opt(filename);
-  var partial_arg = /* Some */[filename$1];
-  return (function (param) {
-      param.append(name, value, partial_arg ? partial_arg[0] : undefined, formData);
-      return /* () */0;
-    });
+  formData.append(name, value, filename$1);
+  return /* () */0;
 }
 
-function set(formData, name, value, filename, _) {
+function set(name, value, filename, formData) {
   var filename$1 = Js_undefined.from_opt(filename);
-  var partial_arg = /* Some */[filename$1];
-  return (function (param) {
-      param.set(name, value, partial_arg ? partial_arg[0] : undefined, formData);
-      return /* () */0;
-    });
+  formData.set(name, value, filename$1);
+  return /* () */0;
 }
 
 var FormData = /* module */[
@@ -147,124 +135,75 @@ var FormData = /* module */[
 
 var TreeWalker = /* module */[];
 
-function fromMatrix(dOMMatrixReadOnly, other, _) {
+function fromMatrix(other, dOMMatrixReadOnly) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.fromMatrix(partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.fromMatrix(other$1);
 }
 
-function multiply(dOMMatrixReadOnly, other, _) {
+function multiply(other, dOMMatrixReadOnly) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.multiply(partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.multiply(other$1);
 }
 
-function rotate(dOMMatrixReadOnly, rotX, rotY, rotZ, _) {
+function rotate(rotX, rotY, rotZ, dOMMatrixReadOnly) {
   var rotX$1 = Js_undefined.from_opt(rotX);
   var rotY$1 = Js_undefined.from_opt(rotY);
   var rotZ$1 = Js_undefined.from_opt(rotZ);
-  var partial_arg = /* Some */[rotZ$1];
-  var partial_arg$1 = /* Some */[rotY$1];
-  var partial_arg$2 = /* Some */[rotX$1];
-  return (function (param) {
-      return param.rotate(partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.rotate(rotX$1, rotY$1, rotZ$1);
 }
 
-function rotateAxisAngle(dOMMatrixReadOnly, x, y, z, angle, _) {
+function rotateAxisAngle(x, y, z, angle, dOMMatrixReadOnly) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
   var z$1 = Js_undefined.from_opt(z);
   var angle$1 = Js_undefined.from_opt(angle);
-  var partial_arg = /* Some */[angle$1];
-  var partial_arg$1 = /* Some */[z$1];
-  var partial_arg$2 = /* Some */[y$1];
-  var partial_arg$3 = /* Some */[x$1];
-  return (function (param) {
-      return param.rotateAxisAngle(partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.rotateAxisAngle(x$1, y$1, z$1, angle$1);
 }
 
-function rotateFromVector(dOMMatrixReadOnly, x, y, _) {
+function rotateFromVector(x, y, dOMMatrixReadOnly) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
-  var partial_arg = /* Some */[y$1];
-  var partial_arg$1 = /* Some */[x$1];
-  return (function (param) {
-      return param.rotateFromVector(partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.rotateFromVector(x$1, y$1);
 }
 
-function scale(dOMMatrixReadOnly, scaleX, scaleY, scaleZ, originX, originY, originZ, _) {
+function scale(scaleX, scaleY, scaleZ, originX, originY, originZ, dOMMatrixReadOnly) {
   var scaleX$1 = Js_undefined.from_opt(scaleX);
   var scaleY$1 = Js_undefined.from_opt(scaleY);
   var scaleZ$1 = Js_undefined.from_opt(scaleZ);
   var originX$1 = Js_undefined.from_opt(originX);
   var originY$1 = Js_undefined.from_opt(originY);
   var originZ$1 = Js_undefined.from_opt(originZ);
-  var partial_arg = /* Some */[originZ$1];
-  var partial_arg$1 = /* Some */[originY$1];
-  var partial_arg$2 = /* Some */[originX$1];
-  var partial_arg$3 = /* Some */[scaleZ$1];
-  var partial_arg$4 = /* Some */[scaleY$1];
-  var partial_arg$5 = /* Some */[scaleX$1];
-  return (function (param) {
-      return param.scale(partial_arg$5 ? partial_arg$5[0] : undefined, partial_arg$4 ? partial_arg$4[0] : undefined, partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.scale(scaleX$1, scaleY$1, scaleZ$1, originX$1, originY$1, originZ$1);
 }
 
-function scale3d(dOMMatrixReadOnly, scale, originX, originY, originZ, _) {
+function scale3d(scale, originX, originY, originZ, dOMMatrixReadOnly) {
   var scale$1 = Js_undefined.from_opt(scale);
   var originX$1 = Js_undefined.from_opt(originX);
   var originY$1 = Js_undefined.from_opt(originY);
   var originZ$1 = Js_undefined.from_opt(originZ);
-  var partial_arg = /* Some */[originZ$1];
-  var partial_arg$1 = /* Some */[originY$1];
-  var partial_arg$2 = /* Some */[originX$1];
-  var partial_arg$3 = /* Some */[scale$1];
-  return (function (param) {
-      return param.scale3d(partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.scale3d(scale$1, originX$1, originY$1, originZ$1);
 }
 
-function skewX(dOMMatrixReadOnly, sx, _) {
+function skewX(sx, dOMMatrixReadOnly) {
   var sx$1 = Js_undefined.from_opt(sx);
-  var partial_arg = /* Some */[sx$1];
-  return (function (param) {
-      return param.skewX(partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.skewX(sx$1);
 }
 
-function skewY(dOMMatrixReadOnly, sy, _) {
+function skewY(sy, dOMMatrixReadOnly) {
   var sy$1 = Js_undefined.from_opt(sy);
-  var partial_arg = /* Some */[sy$1];
-  return (function (param) {
-      return param.skewY(partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.skewY(sy$1);
 }
 
-function transformPoint(dOMMatrixReadOnly, point, _) {
+function transformPoint(point, dOMMatrixReadOnly) {
   var point$1 = Js_undefined.from_opt(point);
-  var partial_arg = /* Some */[point$1];
-  return (function (param) {
-      return param.transformPoint(partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.transformPoint(point$1);
 }
 
-function translate(dOMMatrixReadOnly, tx, ty, tz, _) {
+function translate(tx, ty, tz, dOMMatrixReadOnly) {
   var tx$1 = Js_undefined.from_opt(tx);
   var ty$1 = Js_undefined.from_opt(ty);
   var tz$1 = Js_undefined.from_opt(tz);
-  var partial_arg = /* Some */[tz$1];
-  var partial_arg$1 = /* Some */[ty$1];
-  var partial_arg$2 = /* Some */[tx$1];
-  return (function (param) {
-      return param.translate(partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrixReadOnly);
-    });
+  return dOMMatrixReadOnly.translate(tx$1, ty$1, tz$1);
 }
 
 var DOMMatrixReadOnly = /* module */[
@@ -310,13 +249,10 @@ var ParentNode = /* module */[
   /* prepend */prepend
 ];
 
-function collapse(range, toStart, _) {
+function collapse(toStart, range) {
   var toStart$1 = Js_undefined.from_opt(toStart);
-  var partial_arg = /* Some */[toStart$1];
-  return (function (param) {
-      param.collapse(partial_arg ? partial_arg[0] : undefined, range);
-      return /* () */0;
-    });
+  range.collapse(toStart$1);
+  return /* () */0;
 }
 
 var Range = /* module */[
@@ -327,16 +263,13 @@ var Range = /* module */[
   /* collapse */collapse
 ];
 
-function fetch(windowOrWorkerGlobalScope, input, init, _) {
+function fetch(input, init, windowOrWorkerGlobalScope) {
   var init$1 = Js_undefined.from_opt(init);
   var input$1 = input;
   var init$2 = init$1;
   var windowOrWorkerGlobalScope$1 = windowOrWorkerGlobalScope;
   var input$2 = input$1[1];
-  var partial_arg = /* Some */[init$2];
-  return (function (param) {
-      return param.fetch(input$2, partial_arg ? partial_arg[0] : undefined, windowOrWorkerGlobalScope$1);
-    });
+  return windowOrWorkerGlobalScope$1.fetch(input$2, init$2);
 }
 
 var WindowOrWorkerGlobalScope = /* module */[/* fetch */fetch];
@@ -351,22 +284,16 @@ var OESVertexArrayObject = /* module */[/* vertex_array_binding_oes */34229];
 
 var TestRunner = /* module */[];
 
-function addEventListener(eventTarget, type_, listener, capture, _) {
+function addEventListener(type_, listener, capture, eventTarget) {
   var capture$1 = Js_undefined.from_opt(capture);
-  var partial_arg = /* Some */[capture$1];
-  return (function (param) {
-      param.addEventListener(type_, listener, partial_arg ? partial_arg[0] : undefined, eventTarget);
-      return /* () */0;
-    });
+  eventTarget.addEventListener(type_, listener, capture$1);
+  return /* () */0;
 }
 
-function removeEventListener(eventTarget, type_, listener, capture, _) {
+function removeEventListener(type_, listener, capture, eventTarget) {
   var capture$1 = Js_undefined.from_opt(capture);
-  var partial_arg = /* Some */[capture$1];
-  return (function (param) {
-      param.removeEventListener(type_, listener, partial_arg ? partial_arg[0] : undefined, eventTarget);
-      return /* () */0;
-    });
+  eventTarget.removeEventListener(type_, listener, capture$1);
+  return /* () */0;
 }
 
 var EventTarget = /* module */[
@@ -378,12 +305,10 @@ var NodeIterator = /* module */[];
 
 function getPrimaryService(service, bluetoothRemoteGATTServer) {
   var service$1 = service[1];
-  return (function (param) {
-      return param.getPrimaryService(service$1, bluetoothRemoteGATTServer);
-    });
+  return bluetoothRemoteGATTServer.getPrimaryService(service$1);
 }
 
-function getPrimaryServices(bluetoothRemoteGATTServer, service, _) {
+function getPrimaryServices(service, bluetoothRemoteGATTServer) {
   var service$1 = Js_undefined.from_opt(service);
   var service$2 = service$1;
   var bluetoothRemoteGATTServer$1 = bluetoothRemoteGATTServer;
@@ -391,10 +316,7 @@ function getPrimaryServices(bluetoothRemoteGATTServer, service, _) {
     return param[1];
   };
   var service$3 = Js_undefined.bind(service$2, conv_service);
-  var partial_arg = /* Some */[service$3];
-  return (function (param) {
-      return param.getPrimaryServices(partial_arg ? partial_arg[0] : undefined, bluetoothRemoteGATTServer$1);
-    });
+  return bluetoothRemoteGATTServer$1.getPrimaryServices(service$3);
 }
 
 var BluetoothRemoteGATTServer = /* module */[
@@ -404,10 +326,8 @@ var BluetoothRemoteGATTServer = /* module */[
 
 function bufferData(target, data, usage, webGLRenderingContextBase) {
   var data$1 = data[1];
-  return (function (param) {
-      param.bufferData(target, data$1, usage, webGLRenderingContextBase);
-      return /* () */0;
-    });
+  webGLRenderingContextBase.bufferData(target, data$1, usage);
+  return /* () */0;
 }
 
 function texImage2D(target, level, internalformat, format, type_, source, webGLRenderingContextBase) {
@@ -415,10 +335,8 @@ function texImage2D(target, level, internalformat, format, type_, source, webGLR
     return param[1];
   };
   var source$1 = Js_null.bind(source, conv_source);
-  return (function (param) {
-      param.texImage2D(target, level, internalformat, format, type_, source$1, webGLRenderingContextBase);
-      return /* () */0;
-    });
+  webGLRenderingContextBase.texImage2D(target, level, internalformat, format, type_, source$1);
+  return /* () */0;
 }
 
 function texSubImage2D(target, level, xoffset, yoffset, format, type_, source, webGLRenderingContextBase) {
@@ -426,10 +344,8 @@ function texSubImage2D(target, level, xoffset, yoffset, format, type_, source, w
     return param[1];
   };
   var source$1 = Js_null.bind(source, conv_source);
-  return (function (param) {
-      param.texSubImage2D(target, level, xoffset, yoffset, format, type_, source$1, webGLRenderingContextBase);
-      return /* () */0;
-    });
+  webGLRenderingContextBase.texSubImage2D(target, level, xoffset, yoffset, format, type_, source$1);
+  return /* () */0;
 }
 
 var WebGLRenderingContextBase = /* module */[
@@ -737,10 +653,8 @@ var WebGLRenderingContextBase = /* module */[
 
 function bufferData$1(target, data, usage, webGLRenderingContext) {
   var data$1 = data[1];
-  return (function (param) {
-      param.bufferData(target, data$1, usage, webGLRenderingContext);
-      return /* () */0;
-    });
+  webGLRenderingContext.bufferData(target, data$1, usage);
+  return /* () */0;
 }
 
 function texImage2D$1(target, level, internalformat, format, type_, source, webGLRenderingContext) {
@@ -748,10 +662,8 @@ function texImage2D$1(target, level, internalformat, format, type_, source, webG
     return param[1];
   };
   var source$1 = Js_null.bind(source, conv_source);
-  return (function (param) {
-      param.texImage2D(target, level, internalformat, format, type_, source$1, webGLRenderingContext);
-      return /* () */0;
-    });
+  webGLRenderingContext.texImage2D(target, level, internalformat, format, type_, source$1);
+  return /* () */0;
 }
 
 function texSubImage2D$1(target, level, xoffset, yoffset, format, type_, source, webGLRenderingContext) {
@@ -759,10 +671,8 @@ function texSubImage2D$1(target, level, xoffset, yoffset, format, type_, source,
     return param[1];
   };
   var source$1 = Js_null.bind(source, conv_source);
-  return (function (param) {
-      param.texSubImage2D(target, level, xoffset, yoffset, format, type_, source$1, webGLRenderingContext);
-      return /* () */0;
-    });
+  webGLRenderingContext.texSubImage2D(target, level, xoffset, yoffset, format, type_, source$1);
+  return /* () */0;
 }
 
 var WebGLRenderingContext = /* module */[
@@ -1072,13 +982,10 @@ var Location = /* module */[];
 
 var Body = /* module */[];
 
-function go(history, delta, _) {
+function go(delta, history) {
   var delta$1 = Js_undefined.from_opt(delta);
-  var partial_arg = /* Some */[delta$1];
-  return (function (param) {
-      param.go(partial_arg ? partial_arg[0] : undefined, history);
-      return /* () */0;
-    });
+  history.go(delta$1);
+  return /* () */0;
 }
 
 var History = /* module */[/* go */go];
@@ -1089,13 +996,10 @@ var BluetoothDeviceEventHandlers = /* module */[];
 
 var Screen = /* module */[];
 
-function refresh(pluginArray, reload, _) {
+function refresh(reload, pluginArray) {
   var reload$1 = Js_undefined.from_opt(reload);
-  var partial_arg = /* Some */[reload$1];
-  return (function (param) {
-      param.refresh(partial_arg ? partial_arg[0] : undefined, pluginArray);
-      return /* () */0;
-    });
+  pluginArray.refresh(reload$1);
+  return /* () */0;
 }
 
 var PluginArray = /* module */[/* refresh */refresh];
@@ -1165,9 +1069,7 @@ function parseFromString(str, type_, dOMParser) {
     }
   };
   var type_$1 = conv_type(type_);
-  return (function (param) {
-      return param.parseFromString(str, type_$1, dOMParser);
-    });
+  return dOMParser.parseFromString(str, type_$1);
 }
 
 var DOMParser = /* module */[/* parseFromString */parseFromString];
@@ -1180,26 +1082,20 @@ var FileList = /* module */[];
 
 var WebGLObject = /* module */[];
 
-function reload(browserElement, hardReload, _) {
+function reload(hardReload, browserElement) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
-  var partial_arg = /* Some */[hardReload$1];
-  return (function (param) {
-      param.reload(partial_arg ? partial_arg[0] : undefined, browserElement);
-      return /* () */0;
-    });
+  browserElement.reload(hardReload$1);
+  return /* () */0;
 }
 
 var BrowserElement = /* module */[/* reload */reload];
 
 var BrowserElementCommon = /* module */[];
 
-function reload$1(browserElementPrivileged, hardReload, _) {
+function reload$1(hardReload, browserElementPrivileged) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
-  var partial_arg = /* Some */[hardReload$1];
-  return (function (param) {
-      param.reload(partial_arg ? partial_arg[0] : undefined, browserElementPrivileged);
-      return /* () */0;
-    });
+  browserElementPrivileged.reload(hardReload$1);
+  return /* () */0;
 }
 
 var BrowserElementPrivileged = /* module */[/* reload */reload$1];
@@ -1222,20 +1118,14 @@ var CSSRuleList = /* module */[];
 
 var DissimilarOriginLocation = /* module */[];
 
-function createDocument(dOMImplementation, namespace, qualifiedName, doctype, _) {
+function createDocument(namespace, qualifiedName, doctype, dOMImplementation) {
   var doctype$1 = Js_undefined.from_opt(doctype);
-  var partial_arg = /* Some */[doctype$1];
-  return (function (param) {
-      return param.createDocument(namespace, qualifiedName, partial_arg ? partial_arg[0] : undefined, dOMImplementation);
-    });
+  return dOMImplementation.createDocument(namespace, qualifiedName, doctype$1);
 }
 
-function createHTMLDocument(dOMImplementation, title, _) {
+function createHTMLDocument(title, dOMImplementation) {
   var title$1 = Js_undefined.from_opt(title);
-  var partial_arg = /* Some */[title$1];
-  return (function (param) {
-      return param.createHTMLDocument(partial_arg ? partial_arg[0] : undefined, dOMImplementation);
-    });
+  return dOMImplementation.createHTMLDocument(title$1);
 }
 
 var DOMImplementation = /* module */[
@@ -1243,13 +1133,10 @@ var DOMImplementation = /* module */[
   /* createHTMLDocument */createHTMLDocument
 ];
 
-function advanceClock(testBinding, millis, forceLayoutTick, _) {
+function advanceClock(millis, forceLayoutTick, testBinding) {
   var forceLayoutTick$1 = Js_undefined.from_opt(forceLayoutTick);
-  var partial_arg = /* Some */[forceLayoutTick$1];
-  return (function (param) {
-      param.advanceClock(millis, partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.advanceClock(millis, forceLayoutTick$1);
+  return /* () */0;
 }
 
 function passEnum(arg, testBinding) {
@@ -1265,184 +1152,131 @@ function passEnum(arg, testBinding) {
     }
   };
   var arg$1 = conv_arg(arg);
-  return (function (param) {
-      param.passEnum(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passEnum(arg$1);
+  return /* () */0;
 }
 
 function passMozMapUnion(init, testBinding) {
   var init$1 = init[1];
-  return (function (param) {
-      param.passMozMapUnion(init$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passMozMapUnion(init$1);
+  return /* () */0;
 }
 
 function passMozMapUnion2(init, testBinding) {
   var init$1 = init[1];
-  return (function (param) {
-      param.passMozMapUnion2(init$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passMozMapUnion2(init$1);
+  return /* () */0;
 }
 
 function passMozMapUnion3(init, testBinding) {
   var init$1 = init[1];
-  return (function (param) {
-      param.passMozMapUnion3(init$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passMozMapUnion3(init$1);
+  return /* () */0;
 }
 
 function passNullableUnion(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passNullableUnion(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passNullableUnion(arg$1);
+  return /* () */0;
 }
 
 function passNullableUnion2(data, testBinding) {
   var data$1 = data[1];
-  return (function (param) {
-      param.passNullableUnion2(data$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passNullableUnion2(data$1);
+  return /* () */0;
 }
 
 function passNullableUnion3(data, testBinding) {
   var data$1 = data[1];
-  return (function (param) {
-      param.passNullableUnion3(data$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passNullableUnion3(data$1);
+  return /* () */0;
 }
 
 function passNullableUnion4(bool, testBinding) {
   var bool$1 = bool[1];
-  return (function (param) {
-      param.passNullableUnion4(bool$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passNullableUnion4(bool$1);
+  return /* () */0;
 }
 
 function passNullableUnion5(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passNullableUnion5(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passNullableUnion5(arg$1);
+  return /* () */0;
 }
 
 function passNullableUnion6(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passNullableUnion6(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passNullableUnion6(arg$1);
+  return /* () */0;
 }
 
-function passOptionalAny(testBinding, arg, _) {
+function passOptionalAny(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalAny(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalAny(arg$1);
+  return /* () */0;
 }
 
-function passOptionalAnyWithDefault(testBinding, arg, _) {
+function passOptionalAnyWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalAnyWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalAnyWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalBoolean(testBinding, arg, _) {
+function passOptionalBoolean(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalBoolean(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalBoolean(arg$1);
+  return /* () */0;
 }
 
-function passOptionalBooleanWithDefault(testBinding, arg, _) {
+function passOptionalBooleanWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalBooleanWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalBooleanWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalByte(testBinding, arg, _) {
+function passOptionalByte(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalByte(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalByte(arg$1);
+  return /* () */0;
 }
 
-function passOptionalByteString(testBinding, arg, _) {
+function passOptionalByteString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalByteString(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalByteString(arg$1);
+  return /* () */0;
 }
 
-function passOptionalByteWithDefault(testBinding, arg, _) {
+function passOptionalByteWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalByteWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalByteWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalBytestringWithDefault(testBinding, arg, _) {
+function passOptionalBytestringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalBytestringWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalBytestringWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalCallbackFunction(testBinding, fun_, _) {
+function passOptionalCallbackFunction(fun_, testBinding) {
   var fun_$1 = Js_undefined.from_opt(fun_);
-  var partial_arg = /* Some */[fun_$1];
-  return (function (param) {
-      param.passOptionalCallbackFunction(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalCallbackFunction(fun_$1);
+  return /* () */0;
 }
 
-function passOptionalCallbackInterface(testBinding, listener, _) {
+function passOptionalCallbackInterface(listener, testBinding) {
   var listener$1 = Js_undefined.from_opt(listener);
-  var partial_arg = /* Some */[listener$1];
-  return (function (param) {
-      param.passOptionalCallbackInterface(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalCallbackInterface(listener$1);
+  return /* () */0;
 }
 
-function passOptionalDouble(testBinding, arg, _) {
+function passOptionalDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalDouble(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalDouble(arg$1);
+  return /* () */0;
 }
 
-function passOptionalEnum(testBinding, arg, _) {
+function passOptionalEnum(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -1458,14 +1292,11 @@ function passOptionalEnum(testBinding, arg, _) {
     }
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalEnum(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalEnum(arg$3);
+  return /* () */0;
 }
 
-function passOptionalEnumWithDefault(testBinding, arg, _) {
+function passOptionalEnumWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -1481,410 +1312,275 @@ function passOptionalEnumWithDefault(testBinding, arg, _) {
     }
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalEnumWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalEnumWithDefault(arg$3);
+  return /* () */0;
 }
 
-function passOptionalFloat(testBinding, arg, _) {
+function passOptionalFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalFloat(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalFloat(arg$1);
+  return /* () */0;
 }
 
-function passOptionalInterface(testBinding, arg, _) {
+function passOptionalInterface(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalInterface(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalInterface(arg$1);
+  return /* () */0;
 }
 
-function passOptionalLong(testBinding, arg, _) {
+function passOptionalLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalLongLong(testBinding, arg, _) {
+function passOptionalLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalLongLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalLongLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalLongLongWithDefault(testBinding, arg, _) {
+function passOptionalLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalLongLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalLongLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalLongWithDefault(testBinding, arg, _) {
+function passOptionalLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalMozMap(testBinding, arg, _) {
+function passOptionalMozMap(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalMozMap(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalMozMap(arg$1);
+  return /* () */0;
 }
 
-function passOptionalMozMapOfNullableInts(testBinding, arg, _) {
+function passOptionalMozMapOfNullableInts(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalMozMapOfNullableInts(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalMozMapOfNullableInts(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableBoolean(testBinding, arg, _) {
+function passOptionalNullableBoolean(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableBoolean(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableBoolean(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableBooleanWithDefault(testBinding, arg, _) {
+function passOptionalNullableBooleanWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableBooleanWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableBooleanWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableBooleanWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableBooleanWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableBooleanWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableBooleanWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableByte(testBinding, arg, _) {
+function passOptionalNullableByte(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableByte(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableByte(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableByteString(testBinding, arg, _) {
+function passOptionalNullableByteString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableByteString(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableByteString(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableByteStringWithDefault(testBinding, arg, _) {
+function passOptionalNullableByteStringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableByteStringWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableByteStringWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableByteWithDefault(testBinding, arg, _) {
+function passOptionalNullableByteWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableByteWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableByteWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableByteWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableByteWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableByteWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableByteWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableCallbackFunction(testBinding, fun_, _) {
+function passOptionalNullableCallbackFunction(fun_, testBinding) {
   var fun_$1 = Js_undefined.from_opt(fun_);
-  var partial_arg = /* Some */[fun_$1];
-  return (function (param) {
-      param.passOptionalNullableCallbackFunction(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableCallbackFunction(fun_$1);
+  return /* () */0;
 }
 
-function passOptionalNullableCallbackInterface(testBinding, listener, _) {
+function passOptionalNullableCallbackInterface(listener, testBinding) {
   var listener$1 = Js_undefined.from_opt(listener);
-  var partial_arg = /* Some */[listener$1];
-  return (function (param) {
-      param.passOptionalNullableCallbackInterface(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableCallbackInterface(listener$1);
+  return /* () */0;
 }
 
-function passOptionalNullableCallbackInterfaceWithDefault(testBinding, listener, _) {
+function passOptionalNullableCallbackInterfaceWithDefault(listener, testBinding) {
   var listener$1 = Js_undefined.from_opt(listener);
-  var partial_arg = /* Some */[listener$1];
-  return (function (param) {
-      param.passOptionalNullableCallbackInterfaceWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableCallbackInterfaceWithDefault(listener$1);
+  return /* () */0;
 }
 
-function passOptionalNullableDouble(testBinding, arg, _) {
+function passOptionalNullableDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableDouble(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableDouble(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableFloat(testBinding, arg, _) {
+function passOptionalNullableFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableFloat(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableFloat(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableInterface(testBinding, arg, _) {
+function passOptionalNullableInterface(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableInterface(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableInterface(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableInterfaceWithDefault(testBinding, arg, _) {
+function passOptionalNullableInterfaceWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableInterfaceWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableInterfaceWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableLong(testBinding, arg, _) {
+function passOptionalNullableLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableLongLong(testBinding, arg, _) {
+function passOptionalNullableLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableLongLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableLongLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableLongLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableLongLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableLongLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableLongLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableLongLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableLongLongWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableLongLongWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableLongWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableLongWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableMozMap(testBinding, arg, _) {
+function passOptionalNullableMozMap(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableMozMap(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableMozMap(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableMozMapOfNullableInts(testBinding, arg, _) {
+function passOptionalNullableMozMapOfNullableInts(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableMozMapOfNullableInts(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableMozMapOfNullableInts(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableMozMapWithDefaultValue(testBinding, arg, _) {
+function passOptionalNullableMozMapWithDefaultValue(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableMozMapWithDefaultValue(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableMozMapWithDefaultValue(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableObject(testBinding, arg, _) {
+function passOptionalNullableObject(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableObject(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableObject(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableObjectWithDefault(testBinding, arg, _) {
+function passOptionalNullableObjectWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableObjectWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableObjectWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableOctet(testBinding, arg, _) {
+function passOptionalNullableOctet(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableOctet(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableOctet(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableOctetWithDefault(testBinding, arg, _) {
+function passOptionalNullableOctetWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableOctetWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableOctetWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableOctetWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableOctetWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableOctetWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableOctetWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableSequence(testBinding, seq, _) {
+function passOptionalNullableSequence(seq, testBinding) {
   var seq$1 = Js_undefined.from_opt(seq);
-  var partial_arg = /* Some */[seq$1];
-  return (function (param) {
-      param.passOptionalNullableSequence(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableSequence(seq$1);
+  return /* () */0;
 }
 
-function passOptionalNullableShort(testBinding, arg, _) {
+function passOptionalNullableShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableShort(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableShort(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableShortWithDefault(testBinding, arg, _) {
+function passOptionalNullableShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableShortWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableShortWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableShortWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableShortWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableShortWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableShortWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableString(testBinding, arg, _) {
+function passOptionalNullableString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableString(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableString(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableStringWithDefault(testBinding, arg, _) {
+function passOptionalNullableStringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableStringWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableStringWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableStringWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableStringWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableStringWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableStringWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion(testBinding, arg, _) {
+function passOptionalNullableUnion(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -1892,14 +1588,11 @@ function passOptionalNullableUnion(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalNullableUnion(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion(arg$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion2(testBinding, data, _) {
+function passOptionalNullableUnion2(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
   var data$2 = data$1;
   var testBinding$1 = testBinding;
@@ -1907,14 +1600,11 @@ function passOptionalNullableUnion2(testBinding, data, _) {
     return param[1];
   };
   var data$3 = Js_undefined.bind(data$2, conv_data);
-  var partial_arg = /* Some */[data$3];
-  return (function (param) {
-      param.passOptionalNullableUnion2(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion2(data$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion2WithDefault(testBinding, data, _) {
+function passOptionalNullableUnion2WithDefault(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
   var data$2 = data$1;
   var testBinding$1 = testBinding;
@@ -1922,14 +1612,11 @@ function passOptionalNullableUnion2WithDefault(testBinding, data, _) {
     return param[1];
   };
   var data$3 = Js_undefined.bind(data$2, conv_data);
-  var partial_arg = /* Some */[data$3];
-  return (function (param) {
-      param.passOptionalNullableUnion2WithDefault(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion2WithDefault(data$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion3(testBinding, arg, _) {
+function passOptionalNullableUnion3(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -1937,14 +1624,11 @@ function passOptionalNullableUnion3(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalNullableUnion3(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion3(arg$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion4(testBinding, data, _) {
+function passOptionalNullableUnion4(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
   var data$2 = data$1;
   var testBinding$1 = testBinding;
@@ -1952,14 +1636,11 @@ function passOptionalNullableUnion4(testBinding, data, _) {
     return param[1];
   };
   var data$3 = Js_undefined.bind(data$2, conv_data);
-  var partial_arg = /* Some */[data$3];
-  return (function (param) {
-      param.passOptionalNullableUnion4(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion4(data$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion5(testBinding, bool, _) {
+function passOptionalNullableUnion5(bool, testBinding) {
   var bool$1 = Js_undefined.from_opt(bool);
   var bool$2 = bool$1;
   var testBinding$1 = testBinding;
@@ -1967,14 +1648,11 @@ function passOptionalNullableUnion5(testBinding, bool, _) {
     return param[1];
   };
   var bool$3 = Js_undefined.bind(bool$2, conv_bool);
-  var partial_arg = /* Some */[bool$3];
-  return (function (param) {
-      param.passOptionalNullableUnion5(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion5(bool$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnion6(testBinding, arg, _) {
+function passOptionalNullableUnion6(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -1982,14 +1660,11 @@ function passOptionalNullableUnion6(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalNullableUnion6(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnion6(arg$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnionWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnionWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -1997,221 +1672,149 @@ function passOptionalNullableUnionWithDefault(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalNullableUnionWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalNullableUnionWithDefault(arg$3);
+  return /* () */0;
 }
 
-function passOptionalNullableUnrestrictedDouble(testBinding, arg, _) {
+function passOptionalNullableUnrestrictedDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnrestrictedDouble(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnrestrictedDouble(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnrestrictedFloat(testBinding, arg, _) {
+function passOptionalNullableUnrestrictedFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnrestrictedFloat(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnrestrictedFloat(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedLong(testBinding, arg, _) {
+function passOptionalNullableUnsignedLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongLong(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedLongLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedLongLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedLongLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedLongLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedLongLongWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedLongLongWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedLongWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedLongWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedLongWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedLongWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedShort(testBinding, arg, _) {
+function passOptionalNullableUnsignedShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedShort(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedShort(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedShortWithDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedShortWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedShortWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUnsignedShortWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUnsignedShortWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUnsignedShortWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUnsignedShortWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUsvstring(testBinding, arg, _) {
+function passOptionalNullableUsvstring(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUsvstring(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUsvstring(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUsvstringWithDefault(testBinding, arg, _) {
+function passOptionalNullableUsvstringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUsvstringWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUsvstringWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalNullableUsvstringWithNonNullDefault(testBinding, arg, _) {
+function passOptionalNullableUsvstringWithNonNullDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalNullableUsvstringWithNonNullDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalNullableUsvstringWithNonNullDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalObject(testBinding, arg, _) {
+function passOptionalObject(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalObject(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalObject(arg$1);
+  return /* () */0;
 }
 
-function passOptionalObjectMozMap(testBinding, arg, _) {
+function passOptionalObjectMozMap(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalObjectMozMap(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalObjectMozMap(arg$1);
+  return /* () */0;
 }
 
-function passOptionalOctet(testBinding, arg, _) {
+function passOptionalOctet(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalOctet(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalOctet(arg$1);
+  return /* () */0;
 }
 
-function passOptionalOctetWithDefault(testBinding, arg, _) {
+function passOptionalOctetWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalOctetWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalOctetWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalSequence(testBinding, seq, _) {
+function passOptionalSequence(seq, testBinding) {
   var seq$1 = Js_undefined.from_opt(seq);
-  var partial_arg = /* Some */[seq$1];
-  return (function (param) {
-      param.passOptionalSequence(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalSequence(seq$1);
+  return /* () */0;
 }
 
-function passOptionalShort(testBinding, arg, _) {
+function passOptionalShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalShort(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalShort(arg$1);
+  return /* () */0;
 }
 
-function passOptionalShortWithDefault(testBinding, arg, _) {
+function passOptionalShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalShortWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalShortWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalString(testBinding, arg, _) {
+function passOptionalString(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalString(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalString(arg$1);
+  return /* () */0;
 }
 
-function passOptionalStringWithDefault(testBinding, arg, _) {
+function passOptionalStringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalStringWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalStringWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnion(testBinding, arg, _) {
+function passOptionalUnion(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -2219,14 +1822,11 @@ function passOptionalUnion(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalUnion(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalUnion(arg$3);
+  return /* () */0;
 }
 
-function passOptionalUnion2(testBinding, data, _) {
+function passOptionalUnion2(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
   var data$2 = data$1;
   var testBinding$1 = testBinding;
@@ -2234,14 +1834,11 @@ function passOptionalUnion2(testBinding, data, _) {
     return param[1];
   };
   var data$3 = Js_undefined.bind(data$2, conv_data);
-  var partial_arg = /* Some */[data$3];
-  return (function (param) {
-      param.passOptionalUnion2(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalUnion2(data$3);
+  return /* () */0;
 }
 
-function passOptionalUnion3(testBinding, arg, _) {
+function passOptionalUnion3(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -2249,14 +1846,11 @@ function passOptionalUnion3(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalUnion3(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalUnion3(arg$3);
+  return /* () */0;
 }
 
-function passOptionalUnion4(testBinding, data, _) {
+function passOptionalUnion4(data, testBinding) {
   var data$1 = Js_undefined.from_opt(data);
   var data$2 = data$1;
   var testBinding$1 = testBinding;
@@ -2264,14 +1858,11 @@ function passOptionalUnion4(testBinding, data, _) {
     return param[1];
   };
   var data$3 = Js_undefined.bind(data$2, conv_data);
-  var partial_arg = /* Some */[data$3];
-  return (function (param) {
-      param.passOptionalUnion4(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalUnion4(data$3);
+  return /* () */0;
 }
 
-function passOptionalUnion5(testBinding, bool, _) {
+function passOptionalUnion5(bool, testBinding) {
   var bool$1 = Js_undefined.from_opt(bool);
   var bool$2 = bool$1;
   var testBinding$1 = testBinding;
@@ -2279,14 +1870,11 @@ function passOptionalUnion5(testBinding, bool, _) {
     return param[1];
   };
   var bool$3 = Js_undefined.bind(bool$2, conv_bool);
-  var partial_arg = /* Some */[bool$3];
-  return (function (param) {
-      param.passOptionalUnion5(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalUnion5(bool$3);
+  return /* () */0;
 }
 
-function passOptionalUnion6(testBinding, arg, _) {
+function passOptionalUnion6(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var testBinding$1 = testBinding;
@@ -2294,205 +1882,146 @@ function passOptionalUnion6(testBinding, arg, _) {
     return param[1];
   };
   var arg$3 = Js_undefined.bind(arg$2, conv_arg);
-  var partial_arg = /* Some */[arg$3];
-  return (function (param) {
-      param.passOptionalUnion6(partial_arg ? partial_arg[0] : undefined, testBinding$1);
-      return /* () */0;
-    });
+  testBinding$1.passOptionalUnion6(arg$3);
+  return /* () */0;
 }
 
-function passOptionalUnrestrictedDouble(testBinding, arg, _) {
+function passOptionalUnrestrictedDouble(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnrestrictedDouble(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnrestrictedDouble(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnrestrictedFloat(testBinding, arg, _) {
+function passOptionalUnrestrictedFloat(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnrestrictedFloat(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnrestrictedFloat(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnsignedLong(testBinding, arg, _) {
+function passOptionalUnsignedLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnsignedLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnsignedLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnsignedLongLong(testBinding, arg, _) {
+function passOptionalUnsignedLongLong(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnsignedLongLong(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnsignedLongLong(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnsignedLongLongWithDefault(testBinding, arg, _) {
+function passOptionalUnsignedLongLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnsignedLongLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnsignedLongLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnsignedLongWithDefault(testBinding, arg, _) {
+function passOptionalUnsignedLongWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnsignedLongWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnsignedLongWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnsignedShort(testBinding, arg, _) {
+function passOptionalUnsignedShort(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnsignedShort(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnsignedShort(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUnsignedShortWithDefault(testBinding, arg, _) {
+function passOptionalUnsignedShortWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUnsignedShortWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUnsignedShortWithDefault(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUsvstring(testBinding, arg, _) {
+function passOptionalUsvstring(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUsvstring(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUsvstring(arg$1);
+  return /* () */0;
 }
 
-function passOptionalUsvstringWithDefault(testBinding, arg, _) {
+function passOptionalUsvstringWithDefault(arg, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
-  var partial_arg = /* Some */[arg$1];
-  return (function (param) {
-      param.passOptionalUsvstringWithDefault(partial_arg ? partial_arg[0] : undefined, testBinding);
-      return /* () */0;
-    });
+  testBinding.passOptionalUsvstringWithDefault(arg$1);
+  return /* () */0;
 }
 
 function passUnion(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnion(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion(arg$1);
+  return /* () */0;
 }
 
 function passUnion10(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnion10(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion10(arg$1);
+  return /* () */0;
 }
 
 function passUnion2(data, testBinding) {
   var data$1 = data[1];
-  return (function (param) {
-      param.passUnion2(data$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion2(data$1);
+  return /* () */0;
 }
 
 function passUnion3(data, testBinding) {
   var data$1 = data[1];
-  return (function (param) {
-      param.passUnion3(data$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion3(data$1);
+  return /* () */0;
 }
 
 function passUnion4(seq, testBinding) {
   var seq$1 = seq[1];
-  return (function (param) {
-      param.passUnion4(seq$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion4(seq$1);
+  return /* () */0;
 }
 
 function passUnion5(data, testBinding) {
   var data$1 = data[1];
-  return (function (param) {
-      param.passUnion5(data$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion5(data$1);
+  return /* () */0;
 }
 
 function passUnion6(bool, testBinding) {
   var bool$1 = bool[1];
-  return (function (param) {
-      param.passUnion6(bool$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion6(bool$1);
+  return /* () */0;
 }
 
 function passUnion7(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnion7(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion7(arg$1);
+  return /* () */0;
 }
 
 function passUnion8(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnion8(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion8(arg$1);
+  return /* () */0;
 }
 
 function passUnion9(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnion9(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnion9(arg$1);
+  return /* () */0;
 }
 
 function passUnionSequenceSequence(seq, testBinding) {
   var seq$1 = seq[1];
-  return (function (param) {
-      param.passUnionSequenceSequence(seq$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnionSequenceSequence(seq$1);
+  return /* () */0;
 }
 
 function passUnionWithTypedef(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnionWithTypedef(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnionWithTypedef(arg$1);
+  return /* () */0;
 }
 
 function passUnionWithTypedef2(arg, testBinding) {
   var arg$1 = arg[1];
-  return (function (param) {
-      param.passUnionWithTypedef2(arg$1, testBinding);
-      return /* () */0;
-    });
+  testBinding.passUnionWithTypedef2(arg$1);
+  return /* () */0;
 }
 
 function passVariadicAny(args, testBinding) {
@@ -2507,7 +2036,7 @@ function passVariadicBoolean(args, testBinding) {
   return func.apply(testBinding, args$1);
 }
 
-function passVariadicBooleanAndDefault(testBinding, arg, args, _) {
+function passVariadicBooleanAndDefault(arg, args, testBinding) {
   var arg$1 = Js_undefined.from_opt(arg);
   var arg$2 = arg$1;
   var args$1 = args;
@@ -2899,12 +2428,9 @@ var CharacteristicEventHandlers = /* module */[];
 
 var Gamepad = /* module */[];
 
-function decode(textDecoder, input, _) {
+function decode(input, textDecoder) {
   var input$1 = Js_undefined.from_opt(input);
-  var partial_arg = /* Some */[input$1];
-  return (function (param) {
-      return param.decode(partial_arg ? partial_arg[0] : undefined, textDecoder);
-    });
+  return textDecoder.decode(input$1);
 }
 
 var TextDecoder = /* module */[/* decode */decode];
@@ -2927,12 +2453,9 @@ var Headers = /* module */[];
 
 var OESTextureHalfFloatLinear = /* module */[];
 
-function addModule(worklet, moduleURL, options, _) {
+function addModule(moduleURL, options, worklet) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      return param.addModule(moduleURL, partial_arg ? partial_arg[0] : undefined, worklet);
-    });
+  return worklet.addModule(moduleURL, options$1);
 }
 
 var Worklet = /* module */[/* addModule */addModule];
@@ -2959,31 +2482,22 @@ var GlobalCrypto = /* module */[];
 
 var Crypto = /* module */[];
 
-function setProperty(cSSStyleDeclaration, property, value, priority, _) {
+function setProperty(property, value, priority, cSSStyleDeclaration) {
   var priority$1 = Js_undefined.from_opt(priority);
-  var partial_arg = /* Some */[priority$1];
-  return (function (param) {
-      param.setProperty(property, value, partial_arg ? partial_arg[0] : undefined, cSSStyleDeclaration);
-      return /* () */0;
-    });
+  cSSStyleDeclaration.setProperty(property, value, priority$1);
+  return /* () */0;
 }
 
 var CSSStyleDeclaration = /* module */[/* setProperty */setProperty];
 
-function fromQuad(dOMQuad, other, _) {
+function fromQuad(other, dOMQuad) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.fromQuad(partial_arg ? partial_arg[0] : undefined, dOMQuad);
-    });
+  return dOMQuad.fromQuad(other$1);
 }
 
-function fromRect(dOMQuad, other, _) {
+function fromRect(other, dOMQuad) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.fromRect(partial_arg ? partial_arg[0] : undefined, dOMQuad);
-    });
+  return dOMQuad.fromRect(other$1);
 }
 
 var DOMQuad = /* module */[
@@ -3005,12 +2519,9 @@ function remove(tokens, dOMTokenList) {
   return func.apply(dOMTokenList, args);
 }
 
-function toggle(dOMTokenList, token, force, _) {
+function toggle(token, force, dOMTokenList) {
   var force$1 = Js_undefined.from_opt(force);
-  var partial_arg = /* Some */[force$1];
-  return (function (param) {
-      return +param.toggle(token, partial_arg ? partial_arg[0] : undefined, dOMTokenList);
-    });
+  return +dOMTokenList.toggle(token, force$1);
 }
 
 var DOMTokenList = /* module */[
@@ -3033,12 +2544,9 @@ var OESTextureFloatLinear = /* module */[];
 
 var WebGLShaderPrecisionFormat = /* module */[];
 
-function redirect(response, url, status, _) {
+function redirect(url, status, response) {
   var status$1 = Js_undefined.from_opt(status);
-  var partial_arg = /* Some */[status$1];
-  return (function (param) {
-      return param.redirect(url, partial_arg ? partial_arg[0] : undefined, response);
-    });
+  return response.redirect(url, status$1);
 }
 
 var Response = /* module */[/* redirect */redirect];
@@ -3054,12 +2562,9 @@ var VRStageParameters = /* module */[];
 
 var AbstractWorker = /* module */[];
 
-function addModule$1(testWorklet, moduleURL, options, _) {
+function addModule$1(moduleURL, options, testWorklet) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      return param.addModule(moduleURL, partial_arg ? partial_arg[0] : undefined, testWorklet);
-    });
+  return testWorklet.addModule(moduleURL, options$1);
 }
 
 var TestWorklet = /* module */[/* addModule */addModule$1];
@@ -3081,23 +2586,17 @@ var CSSRule = /* module */[
 
 function getCharacteristic(name, bluetoothUUID) {
   var name$1 = name[1];
-  return (function (param) {
-      return param.getCharacteristic(name$1, bluetoothUUID);
-    });
+  return bluetoothUUID.getCharacteristic(name$1);
 }
 
 function getDescriptor(name, bluetoothUUID) {
   var name$1 = name[1];
-  return (function (param) {
-      return param.getDescriptor(name$1, bluetoothUUID);
-    });
+  return bluetoothUUID.getDescriptor(name$1);
 }
 
 function getService(name, bluetoothUUID) {
   var name$1 = name[1];
-  return (function (param) {
-      return param.getService(name$1, bluetoothUUID);
-    });
+  return bluetoothUUID.getService(name$1);
 }
 
 var BluetoothUUID = /* module */[
@@ -3106,16 +2605,13 @@ var BluetoothUUID = /* module */[
   /* getService */getService
 ];
 
-function arc(canvasRenderingContext2D, x, y, radius, startAngle, endAngle, anticlockwise, _) {
+function arc(x, y, radius, startAngle, endAngle, anticlockwise, canvasRenderingContext2D) {
   var anticlockwise$1 = Js_undefined.from_opt(anticlockwise);
-  var partial_arg = /* Some */[anticlockwise$1];
-  return (function (param) {
-      param.arc(x, y, radius, startAngle, endAngle, partial_arg ? partial_arg[0] : undefined, canvasRenderingContext2D);
-      return /* () */0;
-    });
+  canvasRenderingContext2D.arc(x, y, radius, startAngle, endAngle, anticlockwise$1);
+  return /* () */0;
 }
 
-function clip(canvasRenderingContext2D, fillRule, _) {
+function clip(fillRule, canvasRenderingContext2D) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
   var fillRule$2 = fillRule$1;
   var canvasRenderingContext2D$1 = canvasRenderingContext2D;
@@ -3127,29 +2623,22 @@ function clip(canvasRenderingContext2D, fillRule, _) {
     }
   };
   var fillRule$3 = Js_undefined.bind(fillRule$2, conv_fillRule);
-  var partial_arg = /* Some */[fillRule$3];
-  return (function (param) {
-      param.clip(partial_arg ? partial_arg[0] : undefined, canvasRenderingContext2D$1);
-      return /* () */0;
-    });
+  canvasRenderingContext2D$1.clip(fillRule$3);
+  return /* () */0;
 }
 
 function createPattern(image, repetition, canvasRenderingContext2D) {
   var image$1 = image[1];
-  return (function (param) {
-      return param.createPattern(image$1, repetition, canvasRenderingContext2D);
-    });
+  return canvasRenderingContext2D.createPattern(image$1, repetition);
 }
 
 function drawImage(image, dx, dy, canvasRenderingContext2D) {
   var image$1 = image[1];
-  return (function (param) {
-      param.drawImage(image$1, dx, dy, canvasRenderingContext2D);
-      return /* () */0;
-    });
+  canvasRenderingContext2D.drawImage(image$1, dx, dy);
+  return /* () */0;
 }
 
-function fill(canvasRenderingContext2D, fillRule, _) {
+function fill(fillRule, canvasRenderingContext2D) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
   var fillRule$2 = fillRule$1;
   var canvasRenderingContext2D$1 = canvasRenderingContext2D;
@@ -3161,14 +2650,11 @@ function fill(canvasRenderingContext2D, fillRule, _) {
     }
   };
   var fillRule$3 = Js_undefined.bind(fillRule$2, conv_fillRule);
-  var partial_arg = /* Some */[fillRule$3];
-  return (function (param) {
-      param.fill(partial_arg ? partial_arg[0] : undefined, canvasRenderingContext2D$1);
-      return /* () */0;
-    });
+  canvasRenderingContext2D$1.fill(fillRule$3);
+  return /* () */0;
 }
 
-function isPointInPath(canvasRenderingContext2D, x, y, fillRule, _) {
+function isPointInPath(x, y, fillRule, canvasRenderingContext2D) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
   var x$1 = x;
   var y$1 = y;
@@ -3182,10 +2668,7 @@ function isPointInPath(canvasRenderingContext2D, x, y, fillRule, _) {
     }
   };
   var fillRule$3 = Js_undefined.bind(fillRule$2, conv_fillRule);
-  var partial_arg = /* Some */[fillRule$3];
-  return (function (param) {
-      return +param.isPointInPath(x$1, y$1, partial_arg ? partial_arg[0] : undefined, canvasRenderingContext2D$1);
-    });
+  return +canvasRenderingContext2D$1.isPointInPath(x$1, y$1, fillRule$3);
 }
 
 var CanvasRenderingContext2D = /* module */[
@@ -3207,9 +2690,7 @@ var CanvasImageSmoothing = /* module */[];
 
 function createPattern$1(image, repetition, canvasFillStrokeStyles) {
   var image$1 = image[1];
-  return (function (param) {
-      return param.createPattern(image$1, repetition, canvasFillStrokeStyles);
-    });
+  return canvasFillStrokeStyles.createPattern(image$1, repetition);
 }
 
 var CanvasFillStrokeStyles = /* module */[/* createPattern */createPattern$1];
@@ -3218,7 +2699,7 @@ var CanvasShadowStyles = /* module */[];
 
 var CanvasRect = /* module */[];
 
-function clip$1(canvasDrawPath, fillRule, _) {
+function clip$1(fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
   var fillRule$2 = fillRule$1;
   var canvasDrawPath$1 = canvasDrawPath;
@@ -3230,14 +2711,11 @@ function clip$1(canvasDrawPath, fillRule, _) {
     }
   };
   var fillRule$3 = Js_undefined.bind(fillRule$2, conv_fillRule);
-  var partial_arg = /* Some */[fillRule$3];
-  return (function (param) {
-      param.clip(partial_arg ? partial_arg[0] : undefined, canvasDrawPath$1);
-      return /* () */0;
-    });
+  canvasDrawPath$1.clip(fillRule$3);
+  return /* () */0;
 }
 
-function fill$1(canvasDrawPath, fillRule, _) {
+function fill$1(fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
   var fillRule$2 = fillRule$1;
   var canvasDrawPath$1 = canvasDrawPath;
@@ -3249,14 +2727,11 @@ function fill$1(canvasDrawPath, fillRule, _) {
     }
   };
   var fillRule$3 = Js_undefined.bind(fillRule$2, conv_fillRule);
-  var partial_arg = /* Some */[fillRule$3];
-  return (function (param) {
-      param.fill(partial_arg ? partial_arg[0] : undefined, canvasDrawPath$1);
-      return /* () */0;
-    });
+  canvasDrawPath$1.fill(fillRule$3);
+  return /* () */0;
 }
 
-function isPointInPath$1(canvasDrawPath, x, y, fillRule, _) {
+function isPointInPath$1(x, y, fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
   var x$1 = x;
   var y$1 = y;
@@ -3270,10 +2745,7 @@ function isPointInPath$1(canvasDrawPath, x, y, fillRule, _) {
     }
   };
   var fillRule$3 = Js_undefined.bind(fillRule$2, conv_fillRule);
-  var partial_arg = /* Some */[fillRule$3];
-  return (function (param) {
-      return +param.isPointInPath(x$1, y$1, partial_arg ? partial_arg[0] : undefined, canvasDrawPath$1);
-    });
+  return +canvasDrawPath$1.isPointInPath(x$1, y$1, fillRule$3);
 }
 
 var CanvasDrawPath = /* module */[
@@ -3288,10 +2760,8 @@ var CanvasText = /* module */[];
 
 function drawImage$1(image, dx, dy, canvasDrawImage) {
   var image$1 = image[1];
-  return (function (param) {
-      param.drawImage(image$1, dx, dy, canvasDrawImage);
-      return /* () */0;
-    });
+  canvasDrawImage.drawImage(image$1, dx, dy);
+  return /* () */0;
 }
 
 var CanvasDrawImage = /* module */[/* drawImage */drawImage$1];
@@ -3304,13 +2774,10 @@ var CanvasPathDrawingStyles = /* module */[];
 
 var CanvasTextDrawingStyles = /* module */[];
 
-function arc$1(canvasPath, x, y, radius, startAngle, endAngle, anticlockwise, _) {
+function arc$1(x, y, radius, startAngle, endAngle, anticlockwise, canvasPath) {
   var anticlockwise$1 = Js_undefined.from_opt(anticlockwise);
-  var partial_arg = /* Some */[anticlockwise$1];
-  return (function (param) {
-      param.arc(x, y, radius, startAngle, endAngle, partial_arg ? partial_arg[0] : undefined, canvasPath);
-      return /* () */0;
-    });
+  canvasPath.arc(x, y, radius, startAngle, endAngle, anticlockwise$1);
+  return /* () */0;
 }
 
 var CanvasPath = /* module */[/* arc */arc$1];
@@ -3327,13 +2794,10 @@ var MutationRecord = /* module */[];
 
 var Storage = /* module */[];
 
-function observe(mutationObserver, target, options, _) {
+function observe(target, options, mutationObserver) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      param.observe(target, partial_arg ? partial_arg[0] : undefined, mutationObserver);
-      return /* () */0;
-    });
+  mutationObserver.observe(target, options$1);
+  return /* () */0;
 }
 
 var MutationObserver = /* module */[/* observe */observe];
@@ -3342,12 +2806,9 @@ var TestBindingIterable = /* module */[];
 
 var ServiceEventHandlers = /* module */[];
 
-function encode(textEncoder, input, _) {
+function encode(input, textEncoder) {
   var input$1 = Js_undefined.from_opt(input);
-  var partial_arg = /* Some */[input$1];
-  return (function (param) {
-      return param.encode(partial_arg ? partial_arg[0] : undefined, textEncoder);
-    });
+  return textEncoder.encode(input$1);
 }
 
 var TextEncoder = /* module */[/* encode */encode];
@@ -3363,25 +2824,19 @@ var ValidityState = /* module */[];
 
 var WindowProxy = /* module */[];
 
-function $$clearInterval(windowTimers, handle, _) {
+function $$clearInterval(handle, windowTimers) {
   var handle$1 = Js_undefined.from_opt(handle);
-  var partial_arg = /* Some */[handle$1];
-  return (function (param) {
-      param.clearInterval(partial_arg ? partial_arg[0] : undefined, windowTimers);
-      return /* () */0;
-    });
+  windowTimers.clearInterval(handle$1);
+  return /* () */0;
 }
 
-function $$clearTimeout(windowTimers, handle, _) {
+function $$clearTimeout(handle, windowTimers) {
   var handle$1 = Js_undefined.from_opt(handle);
-  var partial_arg = /* Some */[handle$1];
-  return (function (param) {
-      param.clearTimeout(partial_arg ? partial_arg[0] : undefined, windowTimers);
-      return /* () */0;
-    });
+  windowTimers.clearTimeout(handle$1);
+  return /* () */0;
 }
 
-function $$setInterval(windowTimers, handler, timeout, $$arguments, _) {
+function $$setInterval(handler, timeout, $$arguments, windowTimers) {
   var timeout$1 = Js_undefined.from_opt(timeout);
   var handler$1 = handler;
   var timeout$2 = timeout$1;
@@ -3399,7 +2854,7 @@ function $$setInterval(windowTimers, handler, timeout, $$arguments, _) {
   return func.apply(windowTimers$2, args$2);
 }
 
-function $$setTimeout(windowTimers, handler, timeout, $$arguments, _) {
+function $$setTimeout(handler, timeout, $$arguments, windowTimers) {
   var timeout$1 = Js_undefined.from_opt(timeout);
   var handler$1 = handler;
   var timeout$2 = timeout$1;
@@ -3438,16 +2893,11 @@ var WindowEventHandlers = /* module */[];
 
 var DocumentAndElementEventHandlers = /* module */[];
 
-function slice(blob, start, end_, contentType, _) {
+function slice(start, end_, contentType, blob) {
   var start$1 = Js_undefined.from_opt(start);
   var end_$1 = Js_undefined.from_opt(end_);
   var contentType$1 = Js_undefined.from_opt(contentType);
-  var partial_arg = /* Some */[contentType$1];
-  var partial_arg$1 = /* Some */[end_$1];
-  var partial_arg$2 = /* Some */[start$1];
-  return (function (param) {
-      return param.slice(partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, blob);
-    });
+  return blob.slice(start$1, end_$1, contentType$1);
 }
 
 var Blob = /* module */[/* slice */slice];
@@ -3603,7 +3053,7 @@ var GamepadEvent = /* module */[
   /* bubbling_phase */3
 ];
 
-function add$1(hTMLOptionsCollection, element, before, _) {
+function add$1(element, before, hTMLOptionsCollection) {
   var before$1 = Js_undefined.from_opt(before);
   var element$1 = element;
   var before$2 = before$1;
@@ -3613,133 +3063,81 @@ function add$1(hTMLOptionsCollection, element, before, _) {
     return param[1];
   };
   var before$3 = Js_undefined.bind(before$2, conv_before);
-  var partial_arg = /* Some */[before$3];
-  return (function (param) {
-      param.add(element$2, partial_arg ? partial_arg[0] : undefined, hTMLOptionsCollection$1);
-      return /* () */0;
-    });
+  hTMLOptionsCollection$1.add(element$2, before$3);
+  return /* () */0;
 }
 
 var HTMLOptionsCollection = /* module */[/* add */add$1];
 
-function fromMatrix$1(dOMMatrix, other, _) {
+function fromMatrix$1(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.fromMatrix(partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.fromMatrix(other$1);
 }
 
-function multiplySelf(dOMMatrix, other, _) {
+function multiplySelf(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.multiplySelf(partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.multiplySelf(other$1);
 }
 
-function preMultiplySelf(dOMMatrix, other, _) {
+function preMultiplySelf(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
-  var partial_arg = /* Some */[other$1];
-  return (function (param) {
-      return param.preMultiplySelf(partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.preMultiplySelf(other$1);
 }
 
-function rotateAxisAngleSelf(dOMMatrix, x, y, z, angle, _) {
+function rotateAxisAngleSelf(x, y, z, angle, dOMMatrix) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
   var z$1 = Js_undefined.from_opt(z);
   var angle$1 = Js_undefined.from_opt(angle);
-  var partial_arg = /* Some */[angle$1];
-  var partial_arg$1 = /* Some */[z$1];
-  var partial_arg$2 = /* Some */[y$1];
-  var partial_arg$3 = /* Some */[x$1];
-  return (function (param) {
-      return param.rotateAxisAngleSelf(partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.rotateAxisAngleSelf(x$1, y$1, z$1, angle$1);
 }
 
-function rotateFromVectorSelf(dOMMatrix, x, y, _) {
+function rotateFromVectorSelf(x, y, dOMMatrix) {
   var x$1 = Js_undefined.from_opt(x);
   var y$1 = Js_undefined.from_opt(y);
-  var partial_arg = /* Some */[y$1];
-  var partial_arg$1 = /* Some */[x$1];
-  return (function (param) {
-      return param.rotateFromVectorSelf(partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.rotateFromVectorSelf(x$1, y$1);
 }
 
-function rotateSelf(dOMMatrix, rotX, rotY, rotZ, _) {
+function rotateSelf(rotX, rotY, rotZ, dOMMatrix) {
   var rotX$1 = Js_undefined.from_opt(rotX);
   var rotY$1 = Js_undefined.from_opt(rotY);
   var rotZ$1 = Js_undefined.from_opt(rotZ);
-  var partial_arg = /* Some */[rotZ$1];
-  var partial_arg$1 = /* Some */[rotY$1];
-  var partial_arg$2 = /* Some */[rotX$1];
-  return (function (param) {
-      return param.rotateSelf(partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.rotateSelf(rotX$1, rotY$1, rotZ$1);
 }
 
-function scale3dSelf(dOMMatrix, scale, originX, originY, originZ, _) {
+function scale3dSelf(scale, originX, originY, originZ, dOMMatrix) {
   var scale$1 = Js_undefined.from_opt(scale);
   var originX$1 = Js_undefined.from_opt(originX);
   var originY$1 = Js_undefined.from_opt(originY);
   var originZ$1 = Js_undefined.from_opt(originZ);
-  var partial_arg = /* Some */[originZ$1];
-  var partial_arg$1 = /* Some */[originY$1];
-  var partial_arg$2 = /* Some */[originX$1];
-  var partial_arg$3 = /* Some */[scale$1];
-  return (function (param) {
-      return param.scale3dSelf(partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.scale3dSelf(scale$1, originX$1, originY$1, originZ$1);
 }
 
-function scaleSelf(dOMMatrix, scaleX, scaleY, scaleZ, originX, originY, originZ, _) {
+function scaleSelf(scaleX, scaleY, scaleZ, originX, originY, originZ, dOMMatrix) {
   var scaleX$1 = Js_undefined.from_opt(scaleX);
   var scaleY$1 = Js_undefined.from_opt(scaleY);
   var scaleZ$1 = Js_undefined.from_opt(scaleZ);
   var originX$1 = Js_undefined.from_opt(originX);
   var originY$1 = Js_undefined.from_opt(originY);
   var originZ$1 = Js_undefined.from_opt(originZ);
-  var partial_arg = /* Some */[originZ$1];
-  var partial_arg$1 = /* Some */[originY$1];
-  var partial_arg$2 = /* Some */[originX$1];
-  var partial_arg$3 = /* Some */[scaleZ$1];
-  var partial_arg$4 = /* Some */[scaleY$1];
-  var partial_arg$5 = /* Some */[scaleX$1];
-  return (function (param) {
-      return param.scaleSelf(partial_arg$5 ? partial_arg$5[0] : undefined, partial_arg$4 ? partial_arg$4[0] : undefined, partial_arg$3 ? partial_arg$3[0] : undefined, partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.scaleSelf(scaleX$1, scaleY$1, scaleZ$1, originX$1, originY$1, originZ$1);
 }
 
-function skewXSelf(dOMMatrix, sx, _) {
+function skewXSelf(sx, dOMMatrix) {
   var sx$1 = Js_undefined.from_opt(sx);
-  var partial_arg = /* Some */[sx$1];
-  return (function (param) {
-      return param.skewXSelf(partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.skewXSelf(sx$1);
 }
 
-function skewYSelf(dOMMatrix, sy, _) {
+function skewYSelf(sy, dOMMatrix) {
   var sy$1 = Js_undefined.from_opt(sy);
-  var partial_arg = /* Some */[sy$1];
-  return (function (param) {
-      return param.skewYSelf(partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.skewYSelf(sy$1);
 }
 
-function translateSelf(dOMMatrix, tx, ty, tz, _) {
+function translateSelf(tx, ty, tz, dOMMatrix) {
   var tx$1 = Js_undefined.from_opt(tx);
   var ty$1 = Js_undefined.from_opt(ty);
   var tz$1 = Js_undefined.from_opt(tz);
-  var partial_arg = /* Some */[tz$1];
-  var partial_arg$1 = /* Some */[ty$1];
-  var partial_arg$2 = /* Some */[tx$1];
-  return (function (param) {
-      return param.translateSelf(partial_arg$2 ? partial_arg$2[0] : undefined, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, dOMMatrix);
-    });
+  return dOMMatrix.translateSelf(tx$1, ty$1, tz$1);
 }
 
 var DOMMatrix = /* module */[
@@ -3773,12 +3171,9 @@ var ServiceWorkerRegistration = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-function register(serviceWorkerContainer, scriptURL, options, _) {
+function register(scriptURL, options, serviceWorkerContainer) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      return param.register(scriptURL, partial_arg ? partial_arg[0] : undefined, serviceWorkerContainer);
-    });
+  return serviceWorkerContainer.register(scriptURL, options$1);
 }
 
 var ServiceWorkerContainer = /* module */[
@@ -3851,12 +3246,9 @@ var StorageEvent = /* module */[
   /* bubbling_phase */3
 ];
 
-function cloneNode(node, deep, _) {
+function cloneNode(deep, node) {
   var deep$1 = Js_undefined.from_opt(deep);
-  var partial_arg = /* Some */[deep$1];
-  return (function (param) {
-      return param.cloneNode(partial_arg ? partial_arg[0] : undefined, node);
-    });
+  return node.cloneNode(deep$1);
 }
 
 var Node = /* module */[
@@ -3906,9 +3298,7 @@ function getEyeParameters(whichEye, vRDisplay) {
     }
   };
   var whichEye$1 = conv_whichEye(whichEye);
-  return (function (param) {
-      return param.getEyeParameters(whichEye$1, vRDisplay);
-    });
+  return vRDisplay.getEyeParameters(whichEye$1);
 }
 
 var VRDisplay = /* module */[
@@ -3928,12 +3318,10 @@ var WebGLProgram = /* module */[];
 
 function getDescriptor$1(descriptor, bluetoothRemoteGATTCharacteristic) {
   var descriptor$1 = descriptor[1];
-  return (function (param) {
-      return param.getDescriptor(descriptor$1, bluetoothRemoteGATTCharacteristic);
-    });
+  return bluetoothRemoteGATTCharacteristic.getDescriptor(descriptor$1);
 }
 
-function getDescriptors(bluetoothRemoteGATTCharacteristic, descriptor, _) {
+function getDescriptors(descriptor, bluetoothRemoteGATTCharacteristic) {
   var descriptor$1 = Js_undefined.from_opt(descriptor);
   var descriptor$2 = descriptor$1;
   var bluetoothRemoteGATTCharacteristic$1 = bluetoothRemoteGATTCharacteristic;
@@ -3941,10 +3329,7 @@ function getDescriptors(bluetoothRemoteGATTCharacteristic, descriptor, _) {
     return param[1];
   };
   var descriptor$3 = Js_undefined.bind(descriptor$2, conv_descriptor);
-  var partial_arg = /* Some */[descriptor$3];
-  return (function (param) {
-      return param.getDescriptors(partial_arg ? partial_arg[0] : undefined, bluetoothRemoteGATTCharacteristic$1);
-    });
+  return bluetoothRemoteGATTCharacteristic$1.getDescriptors(descriptor$3);
 }
 
 var BluetoothRemoteGATTCharacteristic = /* module */[
@@ -4171,23 +3556,17 @@ var CloseEvent = /* module */[
   /* bubbling_phase */3
 ];
 
-function close(webSocket, code, reason, _) {
+function close(code, reason, webSocket) {
   var code$1 = Js_undefined.from_opt(code);
   var reason$1 = Js_undefined.from_opt(reason);
-  var partial_arg = /* Some */[reason$1];
-  var partial_arg$1 = /* Some */[code$1];
-  return (function (param) {
-      param.close(partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, webSocket);
-      return /* () */0;
-    });
+  webSocket.close(code$1, reason$1);
+  return /* () */0;
 }
 
 function send(data, webSocket) {
   var data$1 = data[1];
-  return (function (param) {
-      param.send(data$1, webSocket);
-      return /* () */0;
-    });
+  webSocket.send(data$1);
+  return /* () */0;
 }
 
 var WebSocket = /* module */[
@@ -4241,12 +3620,9 @@ var ProgressEvent = /* module */[
 
 var WebGLRenderbuffer = /* module */[];
 
-function requestDevice(bluetooth, options, _) {
+function requestDevice(options, bluetooth) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      return param.requestDevice(partial_arg ? partial_arg[0] : undefined, bluetooth);
-    });
+  return bluetooth.requestDevice(options$1);
 }
 
 var Bluetooth = /* module */[
@@ -4338,12 +3714,10 @@ var CSSGroupingRule = /* module */[
 
 function getCharacteristic$1(characteristic, bluetoothRemoteGATTService) {
   var characteristic$1 = characteristic[1];
-  return (function (param) {
-      return param.getCharacteristic(characteristic$1, bluetoothRemoteGATTService);
-    });
+  return bluetoothRemoteGATTService.getCharacteristic(characteristic$1);
 }
 
-function getCharacteristics(bluetoothRemoteGATTService, characteristic, _) {
+function getCharacteristics(characteristic, bluetoothRemoteGATTService) {
   var characteristic$1 = Js_undefined.from_opt(characteristic);
   var characteristic$2 = characteristic$1;
   var bluetoothRemoteGATTService$1 = bluetoothRemoteGATTService;
@@ -4351,20 +3725,15 @@ function getCharacteristics(bluetoothRemoteGATTService, characteristic, _) {
     return param[1];
   };
   var characteristic$3 = Js_undefined.bind(characteristic$2, conv_characteristic);
-  var partial_arg = /* Some */[characteristic$3];
-  return (function (param) {
-      return param.getCharacteristics(partial_arg ? partial_arg[0] : undefined, bluetoothRemoteGATTService$1);
-    });
+  return bluetoothRemoteGATTService$1.getCharacteristics(characteristic$3);
 }
 
 function getIncludedService(service, bluetoothRemoteGATTService) {
   var service$1 = service[1];
-  return (function (param) {
-      return param.getIncludedService(service$1, bluetoothRemoteGATTService);
-    });
+  return bluetoothRemoteGATTService.getIncludedService(service$1);
 }
 
-function getIncludedServices(bluetoothRemoteGATTService, service, _) {
+function getIncludedServices(service, bluetoothRemoteGATTService) {
   var service$1 = Js_undefined.from_opt(service);
   var service$2 = service$1;
   var bluetoothRemoteGATTService$1 = bluetoothRemoteGATTService;
@@ -4372,10 +3741,7 @@ function getIncludedServices(bluetoothRemoteGATTService, service, _) {
     return param[1];
   };
   var service$3 = Js_undefined.bind(service$2, conv_service);
-  var partial_arg = /* Some */[service$3];
-  return (function (param) {
-      return param.getIncludedServices(partial_arg ? partial_arg[0] : undefined, bluetoothRemoteGATTService$1);
-    });
+  return bluetoothRemoteGATTService$1.getIncludedServices(service$3);
 }
 
 var BluetoothRemoteGATTService = /* module */[
@@ -4389,13 +3755,10 @@ var BluetoothRemoteGATTService = /* module */[
 
 var WebGLTexture = /* module */[];
 
-function readAsText(fileReader, blob, label, _) {
+function readAsText(blob, label, fileReader) {
   var label$1 = Js_undefined.from_opt(label);
-  var partial_arg = /* Some */[label$1];
-  return (function (param) {
-      param.readAsText(blob, partial_arg ? partial_arg[0] : undefined, fileReader);
-      return /* () */0;
-    });
+  fileReader.readAsText(blob, label$1);
+  return /* () */0;
 }
 
 var FileReader = /* module */[
@@ -4460,7 +3823,7 @@ var XMLHttpRequestUpload = /* module */[
   /* removeEventListener */removeEventListener
 ];
 
-function send$1(xMLHttpRequest, data, _) {
+function send$1(data, xMLHttpRequest) {
   var data$1 = Js_undefined.from_opt(data);
   var data$2 = data$1;
   var xMLHttpRequest$1 = xMLHttpRequest;
@@ -4468,11 +3831,8 @@ function send$1(xMLHttpRequest, data, _) {
     return param[1];
   };
   var data$3 = Js_undefined.bind(data$2, conv_data);
-  var partial_arg = /* Some */[data$3];
-  return (function (param) {
-      param.send(partial_arg ? partial_arg[0] : undefined, xMLHttpRequest$1);
-      return /* () */0;
-    });
+  xMLHttpRequest$1.send(data$3);
+  return /* () */0;
 }
 
 var $$XMLHttpRequest = /* module */[
@@ -4668,30 +4028,20 @@ function append$3(nodes, $$document) {
   return func.apply($$document$1, args);
 }
 
-function createElement($$document, localName, options, _) {
+function createElement(localName, options, $$document) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      return param.createElement(localName, partial_arg ? partial_arg[0] : undefined, $$document);
-    });
+  return $$document.createElement(localName, options$1);
 }
 
-function createElementNS($$document, namespace, qualifiedName, options, _) {
+function createElementNS(namespace, qualifiedName, options, $$document) {
   var options$1 = Js_undefined.from_opt(options);
-  var partial_arg = /* Some */[options$1];
-  return (function (param) {
-      return param.createElementNS(namespace, qualifiedName, partial_arg ? partial_arg[0] : undefined, $$document);
-    });
+  return $$document.createElementNS(namespace, qualifiedName, options$1);
 }
 
-function createNodeIterator($$document, root, whatToShow, filter, _) {
+function createNodeIterator(root, whatToShow, filter, $$document) {
   var whatToShow$1 = Js_undefined.from_opt(whatToShow);
   var filter$1 = Js_undefined.from_opt(filter);
-  var partial_arg = /* Some */[filter$1];
-  var partial_arg$1 = /* Some */[whatToShow$1];
-  return (function (param) {
-      return param.createNodeIterator(root, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, $$document);
-    });
+  return $$document.createNodeIterator(root, whatToShow$1, filter$1);
 }
 
 function createTouchList(touches, $$document) {
@@ -4700,32 +4050,21 @@ function createTouchList(touches, $$document) {
   return func.apply($$document, args);
 }
 
-function createTreeWalker($$document, root, whatToShow, filter, _) {
+function createTreeWalker(root, whatToShow, filter, $$document) {
   var whatToShow$1 = Js_undefined.from_opt(whatToShow);
   var filter$1 = Js_undefined.from_opt(filter);
-  var partial_arg = /* Some */[filter$1];
-  var partial_arg$1 = /* Some */[whatToShow$1];
-  return (function (param) {
-      return param.createTreeWalker(root, partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, $$document);
-    });
+  return $$document.createTreeWalker(root, whatToShow$1, filter$1);
 }
 
-function importNode($$document, node, deep, _) {
+function importNode(node, deep, $$document) {
   var deep$1 = Js_undefined.from_opt(deep);
-  var partial_arg = /* Some */[deep$1];
-  return (function (param) {
-      return param.importNode(node, partial_arg ? partial_arg[0] : undefined, $$document);
-    });
+  return $$document.importNode(node, deep$1);
 }
 
-function open_($$document, type_, replace, _) {
+function open_(type_, replace, $$document) {
   var type_$1 = Js_undefined.from_opt(type_);
   var replace$1 = Js_undefined.from_opt(replace);
-  var partial_arg = /* Some */[replace$1];
-  var partial_arg$1 = /* Some */[type_$1];
-  return (function (param) {
-      return param.open(partial_arg$1 ? partial_arg$1[0] : undefined, partial_arg ? partial_arg[0] : undefined, $$document);
-    });
+  return $$document.open(type_$1, replace$1);
 }
 
 function prepend$2(nodes, $$document) {
@@ -4953,45 +4292,33 @@ var FocusEvent = /* module */[
   /* bubbling_phase */3
 ];
 
-function $$clearInterval$1($$window, handle, _) {
+function $$clearInterval$1(handle, $$window) {
   var handle$1 = Js_undefined.from_opt(handle);
-  var partial_arg = /* Some */[handle$1];
-  return (function (param) {
-      param.clearInterval(partial_arg ? partial_arg[0] : undefined, $$window);
-      return /* () */0;
-    });
+  $$window.clearInterval(handle$1);
+  return /* () */0;
 }
 
-function $$clearTimeout$1($$window, handle, _) {
+function $$clearTimeout$1(handle, $$window) {
   var handle$1 = Js_undefined.from_opt(handle);
-  var partial_arg = /* Some */[handle$1];
-  return (function (param) {
-      param.clearTimeout(partial_arg ? partial_arg[0] : undefined, $$window);
-      return /* () */0;
-    });
+  $$window.clearTimeout(handle$1);
+  return /* () */0;
 }
 
-function fetch$1($$window, input, init, _) {
+function fetch$1(input, init, $$window) {
   var init$1 = Js_undefined.from_opt(init);
   var input$1 = input;
   var init$2 = init$1;
   var $$window$1 = $$window;
   var input$2 = input$1[1];
-  var partial_arg = /* Some */[init$2];
-  return (function (param) {
-      return param.fetch(input$2, partial_arg ? partial_arg[0] : undefined, $$window$1);
-    });
+  return $$window$1.fetch(input$2, init$2);
 }
 
-function getComputedStyle($$window, elt, pseudoElt, _) {
+function getComputedStyle(elt, pseudoElt, $$window) {
   var pseudoElt$1 = Js_undefined.from_opt(pseudoElt);
-  var partial_arg = /* Some */[pseudoElt$1];
-  return (function (param) {
-      return param.getComputedStyle(elt, partial_arg ? partial_arg[0] : undefined, $$window);
-    });
+  return $$window.getComputedStyle(elt, pseudoElt$1);
 }
 
-function $$setInterval$1($$window, handler, timeout, $$arguments, _) {
+function $$setInterval$1(handler, timeout, $$arguments, $$window) {
   var timeout$1 = Js_undefined.from_opt(timeout);
   var handler$1 = handler;
   var timeout$2 = timeout$1;
@@ -5009,7 +4336,7 @@ function $$setInterval$1($$window, handler, timeout, $$arguments, _) {
   return func.apply($$window$2, args$2);
 }
 
-function $$setTimeout$1($$window, handler, timeout, $$arguments, _) {
+function $$setTimeout$1(handler, timeout, $$arguments, $$window) {
   var timeout$1 = Js_undefined.from_opt(timeout);
   var handler$1 = handler;
   var timeout$2 = timeout$1;
@@ -5027,13 +4354,10 @@ function $$setTimeout$1($$window, handler, timeout, $$arguments, _) {
   return func.apply($$window$2, args$2);
 }
 
-function webdriverCallback($$window, result, _) {
+function webdriverCallback(result, $$window) {
   var result$1 = Js_undefined.from_opt(result);
-  var partial_arg = /* Some */[result$1];
-  return (function (param) {
-      param.webdriverCallback(partial_arg ? partial_arg[0] : undefined, $$window);
-      return /* () */0;
-    });
+  $$window.webdriverCallback(result$1);
+  return /* () */0;
 }
 
 var Window = /* module */[
@@ -5048,34 +4372,25 @@ var Window = /* module */[
   /* webdriverCallback */webdriverCallback
 ];
 
-function $$clearInterval$2(workerGlobalScope, handle, _) {
+function $$clearInterval$2(handle, workerGlobalScope) {
   var handle$1 = Js_undefined.from_opt(handle);
-  var partial_arg = /* Some */[handle$1];
-  return (function (param) {
-      param.clearInterval(partial_arg ? partial_arg[0] : undefined, workerGlobalScope);
-      return /* () */0;
-    });
+  workerGlobalScope.clearInterval(handle$1);
+  return /* () */0;
 }
 
-function $$clearTimeout$2(workerGlobalScope, handle, _) {
+function $$clearTimeout$2(handle, workerGlobalScope) {
   var handle$1 = Js_undefined.from_opt(handle);
-  var partial_arg = /* Some */[handle$1];
-  return (function (param) {
-      param.clearTimeout(partial_arg ? partial_arg[0] : undefined, workerGlobalScope);
-      return /* () */0;
-    });
+  workerGlobalScope.clearTimeout(handle$1);
+  return /* () */0;
 }
 
-function fetch$2(workerGlobalScope, input, init, _) {
+function fetch$2(input, init, workerGlobalScope) {
   var init$1 = Js_undefined.from_opt(init);
   var input$1 = input;
   var init$2 = init$1;
   var workerGlobalScope$1 = workerGlobalScope;
   var input$2 = input$1[1];
-  var partial_arg = /* Some */[init$2];
-  return (function (param) {
-      return param.fetch(input$2, partial_arg ? partial_arg[0] : undefined, workerGlobalScope$1);
-    });
+  return workerGlobalScope$1.fetch(input$2, init$2);
 }
 
 function importScripts(urls, workerGlobalScope) {
@@ -5084,7 +4399,7 @@ function importScripts(urls, workerGlobalScope) {
   return func.apply(workerGlobalScope, args);
 }
 
-function $$setInterval$2(workerGlobalScope, handler, timeout, $$arguments, _) {
+function $$setInterval$2(handler, timeout, $$arguments, workerGlobalScope) {
   var timeout$1 = Js_undefined.from_opt(timeout);
   var handler$1 = handler;
   var timeout$2 = timeout$1;
@@ -5102,7 +4417,7 @@ function $$setInterval$2(workerGlobalScope, handler, timeout, $$arguments, _) {
   return func.apply(workerGlobalScope$2, args$2);
 }
 
-function $$setTimeout$2(workerGlobalScope, handler, timeout, $$arguments, _) {
+function $$setTimeout$2(handler, timeout, $$arguments, workerGlobalScope) {
   var timeout$1 = Js_undefined.from_opt(timeout);
   var handler$1 = handler;
   var timeout$2 = timeout$1;
@@ -5382,13 +4697,10 @@ var KeyboardEventInit = /* module */[];
 
 var MouseEventInit = /* module */[];
 
-function reload$2(hTMLIFrameElement, hardReload, _) {
+function reload$2(hardReload, hTMLIFrameElement) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
-  var partial_arg = /* Some */[hardReload$1];
-  return (function (param) {
-      param.reload(partial_arg ? partial_arg[0] : undefined, hTMLIFrameElement);
-      return /* () */0;
-    });
+  hTMLIFrameElement.reload(hardReload$1);
+  return /* () */0;
 }
 
 var HTMLIFrameElement = /* module */[
@@ -5981,12 +5293,9 @@ var HTMLTimeElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function insertRow(hTMLTableSectionElement, index, _) {
+function insertRow(index, hTMLTableSectionElement) {
   var index$1 = Js_undefined.from_opt(index);
-  var partial_arg = /* Some */[index$1];
-  return (function (param) {
-      return param.insertRow(partial_arg ? partial_arg[0] : undefined, hTMLTableSectionElement);
-    });
+  return hTMLTableSectionElement.insertRow(index$1);
 }
 
 var HTMLTableSectionElement = /* module */[
@@ -6396,7 +5705,7 @@ var HTMLOListElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function add$2(hTMLSelectElement, element, before, _) {
+function add$2(element, before, hTMLSelectElement) {
   var before$1 = Js_undefined.from_opt(before);
   var element$1 = element;
   var before$2 = before$1;
@@ -6406,11 +5715,8 @@ function add$2(hTMLSelectElement, element, before, _) {
     return param[1];
   };
   var before$3 = Js_undefined.bind(before$2, conv_before);
-  var partial_arg = /* Some */[before$3];
-  return (function (param) {
-      param.add(element$2, partial_arg ? partial_arg[0] : undefined, hTMLSelectElement$1);
-      return /* () */0;
-    });
+  hTMLSelectElement$1.add(element$2, before$3);
+  return /* () */0;
 }
 
 var HTMLSelectElement = /* module */[
@@ -6588,13 +5894,10 @@ var HTMLHRElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function setSelectionRange(hTMLTextAreaElement, start, end_, direction, _) {
+function setSelectionRange(start, end_, direction, hTMLTextAreaElement) {
   var direction$1 = Js_undefined.from_opt(direction);
-  var partial_arg = /* Some */[direction$1];
-  return (function (param) {
-      param.setSelectionRange(start, end_, partial_arg ? partial_arg[0] : undefined, hTMLTextAreaElement);
-      return /* () */0;
-    });
+  hTMLTextAreaElement.setSelectionRange(start, end_, direction$1);
+  return /* () */0;
 }
 
 var HTMLTextAreaElement = /* module */[
@@ -6801,13 +6104,10 @@ var HTMLDirectoryElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function setSelectionRange$1(hTMLInputElement, start, end_, direction, _) {
+function setSelectionRange$1(start, end_, direction, hTMLInputElement) {
   var direction$1 = Js_undefined.from_opt(direction);
-  var partial_arg = /* Some */[direction$1];
-  return (function (param) {
-      param.setSelectionRange(start, end_, partial_arg ? partial_arg[0] : undefined, hTMLInputElement);
-      return /* () */0;
-    });
+  hTMLInputElement.setSelectionRange(start, end_, direction$1);
+  return /* () */0;
 }
 
 var HTMLInputElement = /* module */[
@@ -6992,11 +6292,11 @@ function getContext(contextId, $$arguments, hTMLCanvasElement) {
   return func.apply(hTMLCanvasElement, args$1);
 }
 
-function getContext$1(hTMLCanvasElement, contextId, $$arguments, _) {
+function getContext$1(contextId, $$arguments, hTMLCanvasElement) {
   return Js_primitive.null_to_opt(getContext(contextId, $$arguments, hTMLCanvasElement));
 }
 
-function toDataURL(hTMLCanvasElement, type_, $$arguments, _) {
+function toDataURL(type_, $$arguments, hTMLCanvasElement) {
   var type_$1 = Js_undefined.from_opt(type_);
   var type_$2 = type_$1;
   var $$arguments$1 = $$arguments;
@@ -7067,12 +6367,9 @@ var HTMLTrackElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function insertCell(hTMLTableRowElement, index, _) {
+function insertCell(index, hTMLTableRowElement) {
   var index$1 = Js_undefined.from_opt(index);
-  var partial_arg = /* Some */[index$1];
-  return (function (param) {
-      return param.insertCell(partial_arg ? partial_arg[0] : undefined, hTMLTableRowElement);
-    });
+  return hTMLTableRowElement.insertCell(index$1);
 }
 
 var HTMLTableRowElement = /* module */[
@@ -7163,13 +6460,10 @@ var HTMLAppletElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function close$1(hTMLDialogElement, returnValue, _) {
+function close$1(returnValue, hTMLDialogElement) {
   var returnValue$1 = Js_undefined.from_opt(returnValue);
-  var partial_arg = /* Some */[returnValue$1];
-  return (function (param) {
-      param.close(partial_arg ? partial_arg[0] : undefined, hTMLDialogElement);
-      return /* () */0;
-    });
+  hTMLDialogElement.close(returnValue$1);
+  return /* () */0;
 }
 
 var HTMLDialogElement = /* module */[
@@ -7347,12 +6641,9 @@ var HTMLTableCellElement = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
-function insertRow$1(hTMLTableElement, index, _) {
+function insertRow$1(index, hTMLTableElement) {
   var index$1 = Js_undefined.from_opt(index);
-  var partial_arg = /* Some */[index$1];
-  return (function (param) {
-      return param.insertRow(partial_arg ? partial_arg[0] : undefined, hTMLTableElement);
-    });
+  return hTMLTableElement.insertRow(index$1);
 }
 
 var HTMLTableElement = /* module */[

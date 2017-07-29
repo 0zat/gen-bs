@@ -52,7 +52,8 @@ module Print = struct
 
   let print_args args = 
     List.map print_arg args
-    |> String.concat " -> "
+    |> List.map (fun x -> x ^ " -> ")
+    |> String.concat ""
 
   let print_return_annot = function
     | Null_to_opt -> "[@@bs.return null_to_opt]"
@@ -79,7 +80,7 @@ module Print = struct
     |> String.concat " " 
 
   let print_func ext_func =
-    Printf.sprintf "external %s : %s -> %s = \"%s\" %s"
+    Printf.sprintf "external %s : %s %s = \"%s\" %s"
       (to_string ext_func.name)
       (print_args ext_func.args)
       (Bs_type.print ext_func.return_type)

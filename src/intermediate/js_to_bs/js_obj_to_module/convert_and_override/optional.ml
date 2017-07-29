@@ -41,8 +41,8 @@ module Let_expr = struct
     | `Variadic -> to_label js_arg.name
 
   let to_def_args owner_name js_args =
-    (to_label owner_name) :: (List.map to_def_arg js_args) @ [`Unit]
-
+    (List.map to_def_arg js_args) @ [to_nolabel owner_name]
+    
   let rec convert_return type_ =
     let rec convert_return_type type_ =
       match (type_: Js.type_) with
