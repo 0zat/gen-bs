@@ -16,8 +16,9 @@ let meth_to_arg js_meth =
   to_label_arg js_meth.name (`Func(args @ [return_type]))
 
 let to_constr name args =
+  let open Js_obj_to_typedef in
   let args = args @ [No_label(`Unit)] in
-  let return_type = Bs_type.to_ident name in
+  let return_type = Bs_type.to_ident (make_ident_name name) in
   Bs_external.(to_external_expr "make" args return_type "" [Obj])
 
 let rec gather_inherits ans all_objs name =

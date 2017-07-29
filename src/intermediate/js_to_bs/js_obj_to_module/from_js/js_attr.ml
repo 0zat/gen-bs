@@ -3,6 +3,7 @@ open Js_type
 open Bs_external
 
 let to_getter owner type_ action = 
+  let action = if action = "" then "get" else action in
   let return_type, return_annot = to_return type_ in
   let annot = [Get; return_annot] in
   to_external_expr action [owner] return_type action annot 

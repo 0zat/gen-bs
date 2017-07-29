@@ -13,14 +13,15 @@ let rec to_bs_type return_or_arg : Js.type_ -> Bs_type.type_ = function
   | `Enum enum -> `String
   | `Promise type_ -> `Promise(to_bs_type return_or_arg type_)
   | `Obj name ->
+    let open Js_obj_to_typedef in
     begin match return_or_arg with
-      | `Return -> to_ident name
-      | `Arg -> to_ident ~variables:[`Underbar] (name ^ "_like")
+      | `Return -> to_ident (make_ident_name name)
+      | `Arg -> to_ident ~variables:[`Underbar] (make_like_name name)
     end
   | #Bs_type.buffer as buffer -> buffer
   | `Union _ -> `Any
   | `Callback(type_, types) ->  `Func((List.map (to_bs_type return_or_arg) types) @ [ to_bs_type return_or_arg type_])
-  
+
 (* replace only toplevel boolean*)
 let replace_boolean = function
   | `Js_boolean -> `Ocaml_bool
@@ -37,13 +38,14 @@ let remove_null_undef =
   | type_ -> type_, (Return Identity)
 
 let to_return type_ = 
-    let type_ = to_bs_type `Return type_ in
-    let type_, annot = remove_null_undef type_ in
-    replace_boolean type_, annot
+  let type_ = to_bs_type `Return type_ in
+  let type_, annot = remove_null_undef type_ in
+  replace_boolean type_, annot
 
 let to_arg_type = to_bs_type `Arg
 
 let to_attr_type =  to_bs_type `Return
 
 let to_owner_type name = 
-  to_ident ~variables:[to_variable "own"] (name ^ "_like")
+  let open Js_obj_to_typedef in
+  to_ident ~variables:[to_variable "own"] (make_like_name name)

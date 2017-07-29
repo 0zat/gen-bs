@@ -13,7 +13,7 @@ type primitive = [
 type constant = [
   | `Int of int
   | `Float of float
-  | `Boolean of bool
+  | `Bool of bool
   | `Null
 ]
 

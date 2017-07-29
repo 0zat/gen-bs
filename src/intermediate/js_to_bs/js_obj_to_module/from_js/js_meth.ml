@@ -43,7 +43,7 @@ let to_accessor owner_name (meth: js_meth) special =
     | `Deleter -> "delete",   (owner :: args) , Get_index
   in
   to_external_expr
-    meth.name 
+    name 
     args
     return_type 
     action 
