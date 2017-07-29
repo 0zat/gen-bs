@@ -68,7 +68,7 @@ let to_eval_origilal owner_name (js_meth: js_meth) =
   let args = List.map to_label arg_names in
   let owner = to_label owner_name in
   let meth = to_eval_ident js_meth.name in
-  (meth :: owner :: args)
+  (meth :: args @ [owner])
 
 let make_let_content conf owner_name (js_meth: js_meth) =
   let arg_to_code (arg: js_arg) = 
@@ -103,7 +103,7 @@ let make_let_content conf owner_name (js_meth: js_meth) =
 
 let make_def conf owner_name (js_meth: js_meth) =
   let lets, eval = make_let_content conf owner_name js_meth in
-  let arg_names = owner_name :: (args_to_names js_meth.args) in
+  let arg_names = (args_to_names js_meth.args) @ [owner_name] in
   let args = List.map to_label arg_names in
   to_let_def js_meth.name args lets eval
 

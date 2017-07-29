@@ -3,10 +3,9 @@ open Js
 module From_meth = struct
 
   let to_external owner_name js_meth =
-    let owner = Js_args.to_owner_arg owner_name in
     let external_candidates = [
       Variadic.to_external_if_variadic owner_name js_meth ;
-      Some(Js_meth.to_external owner js_meth)
+      Some(Js_meth.to_external owner_name js_meth)
     ]
     in
     List.find BatOption.is_some external_candidates 

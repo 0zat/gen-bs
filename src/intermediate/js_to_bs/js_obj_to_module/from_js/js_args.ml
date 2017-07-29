@@ -21,5 +21,6 @@ let to_bs_args args =
   List.map to_bs_arg args
 
 let to_owner_arg name =  
-  let obj = to_bs_type `Arg (`Obj name) in
+  let obj = to_owner_type name in
   to_label_arg name obj
+  

@@ -36,7 +36,7 @@ module External_expr = struct
       |> List.map (Js_type.to_bs_type `Arg) 
       |> args_to_tuple
     in
-    let owner_type = Js_type.to_bs_type `Arg (`Obj owner_name) in 
+    let owner_type = Js_type.to_owner_type owner_name in 
     Bs_type.to_ident ~variables:[owner_type; return_type; arg_types]  "variadic_func"
 
   let to_external owner_name (meth: js_meth) =  
@@ -85,7 +85,7 @@ module Let_expr = struct
     let meth_name = js_meth.name in
     let let_lines = make_let_lines owner_name js_meth in
     let eval_line = make_eval owner_name in
-    to_let_def meth_name (owner :: args) let_lines eval_line
+    to_let_def meth_name (args @ [owner]) let_lines eval_line
 
 end
 
