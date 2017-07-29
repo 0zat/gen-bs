@@ -32,11 +32,11 @@ gen_bs.byte -dir test/servo_idl > servo_dom.ml
     * same as http://bucklescript.github.io/bucklescript/api/Dom.html
 * Variadic argument is converted to Array type
 * argguments are labbeled
-  * a method which has optional argument has unit argument at the last of arguments
 * enum, union, variadic is implemented by defining the same name function and convert argument and return value.
 * overloaded methods are converted to 1 function
   * if converting argument to union is acceptable, then do it
   * else choose 1 method whose argument is longest
+* constants are defined by lowercase
 * example
 
 |Web IDL|BuckleScript|
@@ -45,7 +45,9 @@ gen_bs.byte -dir test/servo_idl > servo_dom.ml
 |`(long or DOMString)`| \[\`Int of int \| \`String of string\] |
 |`interface sample{  }` | `type sample ... module Sample = ...`|
 |`long...`|`int array`|
-|`long method_a(optional long arg)`|`let method_a ?arg () =`|
+|`long method_a(optional long arg, ...)`|`let method_a ?arg ... =`|
+|`const VALUE=1`| `let value = 1`|
+
 # Note
 * This tool is experimental
 * although BucklScript has DOM type definitions, this tool does not associate generated types with those types.
