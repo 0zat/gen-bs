@@ -23,8 +23,8 @@ gen_bs.byte -dir test/servo_idl > servo_dom.ml
 ```
 
 # Generated code usage
-* Please see [sample](https://github.com/0zat/gen-bs/blob/master/test/test.ml) which uses servo_dom.ml generated from [servo](https://github.com/servo/servo)
-  * using getElementById, Performance API, SetTimeout
+* Please see [firework example](https://github.com/0zat/gen-bs/tree/master/example/firework) which uses servo_dom.ml generated from [servo](https://github.com/servo/servo)
+  * you can see the result page at https://0zat.github.io/gen-bs/
 * Enum type is converted to polymorphic variant type  
 * Union type is converted to polymorphic variant type
 * Web IDL which mapped to Javascript object is converted to an abstract type and module
