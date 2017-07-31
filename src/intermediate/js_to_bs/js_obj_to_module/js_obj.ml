@@ -39,6 +39,9 @@ let to_module make_constr js_obj =
   let constants =
     List.map Js_const.to_let js_obj.constants
   in
+  let casts =
+    [Cast.make_downcast js_obj.name]
+  in
   let constr = 
     match make_constr with
     | None -> []
@@ -48,7 +51,7 @@ let to_module make_constr js_obj =
     ~name: js_obj.name
     ~includes: js_obj.inherits
     ~ext_defs: (constr @ attr_externals @ meth_externals)
-    ~let_defs: (constants @ meth_lets)
+    ~let_defs: (casts @ constants @ meth_lets)
 
 let to_modules ?make_constr js_objs = 
   List.map (to_module make_constr) js_objs

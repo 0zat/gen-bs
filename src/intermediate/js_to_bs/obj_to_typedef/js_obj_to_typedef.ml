@@ -1,5 +1,4 @@
 open Bs_type
-open Outside_types
 open Js
 
 let make_ident_name name =
