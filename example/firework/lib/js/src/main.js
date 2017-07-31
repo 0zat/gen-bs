@@ -11,7 +11,7 @@ var Draw_objects = require("./draw_objects.js");
 
 var match = document.getElementById("canvas");
 
-var canvas = match !== null ? match : Pervasives.failwith("canvas is not found");
+var canvas = match !== null ? Servo_dom.Element[/* downcast */21](match) : Pervasives.failwith("canvas is not found");
 
 var match$1 = Servo_dom.HTMLCanvasElement[/* getContext */27]("2d", /* array */[], canvas);
 
