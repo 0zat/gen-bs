@@ -15,6 +15,7 @@ type eval = [
   | `Int of int
   | `Float of float
   | `Bool of bool
+  | `Ident_with_type of uncapital Bs_str.t * type_
 ]
 
 type eval_line = eval list
@@ -50,7 +51,7 @@ module Print = struct
       asprintf "`%s (%s: %s)" v i (Bs_type.print t)
     | String s -> asprintf "\"%s\"" s
 
-  let print_eval ppf eval =
+  let rec print_eval ppf eval =
     match (eval: eval) with
     | `Int i -> fprintf ppf "%i" i
     | `Float f -> fprintf ppf "%f" f
@@ -58,6 +59,7 @@ module Print = struct
     | `Variant v -> fprintf ppf "`%s" v
     | `String s -> fprintf ppf "\"%s\"" s
     | `Label l -> fprintf ppf "~%s" (to_string l)
+    | `Ident_with_type(i, t) -> fprintf ppf "(%s:%s)" (to_string i) (Bs_type.print t)
     | `Ident(modules, ident) ->
       let ident = to_string ident in
       if BatList.is_empty modules then
@@ -93,12 +95,12 @@ module Print = struct
     | `Optional o -> asprintf "?%s" (to_string o)
     | `Nolabel n -> to_string n
 
-    let print_t ppf t =
-      fprintf ppf "@[<v 2>let %s %s =@,%a@,@[<h>%a@]@]@,"
-        (to_string t.ident)
-        (List.map print_arg t.args |> String.concat " ")
-        (pp_print_list print_let_line) t.let_lines
-        (pp_print_list ~pp_sep:pp_print_space print_eval) t.eval_line
+  let print_t ppf t =
+    fprintf ppf "@[<v 2>let %s %s =@,%a@,@[<h>%a@]@]@,"
+      (to_string t.ident)
+      (List.map print_arg t.args |> String.concat " ")
+      (pp_print_list print_let_line) t.let_lines
+      (pp_print_list ~pp_sep:pp_print_space print_eval) t.eval_line
 
 end
 
@@ -119,6 +121,10 @@ module Construct = struct
     let modules = List.map to_capital modules in
     let ident = to_uncapital ident in
     `Ident(modules, ident)
+
+  let to_eval_ident_with_type ident type_ = 
+    let ident = to_uncapital ident in
+    `Ident_with_type(ident, type_)
 
   let to_eval_label ident =
     `Label(to_uncapital ident)

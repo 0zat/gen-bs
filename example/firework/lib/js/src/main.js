@@ -13,7 +13,7 @@ var match = document.getElementById("canvas");
 
 var canvas = match !== null ? match : Pervasives.failwith("canvas is not found");
 
-var match$1 = Servo_dom.HTMLCanvasElement[/* getContext */26]("2d", /* array */[], canvas);
+var match$1 = Servo_dom.HTMLCanvasElement[/* getContext */27]("2d", /* array */[], canvas);
 
 var ctx = match$1 ? match$1[0] : Pervasives.failwith("canvas is not supported");
 

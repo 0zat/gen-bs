@@ -1,3 +1,4 @@
 true: package(webidl),package(batteries), bin_annot, debug
 <src/**>: include
-
+<example/**>: -traverse
+<test/**>: -traverse

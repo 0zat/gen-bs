@@ -1,8 +1,8 @@
-bs_package_flags = -bs-package-name my-first-app
-src_root_dir = /home/zat/code/servo_dom
+bs_package_flags = -bs-package-name firework
+src_root_dir = /home/zat/code/gen-bs/example/firework
 bsc = /usr/local/lib/node_modules/bs-platform/bin/bsc.exe
 bsdep = /usr/local/lib/node_modules/bs-platform/bin/bsb_helper.exe
-bsc_flags = -nostdlib -I '/home/zat/code/servo_dom/node_modules/bs-platform/lib/ocaml' -no-alias-deps -color always -w -40+6+7+27+32..39+44+45
+bsc_flags = -nostdlib -I '/home/zat/code/gen-bs/example/firework/node_modules/bs-platform/lib/ocaml' -no-alias-deps -color always -w -40+6+7+27+32..39+44+45
 ppx_flags = 
 bs_package_includes = 
 bs_package_dev_includes = 

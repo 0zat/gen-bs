@@ -8,7 +8,7 @@ external console : _console = "" [@@bs.val]
 let canvas: _HTMLCanvasElement = 
   match Document.getElementById "canvas" document with
   | None -> failwith "canvas is not found"
-  | Some s -> (Obj.magic s)
+  | Some s -> (Element.downcast s)
 
 let ctx = 
   match HTMLCanvasElement.getContext "2d" [||] canvas with

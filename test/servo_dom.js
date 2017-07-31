@@ -39,6 +39,10 @@ function identity(x) {
   return x;
 }
 
+function downcast(x) {
+  return x;
+}
+
 function assert_(condition, message, $$console) {
   var message$1 = Js_undefined.from_opt(message);
   $$console.assert(condition, message$1);
@@ -76,6 +80,7 @@ function warn(messages, $$console) {
 }
 
 var Console = /* module */[
+  /* downcast */downcast,
   /* assert_ */assert_,
   /* debug */debug,
   /* error */error,
@@ -84,7 +89,15 @@ var Console = /* module */[
   /* warn */warn
 ];
 
-var Performance = /* module */[];
+function downcast$1(x) {
+  return x;
+}
+
+var Performance = /* module */[/* downcast */downcast$1];
+
+function downcast$2(x) {
+  return x;
+}
 
 function define(name, constructor_, options, customElementRegistry) {
   var options$1 = Js_undefined.from_opt(options);
@@ -92,17 +105,44 @@ function define(name, constructor_, options, customElementRegistry) {
   return /* () */0;
 }
 
-var CustomElementRegistry = /* module */[/* define */define];
+var CustomElementRegistry = /* module */[
+  /* downcast */downcast$2,
+  /* define */define
+];
 
-var GamepadList = /* module */[];
+function downcast$3(x) {
+  return x;
+}
 
-var URLSearchParams = /* module */[];
+var GamepadList = /* module */[/* downcast */downcast$3];
 
-var GamepadButton = /* module */[];
+function downcast$4(x) {
+  return x;
+}
 
-var ElementContentEditable = /* module */[];
+var URLSearchParams = /* module */[/* downcast */downcast$4];
 
-var MimeTypeArray = /* module */[];
+function downcast$5(x) {
+  return x;
+}
+
+var GamepadButton = /* module */[/* downcast */downcast$5];
+
+function downcast$6(x) {
+  return x;
+}
+
+var ElementContentEditable = /* module */[/* downcast */downcast$6];
+
+function downcast$7(x) {
+  return x;
+}
+
+var MimeTypeArray = /* module */[/* downcast */downcast$7];
+
+function downcast$8(x) {
+  return x;
+}
 
 function append(name, value, filename, formData) {
   var filename$1 = Js_undefined.from_opt(filename);
@@ -117,11 +157,20 @@ function set(name, value, filename, formData) {
 }
 
 var FormData = /* module */[
+  /* downcast */downcast$8,
   /* append */append,
   /* set */set
 ];
 
-var TreeWalker = /* module */[];
+function downcast$9(x) {
+  return x;
+}
+
+var TreeWalker = /* module */[/* downcast */downcast$9];
+
+function downcast$10(x) {
+  return x;
+}
 
 function fromMatrix(other, dOMMatrixReadOnly) {
   var other$1 = Js_undefined.from_opt(other);
@@ -195,6 +244,7 @@ function translate(tx, ty, tz, dOMMatrixReadOnly) {
 }
 
 var DOMMatrixReadOnly = /* module */[
+  /* downcast */downcast$10,
   /* fromMatrix */fromMatrix,
   /* multiply */multiply,
   /* rotate */rotate,
@@ -207,6 +257,10 @@ var DOMMatrixReadOnly = /* module */[
   /* transformPoint */transformPoint,
   /* translate */translate
 ];
+
+function downcast$11(x) {
+  return x;
+}
 
 function append$1(nodes, parentNode) {
   var conv_nodes = function (param) {
@@ -233,9 +287,14 @@ function prepend(nodes, parentNode) {
 }
 
 var ParentNode = /* module */[
+  /* downcast */downcast$11,
   /* append */append$1,
   /* prepend */prepend
 ];
+
+function downcast$12(x) {
+  return x;
+}
 
 function collapse(toStart, range) {
   var toStart$1 = Js_undefined.from_opt(toStart);
@@ -244,12 +303,17 @@ function collapse(toStart, range) {
 }
 
 var Range = /* module */[
+  /* downcast */downcast$12,
   /* _START_TO_START */0,
   /* _START_TO_END */1,
   /* _END_TO_END */2,
   /* _END_TO_START */3,
   /* collapse */collapse
 ];
+
+function downcast$13(x) {
+  return x;
+}
 
 function fetch(input, init, windowOrWorkerGlobalScope) {
   var init$1 = Js_undefined.from_opt(init);
@@ -260,17 +324,50 @@ function fetch(input, init, windowOrWorkerGlobalScope) {
   return windowOrWorkerGlobalScope$1.fetch(input$2, init$2);
 }
 
-var WindowOrWorkerGlobalScope = /* module */[/* fetch */fetch];
+var WindowOrWorkerGlobalScope = /* module */[
+  /* downcast */downcast$13,
+  /* fetch */fetch
+];
 
-var VREyeParameters = /* module */[];
+function downcast$14(x) {
+  return x;
+}
 
-var WebGLUniformLocation = /* module */[];
+var VREyeParameters = /* module */[/* downcast */downcast$14];
 
-var OESTextureHalfFloat = /* module */[/* _HALF_FLOAT_OES */36193];
+function downcast$15(x) {
+  return x;
+}
 
-var OESVertexArrayObject = /* module */[/* _VERTEX_ARRAY_BINDING_OES */34229];
+var WebGLUniformLocation = /* module */[/* downcast */downcast$15];
 
-var TestRunner = /* module */[];
+function downcast$16(x) {
+  return x;
+}
+
+var OESTextureHalfFloat = /* module */[
+  /* downcast */downcast$16,
+  /* _HALF_FLOAT_OES */36193
+];
+
+function downcast$17(x) {
+  return x;
+}
+
+var OESVertexArrayObject = /* module */[
+  /* downcast */downcast$17,
+  /* _VERTEX_ARRAY_BINDING_OES */34229
+];
+
+function downcast$18(x) {
+  return x;
+}
+
+var TestRunner = /* module */[/* downcast */downcast$18];
+
+function downcast$19(x) {
+  return x;
+}
 
 function addEventListener(type_, listener, capture, eventTarget) {
   var capture$1 = Js_undefined.from_opt(capture);
@@ -285,11 +382,20 @@ function removeEventListener(type_, listener, capture, eventTarget) {
 }
 
 var EventTarget = /* module */[
+  /* downcast */downcast$19,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener
 ];
 
-var NodeIterator = /* module */[];
+function downcast$20(x) {
+  return x;
+}
+
+var NodeIterator = /* module */[/* downcast */downcast$20];
+
+function downcast$21(x) {
+  return x;
+}
 
 function getPrimaryService(service, bluetoothRemoteGATTServer) {
   var service$1 = service[1];
@@ -308,9 +414,14 @@ function getPrimaryServices(service, bluetoothRemoteGATTServer) {
 }
 
 var BluetoothRemoteGATTServer = /* module */[
+  /* downcast */downcast$21,
   /* getPrimaryService */getPrimaryService,
   /* getPrimaryServices */getPrimaryServices
 ];
+
+function downcast$22(x) {
+  return x;
+}
 
 function bufferData(target, data, usage, webGLRenderingContextBase) {
   var data$1 = data[1];
@@ -337,6 +448,7 @@ function texSubImage2D(target, level, xoffset, yoffset, format, type_, source, w
 }
 
 var WebGLRenderingContextBase = /* module */[
+  /* downcast */downcast$22,
   /* _DEPTH_BUFFER_BIT */256,
   /* _STENCIL_BUFFER_BIT */1024,
   /* _COLOR_BUFFER_BIT */16384,
@@ -639,6 +751,10 @@ var WebGLRenderingContextBase = /* module */[
   /* texSubImage2D */texSubImage2D
 ];
 
+function downcast$23(x) {
+  return x;
+}
+
 function bufferData$1(target, data, usage, webGLRenderingContext) {
   var data$1 = data[1];
   webGLRenderingContext.bufferData(target, data$1, usage);
@@ -664,6 +780,7 @@ function texSubImage2D$1(target, level, xoffset, yoffset, format, type_, source,
 }
 
 var WebGLRenderingContext = /* module */[
+  /* downcast */downcast$23,
   /* _DEPTH_BUFFER_BIT */256,
   /* _STENCIL_BUFFER_BIT */1024,
   /* _COLOR_BUFFER_BIT */16384,
@@ -966,9 +1083,21 @@ var WebGLRenderingContext = /* module */[
   /* texSubImage2D */texSubImage2D$1
 ];
 
-var Location = /* module */[];
+function downcast$24(x) {
+  return x;
+}
 
-var Body = /* module */[];
+var Location = /* module */[/* downcast */downcast$24];
+
+function downcast$25(x) {
+  return x;
+}
+
+var Body = /* module */[/* downcast */downcast$25];
+
+function downcast$26(x) {
+  return x;
+}
 
 function go(delta, history) {
   var delta$1 = Js_undefined.from_opt(delta);
@@ -976,13 +1105,32 @@ function go(delta, history) {
   return /* () */0;
 }
 
-var History = /* module */[/* go */go];
+var History = /* module */[
+  /* downcast */downcast$26,
+  /* go */go
+];
 
-var NodeList = /* module */[];
+function downcast$27(x) {
+  return x;
+}
 
-var BluetoothDeviceEventHandlers = /* module */[];
+var NodeList = /* module */[/* downcast */downcast$27];
 
-var Screen = /* module */[];
+function downcast$28(x) {
+  return x;
+}
+
+var BluetoothDeviceEventHandlers = /* module */[/* downcast */downcast$28];
+
+function downcast$29(x) {
+  return x;
+}
+
+var Screen = /* module */[/* downcast */downcast$29];
+
+function downcast$30(x) {
+  return x;
+}
 
 function refresh(reload, pluginArray) {
   var reload$1 = Js_undefined.from_opt(reload);
@@ -990,13 +1138,32 @@ function refresh(reload, pluginArray) {
   return /* () */0;
 }
 
-var PluginArray = /* module */[/* refresh */refresh];
+var PluginArray = /* module */[
+  /* downcast */downcast$30,
+  /* refresh */refresh
+];
 
-var BluetoothCharacteristicProperties = /* module */[];
+function downcast$31(x) {
+  return x;
+}
 
-var DOMRectReadOnly = /* module */[];
+var BluetoothCharacteristicProperties = /* module */[/* downcast */downcast$31];
 
-var BluetoothRemoteGATTDescriptor = /* module */[];
+function downcast$32(x) {
+  return x;
+}
+
+var DOMRectReadOnly = /* module */[/* downcast */downcast$32];
+
+function downcast$33(x) {
+  return x;
+}
+
+var BluetoothRemoteGATTDescriptor = /* module */[/* downcast */downcast$33];
+
+function downcast$34(x) {
+  return x;
+}
 
 function after(nodes, childNode) {
   var conv_nodes = function (param) {
@@ -1035,12 +1202,21 @@ function replaceWith(nodes, childNode) {
 }
 
 var ChildNode = /* module */[
+  /* downcast */downcast$34,
   /* after */after,
   /* before */before,
   /* replaceWith */replaceWith
 ];
 
-var NonDocumentTypeChildNode = /* module */[];
+function downcast$35(x) {
+  return x;
+}
+
+var NonDocumentTypeChildNode = /* module */[/* downcast */downcast$35];
+
+function downcast$36(x) {
+  return x;
+}
 
 function parseFromString(str, type_, dOMParser) {
   var conv_type = function (param) {
@@ -1060,15 +1236,38 @@ function parseFromString(str, type_, dOMParser) {
   return dOMParser.parseFromString(str, type_$1);
 }
 
-var DOMParser = /* module */[/* parseFromString */parseFromString];
+var DOMParser = /* module */[
+  /* downcast */downcast$36,
+  /* parseFromString */parseFromString
+];
 
-var URL = /* module */[];
+function downcast$37(x) {
+  return x;
+}
 
-var ElementCSSInlineStyle = /* module */[];
+var URL = /* module */[/* downcast */downcast$37];
 
-var FileList = /* module */[];
+function downcast$38(x) {
+  return x;
+}
 
-var WebGLObject = /* module */[];
+var ElementCSSInlineStyle = /* module */[/* downcast */downcast$38];
+
+function downcast$39(x) {
+  return x;
+}
+
+var FileList = /* module */[/* downcast */downcast$39];
+
+function downcast$40(x) {
+  return x;
+}
+
+var WebGLObject = /* module */[/* downcast */downcast$40];
+
+function downcast$41(x) {
+  return x;
+}
 
 function reload(hardReload, browserElement) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
@@ -1076,9 +1275,20 @@ function reload(hardReload, browserElement) {
   return /* () */0;
 }
 
-var BrowserElement = /* module */[/* reload */reload];
+var BrowserElement = /* module */[
+  /* downcast */downcast$41,
+  /* reload */reload
+];
 
-var BrowserElementCommon = /* module */[];
+function downcast$42(x) {
+  return x;
+}
+
+var BrowserElementCommon = /* module */[/* downcast */downcast$42];
+
+function downcast$43(x) {
+  return x;
+}
 
 function reload$1(hardReload, browserElementPrivileged) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
@@ -1086,25 +1296,68 @@ function reload$1(hardReload, browserElementPrivileged) {
   return /* () */0;
 }
 
-var BrowserElementPrivileged = /* module */[/* reload */reload$1];
+var BrowserElementPrivileged = /* module */[
+  /* downcast */downcast$43,
+  /* reload */reload$1
+];
 
-var WorkerNavigator = /* module */[];
+function downcast$44(x) {
+  return x;
+}
 
-var StyleSheet = /* module */[];
+var WorkerNavigator = /* module */[/* downcast */downcast$44];
 
-var LinkStyle = /* module */[];
+function downcast$45(x) {
+  return x;
+}
 
-var HTMLCollection = /* module */[];
+var StyleSheet = /* module */[/* downcast */downcast$45];
 
-var PerformanceTiming = /* module */[];
+function downcast$46(x) {
+  return x;
+}
 
-var Touch = /* module */[];
+var LinkStyle = /* module */[/* downcast */downcast$46];
 
-var NonElementParentNode = /* module */[];
+function downcast$47(x) {
+  return x;
+}
 
-var CSSRuleList = /* module */[];
+var HTMLCollection = /* module */[/* downcast */downcast$47];
 
-var DissimilarOriginLocation = /* module */[];
+function downcast$48(x) {
+  return x;
+}
+
+var PerformanceTiming = /* module */[/* downcast */downcast$48];
+
+function downcast$49(x) {
+  return x;
+}
+
+var Touch = /* module */[/* downcast */downcast$49];
+
+function downcast$50(x) {
+  return x;
+}
+
+var NonElementParentNode = /* module */[/* downcast */downcast$50];
+
+function downcast$51(x) {
+  return x;
+}
+
+var CSSRuleList = /* module */[/* downcast */downcast$51];
+
+function downcast$52(x) {
+  return x;
+}
+
+var DissimilarOriginLocation = /* module */[/* downcast */downcast$52];
+
+function downcast$53(x) {
+  return x;
+}
 
 function createDocument(namespace, qualifiedName, doctype, dOMImplementation) {
   var doctype$1 = Js_undefined.from_opt(doctype);
@@ -1117,9 +1370,14 @@ function createHTMLDocument(title, dOMImplementation) {
 }
 
 var DOMImplementation = /* module */[
+  /* downcast */downcast$53,
   /* createDocument */createDocument,
   /* createHTMLDocument */createHTMLDocument
 ];
+
+function downcast$54(x) {
+  return x;
+}
 
 function advanceClock(millis, forceLayoutTick, testBinding) {
   var forceLayoutTick$1 = Js_undefined.from_opt(forceLayoutTick);
@@ -2242,6 +2500,7 @@ function passVariadicUsvstring(args, testBinding) {
 }
 
 var TestBinding = /* module */[
+  /* downcast */downcast$54,
   /* _prefControlledConstDisabled */0,
   /* _prefControlledConstEnabled */0,
   /* _funcControlledConstDisabled */0,
@@ -2404,71 +2663,193 @@ var TestBinding = /* module */[
   /* passVariadicUsvstring */passVariadicUsvstring
 ];
 
-var WorkerLocation = /* module */[];
+function downcast$55(x) {
+  return x;
+}
 
-var CSS = /* module */[];
+var WorkerLocation = /* module */[/* downcast */downcast$55];
 
-var CanvasGradient = /* module */[];
+function downcast$56(x) {
+  return x;
+}
 
-var VRFieldOfView = /* module */[];
+var CSS = /* module */[/* downcast */downcast$56];
 
-var CharacteristicEventHandlers = /* module */[];
+function downcast$57(x) {
+  return x;
+}
 
-var Gamepad = /* module */[];
+var CanvasGradient = /* module */[/* downcast */downcast$57];
+
+function downcast$58(x) {
+  return x;
+}
+
+var VRFieldOfView = /* module */[/* downcast */downcast$58];
+
+function downcast$59(x) {
+  return x;
+}
+
+var CharacteristicEventHandlers = /* module */[/* downcast */downcast$59];
+
+function downcast$60(x) {
+  return x;
+}
+
+var Gamepad = /* module */[/* downcast */downcast$60];
+
+function downcast$61(x) {
+  return x;
+}
 
 function decode(input, textDecoder) {
   var input$1 = Js_undefined.from_opt(input);
   return textDecoder.decode(input$1);
 }
 
-var TextDecoder = /* module */[/* decode */decode];
+var TextDecoder = /* module */[
+  /* downcast */downcast$61,
+  /* decode */decode
+];
 
-var TestBindingPairIterable = /* module */[];
+function downcast$62(x) {
+  return x;
+}
 
-var HTMLHyperlinkElementUtils = /* module */[];
+var TestBindingPairIterable = /* module */[/* downcast */downcast$62];
 
-var NamedNodeMap = /* module */[];
+function downcast$63(x) {
+  return x;
+}
 
-var TouchList = /* module */[];
+var HTMLHyperlinkElementUtils = /* module */[/* downcast */downcast$63];
 
-var WebGLActiveInfo = /* module */[];
+function downcast$64(x) {
+  return x;
+}
 
-var Plugin = /* module */[];
+var NamedNodeMap = /* module */[/* downcast */downcast$64];
 
-var VRDisplayCapabilities = /* module */[];
+function downcast$65(x) {
+  return x;
+}
 
-var Headers = /* module */[];
+var TouchList = /* module */[/* downcast */downcast$65];
 
-var OESTextureHalfFloatLinear = /* module */[];
+function downcast$66(x) {
+  return x;
+}
+
+var WebGLActiveInfo = /* module */[/* downcast */downcast$66];
+
+function downcast$67(x) {
+  return x;
+}
+
+var Plugin = /* module */[/* downcast */downcast$67];
+
+function downcast$68(x) {
+  return x;
+}
+
+var VRDisplayCapabilities = /* module */[/* downcast */downcast$68];
+
+function downcast$69(x) {
+  return x;
+}
+
+var Headers = /* module */[/* downcast */downcast$69];
+
+function downcast$70(x) {
+  return x;
+}
+
+var OESTextureHalfFloatLinear = /* module */[/* downcast */downcast$70];
+
+function downcast$71(x) {
+  return x;
+}
 
 function addModule(moduleURL, options, worklet) {
   var options$1 = Js_undefined.from_opt(options);
   return worklet.addModule(moduleURL, options$1);
 }
 
-var Worklet = /* module */[/* addModule */addModule];
+var Worklet = /* module */[
+  /* downcast */downcast$71,
+  /* addModule */addModule
+];
 
-var Navigator = /* module */[];
+function downcast$72(x) {
+  return x;
+}
 
-var NavigatorID = /* module */[];
+var Navigator = /* module */[/* downcast */downcast$72];
 
-var NavigatorLanguage = /* module */[];
+function downcast$73(x) {
+  return x;
+}
 
-var NavigatorPlugins = /* module */[];
+var NavigatorID = /* module */[/* downcast */downcast$73];
 
-var NavigatorCookies = /* module */[];
+function downcast$74(x) {
+  return x;
+}
 
-var PromiseNativeHandler = /* module */[];
+var NavigatorLanguage = /* module */[/* downcast */downcast$74];
 
-var FileReaderSync = /* module */[];
+function downcast$75(x) {
+  return x;
+}
 
-var ImageData = /* module */[];
+var NavigatorPlugins = /* module */[/* downcast */downcast$75];
 
-var MimeType = /* module */[];
+function downcast$76(x) {
+  return x;
+}
 
-var GlobalCrypto = /* module */[];
+var NavigatorCookies = /* module */[/* downcast */downcast$76];
 
-var Crypto = /* module */[];
+function downcast$77(x) {
+  return x;
+}
+
+var PromiseNativeHandler = /* module */[/* downcast */downcast$77];
+
+function downcast$78(x) {
+  return x;
+}
+
+var FileReaderSync = /* module */[/* downcast */downcast$78];
+
+function downcast$79(x) {
+  return x;
+}
+
+var ImageData = /* module */[/* downcast */downcast$79];
+
+function downcast$80(x) {
+  return x;
+}
+
+var MimeType = /* module */[/* downcast */downcast$80];
+
+function downcast$81(x) {
+  return x;
+}
+
+var GlobalCrypto = /* module */[/* downcast */downcast$81];
+
+function downcast$82(x) {
+  return x;
+}
+
+var Crypto = /* module */[/* downcast */downcast$82];
+
+function downcast$83(x) {
+  return x;
+}
 
 function setProperty(property, value, priority, cSSStyleDeclaration) {
   var priority$1 = Js_undefined.from_opt(priority);
@@ -2476,7 +2857,14 @@ function setProperty(property, value, priority, cSSStyleDeclaration) {
   return /* () */0;
 }
 
-var CSSStyleDeclaration = /* module */[/* setProperty */setProperty];
+var CSSStyleDeclaration = /* module */[
+  /* downcast */downcast$83,
+  /* setProperty */setProperty
+];
+
+function downcast$84(x) {
+  return x;
+}
 
 function fromQuad(other, dOMQuad) {
   var other$1 = Js_undefined.from_opt(other);
@@ -2489,11 +2877,20 @@ function fromRect(other, dOMQuad) {
 }
 
 var DOMQuad = /* module */[
+  /* downcast */downcast$84,
   /* fromQuad */fromQuad,
   /* fromRect */fromRect
 ];
 
-var Request = /* module */[];
+function downcast$85(x) {
+  return x;
+}
+
+var Request = /* module */[/* downcast */downcast$85];
+
+function downcast$86(x) {
+  return x;
+}
 
 function add(tokens, dOMTokenList) {
   var func = dOMTokenList.add;
@@ -2513,51 +2910,112 @@ function toggle(token, force, dOMTokenList) {
 }
 
 var DOMTokenList = /* module */[
+  /* downcast */downcast$86,
   /* add */add,
   /* remove */remove,
   /* toggle */toggle
 ];
 
-var Promise = /* module */[];
+function downcast$87(x) {
+  return x;
+}
 
-var VRPose = /* module */[];
+var Promise = /* module */[/* downcast */downcast$87];
 
-var GamepadButtonList = /* module */[];
+function downcast$88(x) {
+  return x;
+}
 
-var DOMPointReadOnly = /* module */[];
+var VRPose = /* module */[/* downcast */downcast$88];
 
-var Client = /* module */[];
+function downcast$89(x) {
+  return x;
+}
 
-var OESTextureFloatLinear = /* module */[];
+var GamepadButtonList = /* module */[/* downcast */downcast$89];
 
-var WebGLShaderPrecisionFormat = /* module */[];
+function downcast$90(x) {
+  return x;
+}
+
+var DOMPointReadOnly = /* module */[/* downcast */downcast$90];
+
+function downcast$91(x) {
+  return x;
+}
+
+var Client = /* module */[/* downcast */downcast$91];
+
+function downcast$92(x) {
+  return x;
+}
+
+var OESTextureFloatLinear = /* module */[/* downcast */downcast$92];
+
+function downcast$93(x) {
+  return x;
+}
+
+var WebGLShaderPrecisionFormat = /* module */[/* downcast */downcast$93];
+
+function downcast$94(x) {
+  return x;
+}
 
 function redirect(url, status, response) {
   var status$1 = Js_undefined.from_opt(status);
   return response.redirect(url, status$1);
 }
 
-var Response = /* module */[/* redirect */redirect];
+var Response = /* module */[
+  /* downcast */downcast$94,
+  /* redirect */redirect
+];
+
+function downcast$95(x) {
+  return x;
+}
 
 var MediaError = /* module */[
+  /* downcast */downcast$95,
   /* _MEDIA_ERR_ABORTED */1,
   /* _MEDIA_ERR_NETWORK */2,
   /* _MEDIA_ERR_DECODE */3,
   /* _MEDIA_ERR_SRC_NOT_SUPPORTED */4
 ];
 
-var VRStageParameters = /* module */[];
+function downcast$96(x) {
+  return x;
+}
 
-var AbstractWorker = /* module */[];
+var VRStageParameters = /* module */[/* downcast */downcast$96];
+
+function downcast$97(x) {
+  return x;
+}
+
+var AbstractWorker = /* module */[/* downcast */downcast$97];
+
+function downcast$98(x) {
+  return x;
+}
 
 function addModule$1(moduleURL, options, testWorklet) {
   var options$1 = Js_undefined.from_opt(options);
   return testWorklet.addModule(moduleURL, options$1);
 }
 
-var TestWorklet = /* module */[/* addModule */addModule$1];
+var TestWorklet = /* module */[
+  /* downcast */downcast$98,
+  /* addModule */addModule$1
+];
+
+function downcast$99(x) {
+  return x;
+}
 
 var CSSRule = /* module */[
+  /* downcast */downcast$99,
   /* _STYLE_RULE */1,
   /* _CHARSET_RULE */2,
   /* _IMPORT_RULE */3,
@@ -2571,6 +3029,10 @@ var CSSRule = /* module */[
   /* _VIEWPORT_RULE */15,
   /* _SUPPORTS_RULE */12
 ];
+
+function downcast$100(x) {
+  return x;
+}
 
 function getCharacteristic(name, bluetoothUUID) {
   var name$1 = name[1];
@@ -2588,10 +3050,15 @@ function getService(name, bluetoothUUID) {
 }
 
 var BluetoothUUID = /* module */[
+  /* downcast */downcast$100,
   /* getCharacteristic */getCharacteristic,
   /* getDescriptor */getDescriptor,
   /* getService */getService
 ];
+
+function downcast$101(x) {
+  return x;
+}
 
 function arc(x, y, radius, startAngle, endAngle, anticlockwise, canvasRenderingContext2D) {
   var anticlockwise$1 = Js_undefined.from_opt(anticlockwise);
@@ -2660,6 +3127,7 @@ function isPointInPath(x, y, fillRule, canvasRenderingContext2D) {
 }
 
 var CanvasRenderingContext2D = /* module */[
+  /* downcast */downcast$101,
   /* arc */arc,
   /* clip */clip,
   /* createPattern */createPattern,
@@ -2668,24 +3136,59 @@ var CanvasRenderingContext2D = /* module */[
   /* isPointInPath */isPointInPath
 ];
 
-var CanvasState = /* module */[];
+function downcast$102(x) {
+  return x;
+}
 
-var CanvasTransform = /* module */[];
+var CanvasState = /* module */[/* downcast */downcast$102];
 
-var CanvasCompositing = /* module */[];
+function downcast$103(x) {
+  return x;
+}
 
-var CanvasImageSmoothing = /* module */[];
+var CanvasTransform = /* module */[/* downcast */downcast$103];
+
+function downcast$104(x) {
+  return x;
+}
+
+var CanvasCompositing = /* module */[/* downcast */downcast$104];
+
+function downcast$105(x) {
+  return x;
+}
+
+var CanvasImageSmoothing = /* module */[/* downcast */downcast$105];
+
+function downcast$106(x) {
+  return x;
+}
 
 function createPattern$1(image, repetition, canvasFillStrokeStyles) {
   var image$1 = image[1];
   return canvasFillStrokeStyles.createPattern(image$1, repetition);
 }
 
-var CanvasFillStrokeStyles = /* module */[/* createPattern */createPattern$1];
+var CanvasFillStrokeStyles = /* module */[
+  /* downcast */downcast$106,
+  /* createPattern */createPattern$1
+];
 
-var CanvasShadowStyles = /* module */[];
+function downcast$107(x) {
+  return x;
+}
 
-var CanvasRect = /* module */[];
+var CanvasShadowStyles = /* module */[/* downcast */downcast$107];
+
+function downcast$108(x) {
+  return x;
+}
+
+var CanvasRect = /* module */[/* downcast */downcast$108];
+
+function downcast$109(x) {
+  return x;
+}
 
 function clip$1(fillRule, canvasDrawPath) {
   var fillRule$1 = Js_undefined.from_opt(fillRule);
@@ -2737,14 +3240,27 @@ function isPointInPath$1(x, y, fillRule, canvasDrawPath) {
 }
 
 var CanvasDrawPath = /* module */[
+  /* downcast */downcast$109,
   /* clip */clip$1,
   /* fill */fill$1,
   /* isPointInPath */isPointInPath$1
 ];
 
-var CanvasUserInterface = /* module */[];
+function downcast$110(x) {
+  return x;
+}
 
-var CanvasText = /* module */[];
+var CanvasUserInterface = /* module */[/* downcast */downcast$110];
+
+function downcast$111(x) {
+  return x;
+}
+
+var CanvasText = /* module */[/* downcast */downcast$111];
+
+function downcast$112(x) {
+  return x;
+}
 
 function drawImage$1(image, dx, dy, canvasDrawImage) {
   var image$1 = image[1];
@@ -2752,15 +3268,38 @@ function drawImage$1(image, dx, dy, canvasDrawImage) {
   return /* () */0;
 }
 
-var CanvasDrawImage = /* module */[/* drawImage */drawImage$1];
+var CanvasDrawImage = /* module */[
+  /* downcast */downcast$112,
+  /* drawImage */drawImage$1
+];
 
-var CanvasHitRegion = /* module */[];
+function downcast$113(x) {
+  return x;
+}
 
-var CanvasImageData = /* module */[];
+var CanvasHitRegion = /* module */[/* downcast */downcast$113];
 
-var CanvasPathDrawingStyles = /* module */[];
+function downcast$114(x) {
+  return x;
+}
 
-var CanvasTextDrawingStyles = /* module */[];
+var CanvasImageData = /* module */[/* downcast */downcast$114];
+
+function downcast$115(x) {
+  return x;
+}
+
+var CanvasPathDrawingStyles = /* module */[/* downcast */downcast$115];
+
+function downcast$116(x) {
+  return x;
+}
+
+var CanvasTextDrawingStyles = /* module */[/* downcast */downcast$116];
+
+function downcast$117(x) {
+  return x;
+}
 
 function arc$1(x, y, radius, startAngle, endAngle, anticlockwise, canvasPath) {
   var anticlockwise$1 = Js_undefined.from_opt(anticlockwise);
@@ -2768,19 +3307,50 @@ function arc$1(x, y, radius, startAngle, endAngle, anticlockwise, canvasPath) {
   return /* () */0;
 }
 
-var CanvasPath = /* module */[/* arc */arc$1];
+var CanvasPath = /* module */[
+  /* downcast */downcast$117,
+  /* arc */arc$1
+];
 
-var MediaList = /* module */[];
+function downcast$118(x) {
+  return x;
+}
 
-var OESTextureFloat = /* module */[];
+var MediaList = /* module */[/* downcast */downcast$118];
 
-var Permissions = /* module */[];
+function downcast$119(x) {
+  return x;
+}
 
-var CanvasPattern = /* module */[];
+var OESTextureFloat = /* module */[/* downcast */downcast$119];
 
-var MutationRecord = /* module */[];
+function downcast$120(x) {
+  return x;
+}
 
-var Storage = /* module */[];
+var Permissions = /* module */[/* downcast */downcast$120];
+
+function downcast$121(x) {
+  return x;
+}
+
+var CanvasPattern = /* module */[/* downcast */downcast$121];
+
+function downcast$122(x) {
+  return x;
+}
+
+var MutationRecord = /* module */[/* downcast */downcast$122];
+
+function downcast$123(x) {
+  return x;
+}
+
+var Storage = /* module */[/* downcast */downcast$123];
+
+function downcast$124(x) {
+  return x;
+}
 
 function observe(target, options, mutationObserver) {
   var options$1 = Js_undefined.from_opt(options);
@@ -2788,29 +3358,64 @@ function observe(target, options, mutationObserver) {
   return /* () */0;
 }
 
-var MutationObserver = /* module */[/* observe */observe];
+var MutationObserver = /* module */[
+  /* downcast */downcast$124,
+  /* observe */observe
+];
 
-var TestBindingIterable = /* module */[];
+function downcast$125(x) {
+  return x;
+}
 
-var ServiceEventHandlers = /* module */[];
+var TestBindingIterable = /* module */[/* downcast */downcast$125];
+
+function downcast$126(x) {
+  return x;
+}
+
+var ServiceEventHandlers = /* module */[/* downcast */downcast$126];
+
+function downcast$127(x) {
+  return x;
+}
 
 function encode(input, textEncoder) {
   var input$1 = Js_undefined.from_opt(input);
   return textEncoder.encode(input$1);
 }
 
-var TextEncoder = /* module */[/* encode */encode];
+var TextEncoder = /* module */[
+  /* downcast */downcast$127,
+  /* encode */encode
+];
+
+function downcast$128(x) {
+  return x;
+}
 
 var Event = /* module */[
+  /* downcast */downcast$128,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3
 ];
 
-var ValidityState = /* module */[];
+function downcast$129(x) {
+  return x;
+}
 
-var WindowProxy = /* module */[];
+var ValidityState = /* module */[/* downcast */downcast$129];
+
+function downcast$130(x) {
+  return x;
+}
+
+var WindowProxy = /* module */[/* downcast */downcast$130];
+
+function downcast$131(x) {
+  return x;
+}
 
 function $$clearInterval(handle, windowTimers) {
   var handle$1 = Js_undefined.from_opt(handle);
@@ -2861,25 +3466,58 @@ function $$setTimeout(handler, timeout, $$arguments, windowTimers) {
 }
 
 var WindowTimers = /* module */[
+  /* downcast */downcast$131,
   /* clearInterval */$$clearInterval,
   /* clearTimeout */$$clearTimeout,
   /* setInterval */$$setInterval,
   /* setTimeout */$$setTimeout
 ];
 
-var WindowBase64 = /* module */[];
+function downcast$132(x) {
+  return x;
+}
 
-var WindowSessionStorage = /* module */[];
+var WindowBase64 = /* module */[/* downcast */downcast$132];
 
-var WindowLocalStorage = /* module */[];
+function downcast$133(x) {
+  return x;
+}
 
-var DOMStringMap = /* module */[];
+var WindowSessionStorage = /* module */[/* downcast */downcast$133];
 
-var GlobalEventHandlers = /* module */[];
+function downcast$134(x) {
+  return x;
+}
 
-var WindowEventHandlers = /* module */[];
+var WindowLocalStorage = /* module */[/* downcast */downcast$134];
 
-var DocumentAndElementEventHandlers = /* module */[];
+function downcast$135(x) {
+  return x;
+}
+
+var DOMStringMap = /* module */[/* downcast */downcast$135];
+
+function downcast$136(x) {
+  return x;
+}
+
+var GlobalEventHandlers = /* module */[/* downcast */downcast$136];
+
+function downcast$137(x) {
+  return x;
+}
+
+var WindowEventHandlers = /* module */[/* downcast */downcast$137];
+
+function downcast$138(x) {
+  return x;
+}
+
+var DocumentAndElementEventHandlers = /* module */[/* downcast */downcast$138];
+
+function downcast$139(x) {
+  return x;
+}
 
 function slice(start, end_, contentType, blob) {
   var start$1 = Js_undefined.from_opt(start);
@@ -2888,87 +3526,251 @@ function slice(start, end_, contentType, blob) {
   return blob.slice(start$1, end_$1, contentType$1);
 }
 
-var Blob = /* module */[/* slice */slice];
+var Blob = /* module */[
+  /* downcast */downcast$139,
+  /* slice */slice
+];
 
-var VRFrameData = /* module */[];
+function downcast$140(x) {
+  return x;
+}
 
-var ServoParser = /* module */[];
+var VRFrameData = /* module */[/* downcast */downcast$140];
 
-var Attr = /* module */[];
+function downcast$141(x) {
+  return x;
+}
 
-var ActivatableElement = /* module */[];
+var ServoParser = /* module */[/* downcast */downcast$141];
 
-var StyleSheetList = /* module */[];
+function downcast$142(x) {
+  return x;
+}
 
-var EventSourceInit = /* module */[];
+var Attr = /* module */[/* downcast */downcast$142];
 
-var ElementDefinitionOptions = /* module */[];
+function downcast$143(x) {
+  return x;
+}
 
-var DOMMatrixInit = /* module */[];
+var ActivatableElement = /* module */[/* downcast */downcast$143];
 
-var VRLayer = /* module */[];
+function downcast$144(x) {
+  return x;
+}
 
-var IterableKeyOrValueResult = /* module */[];
+var StyleSheetList = /* module */[/* downcast */downcast$144];
 
-var IterableKeyAndValueResult = /* module */[];
+function downcast$145(x) {
+  return x;
+}
 
-var RegistrationOptions = /* module */[];
+var EventSourceInit = /* module */[/* downcast */downcast$145];
 
-var PermissionDescriptor = /* module */[];
+function downcast$146(x) {
+  return x;
+}
 
-var WebGLContextAttributes = /* module */[];
+var ElementDefinitionOptions = /* module */[/* downcast */downcast$146];
 
-var DOMRectInit = /* module */[];
+function downcast$147(x) {
+  return x;
+}
 
-var BrowserElementSecurityChangeDetail = /* module */[];
+var DOMMatrixInit = /* module */[/* downcast */downcast$147];
 
-var BrowserElementErrorEventDetail = /* module */[];
+function downcast$148(x) {
+  return x;
+}
 
-var BrowserElementLocationChangeEventDetail = /* module */[];
+var VRLayer = /* module */[/* downcast */downcast$148];
 
-var BrowserElementIconChangeEventDetail = /* module */[];
+function downcast$149(x) {
+  return x;
+}
 
-var BrowserShowModalPromptEventDetail = /* module */[];
+var IterableKeyOrValueResult = /* module */[/* downcast */downcast$149];
 
-var BrowserElementOpenTabEventDetail = /* module */[];
+function downcast$150(x) {
+  return x;
+}
 
-var BrowserElementOpenWindowEventDetail = /* module */[];
+var IterableKeyAndValueResult = /* module */[/* downcast */downcast$150];
 
-var BrowserElementVisibilityChangeEventDetail = /* module */[];
+function downcast$151(x) {
+  return x;
+}
 
-var TestDictionary = /* module */[];
+var RegistrationOptions = /* module */[/* downcast */downcast$151];
 
-var TestDictionaryDefaults = /* module */[];
+function downcast$152(x) {
+  return x;
+}
 
-var TextDecoderOptions = /* module */[];
+var PermissionDescriptor = /* module */[/* downcast */downcast$152];
 
-var WorkletOptions = /* module */[];
+function downcast$153(x) {
+  return x;
+}
 
-var DOMPointInit = /* module */[];
+var WebGLContextAttributes = /* module */[/* downcast */downcast$153];
 
-var DOMQuadInit = /* module */[];
+function downcast$154(x) {
+  return x;
+}
 
-var RequestInit = /* module */[];
+var DOMRectInit = /* module */[/* downcast */downcast$154];
 
-var ElementCreationOptions = /* module */[];
+function downcast$155(x) {
+  return x;
+}
 
-var ResponseInit = /* module */[];
+var BrowserElementSecurityChangeDetail = /* module */[/* downcast */downcast$155];
 
-var BluetoothDataFilterInit = /* module */[];
+function downcast$156(x) {
+  return x;
+}
 
-var BluetoothLEScanFilterInit = /* module */[];
+var BrowserElementErrorEventDetail = /* module */[/* downcast */downcast$156];
 
-var RequestDeviceOptions = /* module */[];
+function downcast$157(x) {
+  return x;
+}
 
-var MutationObserverInit = /* module */[];
+var BrowserElementLocationChangeEventDetail = /* module */[/* downcast */downcast$157];
 
-var EventInit = /* module */[];
+function downcast$158(x) {
+  return x;
+}
 
-var ScrollOptions = /* module */[];
+var BrowserElementIconChangeEventDetail = /* module */[/* downcast */downcast$158];
 
-var BlobPropertyBag = /* module */[];
+function downcast$159(x) {
+  return x;
+}
+
+var BrowserShowModalPromptEventDetail = /* module */[/* downcast */downcast$159];
+
+function downcast$160(x) {
+  return x;
+}
+
+var BrowserElementOpenTabEventDetail = /* module */[/* downcast */downcast$160];
+
+function downcast$161(x) {
+  return x;
+}
+
+var BrowserElementOpenWindowEventDetail = /* module */[/* downcast */downcast$161];
+
+function downcast$162(x) {
+  return x;
+}
+
+var BrowserElementVisibilityChangeEventDetail = /* module */[/* downcast */downcast$162];
+
+function downcast$163(x) {
+  return x;
+}
+
+var TestDictionary = /* module */[/* downcast */downcast$163];
+
+function downcast$164(x) {
+  return x;
+}
+
+var TestDictionaryDefaults = /* module */[/* downcast */downcast$164];
+
+function downcast$165(x) {
+  return x;
+}
+
+var TextDecoderOptions = /* module */[/* downcast */downcast$165];
+
+function downcast$166(x) {
+  return x;
+}
+
+var WorkletOptions = /* module */[/* downcast */downcast$166];
+
+function downcast$167(x) {
+  return x;
+}
+
+var DOMPointInit = /* module */[/* downcast */downcast$167];
+
+function downcast$168(x) {
+  return x;
+}
+
+var DOMQuadInit = /* module */[/* downcast */downcast$168];
+
+function downcast$169(x) {
+  return x;
+}
+
+var RequestInit = /* module */[/* downcast */downcast$169];
+
+function downcast$170(x) {
+  return x;
+}
+
+var ElementCreationOptions = /* module */[/* downcast */downcast$170];
+
+function downcast$171(x) {
+  return x;
+}
+
+var ResponseInit = /* module */[/* downcast */downcast$171];
+
+function downcast$172(x) {
+  return x;
+}
+
+var BluetoothDataFilterInit = /* module */[/* downcast */downcast$172];
+
+function downcast$173(x) {
+  return x;
+}
+
+var BluetoothLEScanFilterInit = /* module */[/* downcast */downcast$173];
+
+function downcast$174(x) {
+  return x;
+}
+
+var RequestDeviceOptions = /* module */[/* downcast */downcast$174];
+
+function downcast$175(x) {
+  return x;
+}
+
+var MutationObserverInit = /* module */[/* downcast */downcast$175];
+
+function downcast$176(x) {
+  return x;
+}
+
+var EventInit = /* module */[/* downcast */downcast$176];
+
+function downcast$177(x) {
+  return x;
+}
+
+var ScrollOptions = /* module */[/* downcast */downcast$177];
+
+function downcast$178(x) {
+  return x;
+}
+
+var BlobPropertyBag = /* module */[/* downcast */downcast$178];
+
+function downcast$179(x) {
+  return x;
+}
 
 var NodeFilter = /* module */[
+  /* downcast */downcast$179,
   /* _FILTER_ACCEPT */1,
   /* _FILTER_REJECT */2,
   /* _FILTER_SKIP */3,
@@ -2987,15 +3789,28 @@ var NodeFilter = /* module */[
   /* _SHOW_NOTATION */2048
 ];
 
-var EventListener = /* module */[];
+function downcast$180(x) {
+  return x;
+}
+
+var EventListener = /* module */[/* downcast */downcast$180];
+
+function downcast$181(x) {
+  return x;
+}
 
 var EventSource = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$181,
   /* _CONNECTING */0,
   /* _OPEN */1,
   /* _CLOSED */2
 ];
+
+function downcast$182(x) {
+  return x;
+}
 
 var CSSStyleRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3009,8 +3824,13 @@ var CSSStyleRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$182
 ];
+
+function downcast$183(x) {
+  return x;
+}
 
 var CSSFontFaceRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3024,22 +3844,37 @@ var CSSFontFaceRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$183
 ];
+
+function downcast$184(x) {
+  return x;
+}
 
 var UIEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$184
 ];
+
+function downcast$185(x) {
+  return x;
+}
 
 var GamepadEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$185
 ];
+
+function downcast$186(x) {
+  return x;
+}
 
 function add$1(element, before, hTMLOptionsCollection) {
   var before$1 = Js_undefined.from_opt(before);
@@ -3055,7 +3890,14 @@ function add$1(element, before, hTMLOptionsCollection) {
   return /* () */0;
 }
 
-var HTMLOptionsCollection = /* module */[/* add */add$1];
+var HTMLOptionsCollection = /* module */[
+  /* downcast */downcast$186,
+  /* add */add$1
+];
+
+function downcast$187(x) {
+  return x;
+}
 
 function fromMatrix$1(other, dOMMatrix) {
   var other$1 = Js_undefined.from_opt(other);
@@ -3139,6 +3981,7 @@ var DOMMatrix = /* module */[
   /* skewY */skewY,
   /* transformPoint */transformPoint,
   /* translate */translate,
+  /* downcast */downcast$187,
   /* fromMatrix */fromMatrix$1,
   /* multiplySelf */multiplySelf,
   /* preMultiplySelf */preMultiplySelf,
@@ -3152,12 +3995,25 @@ var DOMMatrix = /* module */[
   /* translateSelf */translateSelf
 ];
 
-var WebGLFramebuffer = /* module */[];
+function downcast$188(x) {
+  return x;
+}
+
+var WebGLFramebuffer = /* module */[/* downcast */downcast$188];
+
+function downcast$189(x) {
+  return x;
+}
 
 var ServiceWorkerRegistration = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$189
 ];
+
+function downcast$190(x) {
+  return x;
+}
 
 function register(scriptURL, options, serviceWorkerContainer) {
   var options$1 = Js_undefined.from_opt(options);
@@ -3167,46 +4023,85 @@ function register(scriptURL, options, serviceWorkerContainer) {
 var ServiceWorkerContainer = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$190,
   /* register */register
 ];
+
+function downcast$191(x) {
+  return x;
+}
 
 var ErrorEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$191
 ];
+
+function downcast$192(x) {
+  return x;
+}
 
 var PermissionStatus = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$192
 ];
+
+function downcast$193(x) {
+  return x;
+}
 
 var MessageEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$193
 ];
+
+function downcast$194(x) {
+  return x;
+}
 
 var BeforeUnloadEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$194
 ];
+
+function downcast$195(x) {
+  return x;
+}
 
 var VR = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$195
 ];
 
-var DOMRect = /* module */[];
+function downcast$196(x) {
+  return x;
+}
+
+var DOMRect = /* module */[/* downcast */downcast$196];
+
+function downcast$197(x) {
+  return x;
+}
 
 var BluetoothDevice = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$197
 ];
+
+function downcast$198(x) {
+  return x;
+}
 
 var CSSImportRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3220,19 +4115,40 @@ var CSSImportRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$198
 ];
 
-var RadioNodeList = /* module */[];
+function downcast$199(x) {
+  return x;
+}
 
-var File = /* module */[/* slice */slice];
+var RadioNodeList = /* module */[/* downcast */downcast$199];
+
+function downcast$200(x) {
+  return x;
+}
+
+var File = /* module */[
+  /* slice */slice,
+  /* downcast */downcast$200
+];
+
+function downcast$201(x) {
+  return x;
+}
 
 var StorageEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$201
 ];
+
+function downcast$202(x) {
+  return x;
+}
 
 function cloneNode(deep, node) {
   var deep$1 = Js_undefined.from_opt(deep);
@@ -3242,6 +4158,7 @@ function cloneNode(deep, node) {
 var Node = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$202,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -3263,19 +4180,33 @@ var Node = /* module */[
   /* cloneNode */cloneNode
 ];
 
+function downcast$203(x) {
+  return x;
+}
+
 var VRDisplayEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$203
 ];
+
+function downcast$204(x) {
+  return x;
+}
 
 var PopStateEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$204
 ];
+
+function downcast$205(x) {
+  return x;
+}
 
 function getEyeParameters(whichEye, vRDisplay) {
   var conv_whichEye = function (param) {
@@ -3292,17 +4223,31 @@ function getEyeParameters(whichEye, vRDisplay) {
 var VRDisplay = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$205,
   /* getEyeParameters */getEyeParameters
 ];
+
+function downcast$206(x) {
+  return x;
+}
 
 var WebGLContextEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$206
 ];
 
-var WebGLProgram = /* module */[];
+function downcast$207(x) {
+  return x;
+}
+
+var WebGLProgram = /* module */[/* downcast */downcast$207];
+
+function downcast$208(x) {
+  return x;
+}
 
 function getDescriptor$1(descriptor, bluetoothRemoteGATTCharacteristic) {
   var descriptor$1 = descriptor[1];
@@ -3323,9 +4268,14 @@ function getDescriptors(descriptor, bluetoothRemoteGATTCharacteristic) {
 var BluetoothRemoteGATTCharacteristic = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$208,
   /* getDescriptor */getDescriptor$1,
   /* getDescriptors */getDescriptors
 ];
+
+function downcast$209(x) {
+  return x;
+}
 
 var CSSKeyframeRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3339,17 +4289,35 @@ var CSSKeyframeRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$209
 ];
 
-var WebGLVertexArrayObjectOES = /* module */[];
+function downcast$210(x) {
+  return x;
+}
 
-var WebGLShader = /* module */[];
+var WebGLVertexArrayObjectOES = /* module */[/* downcast */downcast$210];
+
+function downcast$211(x) {
+  return x;
+}
+
+var WebGLShader = /* module */[/* downcast */downcast$211];
+
+function downcast$212(x) {
+  return x;
+}
 
 var GlobalScope = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$212
 ];
+
+function downcast$213(x) {
+  return x;
+}
 
 var TestBindingProxy = /* module */[
   /* _prefControlledConstDisabled */0,
@@ -3511,38 +4479,71 @@ var TestBindingProxy = /* module */[
   /* passVariadicUnsignedLong */passVariadicUnsignedLong,
   /* passVariadicUnsignedLongLong */passVariadicUnsignedLongLong,
   /* passVariadicUnsignedShort */passVariadicUnsignedShort,
-  /* passVariadicUsvstring */passVariadicUsvstring
+  /* passVariadicUsvstring */passVariadicUsvstring,
+  /* downcast */downcast$213
 ];
 
-var HTMLFormControlsCollection = /* module */[];
+function downcast$214(x) {
+  return x;
+}
+
+var HTMLFormControlsCollection = /* module */[/* downcast */downcast$214];
+
+function downcast$215(x) {
+  return x;
+}
 
 var CustomEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$215
 ];
 
-var DOMPoint = /* module */[];
+function downcast$216(x) {
+  return x;
+}
+
+var DOMPoint = /* module */[/* downcast */downcast$216];
+
+function downcast$217(x) {
+  return x;
+}
 
 var PageTransitionEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$217
 ];
+
+function downcast$218(x) {
+  return x;
+}
 
 var ServiceWorker = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$218
 ];
+
+function downcast$219(x) {
+  return x;
+}
 
 var CloseEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$219
 ];
+
+function downcast$220(x) {
+  return x;
+}
 
 function close(code, reason, webSocket) {
   var code$1 = Js_undefined.from_opt(code);
@@ -3560,6 +4561,7 @@ function send(data, webSocket) {
 var WebSocket = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$220,
   /* _CONNECTING */0,
   /* _OPEN */1,
   /* _CLOSING */2,
@@ -3568,14 +4570,27 @@ var WebSocket = /* module */[
   /* send */send
 ];
 
+function downcast$221(x) {
+  return x;
+}
+
 var MediaQueryListEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$221
 ];
 
-var WebGLBuffer = /* module */[];
+function downcast$222(x) {
+  return x;
+}
+
+var WebGLBuffer = /* module */[/* downcast */downcast$222];
+
+function downcast$223(x) {
+  return x;
+}
 
 var CSSViewportRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3589,24 +4604,43 @@ var CSSViewportRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$223
 ];
+
+function downcast$224(x) {
+  return x;
+}
 
 var ExtendableEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$224
 ];
+
+function downcast$225(x) {
+  return x;
+}
 
 var ProgressEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$225
 ];
 
-var WebGLRenderbuffer = /* module */[];
+function downcast$226(x) {
+  return x;
+}
+
+var WebGLRenderbuffer = /* module */[/* downcast */downcast$226];
+
+function downcast$227(x) {
+  return x;
+}
 
 function requestDevice(options, bluetooth) {
   var options$1 = Js_undefined.from_opt(options);
@@ -3616,30 +4650,55 @@ function requestDevice(options, bluetooth) {
 var Bluetooth = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$227,
   /* requestDevice */requestDevice
 ];
 
+function downcast$228(x) {
+  return x;
+}
+
 var Worker = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$228
 ];
+
+function downcast$229(x) {
+  return x;
+}
 
 var TransitionEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$229
 ];
+
+function downcast$230(x) {
+  return x;
+}
 
 var MediaQueryList = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$230
 ];
+
+function downcast$231(x) {
+  return x;
+}
 
 var XMLHttpRequestEventTarget = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$231
 ];
+
+function downcast$232(x) {
+  return x;
+}
 
 var CSSKeyframesRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3653,15 +4712,25 @@ var CSSKeyframesRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$232
 ];
+
+function downcast$233(x) {
+  return x;
+}
 
 var BluetoothAdvertisingEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$233
 ];
+
+function downcast$234(x) {
+  return x;
+}
 
 var CSSNamespaceRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3675,15 +4744,25 @@ var CSSNamespaceRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$234
 ];
+
+function downcast$235(x) {
+  return x;
+}
 
 var HashChangeEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$235
 ];
+
+function downcast$236(x) {
+  return x;
+}
 
 var CSSGroupingRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3697,8 +4776,13 @@ var CSSGroupingRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$236
 ];
+
+function downcast$237(x) {
+  return x;
+}
 
 function getCharacteristic$1(characteristic, bluetoothRemoteGATTService) {
   var characteristic$1 = characteristic[1];
@@ -3735,13 +4819,22 @@ function getIncludedServices(service, bluetoothRemoteGATTService) {
 var BluetoothRemoteGATTService = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$237,
   /* getCharacteristic */getCharacteristic$1,
   /* getCharacteristics */getCharacteristics,
   /* getIncludedService */getIncludedService,
   /* getIncludedServices */getIncludedServices
 ];
 
-var WebGLTexture = /* module */[];
+function downcast$238(x) {
+  return x;
+}
+
+var WebGLTexture = /* module */[/* downcast */downcast$238];
+
+function downcast$239(x) {
+  return x;
+}
 
 function readAsText(blob, label, fileReader) {
   var label$1 = Js_undefined.from_opt(label);
@@ -3752,64 +4845,170 @@ function readAsText(blob, label, fileReader) {
 var FileReader = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$239,
   /* _EMPTY */0,
   /* _LOADING */1,
   /* _DONE */2,
   /* readAsText */readAsText
 ];
 
-var CSSStyleSheet = /* module */[];
+function downcast$240(x) {
+  return x;
+}
 
-var UIEventInit = /* module */[];
+var CSSStyleSheet = /* module */[/* downcast */downcast$240];
 
-var GamepadEventInit = /* module */[];
+function downcast$241(x) {
+  return x;
+}
 
-var BluetoothPermissionDescriptor = /* module */[];
+var UIEventInit = /* module */[/* downcast */downcast$241];
 
-var ErrorEventInit = /* module */[];
+function downcast$242(x) {
+  return x;
+}
 
-var PushPermissionDescriptor = /* module */[];
+var GamepadEventInit = /* module */[/* downcast */downcast$242];
 
-var MidiPermissionDescriptor = /* module */[];
+function downcast$243(x) {
+  return x;
+}
 
-var DevicePermissionDescriptor = /* module */[];
+var BluetoothPermissionDescriptor = /* module */[/* downcast */downcast$243];
 
-var MessageEventInit = /* module */[];
+function downcast$244(x) {
+  return x;
+}
 
-var FilePropertyBag = /* module */[];
+var ErrorEventInit = /* module */[/* downcast */downcast$244];
 
-var StorageEventInit = /* module */[];
+function downcast$245(x) {
+  return x;
+}
 
-var VRDisplayEventInit = /* module */[];
+var PushPermissionDescriptor = /* module */[/* downcast */downcast$245];
 
-var PopStateEventInit = /* module */[];
+function downcast$246(x) {
+  return x;
+}
 
-var WebGLContextEventInit = /* module */[];
+var MidiPermissionDescriptor = /* module */[/* downcast */downcast$246];
 
-var CustomEventInit = /* module */[];
+function downcast$247(x) {
+  return x;
+}
 
-var PageTransitionEventInit = /* module */[];
+var DevicePermissionDescriptor = /* module */[/* downcast */downcast$247];
 
-var CloseEventInit = /* module */[];
+function downcast$248(x) {
+  return x;
+}
 
-var MediaQueryListEventInit = /* module */[];
+var MessageEventInit = /* module */[/* downcast */downcast$248];
 
-var ExtendableEventInit = /* module */[];
+function downcast$249(x) {
+  return x;
+}
 
-var ProgressEventInit = /* module */[];
+var FilePropertyBag = /* module */[/* downcast */downcast$249];
 
-var TransitionEventInit = /* module */[];
+function downcast$250(x) {
+  return x;
+}
 
-var BluetoothAdvertisingEventInit = /* module */[];
+var StorageEventInit = /* module */[/* downcast */downcast$250];
 
-var HashChangeEventInit = /* module */[];
+function downcast$251(x) {
+  return x;
+}
 
-var ScrollToOptions = /* module */[];
+var VRDisplayEventInit = /* module */[/* downcast */downcast$251];
+
+function downcast$252(x) {
+  return x;
+}
+
+var PopStateEventInit = /* module */[/* downcast */downcast$252];
+
+function downcast$253(x) {
+  return x;
+}
+
+var WebGLContextEventInit = /* module */[/* downcast */downcast$253];
+
+function downcast$254(x) {
+  return x;
+}
+
+var CustomEventInit = /* module */[/* downcast */downcast$254];
+
+function downcast$255(x) {
+  return x;
+}
+
+var PageTransitionEventInit = /* module */[/* downcast */downcast$255];
+
+function downcast$256(x) {
+  return x;
+}
+
+var CloseEventInit = /* module */[/* downcast */downcast$256];
+
+function downcast$257(x) {
+  return x;
+}
+
+var MediaQueryListEventInit = /* module */[/* downcast */downcast$257];
+
+function downcast$258(x) {
+  return x;
+}
+
+var ExtendableEventInit = /* module */[/* downcast */downcast$258];
+
+function downcast$259(x) {
+  return x;
+}
+
+var ProgressEventInit = /* module */[/* downcast */downcast$259];
+
+function downcast$260(x) {
+  return x;
+}
+
+var TransitionEventInit = /* module */[/* downcast */downcast$260];
+
+function downcast$261(x) {
+  return x;
+}
+
+var BluetoothAdvertisingEventInit = /* module */[/* downcast */downcast$261];
+
+function downcast$262(x) {
+  return x;
+}
+
+var HashChangeEventInit = /* module */[/* downcast */downcast$262];
+
+function downcast$263(x) {
+  return x;
+}
+
+var ScrollToOptions = /* module */[/* downcast */downcast$263];
+
+function downcast$264(x) {
+  return x;
+}
 
 var XMLHttpRequestUpload = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$264
 ];
+
+function downcast$265(x) {
+  return x;
+}
 
 function send$1(data, xMLHttpRequest) {
   var data$1 = Js_undefined.from_opt(data);
@@ -3826,6 +5025,7 @@ function send$1(data, xMLHttpRequest) {
 var $$XMLHttpRequest = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$265,
   /* _UNSENT */0,
   /* _OPENED */1,
   /* _HEADERS_RECEIVED */2,
@@ -3834,40 +5034,69 @@ var $$XMLHttpRequest = /* module */[
   /* send */send$1
 ];
 
+function downcast$266(x) {
+  return x;
+}
+
 var BluetoothPermissionResult = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$266
 ];
+
+function downcast$267(x) {
+  return x;
+}
 
 var ForceTouchEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$267
 ];
+
+function downcast$268(x) {
+  return x;
+}
 
 var DissimilarOriginWindow = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$268
 ];
+
+function downcast$269(x) {
+  return x;
+}
 
 var KeyboardEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$269,
   /* _DOM_KEY_LOCATION_STANDARD */0,
   /* _DOM_KEY_LOCATION_LEFT */1,
   /* _DOM_KEY_LOCATION_RIGHT */2,
   /* _DOM_KEY_LOCATION_NUMPAD */3
 ];
 
+function downcast$270(x) {
+  return x;
+}
+
 var TouchEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$270
 ];
+
+function downcast$271(x) {
+  return x;
+}
 
 function append$2(nodes, documentFragment) {
   var conv_nodes = function (param) {
@@ -3915,16 +5144,26 @@ var DocumentFragment = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* downcast */downcast$271,
   /* append */append$2,
   /* prepend */prepend$1
 ];
+
+function downcast$272(x) {
+  return x;
+}
 
 var ExtendableMessageEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$272
 ];
+
+function downcast$273(x) {
+  return x;
+}
 
 var CSSConditionRule = /* module */[
   /* _STYLE_RULE */1,
@@ -3938,8 +5177,13 @@ var CSSConditionRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$273
 ];
+
+function downcast$274(x) {
+  return x;
+}
 
 function after$1(nodes, documentType) {
   var conv_nodes = function (param) {
@@ -3999,10 +5243,15 @@ var DocumentType = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* downcast */downcast$274,
   /* after */after$1,
   /* before */before$1,
   /* replaceWith */replaceWith$1
 ];
+
+function downcast$275(x) {
+  return x;
+}
 
 function append$3(nodes, $$document) {
   var conv_nodes = function (param) {
@@ -4101,6 +5350,7 @@ var Document = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* downcast */downcast$275,
   /* append */append$3,
   /* createElement */createElement,
   /* createElementNS */createElementNS,
@@ -4113,6 +5363,10 @@ var Document = /* module */[
   /* write */write,
   /* writeln */writeln
 ];
+
+function downcast$276(x) {
+  return x;
+}
 
 function after$2(nodes, characterData) {
   var conv_nodes = function (param) {
@@ -4172,17 +5426,27 @@ var CharacterData = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* downcast */downcast$276,
   /* after */after$2,
   /* before */before$2,
   /* replaceWith */replaceWith$2
 ];
 
+function downcast$277(x) {
+  return x;
+}
+
 var MouseEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$277
 ];
+
+function downcast$278(x) {
+  return x;
+}
 
 function after$3(nodes, element) {
   var conv_nodes = function (param) {
@@ -4266,6 +5530,7 @@ var Element = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* downcast */downcast$278,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
@@ -4273,12 +5538,21 @@ var Element = /* module */[
   /* replaceWith */replaceWith$3
 ];
 
+function downcast$279(x) {
+  return x;
+}
+
 var FocusEvent = /* module */[
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
-  /* _BUBBLING_PHASE */3
+  /* _BUBBLING_PHASE */3,
+  /* downcast */downcast$279
 ];
+
+function downcast$280(x) {
+  return x;
+}
 
 function $$clearInterval$1(handle, $$window) {
   var handle$1 = Js_undefined.from_opt(handle);
@@ -4351,6 +5625,7 @@ function webdriverCallback(result, $$window) {
 var Window = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$280,
   /* clearInterval */$$clearInterval$1,
   /* clearTimeout */$$clearTimeout$1,
   /* fetch */fetch$1,
@@ -4359,6 +5634,10 @@ var Window = /* module */[
   /* setTimeout */$$setTimeout$1,
   /* webdriverCallback */webdriverCallback
 ];
+
+function downcast$281(x) {
+  return x;
+}
 
 function $$clearInterval$2(handle, workerGlobalScope) {
   var handle$1 = Js_undefined.from_opt(handle);
@@ -4426,6 +5705,7 @@ function $$setTimeout$2(handler, timeout, $$arguments, workerGlobalScope) {
 var WorkerGlobalScope = /* module */[
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* downcast */downcast$281,
   /* clearInterval */$$clearInterval$2,
   /* clearTimeout */$$clearTimeout$2,
   /* fetch */fetch$2,
@@ -4434,16 +5714,37 @@ var WorkerGlobalScope = /* module */[
   /* setTimeout */$$setTimeout$2
 ];
 
+function downcast$282(x) {
+  return x;
+}
+
 var WorkletGlobalScope = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$282
 ];
 
-var ExtendableMessageEventInit = /* module */[];
+function downcast$283(x) {
+  return x;
+}
 
-var EventModifierInit = /* module */[];
+var ExtendableMessageEventInit = /* module */[/* downcast */downcast$283];
 
-var FocusEventInit = /* module */[];
+function downcast$284(x) {
+  return x;
+}
+
+var EventModifierInit = /* module */[/* downcast */downcast$284];
+
+function downcast$285(x) {
+  return x;
+}
+
+var FocusEventInit = /* module */[/* downcast */downcast$285];
+
+function downcast$286(x) {
+  return x;
+}
 
 var Comment = /* module */[
   /* addEventListener */addEventListener,
@@ -4469,8 +5770,13 @@ var Comment = /* module */[
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
-  /* replaceWith */replaceWith$2
+  /* replaceWith */replaceWith$2,
+  /* downcast */downcast$286
 ];
+
+function downcast$287(x) {
+  return x;
+}
 
 var HTMLElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4498,8 +5804,13 @@ var HTMLElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$287
 ];
+
+function downcast$288(x) {
+  return x;
+}
 
 var CSSSupportsRule = /* module */[
   /* _STYLE_RULE */1,
@@ -4513,13 +5824,23 @@ var CSSSupportsRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$288
 ];
+
+function downcast$289(x) {
+  return x;
+}
 
 var PaintWorkletGlobalScope = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$289
 ];
+
+function downcast$290(x) {
+  return x;
+}
 
 var ServiceWorkerGlobalScope = /* module */[
   /* addEventListener */addEventListener,
@@ -4529,8 +5850,13 @@ var ServiceWorkerGlobalScope = /* module */[
   /* fetch */fetch$2,
   /* importScripts */importScripts,
   /* setInterval */$$setInterval$2,
-  /* setTimeout */$$setTimeout$2
+  /* setTimeout */$$setTimeout$2,
+  /* downcast */downcast$290
 ];
+
+function downcast$291(x) {
+  return x;
+}
 
 var DedicatedWorkerGlobalScope = /* module */[
   /* addEventListener */addEventListener,
@@ -4540,8 +5866,13 @@ var DedicatedWorkerGlobalScope = /* module */[
   /* fetch */fetch$2,
   /* importScripts */importScripts,
   /* setInterval */$$setInterval$2,
-  /* setTimeout */$$setTimeout$2
+  /* setTimeout */$$setTimeout$2,
+  /* downcast */downcast$291
 ];
+
+function downcast$292(x) {
+  return x;
+}
 
 var CSSMediaRule = /* module */[
   /* _STYLE_RULE */1,
@@ -4555,8 +5886,13 @@ var CSSMediaRule = /* module */[
   /* _KEYFRAMES_RULE */7,
   /* _KEYFRAME_RULE */8,
   /* _VIEWPORT_RULE */15,
-  /* _SUPPORTS_RULE */12
+  /* _SUPPORTS_RULE */12,
+  /* downcast */downcast$292
 ];
+
+function downcast$293(x) {
+  return x;
+}
 
 var ProcessingInstruction = /* module */[
   /* addEventListener */addEventListener,
@@ -4582,8 +5918,13 @@ var ProcessingInstruction = /* module */[
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
-  /* replaceWith */replaceWith$2
+  /* replaceWith */replaceWith$2,
+  /* downcast */downcast$293
 ];
+
+function downcast$294(x) {
+  return x;
+}
 
 var XMLDocument = /* module */[
   /* addEventListener */addEventListener,
@@ -4617,13 +5958,23 @@ var XMLDocument = /* module */[
   /* open_ */open_,
   /* prepend */prepend$2,
   /* write */write,
-  /* writeln */writeln
+  /* writeln */writeln,
+  /* downcast */downcast$294
 ];
+
+function downcast$295(x) {
+  return x;
+}
 
 var TestWorkletGlobalScope = /* module */[
   /* addEventListener */addEventListener,
-  /* removeEventListener */removeEventListener
+  /* removeEventListener */removeEventListener,
+  /* downcast */downcast$295
 ];
+
+function downcast$296(x) {
+  return x;
+}
 
 var SVGElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4651,8 +6002,13 @@ var SVGElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$296
 ];
+
+function downcast$297(x) {
+  return x;
+}
 
 var Text = /* module */[
   /* addEventListener */addEventListener,
@@ -4678,12 +6034,25 @@ var Text = /* module */[
   /* cloneNode */cloneNode,
   /* after */after$2,
   /* before */before$2,
-  /* replaceWith */replaceWith$2
+  /* replaceWith */replaceWith$2,
+  /* downcast */downcast$297
 ];
 
-var KeyboardEventInit = /* module */[];
+function downcast$298(x) {
+  return x;
+}
 
-var MouseEventInit = /* module */[];
+var KeyboardEventInit = /* module */[/* downcast */downcast$298];
+
+function downcast$299(x) {
+  return x;
+}
+
+var MouseEventInit = /* module */[/* downcast */downcast$299];
+
+function downcast$300(x) {
+  return x;
+}
 
 function reload$2(hardReload, hTMLIFrameElement) {
   var hardReload$1 = Js_undefined.from_opt(hardReload);
@@ -4718,8 +6087,13 @@ var HTMLIFrameElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$300,
   /* reload */reload$2
 ];
+
+function downcast$301(x) {
+  return x;
+}
 
 var SVGGraphicsElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4747,8 +6121,13 @@ var SVGGraphicsElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$301
 ];
+
+function downcast$302(x) {
+  return x;
+}
 
 var HTMLScriptElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4776,8 +6155,13 @@ var HTMLScriptElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$302
 ];
+
+function downcast$303(x) {
+  return x;
+}
 
 var HTMLObjectElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4805,8 +6189,13 @@ var HTMLObjectElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$303
 ];
+
+function downcast$304(x) {
+  return x;
+}
 
 var HTMLMediaElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4835,6 +6224,7 @@ var HTMLMediaElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$304,
   /* _NETWORK_EMPTY */0,
   /* _NETWORK_IDLE */1,
   /* _NETWORK_LOADING */2,
@@ -4845,6 +6235,10 @@ var HTMLMediaElement = /* module */[
   /* _HAVE_FUTURE_DATA */3,
   /* _HAVE_ENOUGH_DATA */4
 ];
+
+function downcast$305(x) {
+  return x;
+}
 
 var HTMLImageElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4872,8 +6266,13 @@ var HTMLImageElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$305
 ];
+
+function downcast$306(x) {
+  return x;
+}
 
 var HTMLTableColElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4901,8 +6300,13 @@ var HTMLTableColElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$306
 ];
+
+function downcast$307(x) {
+  return x;
+}
 
 var HTMLTitleElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4930,8 +6334,13 @@ var HTMLTitleElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$307
 ];
+
+function downcast$308(x) {
+  return x;
+}
 
 var HTMLDataElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4959,8 +6368,13 @@ var HTMLDataElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$308
 ];
+
+function downcast$309(x) {
+  return x;
+}
 
 var HTMLMetaElement = /* module */[
   /* addEventListener */addEventListener,
@@ -4988,8 +6402,13 @@ var HTMLMetaElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$309
 ];
+
+function downcast$310(x) {
+  return x;
+}
 
 var HTMLLIElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5017,8 +6436,13 @@ var HTMLLIElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$310
 ];
+
+function downcast$311(x) {
+  return x;
+}
 
 var HTMLOptGroupElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5046,8 +6470,13 @@ var HTMLOptGroupElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$311
 ];
+
+function downcast$312(x) {
+  return x;
+}
 
 var HTMLFieldSetElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5075,8 +6504,13 @@ var HTMLFieldSetElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$312
 ];
+
+function downcast$313(x) {
+  return x;
+}
 
 var HTMLDListElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5104,8 +6538,13 @@ var HTMLDListElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$313
 ];
+
+function downcast$314(x) {
+  return x;
+}
 
 var HTMLBodyElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5133,8 +6572,13 @@ var HTMLBodyElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$314
 ];
+
+function downcast$315(x) {
+  return x;
+}
 
 var HTMLLegendElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5162,8 +6606,13 @@ var HTMLLegendElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$315
 ];
+
+function downcast$316(x) {
+  return x;
+}
 
 var HTMLBaseElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5191,8 +6640,13 @@ var HTMLBaseElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$316
 ];
+
+function downcast$317(x) {
+  return x;
+}
 
 var HTMLUListElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5220,8 +6674,13 @@ var HTMLUListElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$317
 ];
+
+function downcast$318(x) {
+  return x;
+}
 
 var HTMLHtmlElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5249,8 +6708,13 @@ var HTMLHtmlElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$318
 ];
+
+function downcast$319(x) {
+  return x;
+}
 
 var HTMLTimeElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5278,8 +6742,13 @@ var HTMLTimeElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$319
 ];
+
+function downcast$320(x) {
+  return x;
+}
 
 function insertRow(index, hTMLTableSectionElement) {
   var index$1 = Js_undefined.from_opt(index);
@@ -5313,8 +6782,13 @@ var HTMLTableSectionElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$320,
   /* insertRow */insertRow
 ];
+
+function downcast$321(x) {
+  return x;
+}
 
 var HTMLFrameElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5342,8 +6816,13 @@ var HTMLFrameElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$321
 ];
+
+function downcast$322(x) {
+  return x;
+}
 
 var HTMLLinkElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5371,8 +6850,13 @@ var HTMLLinkElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$322
 ];
+
+function downcast$323(x) {
+  return x;
+}
 
 var HTMLEmbedElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5400,8 +6884,13 @@ var HTMLEmbedElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$323
 ];
+
+function downcast$324(x) {
+  return x;
+}
 
 var HTMLMeterElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5429,8 +6918,13 @@ var HTMLMeterElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$324
 ];
+
+function downcast$325(x) {
+  return x;
+}
 
 var HTMLTableCaptionElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5458,8 +6952,13 @@ var HTMLTableCaptionElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$325
 ];
+
+function downcast$326(x) {
+  return x;
+}
 
 var HTMLLabelElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5487,8 +6986,13 @@ var HTMLLabelElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$326
 ];
+
+function downcast$327(x) {
+  return x;
+}
 
 var HTMLAnchorElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5516,8 +7020,13 @@ var HTMLAnchorElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$327
 ];
+
+function downcast$328(x) {
+  return x;
+}
 
 var HTMLHeadElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5545,8 +7054,13 @@ var HTMLHeadElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$328
 ];
+
+function downcast$329(x) {
+  return x;
+}
 
 var HTMLOutputElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5574,8 +7088,13 @@ var HTMLOutputElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$329
 ];
+
+function downcast$330(x) {
+  return x;
+}
 
 var HTMLUnknownElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5603,8 +7122,13 @@ var HTMLUnknownElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$330
 ];
+
+function downcast$331(x) {
+  return x;
+}
 
 var HTMLParamElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5632,8 +7156,13 @@ var HTMLParamElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$331
 ];
+
+function downcast$332(x) {
+  return x;
+}
 
 var HTMLOptionElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5661,8 +7190,13 @@ var HTMLOptionElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$332
 ];
+
+function downcast$333(x) {
+  return x;
+}
 
 var HTMLOListElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5690,8 +7224,13 @@ var HTMLOListElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$333
 ];
+
+function downcast$334(x) {
+  return x;
+}
 
 function add$2(element, before, hTMLSelectElement) {
   var before$1 = Js_undefined.from_opt(before);
@@ -5734,8 +7273,13 @@ var HTMLSelectElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$334,
   /* add */add$2
 ];
+
+function downcast$335(x) {
+  return x;
+}
 
 var HTMLStyleElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5763,8 +7307,13 @@ var HTMLStyleElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$335
 ];
+
+function downcast$336(x) {
+  return x;
+}
 
 var HTMLQuoteElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5792,8 +7341,13 @@ var HTMLQuoteElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$336
 ];
+
+function downcast$337(x) {
+  return x;
+}
 
 var HTMLBRElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5821,8 +7375,13 @@ var HTMLBRElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$337
 ];
+
+function downcast$338(x) {
+  return x;
+}
 
 var HTMLButtonElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5850,8 +7409,13 @@ var HTMLButtonElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$338
 ];
+
+function downcast$339(x) {
+  return x;
+}
 
 var HTMLHRElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5879,8 +7443,13 @@ var HTMLHRElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$339
 ];
+
+function downcast$340(x) {
+  return x;
+}
 
 function setSelectionRange(start, end_, direction, hTMLTextAreaElement) {
   var direction$1 = Js_undefined.from_opt(direction);
@@ -5915,8 +7484,13 @@ var HTMLTextAreaElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$340,
   /* setSelectionRange */setSelectionRange
 ];
+
+function downcast$341(x) {
+  return x;
+}
 
 var HTMLSourceElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5944,8 +7518,13 @@ var HTMLSourceElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$341
 ];
+
+function downcast$342(x) {
+  return x;
+}
 
 var HTMLPreElement = /* module */[
   /* addEventListener */addEventListener,
@@ -5973,8 +7552,13 @@ var HTMLPreElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$342
 ];
+
+function downcast$343(x) {
+  return x;
+}
 
 var HTMLModElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6002,8 +7586,13 @@ var HTMLModElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$343
 ];
+
+function downcast$344(x) {
+  return x;
+}
 
 var HTMLMapElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6031,8 +7620,13 @@ var HTMLMapElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$344
 ];
+
+function downcast$345(x) {
+  return x;
+}
 
 var HTMLTemplateElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6060,8 +7654,13 @@ var HTMLTemplateElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$345
 ];
+
+function downcast$346(x) {
+  return x;
+}
 
 var HTMLDirectoryElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6089,8 +7688,13 @@ var HTMLDirectoryElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$346
 ];
+
+function downcast$347(x) {
+  return x;
+}
 
 function setSelectionRange$1(start, end_, direction, hTMLInputElement) {
   var direction$1 = Js_undefined.from_opt(direction);
@@ -6125,8 +7729,13 @@ var HTMLInputElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$347,
   /* setSelectionRange */setSelectionRange$1
 ];
+
+function downcast$348(x) {
+  return x;
+}
 
 var HTMLParagraphElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6154,8 +7763,13 @@ var HTMLParagraphElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$348
 ];
+
+function downcast$349(x) {
+  return x;
+}
 
 var HTMLAreaElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6183,8 +7797,13 @@ var HTMLAreaElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$349
 ];
+
+function downcast$350(x) {
+  return x;
+}
 
 var HTMLSpanElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6212,8 +7831,13 @@ var HTMLSpanElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$350
 ];
+
+function downcast$351(x) {
+  return x;
+}
 
 var HTMLFormElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6241,8 +7865,13 @@ var HTMLFormElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$351
 ];
+
+function downcast$352(x) {
+  return x;
+}
 
 var HTMLDataListElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6270,8 +7899,13 @@ var HTMLDataListElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$352
 ];
+
+function downcast$353(x) {
+  return x;
+}
 
 function getContext(contextId, $$arguments, hTMLCanvasElement) {
   var func = hTMLCanvasElement.getContext;
@@ -6322,9 +7956,14 @@ var HTMLCanvasElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$353,
   /* getContext */getContext$1,
   /* toDataURL */toDataURL
 ];
+
+function downcast$354(x) {
+  return x;
+}
 
 var HTMLTrackElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6352,8 +7991,13 @@ var HTMLTrackElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$354
 ];
+
+function downcast$355(x) {
+  return x;
+}
 
 function insertCell(index, hTMLTableRowElement) {
   var index$1 = Js_undefined.from_opt(index);
@@ -6387,8 +8031,13 @@ var HTMLTableRowElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$355,
   /* insertCell */insertCell
 ];
+
+function downcast$356(x) {
+  return x;
+}
 
 var HTMLDivElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6416,8 +8065,13 @@ var HTMLDivElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$356
 ];
+
+function downcast$357(x) {
+  return x;
+}
 
 var HTMLAppletElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6445,8 +8099,13 @@ var HTMLAppletElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$357
 ];
+
+function downcast$358(x) {
+  return x;
+}
 
 function close$1(returnValue, hTMLDialogElement) {
   var returnValue$1 = Js_undefined.from_opt(returnValue);
@@ -6481,8 +8140,13 @@ var HTMLDialogElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$358,
   /* close */close$1
 ];
+
+function downcast$359(x) {
+  return x;
+}
 
 var HTMLFrameSetElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6510,8 +8174,13 @@ var HTMLFrameSetElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$359
 ];
+
+function downcast$360(x) {
+  return x;
+}
 
 var HTMLDetailsElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6539,8 +8208,13 @@ var HTMLDetailsElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$360
 ];
+
+function downcast$361(x) {
+  return x;
+}
 
 var HTMLProgressElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6568,8 +8242,13 @@ var HTMLProgressElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$361
 ];
+
+function downcast$362(x) {
+  return x;
+}
 
 var HTMLFontElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6597,8 +8276,13 @@ var HTMLFontElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$362
 ];
+
+function downcast$363(x) {
+  return x;
+}
 
 var HTMLTableCellElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6626,8 +8310,13 @@ var HTMLTableCellElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$363
 ];
+
+function downcast$364(x) {
+  return x;
+}
 
 function insertRow$1(index, hTMLTableElement) {
   var index$1 = Js_undefined.from_opt(index);
@@ -6661,8 +8350,13 @@ var HTMLTableElement = /* module */[
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* downcast */downcast$364,
   /* insertRow */insertRow$1
 ];
+
+function downcast$365(x) {
+  return x;
+}
 
 var HTMLHeadingElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6690,8 +8384,13 @@ var HTMLHeadingElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$365
 ];
+
+function downcast$366(x) {
+  return x;
+}
 
 var HTMLAudioElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6728,8 +8427,13 @@ var HTMLAudioElement = /* module */[
   /* _HAVE_METADATA */1,
   /* _HAVE_CURRENT_DATA */2,
   /* _HAVE_FUTURE_DATA */3,
-  /* _HAVE_ENOUGH_DATA */4
+  /* _HAVE_ENOUGH_DATA */4,
+  /* downcast */downcast$366
 ];
+
+function downcast$367(x) {
+  return x;
+}
 
 var HTMLTableHeaderCellElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6757,8 +8461,13 @@ var HTMLTableHeaderCellElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$367
 ];
+
+function downcast$368(x) {
+  return x;
+}
 
 var SVGSVGElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6786,8 +8495,13 @@ var SVGSVGElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$368
 ];
+
+function downcast$369(x) {
+  return x;
+}
 
 var HTMLVideoElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6824,8 +8538,13 @@ var HTMLVideoElement = /* module */[
   /* _HAVE_METADATA */1,
   /* _HAVE_CURRENT_DATA */2,
   /* _HAVE_FUTURE_DATA */3,
-  /* _HAVE_ENOUGH_DATA */4
+  /* _HAVE_ENOUGH_DATA */4,
+  /* downcast */downcast$369
 ];
+
+function downcast$370(x) {
+  return x;
+}
 
 var HTMLTableDataCellElement = /* module */[
   /* addEventListener */addEventListener,
@@ -6853,7 +8572,8 @@ var HTMLTableDataCellElement = /* module */[
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
-  /* replaceWith */replaceWith$3
+  /* replaceWith */replaceWith$3,
+  /* downcast */downcast$370
 ];
 
 exports.to_arg                                    = to_arg;

@@ -1160,6 +1160,10 @@ and _EventListener = (_baseClass) _EventListener_like
     external timeEnd : message:string ->  unit = "timeEnd" [@@bs.send.pipe: ('own) _console_like] 
     external warn : console:('own) _console_like ->  (('own) _console_like, unit, (string)) variadic_func = "warn" [@@bs.get]
     
+    let downcast x =
+      let return = Obj.magic (x:_console) in
+      (return:(_) _console_like)
+    
     let assert_ ~condition ?message console =
       let conv_message = Js_undefined.from_opt in
       let message = conv_message message in
@@ -1197,6 +1201,9 @@ end
     external timing : performance:('own) _Performance_like ->  _PerformanceTiming = "timing" [@@bs.get] 
     external now :  float = "now" [@@bs.send.pipe: ('own) _Performance_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Performance) in
+      (return:(_) _Performance_like)
     
 end
  module CustomElementRegistry = struct
@@ -1205,6 +1212,10 @@ end
     external define : name:string -> constructor_:('a1 -> 'a2 [@bs]) -> ?options:(_) _ElementDefinitionOptions_like Js.undefined ->  unit = "define" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
     external get : name:string ->  'a3 = "get" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
     external whenDefined : name:string ->  unit Js.Promise.t = "whenDefined" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_CustomElementRegistry) in
+      (return:(_) _CustomElementRegistry_like)
     
     let define ~name ~constructor_ ?options customElementRegistry =
       let conv_options = Js_undefined.from_opt in
@@ -1218,6 +1229,9 @@ end
     external length : gamepadList:('own) _GamepadList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _Gamepad option = "item" [@@bs.send.pipe: ('own) _GamepadList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_GamepadList) in
+      (return:(_) _GamepadList_like)
     
 end
  module URLSearchParams = struct
@@ -1231,6 +1245,9 @@ end
     external set : name:string -> value:string ->  unit = "set" [@@bs.send.pipe: ('own) _URLSearchParams_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _URLSearchParams_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_URLSearchParams) in
+      (return:(_) _URLSearchParams_like)
     
 end
  module GamepadButton = struct
@@ -1240,6 +1257,9 @@ end
     external touched : gamepadButton:('own) _GamepadButton_like ->  bool = "touched" [@@bs.get] 
     external value : gamepadButton:('own) _GamepadButton_like ->  float = "value" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_GamepadButton) in
+      (return:(_) _GamepadButton_like)
     
 end
  module ElementContentEditable = struct
@@ -1247,6 +1267,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_ElementContentEditable) in
+      (return:(_) _ElementContentEditable_like)
     
 end
  module MimeTypeArray = struct
@@ -1256,6 +1279,9 @@ end
     external item : index:int ->  _MimeType option = "item" [@@bs.send.pipe: ('own) _MimeTypeArray_like] [@@bs.return null_to_opt]
     external namedItem : name:string ->  _MimeType option = "namedItem" [@@bs.send.pipe: ('own) _MimeTypeArray_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_MimeTypeArray) in
+      (return:(_) _MimeTypeArray_like)
     
 end
  module FormData = struct
@@ -1267,6 +1293,10 @@ end
     external getAll : name:string ->  'a5 array = "getAll" [@@bs.send.pipe: ('own) _FormData_like] 
     external has : name:string ->  bool = "has" [@@bs.send.pipe: ('own) _FormData_like] 
     external set : name:string -> value:(_) _Blob_like -> ?filename:string Js.undefined ->  unit = "set" [@@bs.send.pipe: ('own) _FormData_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_FormData) in
+      (return:(_) _FormData_like)
     
     let append ~name ~value ?filename formData =
       let conv_filename = Js_undefined.from_opt in
@@ -1295,6 +1325,9 @@ end
     external previousNode :  _Node option = "previousNode" [@@bs.send.pipe: ('own) _TreeWalker_like] [@@bs.return null_to_opt]
     external previousSibling :  _Node option = "previousSibling" [@@bs.send.pipe: ('own) _TreeWalker_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_TreeWalker) in
+      (return:(_) _TreeWalker_like)
     
 end
  module DOMMatrixReadOnly = struct
@@ -1338,6 +1371,10 @@ end
     external skewY : ?sy:float Js.undefined ->  _DOMMatrix = "skewY" [@@bs.send.pipe: ('own) _DOMMatrixReadOnly_like] 
     external transformPoint : ?point:(_) _DOMPointInit_like Js.undefined ->  _DOMPoint = "transformPoint" [@@bs.send.pipe: ('own) _DOMMatrixReadOnly_like] 
     external translate : ?tx:float Js.undefined -> ?ty:float Js.undefined -> ?tz:float Js.undefined ->  _DOMMatrix = "translate" [@@bs.send.pipe: ('own) _DOMMatrixReadOnly_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DOMMatrixReadOnly) in
+      (return:(_) _DOMMatrixReadOnly_like)
     
     let fromMatrix ?other dOMMatrixReadOnly =
       let conv_other = Js_undefined.from_opt in
@@ -1439,6 +1476,10 @@ end
     external querySelector : selectors:string ->  _Element option = "querySelector" [@@bs.send.pipe: ('own) _ParentNode_like] [@@bs.return null_to_opt]
     external querySelectorAll : selectors:string ->  _NodeList = "querySelectorAll" [@@bs.send.pipe: ('own) _ParentNode_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ParentNode) in
+      (return:(_) _ParentNode_like)
+    
     let append ~nodes parentNode =
       let func = append parentNode in
       let args = to_arg nodes in
@@ -1502,6 +1543,10 @@ end
     external surroundContents : newParent:(_) _Node_like ->  unit = "surroundContents" [@@bs.send.pipe: ('own) _Range_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _Range_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Range) in
+      (return:(_) _Range_like)
+    
     let _START_TO_START  =
       
       0
@@ -1529,6 +1574,10 @@ end
     
     external fetch : input:'a8 -> ?init:(_) _RequestInit_like Js.undefined ->  _Response Js.Promise.t = "fetch" [@@bs.send.pipe: ('own) _WindowOrWorkerGlobalScope_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WindowOrWorkerGlobalScope) in
+      (return:(_) _WindowOrWorkerGlobalScope_like)
+    
     let fetch ~input ~init windowOrWorkerGlobalScope =
       let conv_input = function
         | `Request (x: (_) _Request_like) -> Obj.magic x
@@ -1552,6 +1601,9 @@ end
     external renderWidth : vREyeParameters:('own) _VREyeParameters_like ->  int = "renderWidth" [@@bs.get] 
     external renderHeight : vREyeParameters:('own) _VREyeParameters_like ->  int = "renderHeight" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VREyeParameters) in
+      (return:(_) _VREyeParameters_like)
     
 end
  module WebGLUniformLocation = struct
@@ -1559,12 +1611,19 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLUniformLocation) in
+      (return:(_) _WebGLUniformLocation_like)
     
 end
  module OESTextureHalfFloat = struct
     
     
     
+    
+    let downcast x =
+      let return = Obj.magic (x:_OESTextureHalfFloat) in
+      (return:(_) _OESTextureHalfFloat_like)
     
     let _HALF_FLOAT_OES  =
       
@@ -1579,6 +1638,10 @@ end
     external deleteVertexArrayOES : arrayObject:(_) _WebGLVertexArrayObjectOES_like Js.null ->  unit = "deleteVertexArrayOES" [@@bs.send.pipe: ('own) _OESVertexArrayObject_like] 
     external isVertexArrayOES : arrayObject:(_) _WebGLVertexArrayObjectOES_like Js.null ->  bool = "isVertexArrayOES" [@@bs.send.pipe: ('own) _OESVertexArrayObject_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_OESVertexArrayObject) in
+      (return:(_) _OESVertexArrayObject_like)
+    
     let _VERTEX_ARRAY_BINDING_OES  =
       
       34229
@@ -1589,6 +1652,9 @@ end
     
     external setBluetoothMockDataSet : dataSetName:string ->  unit = "setBluetoothMockDataSet" [@@bs.send.pipe: ('own) _TestRunner_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TestRunner) in
+      (return:(_) _TestRunner_like)
     
 end
  module EventTarget = struct
@@ -1597,6 +1663,10 @@ end
     external addEventListener : type_:string -> listener:(_) _EventListener_like Js.null -> ?capture:Js.boolean Js.undefined ->  unit = "addEventListener" [@@bs.send.pipe: ('own) _EventTarget_like] 
     external dispatchEvent : event:(_) _Event_like ->  bool = "dispatchEvent" [@@bs.send.pipe: ('own) _EventTarget_like] 
     external removeEventListener : type_:string -> listener:(_) _EventListener_like Js.null -> ?capture:Js.boolean Js.undefined ->  unit = "removeEventListener" [@@bs.send.pipe: ('own) _EventTarget_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_EventTarget) in
+      (return:(_) _EventTarget_like)
     
     let addEventListener ~type_ ~listener ?capture eventTarget =
       let conv_capture = Js_undefined.from_opt in
@@ -1621,6 +1691,9 @@ end
     external nextNode :  _Node option = "nextNode" [@@bs.send.pipe: ('own) _NodeIterator_like] [@@bs.return null_to_opt]
     external previousNode :  _Node option = "previousNode" [@@bs.send.pipe: ('own) _NodeIterator_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_NodeIterator) in
+      (return:(_) _NodeIterator_like)
     
 end
  module BluetoothRemoteGATTServer = struct
@@ -1632,6 +1705,10 @@ end
     external disconnect :  unit = "disconnect" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTServer_like] 
     external getPrimaryService : service:'a9 ->  _BluetoothRemoteGATTService Js.Promise.t = "getPrimaryService" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTServer_like] 
     external getPrimaryServices : ?service:'a10 Js.undefined ->  _BluetoothRemoteGATTService array Js.Promise.t = "getPrimaryServices" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTServer_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothRemoteGATTServer) in
+      (return:(_) _BluetoothRemoteGATTServer_like)
     
     let getPrimaryService ~service bluetoothRemoteGATTServer =
       let conv_service = function
@@ -1794,6 +1871,10 @@ end
     external vertexAttrib4fv : indx:int -> values:'a38 ->  unit = "vertexAttrib4fv" [@@bs.send.pipe: ('own) _WebGLRenderingContextBase_like] 
     external vertexAttribPointer : indx:int -> size:int -> type_:int -> normalized:Js.boolean -> stride:int -> offset:int ->  unit = "vertexAttribPointer" [@@bs.send.pipe: ('own) _WebGLRenderingContextBase_like] 
     external viewport : x:int -> y:int -> width:int -> height:int ->  unit = "viewport" [@@bs.send.pipe: ('own) _WebGLRenderingContextBase_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_WebGLRenderingContextBase) in
+      (return:(_) _WebGLRenderingContextBase_like)
     
     let _DEPTH_BUFFER_BIT  =
       
@@ -3154,6 +3235,10 @@ end
     external vertexAttribPointer : indx:int -> size:int -> type_:int -> normalized:Js.boolean -> stride:int -> offset:int ->  unit = "vertexAttribPointer" [@@bs.send.pipe: ('own) _WebGLRenderingContext_like] 
     external viewport : x:int -> y:int -> width:int -> height:int ->  unit = "viewport" [@@bs.send.pipe: ('own) _WebGLRenderingContext_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLRenderingContext) in
+      (return:(_) _WebGLRenderingContext_like)
+    
     let _DEPTH_BUFFER_BIT  =
       
       256
@@ -4401,6 +4486,9 @@ end
     external replace : url:string ->  unit = "replace" [@@bs.send.pipe: ('own) _Location_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _Location_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Location) in
+      (return:(_) _Location_like)
     
 end
  module Body = struct
@@ -4412,6 +4500,9 @@ end
     external json :  'a69 Js.Promise.t = "json" [@@bs.send.pipe: ('own) _Body_like] 
     external text :  string Js.Promise.t = "text" [@@bs.send.pipe: ('own) _Body_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Body) in
+      (return:(_) _Body_like)
     
 end
  module History = struct
@@ -4421,6 +4512,10 @@ end
     external back :  unit = "back" [@@bs.send.pipe: ('own) _History_like] 
     external forward :  unit = "forward" [@@bs.send.pipe: ('own) _History_like] 
     external go : ?delta:int Js.undefined ->  unit = "go" [@@bs.send.pipe: ('own) _History_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_History) in
+      (return:(_) _History_like)
     
     let go ?delta history =
       let conv_delta = Js_undefined.from_opt in
@@ -4434,6 +4529,9 @@ end
     external length : nodeList:('own) _NodeList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _Node option = "item" [@@bs.send.pipe: ('own) _NodeList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_NodeList) in
+      (return:(_) _NodeList_like)
     
 end
  module BluetoothDeviceEventHandlers = struct
@@ -4442,6 +4540,9 @@ end
     external ongattserverdisconnected : bluetoothDeviceEventHandlers:('own) _BluetoothDeviceEventHandlers_like ->  (_Event -> 'a70 [@bs]) option = "ongattserverdisconnected" [@@bs.get] [@@bs.return null_to_opt]
     external setOngattserverdisconnected : bluetoothDeviceEventHandlers:('own) _BluetoothDeviceEventHandlers_like -> ongattserverdisconnected:(_Event -> 'a71 [@bs]) Js.null ->  unit = "ongattserverdisconnected" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothDeviceEventHandlers) in
+      (return:(_) _BluetoothDeviceEventHandlers_like)
     
 end
  module Screen = struct
@@ -4450,6 +4551,9 @@ end
     external colorDepth : screen:('own) _Screen_like ->  int = "colorDepth" [@@bs.get] 
     external pixelDepth : screen:('own) _Screen_like ->  int = "pixelDepth" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Screen) in
+      (return:(_) _Screen_like)
     
 end
  module PluginArray = struct
@@ -4459,6 +4563,10 @@ end
     external item : index:int ->  _Plugin option = "item" [@@bs.send.pipe: ('own) _PluginArray_like] [@@bs.return null_to_opt]
     external namedItem : name:string ->  _Plugin option = "namedItem" [@@bs.send.pipe: ('own) _PluginArray_like] [@@bs.return null_to_opt]
     external refresh : ?reload:Js.boolean Js.undefined ->  unit = "refresh" [@@bs.send.pipe: ('own) _PluginArray_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_PluginArray) in
+      (return:(_) _PluginArray_like)
     
     let refresh ?reload pluginArray =
       let conv_reload = Js_undefined.from_opt in
@@ -4479,6 +4587,9 @@ end
     external reliableWrite : bluetoothCharacteristicProperties:('own) _BluetoothCharacteristicProperties_like ->  bool = "reliableWrite" [@@bs.get] 
     external writableAuxiliaries : bluetoothCharacteristicProperties:('own) _BluetoothCharacteristicProperties_like ->  bool = "writableAuxiliaries" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothCharacteristicProperties) in
+      (return:(_) _BluetoothCharacteristicProperties_like)
     
 end
  module DOMRectReadOnly = struct
@@ -4493,6 +4604,9 @@ end
     external bottom : dOMRectReadOnly:('own) _DOMRectReadOnly_like ->  float = "bottom" [@@bs.get] 
     external left : dOMRectReadOnly:('own) _DOMRectReadOnly_like ->  float = "left" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMRectReadOnly) in
+      (return:(_) _DOMRectReadOnly_like)
     
 end
  module BluetoothRemoteGATTDescriptor = struct
@@ -4504,6 +4618,9 @@ end
     external readValue :  string Js.Promise.t = "readValue" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTDescriptor_like] 
     external writeValue : value:int array ->  unit Js.Promise.t = "writeValue" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTDescriptor_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothRemoteGATTDescriptor) in
+      (return:(_) _BluetoothRemoteGATTDescriptor_like)
     
 end
  module ChildNode = struct
@@ -4513,6 +4630,10 @@ end
     external before : childNode:('own) _ChildNode_like ->  (('own) _ChildNode_like, unit, ('a73)) variadic_func = "before" [@@bs.get]
     external remove :  unit = "remove" [@@bs.send.pipe: ('own) _ChildNode_like] 
     external replaceWith : childNode:('own) _ChildNode_like ->  (('own) _ChildNode_like, unit, ('a74)) variadic_func = "replaceWith" [@@bs.get]
+    
+    let downcast x =
+      let return = Obj.magic (x:_ChildNode) in
+      (return:(_) _ChildNode_like)
     
     let after ~nodes childNode =
       let func = after childNode in
@@ -4566,12 +4687,19 @@ end
     external previousElementSibling : nonDocumentTypeChildNode:('own) _NonDocumentTypeChildNode_like ->  _Element option = "previousElementSibling" [@@bs.get] [@@bs.return null_to_opt]
     external nextElementSibling : nonDocumentTypeChildNode:('own) _NonDocumentTypeChildNode_like ->  _Element option = "nextElementSibling" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_NonDocumentTypeChildNode) in
+      (return:(_) _NonDocumentTypeChildNode_like)
     
 end
  module DOMParser = struct
     
     
     external parseFromString : str:string -> type_:string ->  _Document = "parseFromString" [@@bs.send.pipe: ('own) _DOMParser_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DOMParser) in
+      (return:(_) _DOMParser_like)
     
     let parseFromString ~str ~type_ dOMParser =
       let conv_type = function
@@ -4614,6 +4742,9 @@ end
     external revokeObjectURL : url:string ->  unit = "revokeObjectURL" [@@bs.send.pipe: ('own) _URL_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _URL_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_URL) in
+      (return:(_) _URL_like)
     
 end
  module ElementCSSInlineStyle = struct
@@ -4621,6 +4752,9 @@ end
     
     external style : elementCSSInlineStyle:('own) _ElementCSSInlineStyle_like ->  _CSSStyleDeclaration = "style" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ElementCSSInlineStyle) in
+      (return:(_) _ElementCSSInlineStyle_like)
     
 end
  module FileList = struct
@@ -4629,6 +4763,9 @@ end
     external length : fileList:('own) _FileList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _File option = "item" [@@bs.send.pipe: ('own) _FileList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_FileList) in
+      (return:(_) _FileList_like)
     
 end
  module WebGLObject = struct
@@ -4636,6 +4773,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLObject) in
+      (return:(_) _WebGLObject_like)
     
 end
  module BrowserElement = struct
@@ -4647,6 +4787,10 @@ end
     external reload : ?hardReload:Js.boolean Js.undefined ->  unit = "reload" [@@bs.send.pipe: ('own) _BrowserElement_like] 
     external setVisible : visible:Js.boolean ->  unit = "setVisible" [@@bs.send.pipe: ('own) _BrowserElement_like] 
     external stop :  unit = "stop" [@@bs.send.pipe: ('own) _BrowserElement_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElement) in
+      (return:(_) _BrowserElement_like)
     
     let reload ?hardReload browserElement =
       let conv_hardReload = Js_undefined.from_opt in
@@ -4660,6 +4804,9 @@ end
     external getVisible :  bool = "getVisible" [@@bs.send.pipe: ('own) _BrowserElementCommon_like] 
     external setVisible : visible:Js.boolean ->  unit = "setVisible" [@@bs.send.pipe: ('own) _BrowserElementCommon_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementCommon) in
+      (return:(_) _BrowserElementCommon_like)
     
 end
  module BrowserElementPrivileged = struct
@@ -4669,6 +4816,10 @@ end
     external goForward :  unit = "goForward" [@@bs.send.pipe: ('own) _BrowserElementPrivileged_like] 
     external reload : ?hardReload:Js.boolean Js.undefined ->  unit = "reload" [@@bs.send.pipe: ('own) _BrowserElementPrivileged_like] 
     external stop :  unit = "stop" [@@bs.send.pipe: ('own) _BrowserElementPrivileged_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementPrivileged) in
+      (return:(_) _BrowserElementPrivileged_like)
     
     let reload ?hardReload browserElementPrivileged =
       let conv_hardReload = Js_undefined.from_opt in
@@ -4689,6 +4840,9 @@ end
     external permissions : workerNavigator:('own) _WorkerNavigator_like ->  _Permissions = "permissions" [@@bs.get] 
     external taintEnabled :  bool = "taintEnabled" [@@bs.send.pipe: ('own) _WorkerNavigator_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WorkerNavigator) in
+      (return:(_) _WorkerNavigator_like)
     
 end
  module StyleSheet = struct
@@ -4700,6 +4854,9 @@ end
     external disabled : styleSheet:('own) _StyleSheet_like ->  bool = "disabled" [@@bs.get] 
     external setDisabled : styleSheet:('own) _StyleSheet_like -> disabled:Js.boolean ->  unit = "disabled" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_StyleSheet) in
+      (return:(_) _StyleSheet_like)
     
 end
  module LinkStyle = struct
@@ -4707,6 +4864,9 @@ end
     
     external sheet : linkStyle:('own) _LinkStyle_like ->  _StyleSheet option = "sheet" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_LinkStyle) in
+      (return:(_) _LinkStyle_like)
     
 end
  module HTMLCollection = struct
@@ -4716,6 +4876,9 @@ end
     external item : index:int ->  _Element option = "item" [@@bs.send.pipe: ('own) _HTMLCollection_like] [@@bs.return null_to_opt]
     external namedItem : name:string ->  _Element option = "namedItem" [@@bs.send.pipe: ('own) _HTMLCollection_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLCollection) in
+      (return:(_) _HTMLCollection_like)
     
 end
  module PerformanceTiming = struct
@@ -4730,6 +4893,9 @@ end
     external loadEventStart : performanceTiming:('own) _PerformanceTiming_like ->  int = "loadEventStart" [@@bs.get] 
     external loadEventEnd : performanceTiming:('own) _PerformanceTiming_like ->  int = "loadEventEnd" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_PerformanceTiming) in
+      (return:(_) _PerformanceTiming_like)
     
 end
  module Touch = struct
@@ -4744,6 +4910,9 @@ end
     external pageX : touch:('own) _Touch_like ->  float = "pageX" [@@bs.get] 
     external pageY : touch:('own) _Touch_like ->  float = "pageY" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Touch) in
+      (return:(_) _Touch_like)
     
 end
  module NonElementParentNode = struct
@@ -4751,6 +4920,9 @@ end
     
     external getElementById : elementId:string ->  _Element option = "getElementById" [@@bs.send.pipe: ('own) _NonElementParentNode_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_NonElementParentNode) in
+      (return:(_) _NonElementParentNode_like)
     
 end
  module CSSRuleList = struct
@@ -4759,6 +4931,9 @@ end
     external length : cSSRuleList:('own) _CSSRuleList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _CSSRule option = "item" [@@bs.send.pipe: ('own) _CSSRuleList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSRuleList) in
+      (return:(_) _CSSRuleList_like)
     
 end
  module DissimilarOriginLocation = struct
@@ -4771,6 +4946,9 @@ end
     external replace : url:string ->  unit = "replace" [@@bs.send.pipe: ('own) _DissimilarOriginLocation_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _DissimilarOriginLocation_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_DissimilarOriginLocation) in
+      (return:(_) _DissimilarOriginLocation_like)
     
 end
  module DOMImplementation = struct
@@ -4780,6 +4958,10 @@ end
     external createDocumentType : qualifiedName:string -> publicId:string -> systemId:string ->  _DocumentType = "createDocumentType" [@@bs.send.pipe: ('own) _DOMImplementation_like] 
     external createHTMLDocument : ?title:string Js.undefined ->  _Document = "createHTMLDocument" [@@bs.send.pipe: ('own) _DOMImplementation_like] 
     external hasFeature :  bool = "hasFeature" [@@bs.send.pipe: ('own) _DOMImplementation_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DOMImplementation) in
+      (return:(_) _DOMImplementation_like)
     
     let createDocument ~namespace ~qualifiedName ?doctype dOMImplementation =
       let conv_doctype = Js_undefined.from_opt in
@@ -5224,6 +5406,10 @@ end
     external returnRejectedPromise : value:'a224 ->  'a223 Js.Promise.t = "returnRejectedPromise" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external returnResolvedPromise : value:'a226 ->  'a225 Js.Promise.t = "returnResolvedPromise" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external returnSequenceSequence :  int array array = "returnSequenceSequence" [@@bs.send.pipe: ('own) _TestBinding_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_TestBinding) in
+      (return:(_) _TestBinding_like)
     
     let _prefControlledConstDisabled  =
       
@@ -6378,6 +6564,9 @@ end
     external hash : workerLocation:('own) _WorkerLocation_like ->  string = "hash" [@@bs.get] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _WorkerLocation_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WorkerLocation) in
+      (return:(_) _WorkerLocation_like)
     
 end
  module CSS = struct
@@ -6386,6 +6575,9 @@ end
     external escape : ident:string ->  string = "escape" [@@bs.send.pipe: ('own) _CSS_like] 
     external supports : property:string -> value:string ->  bool = "supports" [@@bs.send.pipe: ('own) _CSS_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSS) in
+      (return:(_) _CSS_like)
     
 end
  module CanvasGradient = struct
@@ -6393,6 +6585,9 @@ end
     
     external addColorStop : offset:float -> color:string ->  unit = "addColorStop" [@@bs.send.pipe: ('own) _CanvasGradient_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasGradient) in
+      (return:(_) _CanvasGradient_like)
     
 end
  module VRFieldOfView = struct
@@ -6403,6 +6598,9 @@ end
     external downDegrees : vRFieldOfView:('own) _VRFieldOfView_like ->  float = "downDegrees" [@@bs.get] 
     external leftDegrees : vRFieldOfView:('own) _VRFieldOfView_like ->  float = "leftDegrees" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VRFieldOfView) in
+      (return:(_) _VRFieldOfView_like)
     
 end
  module CharacteristicEventHandlers = struct
@@ -6411,6 +6609,9 @@ end
     external oncharacteristicvaluechanged : characteristicEventHandlers:('own) _CharacteristicEventHandlers_like ->  (_Event -> 'a233 [@bs]) option = "oncharacteristicvaluechanged" [@@bs.get] [@@bs.return null_to_opt]
     external setOncharacteristicvaluechanged : characteristicEventHandlers:('own) _CharacteristicEventHandlers_like -> oncharacteristicvaluechanged:(_Event -> 'a234 [@bs]) Js.null ->  unit = "oncharacteristicvaluechanged" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CharacteristicEventHandlers) in
+      (return:(_) _CharacteristicEventHandlers_like)
     
 end
  module Gamepad = struct
@@ -6427,6 +6628,9 @@ end
     external pose : gamepad:('own) _Gamepad_like ->  _VRPose option = "pose" [@@bs.get] [@@bs.return null_to_opt]
     external displayId : gamepad:('own) _Gamepad_like ->  int = "displayId" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Gamepad) in
+      (return:(_) _Gamepad_like)
     
 end
  module TextDecoder = struct
@@ -6435,6 +6639,10 @@ end
     external encoding : textDecoder:('own) _TextDecoder_like ->  string = "encoding" [@@bs.get] 
     external fatal : textDecoder:('own) _TextDecoder_like ->  bool = "fatal" [@@bs.get] 
     external decode : ?input:'a235 Js.undefined ->  string = "decode" [@@bs.send.pipe: ('own) _TextDecoder_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_TextDecoder) in
+      (return:(_) _TextDecoder_like)
     
     let decode ?input textDecoder =
       let conv_input = Js_undefined.from_opt in
@@ -6447,6 +6655,9 @@ end
     
     external add : key:string -> value:int ->  unit = "add" [@@bs.send.pipe: ('own) _TestBindingPairIterable_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TestBindingPairIterable) in
+      (return:(_) _TestBindingPairIterable_like)
     
 end
  module HTMLHyperlinkElementUtils = struct
@@ -6475,6 +6686,9 @@ end
     external setHash : hTMLHyperlinkElementUtils:('own) _HTMLHyperlinkElementUtils_like -> hash:string ->  unit = "hash" [@@bs.set]
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _HTMLHyperlinkElementUtils_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLHyperlinkElementUtils) in
+      (return:(_) _HTMLHyperlinkElementUtils_like)
     
 end
  module NamedNodeMap = struct
@@ -6489,6 +6703,9 @@ end
     external setNamedItem : attr:(_) _Attr_like ->  _Attr option = "setNamedItem" [@@bs.send.pipe: ('own) _NamedNodeMap_like] [@@bs.return null_to_opt]
     external setNamedItemNS : attr:(_) _Attr_like ->  _Attr option = "setNamedItemNS" [@@bs.send.pipe: ('own) _NamedNodeMap_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_NamedNodeMap) in
+      (return:(_) _NamedNodeMap_like)
     
 end
  module TouchList = struct
@@ -6497,6 +6714,9 @@ end
     external length : touchList:('own) _TouchList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _Touch option = "item" [@@bs.send.pipe: ('own) _TouchList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_TouchList) in
+      (return:(_) _TouchList_like)
     
 end
  module WebGLActiveInfo = struct
@@ -6506,6 +6726,9 @@ end
     external type_ : webGLActiveInfo:('own) _WebGLActiveInfo_like ->  int = "type" [@@bs.get] 
     external name : webGLActiveInfo:('own) _WebGLActiveInfo_like ->  string = "name" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLActiveInfo) in
+      (return:(_) _WebGLActiveInfo_like)
     
 end
  module Plugin = struct
@@ -6518,6 +6741,9 @@ end
     external item : index:int ->  _MimeType option = "item" [@@bs.send.pipe: ('own) _Plugin_like] [@@bs.return null_to_opt]
     external namedItem : name:string ->  _MimeType option = "namedItem" [@@bs.send.pipe: ('own) _Plugin_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_Plugin) in
+      (return:(_) _Plugin_like)
     
 end
  module VRDisplayCapabilities = struct
@@ -6529,6 +6755,9 @@ end
     external canPresent : vRDisplayCapabilities:('own) _VRDisplayCapabilities_like ->  bool = "canPresent" [@@bs.get] 
     external maxLayers : vRDisplayCapabilities:('own) _VRDisplayCapabilities_like ->  int = "maxLayers" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VRDisplayCapabilities) in
+      (return:(_) _VRDisplayCapabilities_like)
     
 end
  module Headers = struct
@@ -6540,6 +6769,9 @@ end
     external has : name:string ->  bool = "has" [@@bs.send.pipe: ('own) _Headers_like] 
     external set : name:string -> value:string ->  unit = "set" [@@bs.send.pipe: ('own) _Headers_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Headers) in
+      (return:(_) _Headers_like)
     
 end
  module OESTextureHalfFloatLinear = struct
@@ -6547,12 +6779,19 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_OESTextureHalfFloatLinear) in
+      (return:(_) _OESTextureHalfFloatLinear_like)
     
 end
  module Worklet = struct
     
     
     external addModule : moduleURL:string -> ?options:(_) _WorkletOptions_like Js.undefined ->  unit Js.Promise.t = "addModule" [@@bs.send.pipe: ('own) _Worklet_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_Worklet) in
+      (return:(_) _Worklet_like)
     
     let addModule ~moduleURL ?options worklet =
       let conv_options = Js_undefined.from_opt in
@@ -6581,6 +6820,9 @@ end
     external javaEnabled :  bool = "javaEnabled" [@@bs.send.pipe: ('own) _Navigator_like] 
     external taintEnabled :  bool = "taintEnabled" [@@bs.send.pipe: ('own) _Navigator_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Navigator) in
+      (return:(_) _Navigator_like)
     
 end
  module NavigatorID = struct
@@ -6594,6 +6836,9 @@ end
     external userAgent : navigatorID:('own) _NavigatorID_like ->  string = "userAgent" [@@bs.get] 
     external taintEnabled :  bool = "taintEnabled" [@@bs.send.pipe: ('own) _NavigatorID_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_NavigatorID) in
+      (return:(_) _NavigatorID_like)
     
 end
  module NavigatorLanguage = struct
@@ -6601,6 +6846,9 @@ end
     
     external language : navigatorLanguage:('own) _NavigatorLanguage_like ->  string = "language" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_NavigatorLanguage) in
+      (return:(_) _NavigatorLanguage_like)
     
 end
  module NavigatorPlugins = struct
@@ -6610,6 +6858,9 @@ end
     external mimeTypes : navigatorPlugins:('own) _NavigatorPlugins_like ->  _MimeTypeArray = "mimeTypes" [@@bs.get] 
     external javaEnabled :  bool = "javaEnabled" [@@bs.send.pipe: ('own) _NavigatorPlugins_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_NavigatorPlugins) in
+      (return:(_) _NavigatorPlugins_like)
     
 end
  module NavigatorCookies = struct
@@ -6617,6 +6868,9 @@ end
     
     external cookieEnabled : navigatorCookies:('own) _NavigatorCookies_like ->  bool = "cookieEnabled" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_NavigatorCookies) in
+      (return:(_) _NavigatorCookies_like)
     
 end
  module PromiseNativeHandler = struct
@@ -6624,6 +6878,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_PromiseNativeHandler) in
+      (return:(_) _PromiseNativeHandler_like)
     
 end
  module FileReaderSync = struct
@@ -6631,6 +6888,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_FileReaderSync) in
+      (return:(_) _FileReaderSync_like)
     
 end
  module ImageData = struct
@@ -6640,6 +6900,9 @@ end
     external height : imageData:('own) _ImageData_like ->  int = "height" [@@bs.get] 
     external data : imageData:('own) _ImageData_like ->  Js_typed_array.Uint8ClampedArray.t = "data" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ImageData) in
+      (return:(_) _ImageData_like)
     
 end
  module MimeType = struct
@@ -6650,6 +6913,9 @@ end
     external suffixes : mimeType:('own) _MimeType_like ->  string = "suffixes" [@@bs.get] 
     external enabledPlugin : mimeType:('own) _MimeType_like ->  _Plugin = "enabledPlugin" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_MimeType) in
+      (return:(_) _MimeType_like)
     
 end
  module GlobalCrypto = struct
@@ -6657,6 +6923,9 @@ end
     
     external crypto : globalCrypto:('own) _GlobalCrypto_like ->  _Crypto = "crypto" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_GlobalCrypto) in
+      (return:(_) _GlobalCrypto_like)
     
 end
  module Crypto = struct
@@ -6664,6 +6933,9 @@ end
     
     external getRandomValues : array:'a237 ->  'a236 = "getRandomValues" [@@bs.send.pipe: ('own) _Crypto_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Crypto) in
+      (return:(_) _Crypto_like)
     
 end
  module CSSStyleDeclaration = struct
@@ -7078,6 +7350,10 @@ end
     external setPropertyPriority : property:string -> priority:string ->  unit = "setPropertyPriority" [@@bs.send.pipe: ('own) _CSSStyleDeclaration_like] 
     external setPropertyValue : property:string -> value:string ->  unit = "setPropertyValue" [@@bs.send.pipe: ('own) _CSSStyleDeclaration_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSStyleDeclaration) in
+      (return:(_) _CSSStyleDeclaration_like)
+    
     let setProperty ~property ~value ?priority cSSStyleDeclaration =
       let conv_priority = Js_undefined.from_opt in
       let priority = conv_priority priority in
@@ -7094,6 +7370,10 @@ end
     external fromQuad : ?other:(_) _DOMQuadInit_like Js.undefined ->  _DOMQuad = "fromQuad" [@@bs.send.pipe: ('own) _DOMQuad_like] 
     external fromRect : ?other:(_) _DOMRectInit_like Js.undefined ->  _DOMQuad = "fromRect" [@@bs.send.pipe: ('own) _DOMQuad_like] 
     external getBounds :  _DOMRect = "getBounds" [@@bs.send.pipe: ('own) _DOMQuad_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DOMQuad) in
+      (return:(_) _DOMQuad_like)
     
     let fromQuad ?other dOMQuad =
       let conv_other = Js_undefined.from_opt in
@@ -7128,6 +7408,9 @@ end
     external json :  'a238 Js.Promise.t = "json" [@@bs.send.pipe: ('own) _Request_like] 
     external text :  string Js.Promise.t = "text" [@@bs.send.pipe: ('own) _Request_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Request) in
+      (return:(_) _Request_like)
     
 end
  module DOMTokenList = struct
@@ -7143,6 +7426,10 @@ end
     external replace : token:string -> newToken:string ->  unit = "replace" [@@bs.send.pipe: ('own) _DOMTokenList_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _DOMTokenList_like] 
     external toggle : token:string -> ?force:Js.boolean Js.undefined ->  bool = "toggle" [@@bs.send.pipe: ('own) _DOMTokenList_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DOMTokenList) in
+      (return:(_) _DOMTokenList_like)
     
     let add ~tokens dOMTokenList =
       let func = add dOMTokenList in
@@ -7165,6 +7452,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:__Promise) in
+      (return:(_) __Promise_like)
     
 end
  module VRPose = struct
@@ -7177,6 +7467,9 @@ end
     external angularVelocity : vRPose:('own) _VRPose_like ->  Js_typed_array.Float32Array.t option = "angularVelocity" [@@bs.get] [@@bs.return null_to_opt]
     external angularAcceleration : vRPose:('own) _VRPose_like ->  Js_typed_array.Float32Array.t option = "angularAcceleration" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_VRPose) in
+      (return:(_) _VRPose_like)
     
 end
  module GamepadButtonList = struct
@@ -7185,6 +7478,9 @@ end
     external length : gamepadButtonList:('own) _GamepadButtonList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _GamepadButton option = "item" [@@bs.send.pipe: ('own) _GamepadButtonList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_GamepadButtonList) in
+      (return:(_) _GamepadButtonList_like)
     
 end
  module DOMPointReadOnly = struct
@@ -7195,6 +7491,9 @@ end
     external z : dOMPointReadOnly:('own) _DOMPointReadOnly_like ->  float = "z" [@@bs.get] 
     external w : dOMPointReadOnly:('own) _DOMPointReadOnly_like ->  float = "w" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMPointReadOnly) in
+      (return:(_) _DOMPointReadOnly_like)
     
 end
  module Client = struct
@@ -7204,6 +7503,9 @@ end
     external frameType : client:('own) _Client_like ->  string = "frameType" [@@bs.get] 
     external id : client:('own) _Client_like ->  string = "id" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Client) in
+      (return:(_) _Client_like)
     
 end
  module OESTextureFloatLinear = struct
@@ -7211,6 +7513,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_OESTextureFloatLinear) in
+      (return:(_) _OESTextureFloatLinear_like)
     
 end
  module WebGLShaderPrecisionFormat = struct
@@ -7220,6 +7525,9 @@ end
     external rangeMax : webGLShaderPrecisionFormat:('own) _WebGLShaderPrecisionFormat_like ->  int = "rangeMax" [@@bs.get] 
     external precision : webGLShaderPrecisionFormat:('own) _WebGLShaderPrecisionFormat_like ->  int = "precision" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLShaderPrecisionFormat) in
+      (return:(_) _WebGLShaderPrecisionFormat_like)
     
 end
  module Response = struct
@@ -7241,6 +7549,10 @@ end
     external redirect : url:string -> ?status:int Js.undefined ->  _Response = "redirect" [@@bs.send.pipe: ('own) _Response_like] 
     external text :  string Js.Promise.t = "text" [@@bs.send.pipe: ('own) _Response_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Response) in
+      (return:(_) _Response_like)
+    
     let redirect ~url ?status response =
       let conv_status = Js_undefined.from_opt in
       let status = conv_status status in
@@ -7251,6 +7563,10 @@ end
     
     
     external code : mediaError:('own) _MediaError_like ->  int = "code" [@@bs.get] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_MediaError) in
+      (return:(_) _MediaError_like)
     
     let _MEDIA_ERR_ABORTED  =
       
@@ -7276,6 +7592,9 @@ end
     external sizeX : vRStageParameters:('own) _VRStageParameters_like ->  float = "sizeX" [@@bs.get] 
     external sizeZ : vRStageParameters:('own) _VRStageParameters_like ->  float = "sizeZ" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VRStageParameters) in
+      (return:(_) _VRStageParameters_like)
     
 end
  module AbstractWorker = struct
@@ -7284,6 +7603,9 @@ end
     external onerror : abstractWorker:('own) _AbstractWorker_like ->  (_Event -> 'a240 [@bs]) option = "onerror" [@@bs.get] [@@bs.return null_to_opt]
     external setOnerror : abstractWorker:('own) _AbstractWorker_like -> onerror:(_Event -> 'a241 [@bs]) Js.null ->  unit = "onerror" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_AbstractWorker) in
+      (return:(_) _AbstractWorker_like)
     
 end
  module TestWorklet = struct
@@ -7291,6 +7613,10 @@ end
     
     external addModule : moduleURL:string -> ?options:(_) _WorkletOptions_like Js.undefined ->  unit Js.Promise.t = "addModule" [@@bs.send.pipe: ('own) _TestWorklet_like] 
     external lookup : key:string ->  string option = "lookup" [@@bs.send.pipe: ('own) _TestWorklet_like] [@@bs.return null_to_opt]
+    
+    let downcast x =
+      let return = Obj.magic (x:_TestWorklet) in
+      (return:(_) _TestWorklet_like)
     
     let addModule ~moduleURL ?options testWorklet =
       let conv_options = Js_undefined.from_opt in
@@ -7305,6 +7631,10 @@ end
     external cssText : cSSRule:('own) _CSSRule_like ->  string = "cssText" [@@bs.get] 
     external setCssText : cSSRule:('own) _CSSRule_like -> cssText:string ->  unit = "cssText" [@@bs.set]
     external parentStyleSheet : cSSRule:('own) _CSSRule_like ->  _CSSStyleSheet option = "parentStyleSheet" [@@bs.get] [@@bs.return null_to_opt]
+    
+    let downcast x =
+      let return = Obj.magic (x:_CSSRule) in
+      (return:(_) _CSSRule_like)
     
     let _STYLE_RULE  =
       
@@ -7362,6 +7692,10 @@ end
     external getCharacteristic : name:'a242 ->  string = "getCharacteristic" [@@bs.send.pipe: ('own) _BluetoothUUID_like] 
     external getDescriptor : name:'a243 ->  string = "getDescriptor" [@@bs.send.pipe: ('own) _BluetoothUUID_like] 
     external getService : name:'a244 ->  string = "getService" [@@bs.send.pipe: ('own) _BluetoothUUID_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothUUID) in
+      (return:(_) _BluetoothUUID_like)
     
     let getCharacteristic ~name bluetoothUUID =
       let conv_name = function
@@ -7453,6 +7787,10 @@ end
     external transform : a:float -> b:float -> c:float -> d:float -> e:float -> f:float ->  unit = "transform" [@@bs.send.pipe: ('own) _CanvasRenderingContext2D_like] 
     external translate : x:float -> y:float ->  unit = "translate" [@@bs.send.pipe: ('own) _CanvasRenderingContext2D_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasRenderingContext2D) in
+      (return:(_) _CanvasRenderingContext2D_like)
+    
     let arc ~x ~y ~radius ~startAngle ~endAngle ?anticlockwise canvasRenderingContext2D =
       let conv_anticlockwise = Js_undefined.from_opt in
       let anticlockwise = conv_anticlockwise anticlockwise in
@@ -7532,6 +7870,9 @@ end
     external restore :  unit = "restore" [@@bs.send.pipe: ('own) _CanvasState_like] 
     external save :  unit = "save" [@@bs.send.pipe: ('own) _CanvasState_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasState) in
+      (return:(_) _CanvasState_like)
     
 end
  module CanvasTransform = struct
@@ -7544,6 +7885,9 @@ end
     external transform : a:float -> b:float -> c:float -> d:float -> e:float -> f:float ->  unit = "transform" [@@bs.send.pipe: ('own) _CanvasTransform_like] 
     external translate : x:float -> y:float ->  unit = "translate" [@@bs.send.pipe: ('own) _CanvasTransform_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasTransform) in
+      (return:(_) _CanvasTransform_like)
     
 end
  module CanvasCompositing = struct
@@ -7554,6 +7898,9 @@ end
     external globalCompositeOperation : canvasCompositing:('own) _CanvasCompositing_like ->  string = "globalCompositeOperation" [@@bs.get] 
     external setGlobalCompositeOperation : canvasCompositing:('own) _CanvasCompositing_like -> globalCompositeOperation:string ->  unit = "globalCompositeOperation" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasCompositing) in
+      (return:(_) _CanvasCompositing_like)
     
 end
  module CanvasImageSmoothing = struct
@@ -7562,6 +7909,9 @@ end
     external imageSmoothingEnabled : canvasImageSmoothing:('own) _CanvasImageSmoothing_like ->  bool = "imageSmoothingEnabled" [@@bs.get] 
     external setImageSmoothingEnabled : canvasImageSmoothing:('own) _CanvasImageSmoothing_like -> imageSmoothingEnabled:Js.boolean ->  unit = "imageSmoothingEnabled" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasImageSmoothing) in
+      (return:(_) _CanvasImageSmoothing_like)
     
 end
  module CanvasFillStrokeStyles = struct
@@ -7574,6 +7924,10 @@ end
     external createLinearGradient : x0:float -> y0:float -> x1:float -> y1:float ->  _CanvasGradient = "createLinearGradient" [@@bs.send.pipe: ('own) _CanvasFillStrokeStyles_like] 
     external createPattern : image:'a255 -> repetition:string ->  _CanvasPattern = "createPattern" [@@bs.send.pipe: ('own) _CanvasFillStrokeStyles_like] 
     external createRadialGradient : x0:float -> y0:float -> r0:float -> x1:float -> y1:float -> r1:float ->  _CanvasGradient = "createRadialGradient" [@@bs.send.pipe: ('own) _CanvasFillStrokeStyles_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_CanvasFillStrokeStyles) in
+      (return:(_) _CanvasFillStrokeStyles_like)
     
     let createPattern ~image ~repetition canvasFillStrokeStyles =
       let conv_image = function
@@ -7599,6 +7953,9 @@ end
     external shadowColor : canvasShadowStyles:('own) _CanvasShadowStyles_like ->  string = "shadowColor" [@@bs.get] 
     external setShadowColor : canvasShadowStyles:('own) _CanvasShadowStyles_like -> shadowColor:string ->  unit = "shadowColor" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasShadowStyles) in
+      (return:(_) _CanvasShadowStyles_like)
     
 end
  module CanvasRect = struct
@@ -7608,6 +7965,9 @@ end
     external fillRect : x:float -> y:float -> w:float -> h:float ->  unit = "fillRect" [@@bs.send.pipe: ('own) _CanvasRect_like] 
     external strokeRect : x:float -> y:float -> w:float -> h:float ->  unit = "strokeRect" [@@bs.send.pipe: ('own) _CanvasRect_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasRect) in
+      (return:(_) _CanvasRect_like)
     
 end
  module CanvasDrawPath = struct
@@ -7618,6 +7978,10 @@ end
     external fill : ?fillRule:string Js.undefined ->  unit = "fill" [@@bs.send.pipe: ('own) _CanvasDrawPath_like] 
     external isPointInPath : x:float -> y:float -> ?fillRule:string Js.undefined ->  bool = "isPointInPath" [@@bs.send.pipe: ('own) _CanvasDrawPath_like] 
     external stroke :  unit = "stroke" [@@bs.send.pipe: ('own) _CanvasDrawPath_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_CanvasDrawPath) in
+      (return:(_) _CanvasDrawPath_like)
     
     let clip ~fillRule canvasDrawPath =
       let conv_fillRule = function
@@ -7670,6 +8034,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasUserInterface) in
+      (return:(_) _CanvasUserInterface_like)
     
 end
  module CanvasText = struct
@@ -7677,12 +8044,19 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasText) in
+      (return:(_) _CanvasText_like)
     
 end
  module CanvasDrawImage = struct
     
     
     external drawImage : image:'a256 -> dx:float -> dy:float ->  unit = "drawImage" [@@bs.send.pipe: ('own) _CanvasDrawImage_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_CanvasDrawImage) in
+      (return:(_) _CanvasDrawImage_like)
     
     let drawImage ~image ~dx ~dy canvasDrawImage =
       let conv_image = function
@@ -7701,6 +8075,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasHitRegion) in
+      (return:(_) _CanvasHitRegion_like)
     
 end
  module CanvasImageData = struct
@@ -7710,6 +8087,9 @@ end
     external getImageData : sx:float -> sy:float -> sw:float -> sh:float ->  _ImageData = "getImageData" [@@bs.send.pipe: ('own) _CanvasImageData_like] 
     external putImageData : imagedata:(_) _ImageData_like -> dx:float -> dy:float ->  unit = "putImageData" [@@bs.send.pipe: ('own) _CanvasImageData_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasImageData) in
+      (return:(_) _CanvasImageData_like)
     
 end
  module CanvasPathDrawingStyles = struct
@@ -7724,6 +8104,9 @@ end
     external miterLimit : canvasPathDrawingStyles:('own) _CanvasPathDrawingStyles_like ->  float = "miterLimit" [@@bs.get] 
     external setMiterLimit : canvasPathDrawingStyles:('own) _CanvasPathDrawingStyles_like -> miterLimit:float ->  unit = "miterLimit" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasPathDrawingStyles) in
+      (return:(_) _CanvasPathDrawingStyles_like)
     
 end
  module CanvasTextDrawingStyles = struct
@@ -7731,6 +8114,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasTextDrawingStyles) in
+      (return:(_) _CanvasTextDrawingStyles_like)
     
 end
  module CanvasPath = struct
@@ -7744,6 +8130,10 @@ end
     external moveTo : x:float -> y:float ->  unit = "moveTo" [@@bs.send.pipe: ('own) _CanvasPath_like] 
     external quadraticCurveTo : cpx:float -> cpy:float -> x:float -> y:float ->  unit = "quadraticCurveTo" [@@bs.send.pipe: ('own) _CanvasPath_like] 
     external rect : x:float -> y:float -> w:float -> h:float ->  unit = "rect" [@@bs.send.pipe: ('own) _CanvasPath_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_CanvasPath) in
+      (return:(_) _CanvasPath_like)
     
     let arc ~x ~y ~radius ~startAngle ~endAngle ?anticlockwise canvasPath =
       let conv_anticlockwise = Js_undefined.from_opt in
@@ -7761,6 +8151,9 @@ end
     external deleteMedium : medium:string ->  unit = "deleteMedium" [@@bs.send.pipe: ('own) _MediaList_like] 
     external item : index:int ->  string option = "item" [@@bs.send.pipe: ('own) _MediaList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_MediaList) in
+      (return:(_) _MediaList_like)
     
 end
  module OESTextureFloat = struct
@@ -7768,6 +8161,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_OESTextureFloat) in
+      (return:(_) _OESTextureFloat_like)
     
 end
  module Permissions = struct
@@ -7777,6 +8173,9 @@ end
     external request : permissionDesc:'a258 ->  _PermissionStatus Js.Promise.t = "request" [@@bs.send.pipe: ('own) _Permissions_like] 
     external revoke : permissionDesc:'a259 ->  _PermissionStatus Js.Promise.t = "revoke" [@@bs.send.pipe: ('own) _Permissions_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Permissions) in
+      (return:(_) _Permissions_like)
     
 end
  module CanvasPattern = struct
@@ -7784,6 +8183,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CanvasPattern) in
+      (return:(_) _CanvasPattern_like)
     
 end
  module MutationRecord = struct
@@ -7799,6 +8201,9 @@ end
     external attributeNamespace : mutationRecord:('own) _MutationRecord_like ->  string option = "attributeNamespace" [@@bs.get] [@@bs.return null_to_opt]
     external oldValue : mutationRecord:('own) _MutationRecord_like ->  string option = "oldValue" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_MutationRecord) in
+      (return:(_) _MutationRecord_like)
     
 end
  module Storage = struct
@@ -7811,12 +8216,19 @@ end
     external removeItem : name:string ->  unit = "removeItem" [@@bs.send.pipe: ('own) _Storage_like] 
     external setItem : name:string -> value:string ->  unit = "setItem" [@@bs.send.pipe: ('own) _Storage_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Storage) in
+      (return:(_) _Storage_like)
     
 end
  module MutationObserver = struct
     
     
     external observe : target:(_) _Node_like -> ?options:(_) _MutationObserverInit_like Js.undefined ->  unit = "observe" [@@bs.send.pipe: ('own) _MutationObserver_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_MutationObserver) in
+      (return:(_) _MutationObserver_like)
     
     let observe ~target ?options mutationObserver =
       let conv_options = Js_undefined.from_opt in
@@ -7831,6 +8243,9 @@ end
     external add : arg:string ->  unit = "add" [@@bs.send.pipe: ('own) _TestBindingIterable_like] 
     external getItem : index:int ->  string = "getItem" [@@bs.send.pipe: ('own) _TestBindingIterable_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TestBindingIterable) in
+      (return:(_) _TestBindingIterable_like)
     
 end
  module ServiceEventHandlers = struct
@@ -7843,6 +8258,9 @@ end
     external onserviceremoved : serviceEventHandlers:('own) _ServiceEventHandlers_like ->  (_Event -> 'a264 [@bs]) option = "onserviceremoved" [@@bs.get] [@@bs.return null_to_opt]
     external setOnserviceremoved : serviceEventHandlers:('own) _ServiceEventHandlers_like -> onserviceremoved:(_Event -> 'a265 [@bs]) Js.null ->  unit = "onserviceremoved" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ServiceEventHandlers) in
+      (return:(_) _ServiceEventHandlers_like)
     
 end
  module TextEncoder = struct
@@ -7850,6 +8268,10 @@ end
     
     external encoding : textEncoder:('own) _TextEncoder_like ->  string = "encoding" [@@bs.get] 
     external encode : ?input:string Js.undefined ->  Js_typed_array.Uint8Array.t = "encode" [@@bs.send.pipe: ('own) _TextEncoder_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_TextEncoder) in
+      (return:(_) _TextEncoder_like)
     
     let encode ?input textEncoder =
       let conv_input = Js_undefined.from_opt in
@@ -7873,6 +8295,10 @@ end
     external preventDefault :  unit = "preventDefault" [@@bs.send.pipe: ('own) _Event_like] 
     external stopImmediatePropagation :  unit = "stopImmediatePropagation" [@@bs.send.pipe: ('own) _Event_like] 
     external stopPropagation :  unit = "stopPropagation" [@@bs.send.pipe: ('own) _Event_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_Event) in
+      (return:(_) _Event_like)
     
     let _NONE  =
       
@@ -7906,6 +8332,9 @@ end
     external customError : validityState:('own) _ValidityState_like ->  bool = "customError" [@@bs.get] 
     external valid : validityState:('own) _ValidityState_like ->  bool = "valid" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ValidityState) in
+      (return:(_) _ValidityState_like)
     
 end
  module WindowProxy = struct
@@ -7913,6 +8342,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WindowProxy) in
+      (return:(_) _WindowProxy_like)
     
 end
  module WindowTimers = struct
@@ -7922,6 +8354,10 @@ end
     external clearTimeout : ?handle:int Js.undefined ->  unit = "clearTimeout" [@@bs.send.pipe: ('own) _WindowTimers_like] 
     external setInterval : windowTimers:('own) _WindowTimers_like ->  (('own) _WindowTimers_like, int, ('a266*(int Js.undefined*('a267)))) variadic_func = "setInterval" [@@bs.get]
     external setTimeout : windowTimers:('own) _WindowTimers_like ->  (('own) _WindowTimers_like, int, ('a268*(int Js.undefined*('a269)))) variadic_func = "setTimeout" [@@bs.get]
+    
+    let downcast x =
+      let return = Obj.magic (x:_WindowTimers) in
+      (return:(_) _WindowTimers_like)
     
     let clearInterval ?handle windowTimers =
       let conv_handle = Js_undefined.from_opt in
@@ -7982,6 +8418,9 @@ end
     external atob : atob:string ->  string = "atob" [@@bs.send.pipe: ('own) _WindowBase64_like] 
     external btoa : btoa:string ->  string = "btoa" [@@bs.send.pipe: ('own) _WindowBase64_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WindowBase64) in
+      (return:(_) _WindowBase64_like)
     
 end
  module WindowSessionStorage = struct
@@ -7989,6 +8428,9 @@ end
     
     external sessionStorage : windowSessionStorage:('own) _WindowSessionStorage_like ->  _Storage = "sessionStorage" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WindowSessionStorage) in
+      (return:(_) _WindowSessionStorage_like)
     
 end
  module WindowLocalStorage = struct
@@ -7996,6 +8438,9 @@ end
     
     external localStorage : windowLocalStorage:('own) _WindowLocalStorage_like ->  _Storage = "localStorage" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WindowLocalStorage) in
+      (return:(_) _WindowLocalStorage_like)
     
 end
  module DOMStringMap = struct
@@ -8005,6 +8450,9 @@ end
     external set : dOMStringMap:('own) _DOMStringMap_like -> name:string -> value:string ->  unit = "" [@@bs.set_index] 
     external delete : dOMStringMap:('own) _DOMStringMap_like -> name:string ->  unit = "" [@@bs.get_index] 
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMStringMap) in
+      (return:(_) _DOMStringMap_like)
     
 end
  module GlobalEventHandlers = struct
@@ -8133,6 +8581,9 @@ end
     external ontransitionend : globalEventHandlers:('own) _GlobalEventHandlers_like ->  (_Event -> 'a398 [@bs]) option = "ontransitionend" [@@bs.get] [@@bs.return null_to_opt]
     external setOntransitionend : globalEventHandlers:('own) _GlobalEventHandlers_like -> ontransitionend:(_Event -> 'a399 [@bs]) Js.null ->  unit = "ontransitionend" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_GlobalEventHandlers) in
+      (return:(_) _GlobalEventHandlers_like)
     
 end
  module WindowEventHandlers = struct
@@ -8169,6 +8620,9 @@ end
     external onunload : windowEventHandlers:('own) _WindowEventHandlers_like ->  (_Event -> 'a426 [@bs]) option = "onunload" [@@bs.get] [@@bs.return null_to_opt]
     external setOnunload : windowEventHandlers:('own) _WindowEventHandlers_like -> onunload:(_Event -> 'a427 [@bs]) Js.null ->  unit = "onunload" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_WindowEventHandlers) in
+      (return:(_) _WindowEventHandlers_like)
     
 end
  module DocumentAndElementEventHandlers = struct
@@ -8181,6 +8635,9 @@ end
     external onpaste : documentAndElementEventHandlers:('own) _DocumentAndElementEventHandlers_like ->  (_Event -> 'a432 [@bs]) option = "onpaste" [@@bs.get] [@@bs.return null_to_opt]
     external setOnpaste : documentAndElementEventHandlers:('own) _DocumentAndElementEventHandlers_like -> onpaste:(_Event -> 'a433 [@bs]) Js.null ->  unit = "onpaste" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DocumentAndElementEventHandlers) in
+      (return:(_) _DocumentAndElementEventHandlers_like)
     
 end
  module Blob = struct
@@ -8189,6 +8646,10 @@ end
     external size : blob:('own) _Blob_like ->  int = "size" [@@bs.get] 
     external type_ : blob:('own) _Blob_like ->  string = "type" [@@bs.get] 
     external slice : ?start:int Js.undefined -> ?end_:int Js.undefined -> ?contentType:string Js.undefined ->  _Blob = "slice" [@@bs.send.pipe: ('own) _Blob_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_Blob) in
+      (return:(_) _Blob_like)
     
     let slice ?start ?end_ ?contentType blob =
       let conv_start = Js_undefined.from_opt in
@@ -8210,6 +8671,9 @@ end
     external rightViewMatrix : vRFrameData:('own) _VRFrameData_like ->  Js_typed_array.Float32Array.t = "rightViewMatrix" [@@bs.get] 
     external pose : vRFrameData:('own) _VRFrameData_like ->  _VRPose = "pose" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VRFrameData) in
+      (return:(_) _VRFrameData_like)
     
 end
  module ServoParser = struct
@@ -8217,6 +8681,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_ServoParser) in
+      (return:(_) _ServoParser_like)
     
 end
  module Attr = struct
@@ -8236,6 +8703,9 @@ end
     external ownerElement : attr:('own) _Attr_like ->  _Element option = "ownerElement" [@@bs.get] [@@bs.return null_to_opt]
     external specified : attr:('own) _Attr_like ->  bool = "specified" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Attr) in
+      (return:(_) _Attr_like)
     
 end
  module ActivatableElement = struct
@@ -8244,6 +8714,9 @@ end
     external enterFormalActivationState :  unit = "enterFormalActivationState" [@@bs.send.pipe: ('own) _ActivatableElement_like] 
     external exitFormalActivationState :  unit = "exitFormalActivationState" [@@bs.send.pipe: ('own) _ActivatableElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ActivatableElement) in
+      (return:(_) _ActivatableElement_like)
     
 end
  module StyleSheetList = struct
@@ -8252,6 +8725,9 @@ end
     external length : styleSheetList:('own) _StyleSheetList_like ->  int = "length" [@@bs.get] 
     external item : index:int ->  _StyleSheet option = "item" [@@bs.send.pipe: ('own) _StyleSheetList_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_StyleSheetList) in
+      (return:(_) _StyleSheetList_like)
     
 end
  module EventSourceInit = struct
@@ -8261,6 +8737,9 @@ end
     external withCredentials : eventSourceInit:('own) _EventSourceInit_like ->  bool = "withCredentials" [@@bs.get] 
     external setWithCredentials : eventSourceInit:('own) _EventSourceInit_like -> withCredentials:Js.boolean ->  unit = "withCredentials" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_EventSourceInit) in
+      (return:(_) _EventSourceInit_like)
     
 end
  module ElementDefinitionOptions = struct
@@ -8270,6 +8749,9 @@ end
     external extends : elementDefinitionOptions:('own) _ElementDefinitionOptions_like ->  string = "extends" [@@bs.get] 
     external setExtends : elementDefinitionOptions:('own) _ElementDefinitionOptions_like -> extends:string ->  unit = "extends" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ElementDefinitionOptions) in
+      (return:(_) _ElementDefinitionOptions_like)
     
 end
  module DOMMatrixInit = struct
@@ -8323,6 +8805,9 @@ end
     external is2D : dOMMatrixInit:('own) _DOMMatrixInit_like ->  bool = "is2D" [@@bs.get] 
     external setIs2D : dOMMatrixInit:('own) _DOMMatrixInit_like -> is2D:Js.boolean ->  unit = "is2D" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMMatrixInit) in
+      (return:(_) _DOMMatrixInit_like)
     
 end
  module VRLayer = struct
@@ -8336,6 +8821,9 @@ end
     external rightBounds : vRLayer:('own) _VRLayer_like ->  float array = "rightBounds" [@@bs.get] 
     external setRightBounds : vRLayer:('own) _VRLayer_like -> rightBounds:float array ->  unit = "rightBounds" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_VRLayer) in
+      (return:(_) _VRLayer_like)
     
 end
  module IterableKeyOrValueResult = struct
@@ -8347,6 +8835,9 @@ end
     external done_ : iterableKeyOrValueResult:('own) _IterableKeyOrValueResult_like ->  bool = "done" [@@bs.get] 
     external setDone : iterableKeyOrValueResult:('own) _IterableKeyOrValueResult_like -> done_:Js.boolean ->  unit = "done" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_IterableKeyOrValueResult) in
+      (return:(_) _IterableKeyOrValueResult_like)
     
 end
  module IterableKeyAndValueResult = struct
@@ -8358,6 +8849,9 @@ end
     external done_ : iterableKeyAndValueResult:('own) _IterableKeyAndValueResult_like ->  bool = "done" [@@bs.get] 
     external setDone : iterableKeyAndValueResult:('own) _IterableKeyAndValueResult_like -> done_:Js.boolean ->  unit = "done" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_IterableKeyAndValueResult) in
+      (return:(_) _IterableKeyAndValueResult_like)
     
 end
  module RegistrationOptions = struct
@@ -8367,6 +8861,9 @@ end
     external scope : registrationOptions:('own) _RegistrationOptions_like ->  string = "scope" [@@bs.get] 
     external setScope : registrationOptions:('own) _RegistrationOptions_like -> scope:string ->  unit = "scope" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_RegistrationOptions) in
+      (return:(_) _RegistrationOptions_like)
     
 end
  module PermissionDescriptor = struct
@@ -8376,6 +8873,9 @@ end
     external name : permissionDescriptor:('own) _PermissionDescriptor_like ->  string = "name" [@@bs.get] 
     external setName : permissionDescriptor:('own) _PermissionDescriptor_like -> name:string ->  unit = "name" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_PermissionDescriptor) in
+      (return:(_) _PermissionDescriptor_like)
     
 end
  module WebGLContextAttributes = struct
@@ -8399,6 +8899,9 @@ end
     external failIfMajorPerformanceCaveat : webGLContextAttributes:('own) _WebGLContextAttributes_like ->  bool = "failIfMajorPerformanceCaveat" [@@bs.get] 
     external setFailIfMajorPerformanceCaveat : webGLContextAttributes:('own) _WebGLContextAttributes_like -> failIfMajorPerformanceCaveat:Js.boolean ->  unit = "failIfMajorPerformanceCaveat" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLContextAttributes) in
+      (return:(_) _WebGLContextAttributes_like)
     
 end
  module DOMRectInit = struct
@@ -8414,6 +8917,9 @@ end
     external height : dOMRectInit:('own) _DOMRectInit_like ->  float = "height" [@@bs.get] 
     external setHeight : dOMRectInit:('own) _DOMRectInit_like -> height:float ->  unit = "height" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMRectInit) in
+      (return:(_) _DOMRectInit_like)
     
 end
  module BrowserElementSecurityChangeDetail = struct
@@ -8433,6 +8939,9 @@ end
     external mixedContent : browserElementSecurityChangeDetail:('own) _BrowserElementSecurityChangeDetail_like ->  bool = "mixedContent" [@@bs.get] 
     external setMixedContent : browserElementSecurityChangeDetail:('own) _BrowserElementSecurityChangeDetail_like -> mixedContent:Js.boolean ->  unit = "mixedContent" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementSecurityChangeDetail) in
+      (return:(_) _BrowserElementSecurityChangeDetail_like)
     
 end
  module BrowserElementErrorEventDetail = struct
@@ -8448,6 +8957,9 @@ end
     external version : browserElementErrorEventDetail:('own) _BrowserElementErrorEventDetail_like ->  string = "version" [@@bs.get] 
     external setVersion : browserElementErrorEventDetail:('own) _BrowserElementErrorEventDetail_like -> version:string ->  unit = "version" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementErrorEventDetail) in
+      (return:(_) _BrowserElementErrorEventDetail_like)
     
 end
  module BrowserElementLocationChangeEventDetail = struct
@@ -8461,6 +8973,9 @@ end
     external canGoForward : browserElementLocationChangeEventDetail:('own) _BrowserElementLocationChangeEventDetail_like ->  bool = "canGoForward" [@@bs.get] 
     external setCanGoForward : browserElementLocationChangeEventDetail:('own) _BrowserElementLocationChangeEventDetail_like -> canGoForward:Js.boolean ->  unit = "canGoForward" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementLocationChangeEventDetail) in
+      (return:(_) _BrowserElementLocationChangeEventDetail_like)
     
 end
  module BrowserElementIconChangeEventDetail = struct
@@ -8474,6 +8989,9 @@ end
     external sizes : browserElementIconChangeEventDetail:('own) _BrowserElementIconChangeEventDetail_like ->  string = "sizes" [@@bs.get] 
     external setSizes : browserElementIconChangeEventDetail:('own) _BrowserElementIconChangeEventDetail_like -> sizes:string ->  unit = "sizes" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementIconChangeEventDetail) in
+      (return:(_) _BrowserElementIconChangeEventDetail_like)
     
 end
  module BrowserShowModalPromptEventDetail = struct
@@ -8489,6 +9007,9 @@ end
     external returnValue : browserShowModalPromptEventDetail:('own) _BrowserShowModalPromptEventDetail_like ->  string = "returnValue" [@@bs.get] 
     external setReturnValue : browserShowModalPromptEventDetail:('own) _BrowserShowModalPromptEventDetail_like -> returnValue:string ->  unit = "returnValue" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserShowModalPromptEventDetail) in
+      (return:(_) _BrowserShowModalPromptEventDetail_like)
     
 end
  module BrowserElementOpenTabEventDetail = struct
@@ -8498,6 +9019,9 @@ end
     external url : browserElementOpenTabEventDetail:('own) _BrowserElementOpenTabEventDetail_like ->  string = "url" [@@bs.get] 
     external setUrl : browserElementOpenTabEventDetail:('own) _BrowserElementOpenTabEventDetail_like -> url:string ->  unit = "url" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementOpenTabEventDetail) in
+      (return:(_) _BrowserElementOpenTabEventDetail_like)
     
 end
  module BrowserElementOpenWindowEventDetail = struct
@@ -8511,6 +9035,9 @@ end
     external features : browserElementOpenWindowEventDetail:('own) _BrowserElementOpenWindowEventDetail_like ->  string = "features" [@@bs.get] 
     external setFeatures : browserElementOpenWindowEventDetail:('own) _BrowserElementOpenWindowEventDetail_like -> features:string ->  unit = "features" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementOpenWindowEventDetail) in
+      (return:(_) _BrowserElementOpenWindowEventDetail_like)
     
 end
  module BrowserElementVisibilityChangeEventDetail = struct
@@ -8520,6 +9047,9 @@ end
     external visible : browserElementVisibilityChangeEventDetail:('own) _BrowserElementVisibilityChangeEventDetail_like ->  bool = "visible" [@@bs.get] 
     external setVisible : browserElementVisibilityChangeEventDetail:('own) _BrowserElementVisibilityChangeEventDetail_like -> visible:Js.boolean ->  unit = "visible" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BrowserElementVisibilityChangeEventDetail) in
+      (return:(_) _BrowserElementVisibilityChangeEventDetail_like)
     
 end
  module TestDictionary = struct
@@ -8577,6 +9107,9 @@ end
     external nonRequiredNullable2 : testDictionary:('own) _TestDictionary_like ->  string option = "nonRequiredNullable2" [@@bs.get] [@@bs.return null_to_opt]
     external setNonRequiredNullable2 : testDictionary:('own) _TestDictionary_like -> nonRequiredNullable2:string Js.null ->  unit = "nonRequiredNullable2" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_TestDictionary) in
+      (return:(_) _TestDictionary_like)
     
 end
  module TestDictionaryDefaults = struct
@@ -8654,6 +9187,9 @@ end
     external nullableObjectValue : testDictionaryDefaults:('own) _TestDictionaryDefaults_like ->  'a450 option = "nullableObjectValue" [@@bs.get] [@@bs.return null_to_opt]
     external setNullableObjectValue : testDictionaryDefaults:('own) _TestDictionaryDefaults_like -> nullableObjectValue:'a451 Js.null ->  unit = "nullableObjectValue" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_TestDictionaryDefaults) in
+      (return:(_) _TestDictionaryDefaults_like)
     
 end
  module TextDecoderOptions = struct
@@ -8663,6 +9199,9 @@ end
     external fatal : textDecoderOptions:('own) _TextDecoderOptions_like ->  bool = "fatal" [@@bs.get] 
     external setFatal : textDecoderOptions:('own) _TextDecoderOptions_like -> fatal:Js.boolean ->  unit = "fatal" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_TextDecoderOptions) in
+      (return:(_) _TextDecoderOptions_like)
     
 end
  module WorkletOptions = struct
@@ -8672,6 +9211,9 @@ end
     external credentials : workletOptions:('own) _WorkletOptions_like ->  string = "credentials" [@@bs.get] 
     external setCredentials : workletOptions:('own) _WorkletOptions_like -> credentials:string ->  unit = "credentials" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_WorkletOptions) in
+      (return:(_) _WorkletOptions_like)
     
 end
  module DOMPointInit = struct
@@ -8687,6 +9229,9 @@ end
     external w : dOMPointInit:('own) _DOMPointInit_like ->  float = "w" [@@bs.get] 
     external setW : dOMPointInit:('own) _DOMPointInit_like -> w:float ->  unit = "w" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMPointInit) in
+      (return:(_) _DOMPointInit_like)
     
 end
  module DOMQuadInit = struct
@@ -8702,6 +9247,9 @@ end
     external p4 : dOMQuadInit:('own) _DOMQuadInit_like ->  _DOMPointInit = "p4" [@@bs.get] 
     external setP4 : dOMQuadInit:('own) _DOMQuadInit_like -> p4:_DOMPointInit ->  unit = "p4" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMQuadInit) in
+      (return:(_) _DOMQuadInit_like)
     
 end
  module RequestInit = struct
@@ -8731,6 +9279,9 @@ end
     external window : requestInit:('own) _RequestInit_like ->  'a459 = "window" [@@bs.get] 
     external setWindow : requestInit:('own) _RequestInit_like -> window:'a460 ->  unit = "window" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_RequestInit) in
+      (return:(_) _RequestInit_like)
     
 end
  module ElementCreationOptions = struct
@@ -8740,6 +9291,9 @@ end
     external is : elementCreationOptions:('own) _ElementCreationOptions_like ->  string = "is" [@@bs.get] 
     external setIs : elementCreationOptions:('own) _ElementCreationOptions_like -> is:string ->  unit = "is" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ElementCreationOptions) in
+      (return:(_) _ElementCreationOptions_like)
     
 end
  module ResponseInit = struct
@@ -8753,6 +9307,9 @@ end
     external headers : responseInit:('own) _ResponseInit_like ->  'a462 = "headers" [@@bs.get] 
     external setHeaders : responseInit:('own) _ResponseInit_like -> headers:'a463 ->  unit = "headers" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ResponseInit) in
+      (return:(_) _ResponseInit_like)
     
 end
  module BluetoothDataFilterInit = struct
@@ -8764,6 +9321,9 @@ end
     external mask : bluetoothDataFilterInit:('own) _BluetoothDataFilterInit_like ->  int array = "mask" [@@bs.get] 
     external setMask : bluetoothDataFilterInit:('own) _BluetoothDataFilterInit_like -> mask:int array ->  unit = "mask" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothDataFilterInit) in
+      (return:(_) _BluetoothDataFilterInit_like)
     
 end
  module BluetoothLEScanFilterInit = struct
@@ -8781,6 +9341,9 @@ end
     external serviceData : bluetoothLEScanFilterInit:('own) _BluetoothLEScanFilterInit_like ->  'a471 = "serviceData" [@@bs.get] 
     external setServiceData : bluetoothLEScanFilterInit:('own) _BluetoothLEScanFilterInit_like -> serviceData:'a472 ->  unit = "serviceData" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothLEScanFilterInit) in
+      (return:(_) _BluetoothLEScanFilterInit_like)
     
 end
  module RequestDeviceOptions = struct
@@ -8794,6 +9357,9 @@ end
     external acceptAllDevices : requestDeviceOptions:('own) _RequestDeviceOptions_like ->  bool = "acceptAllDevices" [@@bs.get] 
     external setAcceptAllDevices : requestDeviceOptions:('own) _RequestDeviceOptions_like -> acceptAllDevices:Js.boolean ->  unit = "acceptAllDevices" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_RequestDeviceOptions) in
+      (return:(_) _RequestDeviceOptions_like)
     
 end
  module MutationObserverInit = struct
@@ -8815,6 +9381,9 @@ end
     external attributeFilter : mutationObserverInit:('own) _MutationObserverInit_like ->  string array = "attributeFilter" [@@bs.get] 
     external setAttributeFilter : mutationObserverInit:('own) _MutationObserverInit_like -> attributeFilter:string array ->  unit = "attributeFilter" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_MutationObserverInit) in
+      (return:(_) _MutationObserverInit_like)
     
 end
  module EventInit = struct
@@ -8826,6 +9395,9 @@ end
     external cancelable : eventInit:('own) _EventInit_like ->  bool = "cancelable" [@@bs.get] 
     external setCancelable : eventInit:('own) _EventInit_like -> cancelable:Js.boolean ->  unit = "cancelable" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_EventInit) in
+      (return:(_) _EventInit_like)
     
 end
  module ScrollOptions = struct
@@ -8835,6 +9407,9 @@ end
     external behavior : scrollOptions:('own) _ScrollOptions_like ->  string = "behavior" [@@bs.get] 
     external setBehavior : scrollOptions:('own) _ScrollOptions_like -> behavior:string ->  unit = "behavior" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ScrollOptions) in
+      (return:(_) _ScrollOptions_like)
     
 end
  module BlobPropertyBag = struct
@@ -8844,6 +9419,9 @@ end
     external type_ : blobPropertyBag:('own) _BlobPropertyBag_like ->  string = "type" [@@bs.get] 
     external setType : blobPropertyBag:('own) _BlobPropertyBag_like -> type_:string ->  unit = "type" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BlobPropertyBag) in
+      (return:(_) _BlobPropertyBag_like)
     
 end
  module NodeFilter = struct
@@ -8851,6 +9429,10 @@ end
     
     external make : acceptNode:((_) _Node_like -> int [@bs]) -> unit ->  _NodeFilter = "" [@@bs.obj]
     external acceptNode : node:(_) _Node_like ->  int = "acceptNode" [@@bs.send.pipe: ('own) _NodeFilter_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_NodeFilter) in
+      (return:(_) _NodeFilter_like)
     
     let _FILTER_ACCEPT  =
       
@@ -8923,6 +9505,9 @@ end
     external make : handleEvent:((_) _Event_like -> unit [@bs]) -> unit ->  _EventListener = "" [@@bs.obj]
     external handleEvent : event:(_) _Event_like ->  unit = "handleEvent" [@@bs.send.pipe: ('own) _EventListener_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_EventListener) in
+      (return:(_) _EventListener_like)
     
 end
  module EventSource = struct
@@ -8938,6 +9523,10 @@ end
     external onerror : eventSource:('own) _EventSource_like ->  (_Event -> 'a480 [@bs]) option = "onerror" [@@bs.get] [@@bs.return null_to_opt]
     external setOnerror : eventSource:('own) _EventSource_like -> onerror:(_Event -> 'a481 [@bs]) Js.null ->  unit = "onerror" [@@bs.set]
     external close :  unit = "close" [@@bs.send.pipe: ('own) _EventSource_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_EventSource) in
+      (return:(_) _EventSource_like)
     
     let _CONNECTING  =
       
@@ -8957,6 +9546,9 @@ end
     
     external style : cSSStyleRule:('own) _CSSStyleRule_like ->  _CSSStyleDeclaration = "style" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSStyleRule) in
+      (return:(_) _CSSStyleRule_like)
     
 end
  module CSSFontFaceRule = struct
@@ -8964,6 +9556,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSFontFaceRule) in
+      (return:(_) _CSSFontFaceRule_like)
     
 end
  module UIEvent = struct
@@ -8973,6 +9568,9 @@ end
     external detail : uIEvent:('own) _UIEvent_like ->  int = "detail" [@@bs.get] 
     external initUIEvent : typeArg:string -> bubblesArg:Js.boolean -> cancelableArg:Js.boolean -> viewArg:(_) _Window_like Js.null -> detailArg:int ->  unit = "initUIEvent" [@@bs.send.pipe: ('own) _UIEvent_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_UIEvent) in
+      (return:(_) _UIEvent_like)
     
 end
  module GamepadEvent = struct
@@ -8980,6 +9578,9 @@ end
     
     external gamepad : gamepadEvent:('own) _GamepadEvent_like ->  _Gamepad = "gamepad" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_GamepadEvent) in
+      (return:(_) _GamepadEvent_like)
     
 end
  module HTMLOptionsCollection = struct
@@ -8992,6 +9593,10 @@ end
     external set : hTMLOptionsCollection:('own) _HTMLOptionsCollection_like -> index:int -> option:(_) _HTMLOptionElement_like Js.null ->  unit = "" [@@bs.set_index] 
     external add : element:'a482 -> ?before:'a483 Js.undefined ->  unit = "add" [@@bs.send.pipe: ('own) _HTMLOptionsCollection_like] 
     external remove : index:int ->  unit = "remove" [@@bs.send.pipe: ('own) _HTMLOptionsCollection_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_HTMLOptionsCollection) in
+      (return:(_) _HTMLOptionsCollection_like)
     
     let add ~element ~before hTMLOptionsCollection =
       let conv_element = function
@@ -9074,6 +9679,10 @@ end
     external skewXSelf : ?sx:float Js.undefined ->  _DOMMatrix = "skewXSelf" [@@bs.send.pipe: ('own) _DOMMatrix_like] 
     external skewYSelf : ?sy:float Js.undefined ->  _DOMMatrix = "skewYSelf" [@@bs.send.pipe: ('own) _DOMMatrix_like] 
     external translateSelf : ?tx:float Js.undefined -> ?ty:float Js.undefined -> ?tz:float Js.undefined ->  _DOMMatrix = "translateSelf" [@@bs.send.pipe: ('own) _DOMMatrix_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DOMMatrix) in
+      (return:(_) _DOMMatrix_like)
     
     let fromMatrix ?other dOMMatrix =
       let conv_other = Js_undefined.from_opt in
@@ -9168,6 +9777,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLFramebuffer) in
+      (return:(_) _WebGLFramebuffer_like)
     
 end
  module ServiceWorkerRegistration = struct
@@ -9178,6 +9790,9 @@ end
     external active : serviceWorkerRegistration:('own) _ServiceWorkerRegistration_like ->  _ServiceWorker option = "active" [@@bs.get] [@@bs.return null_to_opt]
     external scope : serviceWorkerRegistration:('own) _ServiceWorkerRegistration_like ->  string = "scope" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ServiceWorkerRegistration) in
+      (return:(_) _ServiceWorkerRegistration_like)
     
 end
  module ServiceWorkerContainer = struct
@@ -9185,6 +9800,10 @@ end
     
     external controller : serviceWorkerContainer:('own) _ServiceWorkerContainer_like ->  _ServiceWorker option = "controller" [@@bs.get] [@@bs.return null_to_opt]
     external register : scriptURL:string -> ?options:(_) _RegistrationOptions_like Js.undefined ->  _ServiceWorkerRegistration Js.Promise.t = "register" [@@bs.send.pipe: ('own) _ServiceWorkerContainer_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_ServiceWorkerContainer) in
+      (return:(_) _ServiceWorkerContainer_like)
     
     let register ~scriptURL ?options serviceWorkerContainer =
       let conv_options = Js_undefined.from_opt in
@@ -9201,6 +9820,9 @@ end
     external colno : errorEvent:('own) _ErrorEvent_like ->  int = "colno" [@@bs.get] 
     external error : errorEvent:('own) _ErrorEvent_like ->  'a484 = "error" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ErrorEvent) in
+      (return:(_) _ErrorEvent_like)
     
 end
  module PermissionStatus = struct
@@ -9210,6 +9832,9 @@ end
     external onchange : permissionStatus:('own) _PermissionStatus_like ->  (_Event -> 'a485 [@bs]) option = "onchange" [@@bs.get] [@@bs.return null_to_opt]
     external setOnchange : permissionStatus:('own) _PermissionStatus_like -> onchange:(_Event -> 'a486 [@bs]) Js.null ->  unit = "onchange" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_PermissionStatus) in
+      (return:(_) _PermissionStatus_like)
     
 end
  module MessageEvent = struct
@@ -9219,6 +9844,9 @@ end
     external origin : messageEvent:('own) _MessageEvent_like ->  string = "origin" [@@bs.get] 
     external lastEventId : messageEvent:('own) _MessageEvent_like ->  string = "lastEventId" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_MessageEvent) in
+      (return:(_) _MessageEvent_like)
     
 end
  module BeforeUnloadEvent = struct
@@ -9227,6 +9855,9 @@ end
     external returnValue : beforeUnloadEvent:('own) _BeforeUnloadEvent_like ->  string = "returnValue" [@@bs.get] 
     external setReturnValue : beforeUnloadEvent:('own) _BeforeUnloadEvent_like -> returnValue:string ->  unit = "returnValue" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BeforeUnloadEvent) in
+      (return:(_) _BeforeUnloadEvent_like)
     
 end
  module VR = struct
@@ -9234,6 +9865,9 @@ end
     
     external getDisplays :  _VRDisplay array Js.Promise.t = "getDisplays" [@@bs.send.pipe: ('own) _VR_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VR) in
+      (return:(_) _VR_like)
     
 end
  module DOMRect = struct
@@ -9248,6 +9882,9 @@ end
     external height : dOMRect:('own) _DOMRect_like ->  float = "height" [@@bs.get] 
     external setHeight : dOMRect:('own) _DOMRect_like -> height:float ->  unit = "height" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMRect) in
+      (return:(_) _DOMRect_like)
     
 end
  module BluetoothDevice = struct
@@ -9262,6 +9899,9 @@ end
     external unwatchAdvertisements :  unit = "unwatchAdvertisements" [@@bs.send.pipe: ('own) _BluetoothDevice_like] 
     external watchAdvertisements :  unit Js.Promise.t = "watchAdvertisements" [@@bs.send.pipe: ('own) _BluetoothDevice_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothDevice) in
+      (return:(_) _BluetoothDevice_like)
     
 end
  module CSSImportRule = struct
@@ -9269,6 +9909,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSImportRule) in
+      (return:(_) _CSSImportRule_like)
     
 end
  module RadioNodeList = struct
@@ -9277,6 +9920,9 @@ end
     external value : radioNodeList:('own) _RadioNodeList_like ->  string = "value" [@@bs.get] 
     external setValue : radioNodeList:('own) _RadioNodeList_like -> value:string ->  unit = "value" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_RadioNodeList) in
+      (return:(_) _RadioNodeList_like)
     
 end
  module File = struct
@@ -9285,6 +9931,9 @@ end
     external name : file:('own) _File_like ->  string = "name" [@@bs.get] 
     external lastModified : file:('own) _File_like ->  int = "lastModified" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_File) in
+      (return:(_) _File_like)
     
 end
  module StorageEvent = struct
@@ -9296,6 +9945,9 @@ end
     external url : storageEvent:('own) _StorageEvent_like ->  string = "url" [@@bs.get] 
     external storageArea : storageEvent:('own) _StorageEvent_like ->  _Storage option = "storageArea" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_StorageEvent) in
+      (return:(_) _StorageEvent_like)
     
 end
  module Node = struct
@@ -9331,6 +9983,10 @@ end
     external normalize :  unit = "normalize" [@@bs.send.pipe: ('own) _Node_like] 
     external removeChild : child:(_) _Node_like ->  _Node = "removeChild" [@@bs.send.pipe: ('own) _Node_like] 
     external replaceChild : node:(_) _Node_like -> child:(_) _Node_like ->  _Node = "replaceChild" [@@bs.send.pipe: ('own) _Node_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_Node) in
+      (return:(_) _Node_like)
     
     let _ELEMENT_NODE  =
       
@@ -9416,6 +10072,9 @@ end
     external display : vRDisplayEvent:('own) _VRDisplayEvent_like ->  _VRDisplay = "display" [@@bs.get] 
     external reason : vRDisplayEvent:('own) _VRDisplayEvent_like ->  string option = "reason" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_VRDisplayEvent) in
+      (return:(_) _VRDisplayEvent_like)
     
 end
  module PopStateEvent = struct
@@ -9423,6 +10082,9 @@ end
     
     external state : popStateEvent:('own) _PopStateEvent_like ->  'a490 = "state" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_PopStateEvent) in
+      (return:(_) _PopStateEvent_like)
     
 end
  module VRDisplay = struct
@@ -9448,6 +10110,10 @@ end
     external resetPose :  unit = "resetPose" [@@bs.send.pipe: ('own) _VRDisplay_like] 
     external submitFrame :  unit = "submitFrame" [@@bs.send.pipe: ('own) _VRDisplay_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_VRDisplay) in
+      (return:(_) _VRDisplay_like)
+    
     let getEyeParameters ~whichEye vRDisplay =
       let conv_whichEye = function
         | `left -> "left"
@@ -9463,6 +10129,9 @@ end
     
     external statusMessage : webGLContextEvent:('own) _WebGLContextEvent_like ->  string = "statusMessage" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLContextEvent) in
+      (return:(_) _WebGLContextEvent_like)
     
 end
  module WebGLProgram = struct
@@ -9470,6 +10139,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLProgram) in
+      (return:(_) _WebGLProgram_like)
     
 end
  module BluetoothRemoteGATTCharacteristic = struct
@@ -9487,6 +10159,10 @@ end
     external startNotifications :  _BluetoothRemoteGATTCharacteristic Js.Promise.t = "startNotifications" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTCharacteristic_like] 
     external stopNotifications :  _BluetoothRemoteGATTCharacteristic Js.Promise.t = "stopNotifications" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTCharacteristic_like] 
     external writeValue : value:int array ->  unit Js.Promise.t = "writeValue" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTCharacteristic_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothRemoteGATTCharacteristic) in
+      (return:(_) _BluetoothRemoteGATTCharacteristic_like)
     
     let getDescriptor ~descriptor bluetoothRemoteGATTCharacteristic =
       let conv_descriptor = function
@@ -9518,6 +10194,9 @@ end
     
     external style : cSSKeyframeRule:('own) _CSSKeyframeRule_like ->  _CSSStyleDeclaration = "style" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSKeyframeRule) in
+      (return:(_) _CSSKeyframeRule_like)
     
 end
  module WebGLVertexArrayObjectOES = struct
@@ -9525,6 +10204,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLVertexArrayObjectOES) in
+      (return:(_) _WebGLVertexArrayObjectOES_like)
     
 end
  module WebGLShader = struct
@@ -9532,6 +10214,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLShader) in
+      (return:(_) _WebGLShader_like)
     
 end
  module GlobalScope = struct
@@ -9539,6 +10224,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_GlobalScope) in
+      (return:(_) _GlobalScope_like)
     
 end
  module TestBindingProxy = struct
@@ -9552,6 +10240,9 @@ end
     external setNamedItem : item_name:string -> value:string ->  unit = "setNamedItem" [@@bs.send.pipe: ('own) _TestBindingProxy_like] 
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _TestBindingProxy_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TestBindingProxy) in
+      (return:(_) _TestBindingProxy_like)
     
 end
  module HTMLFormControlsCollection = struct
@@ -9559,6 +10250,9 @@ end
     
     external namedItem : name:string ->  'a495 = "namedItem" [@@bs.send.pipe: ('own) _HTMLFormControlsCollection_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLFormControlsCollection) in
+      (return:(_) _HTMLFormControlsCollection_like)
     
 end
  module CustomEvent = struct
@@ -9567,6 +10261,9 @@ end
     external detail : customEvent:('own) _CustomEvent_like ->  'a496 = "detail" [@@bs.get] 
     external initCustomEvent : type_:string -> bubbles:Js.boolean -> cancelable:Js.boolean -> detail:'a497 ->  unit = "initCustomEvent" [@@bs.send.pipe: ('own) _CustomEvent_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CustomEvent) in
+      (return:(_) _CustomEvent_like)
     
 end
  module DOMPoint = struct
@@ -9581,6 +10278,9 @@ end
     external w : dOMPoint:('own) _DOMPoint_like ->  float = "w" [@@bs.get] 
     external setW : dOMPoint:('own) _DOMPoint_like -> w:float ->  unit = "w" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DOMPoint) in
+      (return:(_) _DOMPoint_like)
     
 end
  module PageTransitionEvent = struct
@@ -9588,6 +10288,9 @@ end
     
     external persisted : pageTransitionEvent:('own) _PageTransitionEvent_like ->  bool = "persisted" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_PageTransitionEvent) in
+      (return:(_) _PageTransitionEvent_like)
     
 end
  module ServiceWorker = struct
@@ -9601,6 +10304,9 @@ end
     external setOnstatechange : serviceWorker:('own) _ServiceWorker_like -> onstatechange:(_Event -> 'a501 [@bs]) Js.null ->  unit = "onstatechange" [@@bs.set]
     external postMessage : message:'a502 ->  unit = "postMessage" [@@bs.send.pipe: ('own) _ServiceWorker_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ServiceWorker) in
+      (return:(_) _ServiceWorker_like)
     
 end
  module CloseEvent = struct
@@ -9610,6 +10316,9 @@ end
     external code : closeEvent:('own) _CloseEvent_like ->  int = "code" [@@bs.get] 
     external reason : closeEvent:('own) _CloseEvent_like ->  string = "reason" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CloseEvent) in
+      (return:(_) _CloseEvent_like)
     
 end
  module WebSocket = struct
@@ -9631,6 +10340,10 @@ end
     external setBinaryType : webSocket:('own) _WebSocket_like -> binaryType:string ->  unit = "binaryType" [@@bs.set]
     external close : ?code:int Js.undefined -> ?reason:string Js.undefined ->  unit = "close" [@@bs.send.pipe: ('own) _WebSocket_like] 
     external send : data:'a511 ->  unit = "send" [@@bs.send.pipe: ('own) _WebSocket_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_WebSocket) in
+      (return:(_) _WebSocket_like)
     
     let _CONNECTING  =
       
@@ -9671,6 +10384,9 @@ end
     external media : mediaQueryListEvent:('own) _MediaQueryListEvent_like ->  string = "media" [@@bs.get] 
     external matches : mediaQueryListEvent:('own) _MediaQueryListEvent_like ->  bool = "matches" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_MediaQueryListEvent) in
+      (return:(_) _MediaQueryListEvent_like)
     
 end
  module WebGLBuffer = struct
@@ -9678,6 +10394,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLBuffer) in
+      (return:(_) _WebGLBuffer_like)
     
 end
  module CSSViewportRule = struct
@@ -9685,6 +10404,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSViewportRule) in
+      (return:(_) _CSSViewportRule_like)
     
 end
  module ExtendableEvent = struct
@@ -9692,6 +10414,9 @@ end
     
     external waitUntil : f:'a512 ->  unit = "waitUntil" [@@bs.send.pipe: ('own) _ExtendableEvent_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ExtendableEvent) in
+      (return:(_) _ExtendableEvent_like)
     
 end
  module ProgressEvent = struct
@@ -9701,6 +10426,9 @@ end
     external loaded : progressEvent:('own) _ProgressEvent_like ->  int = "loaded" [@@bs.get] 
     external total : progressEvent:('own) _ProgressEvent_like ->  int = "total" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ProgressEvent) in
+      (return:(_) _ProgressEvent_like)
     
 end
  module WebGLRenderbuffer = struct
@@ -9708,6 +10436,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLRenderbuffer) in
+      (return:(_) _WebGLRenderbuffer_like)
     
 end
  module Bluetooth = struct
@@ -9717,6 +10448,10 @@ end
     external setOnavailabilitychanged : bluetooth:('own) _Bluetooth_like -> onavailabilitychanged:(_Event -> 'a514 [@bs]) Js.null ->  unit = "onavailabilitychanged" [@@bs.set]
     external getAvailability :  Js.boolean Js.Promise.t = "getAvailability" [@@bs.send.pipe: ('own) _Bluetooth_like] 
     external requestDevice : ?options:(_) _RequestDeviceOptions_like Js.undefined ->  _BluetoothDevice Js.Promise.t = "requestDevice" [@@bs.send.pipe: ('own) _Bluetooth_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_Bluetooth) in
+      (return:(_) _Bluetooth_like)
     
     let requestDevice ?options bluetooth =
       let conv_options = Js_undefined.from_opt in
@@ -9734,6 +10469,9 @@ end
     external postMessage : message:'a519 ->  unit = "postMessage" [@@bs.send.pipe: ('own) _Worker_like] 
     external terminate :  unit = "terminate" [@@bs.send.pipe: ('own) _Worker_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Worker) in
+      (return:(_) _Worker_like)
     
 end
  module TransitionEvent = struct
@@ -9743,6 +10481,9 @@ end
     external elapsedTime : transitionEvent:('own) _TransitionEvent_like ->  float = "elapsedTime" [@@bs.get] 
     external pseudoElement : transitionEvent:('own) _TransitionEvent_like ->  string = "pseudoElement" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TransitionEvent) in
+      (return:(_) _TransitionEvent_like)
     
 end
  module MediaQueryList = struct
@@ -9755,6 +10496,9 @@ end
     external addListener : listener:(_) _EventListener_like Js.null ->  unit = "addListener" [@@bs.send.pipe: ('own) _MediaQueryList_like] 
     external removeListener : listener:(_) _EventListener_like Js.null ->  unit = "removeListener" [@@bs.send.pipe: ('own) _MediaQueryList_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_MediaQueryList) in
+      (return:(_) _MediaQueryList_like)
     
 end
  module XMLHttpRequestEventTarget = struct
@@ -9775,6 +10519,9 @@ end
     external onloadend : xMLHttpRequestEventTarget:('own) _XMLHttpRequestEventTarget_like ->  (_Event -> 'a534 [@bs]) option = "onloadend" [@@bs.get] [@@bs.return null_to_opt]
     external setOnloadend : xMLHttpRequestEventTarget:('own) _XMLHttpRequestEventTarget_like -> onloadend:(_Event -> 'a535 [@bs]) Js.null ->  unit = "onloadend" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_XMLHttpRequestEventTarget) in
+      (return:(_) _XMLHttpRequestEventTarget_like)
     
 end
  module CSSKeyframesRule = struct
@@ -9787,6 +10534,9 @@ end
     external deleteRule : select:string ->  unit = "deleteRule" [@@bs.send.pipe: ('own) _CSSKeyframesRule_like] 
     external findRule : select:string ->  _CSSKeyframeRule option = "findRule" [@@bs.send.pipe: ('own) _CSSKeyframesRule_like] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSKeyframesRule) in
+      (return:(_) _CSSKeyframesRule_like)
     
 end
  module BluetoothAdvertisingEvent = struct
@@ -9798,6 +10548,9 @@ end
     external txPower : bluetoothAdvertisingEvent:('own) _BluetoothAdvertisingEvent_like ->  int option = "txPower" [@@bs.get] [@@bs.return null_to_opt]
     external rssi : bluetoothAdvertisingEvent:('own) _BluetoothAdvertisingEvent_like ->  int option = "rssi" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothAdvertisingEvent) in
+      (return:(_) _BluetoothAdvertisingEvent_like)
     
 end
  module CSSNamespaceRule = struct
@@ -9806,6 +10559,9 @@ end
     external namespaceURI : cSSNamespaceRule:('own) _CSSNamespaceRule_like ->  string = "namespaceURI" [@@bs.get] 
     external prefix : cSSNamespaceRule:('own) _CSSNamespaceRule_like ->  string = "prefix" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSNamespaceRule) in
+      (return:(_) _CSSNamespaceRule_like)
     
 end
  module HashChangeEvent = struct
@@ -9814,6 +10570,9 @@ end
     external oldURL : hashChangeEvent:('own) _HashChangeEvent_like ->  string = "oldURL" [@@bs.get] 
     external newURL : hashChangeEvent:('own) _HashChangeEvent_like ->  string = "newURL" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HashChangeEvent) in
+      (return:(_) _HashChangeEvent_like)
     
 end
  module CSSGroupingRule = struct
@@ -9823,6 +10582,9 @@ end
     external deleteRule : index:int ->  unit = "deleteRule" [@@bs.send.pipe: ('own) _CSSGroupingRule_like] 
     external insertRule : rule:string -> index:int ->  int = "insertRule" [@@bs.send.pipe: ('own) _CSSGroupingRule_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSGroupingRule) in
+      (return:(_) _CSSGroupingRule_like)
     
 end
  module BluetoothRemoteGATTService = struct
@@ -9841,6 +10603,10 @@ end
     external getCharacteristics : ?characteristic:'a543 Js.undefined ->  _BluetoothRemoteGATTCharacteristic array Js.Promise.t = "getCharacteristics" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTService_like] 
     external getIncludedService : service:'a544 ->  _BluetoothRemoteGATTService Js.Promise.t = "getIncludedService" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTService_like] 
     external getIncludedServices : ?service:'a545 Js.undefined ->  _BluetoothRemoteGATTService array Js.Promise.t = "getIncludedServices" [@@bs.send.pipe: ('own) _BluetoothRemoteGATTService_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothRemoteGATTService) in
+      (return:(_) _BluetoothRemoteGATTService_like)
     
     let getCharacteristic ~characteristic bluetoothRemoteGATTService =
       let conv_characteristic = function
@@ -9896,6 +10662,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLTexture) in
+      (return:(_) _WebGLTexture_like)
     
 end
  module FileReader = struct
@@ -9920,6 +10689,10 @@ end
     external readAsArrayBuffer : blob:(_) _Blob_like ->  unit = "readAsArrayBuffer" [@@bs.send.pipe: ('own) _FileReader_like] 
     external readAsDataURL : blob:(_) _Blob_like ->  unit = "readAsDataURL" [@@bs.send.pipe: ('own) _FileReader_like] 
     external readAsText : blob:(_) _Blob_like -> ?label:string Js.undefined ->  unit = "readAsText" [@@bs.send.pipe: ('own) _FileReader_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_FileReader) in
+      (return:(_) _FileReader_like)
     
     let _EMPTY  =
       
@@ -9946,6 +10719,9 @@ end
     external deleteRule : index:int ->  unit = "deleteRule" [@@bs.send.pipe: ('own) _CSSStyleSheet_like] 
     external insertRule : rule:string -> index:int ->  int = "insertRule" [@@bs.send.pipe: ('own) _CSSStyleSheet_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSStyleSheet) in
+      (return:(_) _CSSStyleSheet_like)
     
 end
  module UIEventInit = struct
@@ -9957,6 +10733,9 @@ end
     external detail : uIEventInit:('own) _UIEventInit_like ->  int = "detail" [@@bs.get] 
     external setDetail : uIEventInit:('own) _UIEventInit_like -> detail:int ->  unit = "detail" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_UIEventInit) in
+      (return:(_) _UIEventInit_like)
     
 end
  module GamepadEventInit = struct
@@ -9966,6 +10745,9 @@ end
     external gamepad : gamepadEventInit:('own) _GamepadEventInit_like ->  _Gamepad = "gamepad" [@@bs.get] 
     external setGamepad : gamepadEventInit:('own) _GamepadEventInit_like -> gamepad:_Gamepad ->  unit = "gamepad" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_GamepadEventInit) in
+      (return:(_) _GamepadEventInit_like)
     
 end
  module BluetoothPermissionDescriptor = struct
@@ -9981,6 +10763,9 @@ end
     external acceptAllDevices : bluetoothPermissionDescriptor:('own) _BluetoothPermissionDescriptor_like ->  bool = "acceptAllDevices" [@@bs.get] 
     external setAcceptAllDevices : bluetoothPermissionDescriptor:('own) _BluetoothPermissionDescriptor_like -> acceptAllDevices:Js.boolean ->  unit = "acceptAllDevices" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothPermissionDescriptor) in
+      (return:(_) _BluetoothPermissionDescriptor_like)
     
 end
  module ErrorEventInit = struct
@@ -9998,6 +10783,9 @@ end
     external error : errorEventInit:('own) _ErrorEventInit_like ->  'a564 = "error" [@@bs.get] 
     external setError : errorEventInit:('own) _ErrorEventInit_like -> error:'a565 ->  unit = "error" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ErrorEventInit) in
+      (return:(_) _ErrorEventInit_like)
     
 end
  module PushPermissionDescriptor = struct
@@ -10007,6 +10795,9 @@ end
     external userVisibleOnly : pushPermissionDescriptor:('own) _PushPermissionDescriptor_like ->  bool = "userVisibleOnly" [@@bs.get] 
     external setUserVisibleOnly : pushPermissionDescriptor:('own) _PushPermissionDescriptor_like -> userVisibleOnly:Js.boolean ->  unit = "userVisibleOnly" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_PushPermissionDescriptor) in
+      (return:(_) _PushPermissionDescriptor_like)
     
 end
  module MidiPermissionDescriptor = struct
@@ -10016,6 +10807,9 @@ end
     external sysex : midiPermissionDescriptor:('own) _MidiPermissionDescriptor_like ->  bool = "sysex" [@@bs.get] 
     external setSysex : midiPermissionDescriptor:('own) _MidiPermissionDescriptor_like -> sysex:Js.boolean ->  unit = "sysex" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_MidiPermissionDescriptor) in
+      (return:(_) _MidiPermissionDescriptor_like)
     
 end
  module DevicePermissionDescriptor = struct
@@ -10025,6 +10819,9 @@ end
     external deviceId : devicePermissionDescriptor:('own) _DevicePermissionDescriptor_like ->  string = "deviceId" [@@bs.get] 
     external setDeviceId : devicePermissionDescriptor:('own) _DevicePermissionDescriptor_like -> deviceId:string ->  unit = "deviceId" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_DevicePermissionDescriptor) in
+      (return:(_) _DevicePermissionDescriptor_like)
     
 end
  module MessageEventInit = struct
@@ -10038,6 +10835,9 @@ end
     external lastEventId : messageEventInit:('own) _MessageEventInit_like ->  string = "lastEventId" [@@bs.get] 
     external setLastEventId : messageEventInit:('own) _MessageEventInit_like -> lastEventId:string ->  unit = "lastEventId" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_MessageEventInit) in
+      (return:(_) _MessageEventInit_like)
     
 end
  module FilePropertyBag = struct
@@ -10047,6 +10847,9 @@ end
     external lastModified : filePropertyBag:('own) _FilePropertyBag_like ->  int = "lastModified" [@@bs.get] 
     external setLastModified : filePropertyBag:('own) _FilePropertyBag_like -> lastModified:int ->  unit = "lastModified" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_FilePropertyBag) in
+      (return:(_) _FilePropertyBag_like)
     
 end
  module StorageEventInit = struct
@@ -10064,6 +10867,9 @@ end
     external storageArea : storageEventInit:('own) _StorageEventInit_like ->  _Storage option = "storageArea" [@@bs.get] [@@bs.return null_to_opt]
     external setStorageArea : storageEventInit:('own) _StorageEventInit_like -> storageArea:_Storage Js.null ->  unit = "storageArea" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_StorageEventInit) in
+      (return:(_) _StorageEventInit_like)
     
 end
  module VRDisplayEventInit = struct
@@ -10075,6 +10881,9 @@ end
     external reason : vRDisplayEventInit:('own) _VRDisplayEventInit_like ->  string = "reason" [@@bs.get] 
     external setReason : vRDisplayEventInit:('own) _VRDisplayEventInit_like -> reason:string ->  unit = "reason" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_VRDisplayEventInit) in
+      (return:(_) _VRDisplayEventInit_like)
     
 end
  module PopStateEventInit = struct
@@ -10084,6 +10893,9 @@ end
     external state : popStateEventInit:('own) _PopStateEventInit_like ->  'a570 = "state" [@@bs.get] 
     external setState : popStateEventInit:('own) _PopStateEventInit_like -> state:'a571 ->  unit = "state" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_PopStateEventInit) in
+      (return:(_) _PopStateEventInit_like)
     
 end
  module WebGLContextEventInit = struct
@@ -10093,6 +10905,9 @@ end
     external statusMessage : webGLContextEventInit:('own) _WebGLContextEventInit_like ->  string = "statusMessage" [@@bs.get] 
     external setStatusMessage : webGLContextEventInit:('own) _WebGLContextEventInit_like -> statusMessage:string ->  unit = "statusMessage" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_WebGLContextEventInit) in
+      (return:(_) _WebGLContextEventInit_like)
     
 end
  module CustomEventInit = struct
@@ -10102,6 +10917,9 @@ end
     external detail : customEventInit:('own) _CustomEventInit_like ->  'a573 = "detail" [@@bs.get] 
     external setDetail : customEventInit:('own) _CustomEventInit_like -> detail:'a574 ->  unit = "detail" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CustomEventInit) in
+      (return:(_) _CustomEventInit_like)
     
 end
  module PageTransitionEventInit = struct
@@ -10111,6 +10929,9 @@ end
     external persisted : pageTransitionEventInit:('own) _PageTransitionEventInit_like ->  bool = "persisted" [@@bs.get] 
     external setPersisted : pageTransitionEventInit:('own) _PageTransitionEventInit_like -> persisted:Js.boolean ->  unit = "persisted" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_PageTransitionEventInit) in
+      (return:(_) _PageTransitionEventInit_like)
     
 end
  module CloseEventInit = struct
@@ -10124,6 +10945,9 @@ end
     external reason : closeEventInit:('own) _CloseEventInit_like ->  string = "reason" [@@bs.get] 
     external setReason : closeEventInit:('own) _CloseEventInit_like -> reason:string ->  unit = "reason" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CloseEventInit) in
+      (return:(_) _CloseEventInit_like)
     
 end
  module MediaQueryListEventInit = struct
@@ -10135,6 +10959,9 @@ end
     external matches : mediaQueryListEventInit:('own) _MediaQueryListEventInit_like ->  bool = "matches" [@@bs.get] 
     external setMatches : mediaQueryListEventInit:('own) _MediaQueryListEventInit_like -> matches:Js.boolean ->  unit = "matches" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_MediaQueryListEventInit) in
+      (return:(_) _MediaQueryListEventInit_like)
     
 end
  module ExtendableEventInit = struct
@@ -10142,6 +10969,9 @@ end
     
     external make : ?bubbles:Js.boolean -> ?cancelable:Js.boolean -> unit ->  _ExtendableEventInit = "" [@@bs.obj]
     
+    let downcast x =
+      let return = Obj.magic (x:_ExtendableEventInit) in
+      (return:(_) _ExtendableEventInit_like)
     
 end
  module ProgressEventInit = struct
@@ -10155,6 +10985,9 @@ end
     external total : progressEventInit:('own) _ProgressEventInit_like ->  int = "total" [@@bs.get] 
     external setTotal : progressEventInit:('own) _ProgressEventInit_like -> total:int ->  unit = "total" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ProgressEventInit) in
+      (return:(_) _ProgressEventInit_like)
     
 end
  module TransitionEventInit = struct
@@ -10168,6 +11001,9 @@ end
     external pseudoElement : transitionEventInit:('own) _TransitionEventInit_like ->  string = "pseudoElement" [@@bs.get] 
     external setPseudoElement : transitionEventInit:('own) _TransitionEventInit_like -> pseudoElement:string ->  unit = "pseudoElement" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_TransitionEventInit) in
+      (return:(_) _TransitionEventInit_like)
     
 end
  module BluetoothAdvertisingEventInit = struct
@@ -10185,6 +11021,9 @@ end
     external rssi : bluetoothAdvertisingEventInit:('own) _BluetoothAdvertisingEventInit_like ->  int = "rssi" [@@bs.get] 
     external setRssi : bluetoothAdvertisingEventInit:('own) _BluetoothAdvertisingEventInit_like -> rssi:int ->  unit = "rssi" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothAdvertisingEventInit) in
+      (return:(_) _BluetoothAdvertisingEventInit_like)
     
 end
  module HashChangeEventInit = struct
@@ -10196,6 +11035,9 @@ end
     external newURL : hashChangeEventInit:('own) _HashChangeEventInit_like ->  string = "newURL" [@@bs.get] 
     external setNewURL : hashChangeEventInit:('own) _HashChangeEventInit_like -> newURL:string ->  unit = "newURL" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HashChangeEventInit) in
+      (return:(_) _HashChangeEventInit_like)
     
 end
  module ScrollToOptions = struct
@@ -10207,6 +11049,9 @@ end
     external top : scrollToOptions:('own) _ScrollToOptions_like ->  float = "top" [@@bs.get] 
     external setTop : scrollToOptions:('own) _ScrollToOptions_like -> top:float ->  unit = "top" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ScrollToOptions) in
+      (return:(_) _ScrollToOptions_like)
     
 end
  module XMLHttpRequestUpload = struct
@@ -10214,6 +11059,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_XMLHttpRequestUpload) in
+      (return:(_) _XMLHttpRequestUpload_like)
     
 end
  module XMLHttpRequest = struct
@@ -10242,6 +11090,10 @@ end
     external overrideMimeType : mime:string ->  unit = "overrideMimeType" [@@bs.send.pipe: ('own) _XMLHttpRequest_like] 
     external send : ?data:'a578 Js.undefined ->  unit = "send" [@@bs.send.pipe: ('own) _XMLHttpRequest_like] 
     external setRequestHeader : name:string -> value:string ->  unit = "setRequestHeader" [@@bs.send.pipe: ('own) _XMLHttpRequest_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_XMLHttpRequest) in
+      (return:(_) _XMLHttpRequest_like)
     
     let _UNSENT  =
       
@@ -10284,6 +11136,9 @@ end
     
     external devices :  _BluetoothDevice array = "devices" [@@bs.send.pipe: ('own) _BluetoothPermissionResult_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_BluetoothPermissionResult) in
+      (return:(_) _BluetoothPermissionResult_like)
     
 end
  module ForceTouchEvent = struct
@@ -10293,6 +11148,9 @@ end
     external sERVO_FORCE_AT_FORCE_MOUSE_DOWN : forceTouchEvent:('own) _ForceTouchEvent_like ->  float = "SERVO_FORCE_AT_FORCE_MOUSE_DOWN" [@@bs.get] 
     external servoForce : forceTouchEvent:('own) _ForceTouchEvent_like ->  float = "servoForce" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ForceTouchEvent) in
+      (return:(_) _ForceTouchEvent_like)
     
 end
  module DissimilarOriginWindow = struct
@@ -10313,6 +11171,9 @@ end
     external focus :  unit = "focus" [@@bs.send.pipe: ('own) _DissimilarOriginWindow_like] 
     external postMessage : message:'a582 -> targetOrigin:string ->  unit = "postMessage" [@@bs.send.pipe: ('own) _DissimilarOriginWindow_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_DissimilarOriginWindow) in
+      (return:(_) _DissimilarOriginWindow_like)
     
 end
  module KeyboardEvent = struct
@@ -10332,6 +11193,10 @@ end
     external which : keyboardEvent:('own) _KeyboardEvent_like ->  int = "which" [@@bs.get] 
     external getModifierState : keyArg:string ->  bool = "getModifierState" [@@bs.send.pipe: ('own) _KeyboardEvent_like] 
     external initKeyboardEvent : typeArg:string -> bubblesArg:Js.boolean -> cancelableArg:Js.boolean -> viewArg:(_) _Window_like Js.null -> keyArg:string -> locationArg:int -> modifiersListArg:string -> repeat:Js.boolean -> locale:string ->  unit = "initKeyboardEvent" [@@bs.send.pipe: ('own) _KeyboardEvent_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_KeyboardEvent) in
+      (return:(_) _KeyboardEvent_like)
     
     let _DOM_KEY_LOCATION_STANDARD  =
       
@@ -10361,6 +11226,9 @@ end
     external ctrlKey : touchEvent:('own) _TouchEvent_like ->  bool = "ctrlKey" [@@bs.get] 
     external shiftKey : touchEvent:('own) _TouchEvent_like ->  bool = "shiftKey" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TouchEvent) in
+      (return:(_) _TouchEvent_like)
     
 end
  module DocumentFragment = struct
@@ -10375,6 +11243,10 @@ end
     external prepend : documentFragment:('own) _DocumentFragment_like ->  (('own) _DocumentFragment_like, unit, ('a584)) variadic_func = "prepend" [@@bs.get]
     external querySelector : selectors:string ->  _Element option = "querySelector" [@@bs.send.pipe: ('own) _DocumentFragment_like] [@@bs.return null_to_opt]
     external querySelectorAll : selectors:string ->  _NodeList = "querySelectorAll" [@@bs.send.pipe: ('own) _DocumentFragment_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_DocumentFragment) in
+      (return:(_) _DocumentFragment_like)
     
     let append ~nodes documentFragment =
       let func = append documentFragment in
@@ -10414,6 +11286,9 @@ end
     external origin : extendableMessageEvent:('own) _ExtendableMessageEvent_like ->  string = "origin" [@@bs.get] 
     external lastEventId : extendableMessageEvent:('own) _ExtendableMessageEvent_like ->  string = "lastEventId" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ExtendableMessageEvent) in
+      (return:(_) _ExtendableMessageEvent_like)
     
 end
  module CSSConditionRule = struct
@@ -10422,6 +11297,9 @@ end
     external conditionText : cSSConditionRule:('own) _CSSConditionRule_like ->  string = "conditionText" [@@bs.get] 
     external setConditionText : cSSConditionRule:('own) _CSSConditionRule_like -> conditionText:string ->  unit = "conditionText" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSConditionRule) in
+      (return:(_) _CSSConditionRule_like)
     
 end
  module DocumentType = struct
@@ -10434,6 +11312,10 @@ end
     external before : documentType:('own) _DocumentType_like ->  (('own) _DocumentType_like, unit, ('a587)) variadic_func = "before" [@@bs.get]
     external remove :  unit = "remove" [@@bs.send.pipe: ('own) _DocumentType_like] 
     external replaceWith : documentType:('own) _DocumentType_like ->  (('own) _DocumentType_like, unit, ('a588)) variadic_func = "replaceWith" [@@bs.get]
+    
+    let downcast x =
+      let return = Obj.magic (x:_DocumentType) in
+      (return:(_) _DocumentType_like)
     
     let after ~nodes documentType =
       let func = after documentType in
@@ -10702,6 +11584,10 @@ end
     external write : document:('own) _Document_like ->  (('own) _Document_like, unit, (string)) variadic_func = "write" [@@bs.get]
     external writeln : document:('own) _Document_like ->  (('own) _Document_like, unit, (string)) variadic_func = "writeln" [@@bs.get]
     
+    let downcast x =
+      let return = Obj.magic (x:_Document) in
+      (return:(_) _Document_like)
+    
     let append ~nodes document =
       let func = append document in
       let args = to_arg nodes in
@@ -10802,6 +11688,10 @@ end
     external replaceWith : characterData:('own) _CharacterData_like ->  (('own) _CharacterData_like, unit, ('a732)) variadic_func = "replaceWith" [@@bs.get]
     external substringData : offset:int -> count:int ->  string = "substringData" [@@bs.send.pipe: ('own) _CharacterData_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CharacterData) in
+      (return:(_) _CharacterData_like)
+    
     let after ~nodes characterData =
       let func = after characterData in
       let args = to_arg nodes in
@@ -10864,6 +11754,9 @@ end
     external which : mouseEvent:('own) _MouseEvent_like ->  int = "which" [@@bs.get] 
     external initMouseEvent : typeArg:string -> bubblesArg:Js.boolean -> cancelableArg:Js.boolean -> viewArg:(_) _Window_like Js.null -> detailArg:int -> screenXArg:int -> screenYArg:int -> clientXArg:int -> clientYArg:int -> ctrlKeyArg:Js.boolean -> altKeyArg:Js.boolean -> shiftKeyArg:Js.boolean -> metaKeyArg:Js.boolean -> buttonArg:int -> relatedTargetArg:(_) _EventTarget_like Js.null ->  unit = "initMouseEvent" [@@bs.send.pipe: ('own) _MouseEvent_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_MouseEvent) in
+      (return:(_) _MouseEvent_like)
     
 end
  module Element = struct
@@ -10939,6 +11832,10 @@ end
     external setAttributeNode : attr:(_) _Attr_like ->  _Attr option = "setAttributeNode" [@@bs.send.pipe: ('own) _Element_like] [@@bs.return null_to_opt]
     external setAttributeNodeNS : attr:(_) _Attr_like ->  _Attr option = "setAttributeNodeNS" [@@bs.send.pipe: ('own) _Element_like] [@@bs.return null_to_opt]
     external webkitMatchesSelector : selectors:string ->  bool = "webkitMatchesSelector" [@@bs.send.pipe: ('own) _Element_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_Element) in
+      (return:(_) _Element_like)
     
     let after ~nodes element =
       let func = after element in
@@ -11021,6 +11918,9 @@ end
     
     external relatedTarget : focusEvent:('own) _FocusEvent_like ->  _EventTarget option = "relatedTarget" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_FocusEvent) in
+      (return:(_) _FocusEvent_like)
     
 end
  module Window = struct
@@ -11240,6 +12140,10 @@ end
     external webdriverCallback : ?result:'a898 Js.undefined ->  unit = "webdriverCallback" [@@bs.send.pipe: ('own) _Window_like] 
     external webdriverTimeout :  unit = "webdriverTimeout" [@@bs.send.pipe: ('own) _Window_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Window) in
+      (return:(_) _Window_like)
+    
     let clearInterval ?handle window =
       let conv_handle = Js_undefined.from_opt in
       let handle = conv_handle handle in
@@ -11335,6 +12239,10 @@ end
     external setInterval : workerGlobalScope:('own) _WorkerGlobalScope_like ->  (('own) _WorkerGlobalScope_like, int, ('a910*(int Js.undefined*('a911)))) variadic_func = "setInterval" [@@bs.get]
     external setTimeout : workerGlobalScope:('own) _WorkerGlobalScope_like ->  (('own) _WorkerGlobalScope_like, int, ('a912*(int Js.undefined*('a913)))) variadic_func = "setTimeout" [@@bs.get]
     
+    let downcast x =
+      let return = Obj.magic (x:_WorkerGlobalScope) in
+      (return:(_) _WorkerGlobalScope_like)
+    
     let clearInterval ?handle workerGlobalScope =
       let conv_handle = Js_undefined.from_opt in
       let handle = conv_handle handle in
@@ -11412,6 +12320,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_WorkletGlobalScope) in
+      (return:(_) _WorkletGlobalScope_like)
     
 end
  module ExtendableMessageEventInit = struct
@@ -11425,6 +12336,9 @@ end
     external lastEventId : extendableMessageEventInit:('own) _ExtendableMessageEventInit_like ->  string = "lastEventId" [@@bs.get] 
     external setLastEventId : extendableMessageEventInit:('own) _ExtendableMessageEventInit_like -> lastEventId:string ->  unit = "lastEventId" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ExtendableMessageEventInit) in
+      (return:(_) _ExtendableMessageEventInit_like)
     
 end
  module EventModifierInit = struct
@@ -11462,6 +12376,9 @@ end
     external keyModifierStateSymbolLock : eventModifierInit:('own) _EventModifierInit_like ->  bool = "keyModifierStateSymbolLock" [@@bs.get] 
     external setKeyModifierStateSymbolLock : eventModifierInit:('own) _EventModifierInit_like -> keyModifierStateSymbolLock:Js.boolean ->  unit = "keyModifierStateSymbolLock" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_EventModifierInit) in
+      (return:(_) _EventModifierInit_like)
     
 end
  module FocusEventInit = struct
@@ -11471,6 +12388,9 @@ end
     external relatedTarget : focusEventInit:('own) _FocusEventInit_like ->  _EventTarget option = "relatedTarget" [@@bs.get] [@@bs.return null_to_opt]
     external setRelatedTarget : focusEventInit:('own) _FocusEventInit_like -> relatedTarget:_EventTarget Js.null ->  unit = "relatedTarget" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_FocusEventInit) in
+      (return:(_) _FocusEventInit_like)
     
 end
  module Comment = struct
@@ -11478,6 +12398,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_Comment) in
+      (return:(_) _Comment_like)
     
 end
  module HTMLElement = struct
@@ -11628,6 +12551,9 @@ end
     external click :  unit = "click" [@@bs.send.pipe: ('own) _HTMLElement_like] 
     external focus :  unit = "focus" [@@bs.send.pipe: ('own) _HTMLElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLElement) in
+      (return:(_) _HTMLElement_like)
     
 end
  module CSSSupportsRule = struct
@@ -11635,6 +12561,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSSupportsRule) in
+      (return:(_) _CSSSupportsRule_like)
     
 end
  module PaintWorkletGlobalScope = struct
@@ -11642,6 +12571,9 @@ end
     
     external registerPaint : name:string -> paintCtor:(unit -> unit [@bs]) ->  unit = "registerPaint" [@@bs.send.pipe: ('own) _PaintWorkletGlobalScope_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_PaintWorkletGlobalScope) in
+      (return:(_) _PaintWorkletGlobalScope_like)
     
 end
  module ServiceWorkerGlobalScope = struct
@@ -11650,6 +12582,9 @@ end
     external onmessage : serviceWorkerGlobalScope:('own) _ServiceWorkerGlobalScope_like ->  (_Event -> 'a1053 [@bs]) option = "onmessage" [@@bs.get] [@@bs.return null_to_opt]
     external setOnmessage : serviceWorkerGlobalScope:('own) _ServiceWorkerGlobalScope_like -> onmessage:(_Event -> 'a1054 [@bs]) Js.null ->  unit = "onmessage" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_ServiceWorkerGlobalScope) in
+      (return:(_) _ServiceWorkerGlobalScope_like)
     
 end
  module DedicatedWorkerGlobalScope = struct
@@ -11660,6 +12595,9 @@ end
     external close :  unit = "close" [@@bs.send.pipe: ('own) _DedicatedWorkerGlobalScope_like] 
     external postMessage : message:'a1057 ->  unit = "postMessage" [@@bs.send.pipe: ('own) _DedicatedWorkerGlobalScope_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_DedicatedWorkerGlobalScope) in
+      (return:(_) _DedicatedWorkerGlobalScope_like)
     
 end
  module CSSMediaRule = struct
@@ -11667,6 +12605,9 @@ end
     
     external media : cSSMediaRule:('own) _CSSMediaRule_like ->  _MediaList = "media" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_CSSMediaRule) in
+      (return:(_) _CSSMediaRule_like)
     
 end
  module ProcessingInstruction = struct
@@ -11674,6 +12615,9 @@ end
     
     external target : processingInstruction:('own) _ProcessingInstruction_like ->  string = "target" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_ProcessingInstruction) in
+      (return:(_) _ProcessingInstruction_like)
     
 end
  module XMLDocument = struct
@@ -11681,6 +12625,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_XMLDocument) in
+      (return:(_) _XMLDocument_like)
     
 end
  module TestWorkletGlobalScope = struct
@@ -11688,6 +12635,9 @@ end
     
     external registerKeyValue : key:string -> value:string ->  unit = "registerKeyValue" [@@bs.send.pipe: ('own) _TestWorkletGlobalScope_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_TestWorkletGlobalScope) in
+      (return:(_) _TestWorkletGlobalScope_like)
     
 end
  module SVGElement = struct
@@ -11695,6 +12645,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_SVGElement) in
+      (return:(_) _SVGElement_like)
     
 end
  module Text = struct
@@ -11703,6 +12656,9 @@ end
     external wholeText : text:('own) _Text_like ->  string = "wholeText" [@@bs.get] 
     external splitText : offset:int ->  _Text = "splitText" [@@bs.send.pipe: ('own) _Text_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_Text) in
+      (return:(_) _Text_like)
     
 end
  module KeyboardEventInit = struct
@@ -11720,6 +12676,9 @@ end
     external isComposing : keyboardEventInit:('own) _KeyboardEventInit_like ->  bool = "isComposing" [@@bs.get] 
     external setIsComposing : keyboardEventInit:('own) _KeyboardEventInit_like -> isComposing:Js.boolean ->  unit = "isComposing" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_KeyboardEventInit) in
+      (return:(_) _KeyboardEventInit_like)
     
 end
  module MouseEventInit = struct
@@ -11739,6 +12698,9 @@ end
     external relatedTarget : mouseEventInit:('own) _MouseEventInit_like ->  _EventTarget option = "relatedTarget" [@@bs.get] [@@bs.return null_to_opt]
     external setRelatedTarget : mouseEventInit:('own) _MouseEventInit_like -> relatedTarget:_EventTarget Js.null ->  unit = "relatedTarget" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_MouseEventInit) in
+      (return:(_) _MouseEventInit_like)
     
 end
  module HTMLIFrameElement = struct
@@ -11768,6 +12730,10 @@ end
     external setVisible : visible:Js.boolean ->  unit = "setVisible" [@@bs.send.pipe: ('own) _HTMLIFrameElement_like] 
     external stop :  unit = "stop" [@@bs.send.pipe: ('own) _HTMLIFrameElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLIFrameElement) in
+      (return:(_) _HTMLIFrameElement_like)
+    
     let reload ?hardReload hTMLIFrameElement =
       let conv_hardReload = Js_undefined.from_opt in
       let hardReload = conv_hardReload hardReload in
@@ -11779,6 +12745,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_SVGGraphicsElement) in
+      (return:(_) _SVGGraphicsElement_like)
     
 end
  module HTMLScriptElement = struct
@@ -11805,6 +12774,9 @@ end
     external htmlFor : hTMLScriptElement:('own) _HTMLScriptElement_like ->  string = "htmlFor" [@@bs.get] 
     external setHtmlFor : hTMLScriptElement:('own) _HTMLScriptElement_like -> htmlFor:string ->  unit = "htmlFor" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLScriptElement) in
+      (return:(_) _HTMLScriptElement_like)
     
 end
  module HTMLObjectElement = struct
@@ -11815,6 +12787,9 @@ end
     external form : hTMLObjectElement:('own) _HTMLObjectElement_like ->  _HTMLFormElement option = "form" [@@bs.get] [@@bs.return null_to_opt]
     external validity : hTMLObjectElement:('own) _HTMLObjectElement_like ->  _ValidityState = "validity" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLObjectElement) in
+      (return:(_) _HTMLObjectElement_like)
     
 end
  module HTMLMediaElement = struct
@@ -11835,6 +12810,10 @@ end
     external load :  unit = "load" [@@bs.send.pipe: ('own) _HTMLMediaElement_like] 
     external pause :  unit = "pause" [@@bs.send.pipe: ('own) _HTMLMediaElement_like] 
     external play :  unit = "play" [@@bs.send.pipe: ('own) _HTMLMediaElement_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_HTMLMediaElement) in
+      (return:(_) _HTMLMediaElement_like)
     
     let _NETWORK_EMPTY  =
       
@@ -11907,6 +12886,9 @@ end
     external border : hTMLImageElement:('own) _HTMLImageElement_like ->  string = "border" [@@bs.get] 
     external setBorder : hTMLImageElement:('own) _HTMLImageElement_like -> border:string ->  unit = "border" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLImageElement) in
+      (return:(_) _HTMLImageElement_like)
     
 end
  module HTMLTableColElement = struct
@@ -11914,6 +12896,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableColElement) in
+      (return:(_) _HTMLTableColElement_like)
     
 end
  module HTMLTitleElement = struct
@@ -11922,6 +12907,9 @@ end
     external text : hTMLTitleElement:('own) _HTMLTitleElement_like ->  string = "text" [@@bs.get] 
     external setText : hTMLTitleElement:('own) _HTMLTitleElement_like -> text:string ->  unit = "text" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTitleElement) in
+      (return:(_) _HTMLTitleElement_like)
     
 end
  module HTMLDataElement = struct
@@ -11930,6 +12918,9 @@ end
     external value : hTMLDataElement:('own) _HTMLDataElement_like ->  string = "value" [@@bs.get] 
     external setValue : hTMLDataElement:('own) _HTMLDataElement_like -> value:string ->  unit = "value" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDataElement) in
+      (return:(_) _HTMLDataElement_like)
     
 end
  module HTMLMetaElement = struct
@@ -11940,6 +12931,9 @@ end
     external content : hTMLMetaElement:('own) _HTMLMetaElement_like ->  string = "content" [@@bs.get] 
     external setContent : hTMLMetaElement:('own) _HTMLMetaElement_like -> content:string ->  unit = "content" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLMetaElement) in
+      (return:(_) _HTMLMetaElement_like)
     
 end
  module HTMLLIElement = struct
@@ -11948,6 +12942,9 @@ end
     external value : hTMLLIElement:('own) _HTMLLIElement_like ->  int = "value" [@@bs.get] 
     external setValue : hTMLLIElement:('own) _HTMLLIElement_like -> value:int ->  unit = "value" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLLIElement) in
+      (return:(_) _HTMLLIElement_like)
     
 end
  module HTMLOptGroupElement = struct
@@ -11956,6 +12953,9 @@ end
     external disabled : hTMLOptGroupElement:('own) _HTMLOptGroupElement_like ->  bool = "disabled" [@@bs.get] 
     external setDisabled : hTMLOptGroupElement:('own) _HTMLOptGroupElement_like -> disabled:Js.boolean ->  unit = "disabled" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLOptGroupElement) in
+      (return:(_) _HTMLOptGroupElement_like)
     
 end
  module HTMLFieldSetElement = struct
@@ -11967,6 +12967,9 @@ end
     external elements : hTMLFieldSetElement:('own) _HTMLFieldSetElement_like ->  _HTMLCollection = "elements" [@@bs.get] 
     external validity : hTMLFieldSetElement:('own) _HTMLFieldSetElement_like ->  _ValidityState = "validity" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLFieldSetElement) in
+      (return:(_) _HTMLFieldSetElement_like)
     
 end
  module HTMLDListElement = struct
@@ -11974,6 +12977,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDListElement) in
+      (return:(_) _HTMLDListElement_like)
     
 end
  module HTMLBodyElement = struct
@@ -12016,6 +13022,9 @@ end
     external background : hTMLBodyElement:('own) _HTMLBodyElement_like ->  string = "background" [@@bs.get] 
     external setBackground : hTMLBodyElement:('own) _HTMLBodyElement_like -> background:string ->  unit = "background" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLBodyElement) in
+      (return:(_) _HTMLBodyElement_like)
     
 end
  module HTMLLegendElement = struct
@@ -12023,6 +13032,9 @@ end
     
     external form : hTMLLegendElement:('own) _HTMLLegendElement_like ->  _HTMLFormElement option = "form" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLLegendElement) in
+      (return:(_) _HTMLLegendElement_like)
     
 end
  module HTMLBaseElement = struct
@@ -12031,6 +13043,9 @@ end
     external href : hTMLBaseElement:('own) _HTMLBaseElement_like ->  string = "href" [@@bs.get] 
     external setHref : hTMLBaseElement:('own) _HTMLBaseElement_like -> href:string ->  unit = "href" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLBaseElement) in
+      (return:(_) _HTMLBaseElement_like)
     
 end
  module HTMLUListElement = struct
@@ -12038,6 +13053,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLUListElement) in
+      (return:(_) _HTMLUListElement_like)
     
 end
  module HTMLHtmlElement = struct
@@ -12045,6 +13063,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLHtmlElement) in
+      (return:(_) _HTMLHtmlElement_like)
     
 end
  module HTMLTimeElement = struct
@@ -12053,6 +13074,9 @@ end
     external dateTime : hTMLTimeElement:('own) _HTMLTimeElement_like ->  string = "dateTime" [@@bs.get] 
     external setDateTime : hTMLTimeElement:('own) _HTMLTimeElement_like -> dateTime:string ->  unit = "dateTime" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTimeElement) in
+      (return:(_) _HTMLTimeElement_like)
     
 end
  module HTMLTableSectionElement = struct
@@ -12061,6 +13085,10 @@ end
     external rows : hTMLTableSectionElement:('own) _HTMLTableSectionElement_like ->  _HTMLCollection = "rows" [@@bs.get] 
     external deleteRow : index:int ->  unit = "deleteRow" [@@bs.send.pipe: ('own) _HTMLTableSectionElement_like] 
     external insertRow : ?index:int Js.undefined ->  _HTMLElement = "insertRow" [@@bs.send.pipe: ('own) _HTMLTableSectionElement_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableSectionElement) in
+      (return:(_) _HTMLTableSectionElement_like)
     
     let insertRow ?index hTMLTableSectionElement =
       let conv_index = Js_undefined.from_opt in
@@ -12073,6 +13101,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLFrameElement) in
+      (return:(_) _HTMLFrameElement_like)
     
 end
  module HTMLLinkElement = struct
@@ -12101,6 +13132,9 @@ end
     external target : hTMLLinkElement:('own) _HTMLLinkElement_like ->  string = "target" [@@bs.get] 
     external setTarget : hTMLLinkElement:('own) _HTMLLinkElement_like -> target:string ->  unit = "target" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLLinkElement) in
+      (return:(_) _HTMLLinkElement_like)
     
 end
  module HTMLEmbedElement = struct
@@ -12108,6 +13142,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLEmbedElement) in
+      (return:(_) _HTMLEmbedElement_like)
     
 end
  module HTMLMeterElement = struct
@@ -12115,6 +13152,9 @@ end
     
     external labels : hTMLMeterElement:('own) _HTMLMeterElement_like ->  _NodeList = "labels" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLMeterElement) in
+      (return:(_) _HTMLMeterElement_like)
     
 end
  module HTMLTableCaptionElement = struct
@@ -12122,6 +13162,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableCaptionElement) in
+      (return:(_) _HTMLTableCaptionElement_like)
     
 end
  module HTMLLabelElement = struct
@@ -12132,6 +13175,9 @@ end
     external setHtmlFor : hTMLLabelElement:('own) _HTMLLabelElement_like -> htmlFor:string ->  unit = "htmlFor" [@@bs.set]
     external control : hTMLLabelElement:('own) _HTMLLabelElement_like ->  _HTMLElement option = "control" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLLabelElement) in
+      (return:(_) _HTMLLabelElement_like)
     
 end
  module HTMLAnchorElement = struct
@@ -12175,6 +13221,9 @@ end
     external setShape : hTMLAnchorElement:('own) _HTMLAnchorElement_like -> shape:string ->  unit = "shape" [@@bs.set]
     external toString :  string = "toString" [@@bs.send.pipe: ('own) _HTMLAnchorElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLAnchorElement) in
+      (return:(_) _HTMLAnchorElement_like)
     
 end
  module HTMLHeadElement = struct
@@ -12182,6 +13231,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLHeadElement) in
+      (return:(_) _HTMLHeadElement_like)
     
 end
  module HTMLOutputElement = struct
@@ -12191,6 +13243,9 @@ end
     external validity : hTMLOutputElement:('own) _HTMLOutputElement_like ->  _ValidityState = "validity" [@@bs.get] 
     external labels : hTMLOutputElement:('own) _HTMLOutputElement_like ->  _NodeList = "labels" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLOutputElement) in
+      (return:(_) _HTMLOutputElement_like)
     
 end
  module HTMLUnknownElement = struct
@@ -12198,6 +13253,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLUnknownElement) in
+      (return:(_) _HTMLUnknownElement_like)
     
 end
  module HTMLParamElement = struct
@@ -12205,6 +13263,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLParamElement) in
+      (return:(_) _HTMLParamElement_like)
     
 end
  module HTMLOptionElement = struct
@@ -12224,6 +13285,9 @@ end
     external text : hTMLOptionElement:('own) _HTMLOptionElement_like ->  string = "text" [@@bs.get] 
     external setText : hTMLOptionElement:('own) _HTMLOptionElement_like -> text:string ->  unit = "text" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLOptionElement) in
+      (return:(_) _HTMLOptionElement_like)
     
 end
  module HTMLOListElement = struct
@@ -12231,6 +13295,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLOListElement) in
+      (return:(_) _HTMLOListElement_like)
     
 end
  module HTMLSelectElement = struct
@@ -12260,6 +13327,10 @@ end
     external namedItem : name:string ->  _HTMLOptionElement option = "namedItem" [@@bs.send.pipe: ('own) _HTMLSelectElement_like] [@@bs.return null_to_opt]
     external remove : index:int ->  unit = "remove" [@@bs.send.pipe: ('own) _HTMLSelectElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLSelectElement) in
+      (return:(_) _HTMLSelectElement_like)
+    
     let add ~element ~before hTMLSelectElement =
       let conv_element = function
         | `HTMLOptionElement (x: (_) _HTMLOptionElement_like) -> Obj.magic x
@@ -12287,6 +13358,9 @@ end
     
     external sheet : hTMLStyleElement:('own) _HTMLStyleElement_like ->  _StyleSheet option = "sheet" [@@bs.get] [@@bs.return null_to_opt]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLStyleElement) in
+      (return:(_) _HTMLStyleElement_like)
     
 end
  module HTMLQuoteElement = struct
@@ -12294,6 +13368,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLQuoteElement) in
+      (return:(_) _HTMLQuoteElement_like)
     
 end
  module HTMLBRElement = struct
@@ -12301,6 +13378,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLBRElement) in
+      (return:(_) _HTMLBRElement_like)
     
 end
  module HTMLButtonElement = struct
@@ -12328,6 +13408,9 @@ end
     external validity : hTMLButtonElement:('own) _HTMLButtonElement_like ->  _ValidityState = "validity" [@@bs.get] 
     external labels : hTMLButtonElement:('own) _HTMLButtonElement_like ->  _NodeList = "labels" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLButtonElement) in
+      (return:(_) _HTMLButtonElement_like)
     
 end
  module HTMLHRElement = struct
@@ -12340,6 +13423,9 @@ end
     external width : hTMLHRElement:('own) _HTMLHRElement_like ->  string = "width" [@@bs.get] 
     external setWidth : hTMLHRElement:('own) _HTMLHRElement_like -> width:string ->  unit = "width" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLHRElement) in
+      (return:(_) _HTMLHRElement_like)
     
 end
  module HTMLTextAreaElement = struct
@@ -12376,6 +13462,10 @@ end
     external setSelectionDirection : hTMLTextAreaElement:('own) _HTMLTextAreaElement_like -> selectionDirection:string ->  unit = "selectionDirection" [@@bs.set]
     external setSelectionRange : start:int -> end_:int -> ?direction:string Js.undefined ->  unit = "setSelectionRange" [@@bs.send.pipe: ('own) _HTMLTextAreaElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTextAreaElement) in
+      (return:(_) _HTMLTextAreaElement_like)
+    
     let setSelectionRange ~start ~end_ ?direction hTMLTextAreaElement =
       let conv_direction = Js_undefined.from_opt in
       let direction = conv_direction direction in
@@ -12387,6 +13477,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLSourceElement) in
+      (return:(_) _HTMLSourceElement_like)
     
 end
  module HTMLPreElement = struct
@@ -12394,6 +13487,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLPreElement) in
+      (return:(_) _HTMLPreElement_like)
     
 end
  module HTMLModElement = struct
@@ -12401,6 +13497,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLModElement) in
+      (return:(_) _HTMLModElement_like)
     
 end
  module HTMLMapElement = struct
@@ -12408,6 +13507,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLMapElement) in
+      (return:(_) _HTMLMapElement_like)
     
 end
  module HTMLTemplateElement = struct
@@ -12415,6 +13517,9 @@ end
     
     external content : hTMLTemplateElement:('own) _HTMLTemplateElement_like ->  _DocumentFragment = "content" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTemplateElement) in
+      (return:(_) _HTMLTemplateElement_like)
     
 end
  module HTMLDirectoryElement = struct
@@ -12422,6 +13527,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDirectoryElement) in
+      (return:(_) _HTMLDirectoryElement_like)
     
 end
  module HTMLInputElement = struct
@@ -12495,6 +13603,10 @@ end
     external selectFiles : path:string array ->  unit = "selectFiles" [@@bs.send.pipe: ('own) _HTMLInputElement_like] 
     external setSelectionRange : start:int -> end_:int -> ?direction:string Js.undefined ->  unit = "setSelectionRange" [@@bs.send.pipe: ('own) _HTMLInputElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLInputElement) in
+      (return:(_) _HTMLInputElement_like)
+    
     let setSelectionRange ~start ~end_ ?direction hTMLInputElement =
       let conv_direction = Js_undefined.from_opt in
       let direction = conv_direction direction in
@@ -12506,6 +13618,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLParagraphElement) in
+      (return:(_) _HTMLParagraphElement_like)
     
 end
  module HTMLAreaElement = struct
@@ -12513,6 +13628,9 @@ end
     
     external relList : hTMLAreaElement:('own) _HTMLAreaElement_like ->  _DOMTokenList = "relList" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLAreaElement) in
+      (return:(_) _HTMLAreaElement_like)
     
 end
  module HTMLSpanElement = struct
@@ -12520,6 +13638,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLSpanElement) in
+      (return:(_) _HTMLSpanElement_like)
     
 end
  module HTMLFormElement = struct
@@ -12549,6 +13670,9 @@ end
     external reset :  unit = "reset" [@@bs.send.pipe: ('own) _HTMLFormElement_like] 
     external submit :  unit = "submit" [@@bs.send.pipe: ('own) _HTMLFormElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLFormElement) in
+      (return:(_) _HTMLFormElement_like)
     
 end
  module HTMLDataListElement = struct
@@ -12556,6 +13680,9 @@ end
     
     external options : hTMLDataListElement:('own) _HTMLDataListElement_like ->  _HTMLCollection = "options" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDataListElement) in
+      (return:(_) _HTMLDataListElement_like)
     
 end
  module HTMLCanvasElement = struct
@@ -12567,6 +13694,10 @@ end
     external setHeight : hTMLCanvasElement:('own) _HTMLCanvasElement_like -> height:int ->  unit = "height" [@@bs.set]
     external getContext : hTMLCanvasElement:('own) _HTMLCanvasElement_like ->  (('own) _HTMLCanvasElement_like, 'a1088 Js.null, (string*('a1089))) variadic_func = "getContext" [@@bs.get]
     external toDataURL : hTMLCanvasElement:('own) _HTMLCanvasElement_like ->  (('own) _HTMLCanvasElement_like, string, (string Js.undefined*('a1090))) variadic_func = "toDataURL" [@@bs.get]
+    
+    let downcast x =
+      let return = Obj.magic (x:_HTMLCanvasElement) in
+      (return:(_) _HTMLCanvasElement_like)
     
     let getContext ~contextId ~arguments hTMLCanvasElement =
       let func = getContext hTMLCanvasElement in
@@ -12598,6 +13729,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTrackElement) in
+      (return:(_) _HTMLTrackElement_like)
     
 end
  module HTMLTableRowElement = struct
@@ -12611,6 +13745,10 @@ end
     external deleteCell : index:int ->  unit = "deleteCell" [@@bs.send.pipe: ('own) _HTMLTableRowElement_like] 
     external insertCell : ?index:int Js.undefined ->  _HTMLElement = "insertCell" [@@bs.send.pipe: ('own) _HTMLTableRowElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableRowElement) in
+      (return:(_) _HTMLTableRowElement_like)
+    
     let insertCell ?index hTMLTableRowElement =
       let conv_index = Js_undefined.from_opt in
       let index = conv_index index in
@@ -12623,6 +13761,9 @@ end
     external align : hTMLDivElement:('own) _HTMLDivElement_like ->  string = "align" [@@bs.get] 
     external setAlign : hTMLDivElement:('own) _HTMLDivElement_like -> align:string ->  unit = "align" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDivElement) in
+      (return:(_) _HTMLDivElement_like)
     
 end
  module HTMLAppletElement = struct
@@ -12631,6 +13772,9 @@ end
     external name : hTMLAppletElement:('own) _HTMLAppletElement_like ->  string = "name" [@@bs.get] 
     external setName : hTMLAppletElement:('own) _HTMLAppletElement_like -> name:string ->  unit = "name" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLAppletElement) in
+      (return:(_) _HTMLAppletElement_like)
     
 end
  module HTMLDialogElement = struct
@@ -12641,6 +13785,10 @@ end
     external returnValue : hTMLDialogElement:('own) _HTMLDialogElement_like ->  string = "returnValue" [@@bs.get] 
     external setReturnValue : hTMLDialogElement:('own) _HTMLDialogElement_like -> returnValue:string ->  unit = "returnValue" [@@bs.set]
     external close : ?returnValue:string Js.undefined ->  unit = "close" [@@bs.send.pipe: ('own) _HTMLDialogElement_like] 
+    
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDialogElement) in
+      (return:(_) _HTMLDialogElement_like)
     
     let close ?returnValue hTMLDialogElement =
       let conv_returnValue = Js_undefined.from_opt in
@@ -12682,6 +13830,9 @@ end
     external onunload : hTMLFrameSetElement:('own) _HTMLFrameSetElement_like ->  (_Event -> 'a1117 [@bs]) option = "onunload" [@@bs.get] [@@bs.return null_to_opt]
     external setOnunload : hTMLFrameSetElement:('own) _HTMLFrameSetElement_like -> onunload:(_Event -> 'a1118 [@bs]) Js.null ->  unit = "onunload" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLFrameSetElement) in
+      (return:(_) _HTMLFrameSetElement_like)
     
 end
  module HTMLDetailsElement = struct
@@ -12690,6 +13841,9 @@ end
     external open_ : hTMLDetailsElement:('own) _HTMLDetailsElement_like ->  bool = "open" [@@bs.get] 
     external setOpen : hTMLDetailsElement:('own) _HTMLDetailsElement_like -> open_:Js.boolean ->  unit = "open" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLDetailsElement) in
+      (return:(_) _HTMLDetailsElement_like)
     
 end
  module HTMLProgressElement = struct
@@ -12697,6 +13851,9 @@ end
     
     external labels : hTMLProgressElement:('own) _HTMLProgressElement_like ->  _NodeList = "labels" [@@bs.get] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLProgressElement) in
+      (return:(_) _HTMLProgressElement_like)
     
 end
  module HTMLFontElement = struct
@@ -12709,6 +13866,9 @@ end
     external size : hTMLFontElement:('own) _HTMLFontElement_like ->  string = "size" [@@bs.get] 
     external setSize : hTMLFontElement:('own) _HTMLFontElement_like -> size:string ->  unit = "size" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLFontElement) in
+      (return:(_) _HTMLFontElement_like)
     
 end
  module HTMLTableCellElement = struct
@@ -12724,6 +13884,9 @@ end
     external bgColor : hTMLTableCellElement:('own) _HTMLTableCellElement_like ->  string = "bgColor" [@@bs.get] 
     external setBgColor : hTMLTableCellElement:('own) _HTMLTableCellElement_like -> bgColor:string ->  unit = "bgColor" [@@bs.set]
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableCellElement) in
+      (return:(_) _HTMLTableCellElement_like)
     
 end
  module HTMLTableElement = struct
@@ -12751,6 +13914,10 @@ end
     external deleteTHead :  unit = "deleteTHead" [@@bs.send.pipe: ('own) _HTMLTableElement_like] 
     external insertRow : ?index:int Js.undefined ->  _HTMLTableRowElement = "insertRow" [@@bs.send.pipe: ('own) _HTMLTableElement_like] 
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableElement) in
+      (return:(_) _HTMLTableElement_like)
+    
     let insertRow ?index hTMLTableElement =
       let conv_index = Js_undefined.from_opt in
       let index = conv_index index in
@@ -12762,6 +13929,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLHeadingElement) in
+      (return:(_) _HTMLHeadingElement_like)
     
 end
  module HTMLAudioElement = struct
@@ -12769,6 +13939,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLAudioElement) in
+      (return:(_) _HTMLAudioElement_like)
     
 end
  module HTMLTableHeaderCellElement = struct
@@ -12776,6 +13949,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableHeaderCellElement) in
+      (return:(_) _HTMLTableHeaderCellElement_like)
     
 end
  module SVGSVGElement = struct
@@ -12783,6 +13959,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_SVGSVGElement) in
+      (return:(_) _SVGSVGElement_like)
     
 end
  module HTMLVideoElement = struct
@@ -12790,6 +13969,9 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLVideoElement) in
+      (return:(_) _HTMLVideoElement_like)
     
 end
  module HTMLTableDataCellElement = struct
@@ -12797,5 +13979,8 @@ end
     
     
     
+    let downcast x =
+      let return = Obj.magic (x:_HTMLTableDataCellElement) in
+      (return:(_) _HTMLTableDataCellElement_like)
     
 end
