@@ -1,8 +1,8 @@
 #!/usr/bin/env ocaml
 
 let compile = "ocamlbuild -use-ocamlfind gen_bs.byte"
-let install = "" 
-let remove = ""
+let install = "cp gen_bs.byte $(opam config var bin)/gen-bs" 
+let remove = "rm $(opam config var bin)/gen-bs"
 let clean = "ocamlbuild -clean"
 
 let exec str =
