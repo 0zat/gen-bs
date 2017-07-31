@@ -1,0 +1,1 @@
+src/firework.cmj : src/particle.cmj src/draw_objects.cmj

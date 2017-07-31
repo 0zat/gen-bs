@@ -1,5 +1,7 @@
-/_build/
-/.vs_code/
-/node_modules/
+_build/
+.vs_code/
+node_modules/
 *.byte
 *.cm*
+/example/firework/node_modules/
+/example/firework/bs/
