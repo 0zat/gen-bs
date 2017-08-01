@@ -4,8 +4,6 @@ open Js
 
 let print_error e = 
   Webidl.Parse.show_syntax_error e 
-  |> print_string
-  |> print_newline
 
 let parse file =
   try
@@ -34,10 +32,13 @@ let parse_from_dir dir =
 
 let from_dir dir =
   match parse_from_dir dir with
-  | Error errs -> List.iter print_error errs
+  | Error errs -> Error (List.map print_error errs)
   | Ok oks ->
-    Webidl_to_js.to_js_input oks
-    |> Js_to_bs.to_bs
-    |> Bs.print
-    |> print_string
+    let result = 
+      Webidl_to_js.to_js_input oks
+      |> Js_to_bs.to_bs
+      |> Bs.print
+    in
+    Ok result
+
 
