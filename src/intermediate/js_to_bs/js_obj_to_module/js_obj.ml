@@ -22,8 +22,8 @@ module From_meth = struct
     BatList.filter_map (fun x -> x) let_candidates
 
 end
-
-let to_module make_constr js_obj = 
+  
+let to_module external_types make_constr js_obj = 
   let owner = Js_args.to_owner_arg js_obj.name in
   let attr_externals = 
     List.map (Js_attr.to_attr owner) js_obj.attrs 
@@ -40,7 +40,9 @@ let to_module make_constr js_obj =
     List.map Js_const.to_let js_obj.constants
   in
   let casts =
-    [Cast.make_downcast js_obj.name]
+    let open Cast in
+     make_downcast js_obj.name :: 
+     make_cast_external_type external_types js_obj.name
   in
   let constr = 
     match make_constr with
@@ -53,5 +55,5 @@ let to_module make_constr js_obj =
     ~ext_defs: (constr @ attr_externals @ meth_externals)
     ~let_defs: (casts @ constants @ meth_lets)
 
-let to_modules ?make_constr js_objs = 
-  List.map (to_module make_constr) js_objs
+let to_modules outer_types ?make_constr js_objs = 
+  List.map (to_module outer_types make_constr) js_objs

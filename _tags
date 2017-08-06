@@ -1,4 +1,4 @@
-true: package(webidl),package(batteries), bin_annot, debug
+true: package(webidl), package(batteries), package(yojson), bin_annot, debug
 <src/**>: include
 <example/**>: -traverse
 <test/**>: -traverse

@@ -2,4 +2,4 @@ S src
 S src/**
 B _build
 B _build/**
-PKG webidl batteries
+PKG webidl batteries yojson

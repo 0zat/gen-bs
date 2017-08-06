@@ -5,9 +5,6 @@ let rec replace_type types type_ =
   match (type_ : Js.type_) with
   | `Obj obj when List.mem_assoc obj types ->
     List.assoc obj types
-  | `Obj obj when obj = "DOMHighResTimeStamp" ->
-    List.iter (fun (x, y) -> print_string x) types;
-    failwith "aaa"
   | `Promise t -> `Promise (replace t)
   | `Undef t -> `Undef (replace t)
   | `Null t -> `Null (replace t)

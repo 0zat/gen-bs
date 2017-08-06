@@ -44,11 +44,11 @@ let get_replaced_objs js_inputs =
 let get_global name =
   Bs.to_global_value name (Bs_type.to_ident name)
 
-let to_bs js_inputs = 
+let to_bs external_types js_inputs = 
   let objs, objs_with_constr = get_replaced_objs js_inputs in
   let all_objs = objs @ objs_with_constr in
-  let modules = Js_obj.to_modules objs in
-  let modules_with_constr = Js_obj.to_modules ~make_constr:all_objs objs_with_constr in
+  let modules = Js_obj.to_modules external_types objs in
+  let modules_with_constr = Js_obj.to_modules external_types ~make_constr:all_objs objs_with_constr in
   let sorted_modules = sort_modules (modules @ modules_with_constr) in
   let type_defs = Js_obj_to_typedef.from_objs all_objs in
   let predefined_code = Internal_code.get () in
