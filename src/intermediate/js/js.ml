@@ -24,6 +24,8 @@ type 'type_ composed = [
   | `Promise of 'type_
   | `Union of 'type_ list
   | `Callback of 'type_ * 'type_ list
+  (*                   return_type * arg_type * variadic_arg_type *)
+  | `Variadic_callback of 'type_ * 'type_ list * 'type_ 
 ]
 
 type type_ = [

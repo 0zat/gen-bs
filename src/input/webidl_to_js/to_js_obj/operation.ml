@@ -48,4 +48,15 @@ let to_callback_typedef operation =
     | `Fixed(type_, _) -> (to_js_type type_)
   in
   let args = List.map arg_to_type operation.arguments in
-  (name, `Callback(return_type, args))
+  let is_variadic (_, arg) =
+    match arg with
+    | `Variadic(type_, _) -> true
+    | _ -> false
+  in
+  let has_variadic = List.exists is_variadic operation.arguments in
+  if has_variadic then
+    let last = BatList.last args in
+    let args, _ = BatList.split_at (List.length args -1) args in
+    (name, `Variadic_callback(return_type, args, last))
+  else
+    (name, `Callback(return_type, args))

@@ -21,6 +21,13 @@ let rec to_bs_type return_or_arg : Js.type_ -> Bs_type.type_ = function
   | #Bs_type.buffer as buffer -> buffer
   | `Union _ -> `Any
   | `Callback(type_, types) ->  `Func((List.map (to_bs_type return_or_arg) types) @ [ to_bs_type return_or_arg type_])
+  | `Variadic_callback(return_type, arg_types, variadic_type) ->
+    (* the reason of `Return is object subtype contravariant*)
+    let args = List.map (to_bs_type `Return) arg_types in
+    let variadic = to_bs_type `Return variadic_type in
+    let return = to_bs_type `Return return_type in
+    let ident_name = "variadic_callback" ^ (List.length args |> string_of_int) in
+    to_ident ~variables:(args @ [variadic; return; `Underbar]) ident_name
 
 (* replace only toplevel boolean*)
 let replace_boolean = function
