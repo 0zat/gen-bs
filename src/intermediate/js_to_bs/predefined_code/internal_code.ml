@@ -20,6 +20,7 @@ type ('a, 'b) variadic_arity2 = 'a1 * 'a2 *  'b *  'b *  'b *  'b *  'b *  'b * 
 constraint 'a = 'a1 * 'a2 
 type ('a, 'b) variadic_arity1 = 'a1 *  'b *  'b *  'b *  'b *  'b *  'b *  'b *  'b
 constraint 'a = 'a1
+type 'b variadic_arity0 = 'b  *  'b *  'b *  'b *  'b *  'b *  'b *  'b *  'b
 
 type 'a variadic_arity = 
   [
@@ -37,6 +38,7 @@ type 'a variadic_arity =
 
 type ('a, 'c, 'b) variadic_callback = ('b, 'c)  Js_internal.fn constraint 'b = [<'a variadic_arity]
 
+type ('b, 'c, 'd) variadic_callback0 = ('b variadic_arity0, 'c, 'd) variadic_callback
 type ('a, 'b, 'c, 'd) variadic_callback1 = (('a, 'b) variadic_arity1, 'c, 'd) variadic_callback
 type ('a, 'b, 'c, 'd) variadic_callback2 = (('a, 'b) variadic_arity2, 'c, 'd) variadic_callback
 type ('a, 'b, 'c, 'd) variadic_callback3 = (('a, 'b) variadic_arity3, 'c, 'd) variadic_callback

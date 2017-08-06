@@ -30,6 +30,51 @@ let undef_to_opt f x = Js_undefined.to_opt (f x)
 let null_to_opt f x = Js_null.to_opt (f x)
 let identity x = x
 
+(* variadic callback code *)
+type ('a, 'b) variadic_arity8 = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 * 'a6 * 'a7 * 'a8 *  'b 
+constraint 'a = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 * 'a6 * 'a7 * 'a8
+type ('a, 'b) variadic_arity7 = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 * 'a6 * 'a7 *  'b *  'b
+constraint 'a = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 * 'a6 * 'a7
+type ('a, 'b) variadic_arity6 = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 * 'a6 *  'b *  'b *  'b
+constraint 'a = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 * 'a6 
+type ('a, 'b) variadic_arity5 = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 *  'b *  'b *  'b *  'b
+constraint 'a = 'a1 * 'a2 * 'a3 * 'a4 * 'a5 
+type ('a, 'b) variadic_arity4 = 'a1 * 'a2 * 'a3 * 'a4 *  'b *  'b *  'b *  'b *  'b
+constraint 'a = 'a1 * 'a2 * 'a3 * 'a4
+type ('a, 'b) variadic_arity3 = 'a1 * 'a2 * 'a3 *  'b *  'b *  'b *  'b *  'b *  'b
+constraint 'a = 'a1 * 'a2 * 'a3
+type ('a, 'b) variadic_arity2 = 'a1 * 'a2 *  'b *  'b *  'b *  'b *  'b *  'b *  'b
+constraint 'a = 'a1 * 'a2 
+type ('a, 'b) variadic_arity1 = 'a1 *  'b *  'b *  'b *  'b *  'b *  'b *  'b *  'b
+constraint 'a = 'a1
+type 'b variadic_arity0 = 'b  *  'b *  'b *  'b *  'b *  'b *  'b *  'b *  'b
+
+type 'a variadic_arity = 
+  [
+    | `Arity_9 of 'a1 * 'a2 * 'a3 * 'a4  * 'a5  * 'a6  * 'a7  * 'a8  * 'a9   
+    | `Arity_8 of 'a1 * 'a2 * 'a3 * 'a4  * 'a5  * 'a6  * 'a7  * 'a8  
+    | `Arity_7 of 'a1 * 'a2 * 'a3 * 'a4  * 'a5  * 'a6  * 'a7 
+    | `Arity_6 of 'a1 * 'a2 * 'a3 * 'a4  * 'a5  * 'a6   
+    | `Arity_5 of 'a1 * 'a2 * 'a3 * 'a4  * 'a5 
+    | `Arity_4 of 'a1 * 'a2 * 'a3 * 'a4 
+    | `Arity_3 of 'a1 * 'a2 * 'a3  
+    | `Arity_2 of 'a1 * 'a2 
+    | `Arity_1 of 'a1 
+  ]
+  constraint 'a =  'a1 * 'a2 * 'a3 * 'a4  * 'a5  * 'a6  * 'a7  * 'a8  * 'a9  
+
+type ('a, 'c, 'b) variadic_callback = ('b, 'c)  Js_internal.fn constraint 'b = [<'a variadic_arity]
+
+type ('b, 'c, 'd) variadic_callback0 = ('b variadic_arity0, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback1 = (('a, 'b) variadic_arity1, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback2 = (('a, 'b) variadic_arity2, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback3 = (('a, 'b) variadic_arity3, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback4 = (('a, 'b) variadic_arity4, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback5 = (('a, 'b) variadic_arity5, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback6 = (('a, 'b) variadic_arity6, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback7 = (('a, 'b) variadic_arity7, 'c, 'd) variadic_callback
+type ('a, 'b, 'c, 'd) variadic_callback8 = (('a, 'b) variadic_arity8, 'c, 'd) variadic_callback
+
 
 (* types of javascript objects*)
 type __console
@@ -1208,7 +1253,7 @@ end
  module CustomElementRegistry = struct
     
     
-    external define : name:string -> constructor_:('a1 -> 'a2 [@bs]) -> ?options:(_) _ElementDefinitionOptions_like Js.undefined ->  unit = "define" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
+    external define : name:string -> constructor_:('a1, 'a2, _) variadic_callback0 -> ?options:(_) _ElementDefinitionOptions_like Js.undefined ->  unit = "define" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
     external get : name:string ->  'a3 = "get" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
     external whenDefined : name:string ->  unit Js.Promise.t = "whenDefined" [@@bs.send.pipe: ('own) _CustomElementRegistry_like] 
     
@@ -5191,7 +5236,7 @@ end
     external passByte : arg:int ->  unit = "passByte" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passByteString : arg:string ->  unit = "passByteString" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passByteStringMozMap : arg:'a112 ->  unit = "passByteStringMozMap" [@@bs.send.pipe: ('own) _TestBinding_like] 
-    external passCallbackFunction : fun_:('a113 -> 'a114 [@bs]) ->  unit = "passCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
+    external passCallbackFunction : fun_:('a113, 'a114, _) variadic_callback0 ->  unit = "passCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passCallbackInterface : listener:(_) _EventListener_like ->  unit = "passCallbackInterface" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passCastableObjectMozMap : arg:'a115 ->  unit = "passCastableObjectMozMap" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passCastableObjectNullableMozMap : arg:'a116 Js.null ->  unit = "passCastableObjectNullableMozMap" [@@bs.send.pipe: ('own) _TestBinding_like] 
@@ -5211,7 +5256,7 @@ end
     external passNullableBoolean : arg:Js.boolean Js.null ->  unit = "passNullableBoolean" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passNullableByte : arg:int Js.null ->  unit = "passNullableByte" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passNullableByteString : arg:string Js.null ->  unit = "passNullableByteString" [@@bs.send.pipe: ('own) _TestBinding_like] 
-    external passNullableCallbackFunction : fun_:('a123 -> 'a124 [@bs]) Js.null ->  unit = "passNullableCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
+    external passNullableCallbackFunction : fun_:('a123, 'a124, _) variadic_callback0 Js.null ->  unit = "passNullableCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passNullableCallbackInterface : listener:(_) _EventListener_like Js.null ->  unit = "passNullableCallbackInterface" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passNullableCastableObjectMozMap : arg:'a125 ->  unit = "passNullableCastableObjectMozMap" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passNullableCastableObjectNullableMozMap : arg:'a126 Js.null ->  unit = "passNullableCastableObjectNullableMozMap" [@@bs.send.pipe: ('own) _TestBinding_like] 
@@ -5248,7 +5293,7 @@ end
     external passOptionalByteString : ?arg:string Js.undefined ->  unit = "passOptionalByteString" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalByteWithDefault : ?arg:int Js.undefined ->  unit = "passOptionalByteWithDefault" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalBytestringWithDefault : ?arg:string Js.undefined ->  unit = "passOptionalBytestringWithDefault" [@@bs.send.pipe: ('own) _TestBinding_like] 
-    external passOptionalCallbackFunction : ?fun_:('a138 -> 'a139 [@bs]) Js.undefined ->  unit = "passOptionalCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
+    external passOptionalCallbackFunction : ?fun_:('a138, 'a139, _) variadic_callback0 Js.undefined ->  unit = "passOptionalCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalCallbackInterface : ?listener:(_) _EventListener_like Js.undefined ->  unit = "passOptionalCallbackInterface" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalDouble : ?arg:float Js.undefined ->  unit = "passOptionalDouble" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalEnum : ?arg:string Js.undefined ->  unit = "passOptionalEnum" [@@bs.send.pipe: ('own) _TestBinding_like] 
@@ -5269,7 +5314,7 @@ end
     external passOptionalNullableByteStringWithDefault : ?arg:string Js.null Js.undefined ->  unit = "passOptionalNullableByteStringWithDefault" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalNullableByteWithDefault : ?arg:int Js.null Js.undefined ->  unit = "passOptionalNullableByteWithDefault" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalNullableByteWithNonNullDefault : ?arg:int Js.null Js.undefined ->  unit = "passOptionalNullableByteWithNonNullDefault" [@@bs.send.pipe: ('own) _TestBinding_like] 
-    external passOptionalNullableCallbackFunction : ?fun_:('a142 -> 'a143 [@bs]) Js.null Js.undefined ->  unit = "passOptionalNullableCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
+    external passOptionalNullableCallbackFunction : ?fun_:('a142, 'a143, _) variadic_callback0 Js.null Js.undefined ->  unit = "passOptionalNullableCallbackFunction" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalNullableCallbackInterface : ?listener:(_) _EventListener_like Js.null Js.undefined ->  unit = "passOptionalNullableCallbackInterface" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalNullableCallbackInterfaceWithDefault : ?listener:(_) _EventListener_like Js.null Js.undefined ->  unit = "passOptionalNullableCallbackInterfaceWithDefault" [@@bs.send.pipe: ('own) _TestBinding_like] 
     external passOptionalNullableDouble : ?arg:float Js.null Js.undefined ->  unit = "passOptionalNullableDouble" [@@bs.send.pipe: ('own) _TestBinding_like] 
@@ -8497,7 +8542,7 @@ end
     
     let setInterval ~handler ~timeout ~arguments windowTimers =
       let conv_handler = function
-        | `Callback (x: ('a270 -> 'a271 [@bs])) -> Obj.magic x
+        | `Callback (x: ('a270, 'a271, _) variadic_callback0) -> Obj.magic x
         | `String (x: string) -> Obj.magic x
          in
       let handler = conv_handler handler in
@@ -8518,7 +8563,7 @@ end
     
     let setTimeout ~handler ~timeout ~arguments windowTimers =
       let conv_handler = function
-        | `Callback (x: ('a272 -> 'a273 [@bs])) -> Obj.magic x
+        | `Callback (x: ('a272, 'a273, _) variadic_callback0) -> Obj.magic x
         | `String (x: string) -> Obj.magic x
          in
       let handler = conv_handler handler in
@@ -12509,7 +12554,7 @@ end
     
     let setInterval ~handler ~timeout ~arguments window =
       let conv_handler = function
-        | `Callback (x: ('a899 -> 'a900 [@bs])) -> Obj.magic x
+        | `Callback (x: ('a899, 'a900, _) variadic_callback0) -> Obj.magic x
         | `String (x: string) -> Obj.magic x
          in
       let handler = conv_handler handler in
@@ -12530,7 +12575,7 @@ end
     
     let setTimeout ~handler ~timeout ~arguments window =
       let conv_handler = function
-        | `Callback (x: ('a901 -> 'a902 [@bs])) -> Obj.magic x
+        | `Callback (x: ('a901, 'a902, _) variadic_callback0) -> Obj.magic x
         | `String (x: string) -> Obj.magic x
          in
       let handler = conv_handler handler in
@@ -12608,7 +12653,7 @@ end
     
     let setInterval ~handler ~timeout ~arguments workerGlobalScope =
       let conv_handler = function
-        | `Callback (x: ('a914 -> 'a915 [@bs])) -> Obj.magic x
+        | `Callback (x: ('a914, 'a915, _) variadic_callback0) -> Obj.magic x
         | `String (x: string) -> Obj.magic x
          in
       let handler = conv_handler handler in
@@ -12629,7 +12674,7 @@ end
     
     let setTimeout ~handler ~timeout ~arguments workerGlobalScope =
       let conv_handler = function
-        | `Callback (x: ('a916 -> 'a917 [@bs])) -> Obj.magic x
+        | `Callback (x: ('a916, 'a917, _) variadic_callback0) -> Obj.magic x
         | `String (x: string) -> Obj.magic x
          in
       let handler = conv_handler handler in
