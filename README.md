@@ -1,10 +1,8 @@
 # gen-bs
 generate [bucklescript](https://github.com/BuckleScript/bucklescript) code from Javascript type specifications(now support [Web IDL](https://heycam.github.io/webidl)).  
-In the future, d.ts files of [TypeScript](https://github.com/Microsoft/TypeScript) will be supported.
 
 # usacase
 * You can generate DOM Library which has latest functions implemented in browsers by Web IDL
-* In the future, you can use TypeScript Libraries on bucklescript by converting d.ts files. (maybe)
 
 # Install
 ```
@@ -75,11 +73,9 @@ gen-bs <Web IDL file>
 # Roadmap
 * use compilerlibs to make bucklescript code and print them
 * determine union return type automatically
-* make an example using Reason
 * make more test
   * use Travis CI
 * automatically generate DOM Library and merge to https://github.com/0zat/bs-dom
-* support d.ts files
 # License
 * Web IDL files under `test/servo_idl` are https://github.com/servo/servo/blob/master/LICENSE
 * The Others are MIT
