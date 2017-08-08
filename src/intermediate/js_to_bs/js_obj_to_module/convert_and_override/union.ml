@@ -7,7 +7,6 @@ let rec get_union (type_: Js.type_) =
   | `Null n -> get_union n
   | `Undef u -> get_union u
   | `Promise p -> get_union p
-  | `Callback(ret, args) -> None (* union in callback is not supported now *)
   | _ -> None
 
 let is_union type_ =
@@ -35,7 +34,8 @@ module Let_expr = struct
     | `Obj name -> name
     | #Bs_type.buffer as buffer -> Bs_type.print buffer
     | `Union _ -> "Any"
-    | `Callback(type_, types) -> "Callback"
+    | `Callback _ -> "Callback"
+    | `Variadic_callback _ -> "Callback"
 
   let make_case type_ =
     let eval = 

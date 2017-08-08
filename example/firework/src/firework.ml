@@ -5,8 +5,6 @@ module Conf : Draw_objects.Conf = struct
   let is_delete_elem elem = 
     elem.speed <= 1.
 
- 
-
   let action_when_delete elem = 
     let count = Math.random_int 25 50 in
     Particle.create count elem.hue elem.x elem.y
