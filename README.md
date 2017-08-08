@@ -74,6 +74,7 @@ gen-bs <Web IDL file>
 
 # Roadmap
 * use compilerlibs to make bucklescript code and print them
+* determine union return type automatically
 * make an example using Reason
 * make more test
   * use Travis CI
