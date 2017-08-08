@@ -81,5 +81,4 @@ gen-bs <Web IDL file>
 * support d.ts files
 # License
 * Web IDL files under `test/servo_idl` are https://github.com/servo/servo/blob/master/LICENSE
-* Web IDL files under `test/blink_idl` are https://chromium.googlesource.com/chromium/blink/+/master/LICENSE
 * The Others are MIT
