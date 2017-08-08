@@ -52,4 +52,4 @@ let onload _ =
   loop 0. 
 
 let () =
-  Window.setOnload window (Js.Null.return (Js_unsafeJs_unsafe.fn_mk1 onload))
+  Window.setOnload window (Js.Null.return (Js_unsafe.fn_mk1 onload))
