@@ -34,7 +34,7 @@ gen-bs <Web IDL file>
 ]
 ```
   * input this file by `-t` option
-  * by this json, cast function (regarding with the bellow example, `Window.to_Dom_window` function) will be generated
+  * by this json, cast function (regarding with the above example, `Window.to_Dom_window` function which cast from `_Window` to `Dom.window`) will be generated
 
 # Generated code usage
 * Please see [firework example](https://github.com/0zat/gen-bs/tree/master/example/firework) which uses servo_dom.ml generated from [servo](https://github.com/servo/servo)
