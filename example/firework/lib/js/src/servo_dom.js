@@ -166,7 +166,19 @@ function downcast$9(x) {
   return x;
 }
 
-var TreeWalker = /* module */[/* downcast */downcast$9];
+function cast_to_Dom_treeWalker(x) {
+  return x;
+}
+
+function cast_from_Dom_treeWalker(x) {
+  return x;
+}
+
+var TreeWalker = /* module */[
+  /* downcast */downcast$9,
+  /* cast_to_Dom_treeWalker */cast_to_Dom_treeWalker,
+  /* cast_from_Dom_treeWalker */cast_from_Dom_treeWalker
+];
 
 function downcast$10(x) {
   return x;
@@ -296,6 +308,14 @@ function downcast$12(x) {
   return x;
 }
 
+function cast_to_Dom_range(x) {
+  return x;
+}
+
+function cast_from_Dom_range(x) {
+  return x;
+}
+
 function collapse(toStart, range) {
   var toStart$1 = Js_undefined.from_opt(toStart);
   range.collapse(toStart$1);
@@ -304,6 +324,8 @@ function collapse(toStart, range) {
 
 var Range = /* module */[
   /* downcast */downcast$12,
+  /* cast_to_Dom_range */cast_to_Dom_range,
+  /* cast_from_Dom_range */cast_from_Dom_range,
   /* _START_TO_START */0,
   /* _START_TO_END */1,
   /* _END_TO_END */2,
@@ -369,6 +391,14 @@ function downcast$19(x) {
   return x;
 }
 
+function cast_to_Dom_eventTarget(x) {
+  return x;
+}
+
+function cast_from_Dom_eventTarget(x) {
+  return x;
+}
+
 function addEventListener(type_, listener, capture, eventTarget) {
   var capture$1 = Js_undefined.from_opt(capture);
   eventTarget.addEventListener(type_, listener, capture$1);
@@ -383,6 +413,8 @@ function removeEventListener(type_, listener, capture, eventTarget) {
 
 var EventTarget = /* module */[
   /* downcast */downcast$19,
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener
 ];
@@ -391,7 +423,19 @@ function downcast$20(x) {
   return x;
 }
 
-var NodeIterator = /* module */[/* downcast */downcast$20];
+function cast_to_Dom_nodeIterator(x) {
+  return x;
+}
+
+function cast_from_Dom_nodeIterator(x) {
+  return x;
+}
+
+var NodeIterator = /* module */[
+  /* downcast */downcast$20,
+  /* cast_to_Dom_nodeIterator */cast_to_Dom_nodeIterator,
+  /* cast_from_Dom_nodeIterator */cast_from_Dom_nodeIterator
+];
 
 function downcast$21(x) {
   return x;
@@ -1087,7 +1131,19 @@ function downcast$24(x) {
   return x;
 }
 
-var Location = /* module */[/* downcast */downcast$24];
+function cast_to_Dom_location(x) {
+  return x;
+}
+
+function cast_from_Dom_location(x) {
+  return x;
+}
+
+var Location = /* module */[
+  /* downcast */downcast$24,
+  /* cast_to_Dom_location */cast_to_Dom_location,
+  /* cast_from_Dom_location */cast_from_Dom_location
+];
 
 function downcast$25(x) {
   return x;
@@ -1099,6 +1155,14 @@ function downcast$26(x) {
   return x;
 }
 
+function cast_to_Dom_history(x) {
+  return x;
+}
+
+function cast_from_Dom_history(x) {
+  return x;
+}
+
 function go(delta, history) {
   var delta$1 = Js_undefined.from_opt(delta);
   history.go(delta$1);
@@ -1107,6 +1171,8 @@ function go(delta, history) {
 
 var History = /* module */[
   /* downcast */downcast$26,
+  /* cast_to_Dom_history */cast_to_Dom_history,
+  /* cast_from_Dom_history */cast_from_Dom_history,
   /* go */go
 ];
 
@@ -1114,7 +1180,19 @@ function downcast$27(x) {
   return x;
 }
 
-var NodeList = /* module */[/* downcast */downcast$27];
+function cast_to_Dom_nodeList(x) {
+  return x;
+}
+
+function cast_from_Dom_nodeList(x) {
+  return x;
+}
+
+var NodeList = /* module */[
+  /* downcast */downcast$27,
+  /* cast_to_Dom_nodeList */cast_to_Dom_nodeList,
+  /* cast_from_Dom_nodeList */cast_from_Dom_nodeList
+];
 
 function downcast$28(x) {
   return x;
@@ -1323,7 +1401,19 @@ function downcast$47(x) {
   return x;
 }
 
-var HTMLCollection = /* module */[/* downcast */downcast$47];
+function cast_to_Dom_htmlCollection(x) {
+  return x;
+}
+
+function cast_from_Dom_htmlCollection(x) {
+  return x;
+}
+
+var HTMLCollection = /* module */[
+  /* downcast */downcast$47,
+  /* cast_to_Dom_htmlCollection */cast_to_Dom_htmlCollection,
+  /* cast_from_Dom_htmlCollection */cast_from_Dom_htmlCollection
+];
 
 function downcast$48(x) {
   return x;
@@ -1359,6 +1449,14 @@ function downcast$53(x) {
   return x;
 }
 
+function cast_to_Dom_domImplementation(x) {
+  return x;
+}
+
+function cast_from_Dom_domImplementation(x) {
+  return x;
+}
+
 function createDocument(namespace, qualifiedName, doctype, dOMImplementation) {
   var doctype$1 = Js_undefined.from_opt(doctype);
   return dOMImplementation.createDocument(namespace, qualifiedName, doctype$1);
@@ -1371,6 +1469,8 @@ function createHTMLDocument(title, dOMImplementation) {
 
 var DOMImplementation = /* module */[
   /* downcast */downcast$53,
+  /* cast_to_Dom_domImplementation */cast_to_Dom_domImplementation,
+  /* cast_from_Dom_domImplementation */cast_from_Dom_domImplementation,
   /* createDocument */createDocument,
   /* createHTMLDocument */createHTMLDocument
 ];
@@ -2729,7 +2829,19 @@ function downcast$64(x) {
   return x;
 }
 
-var NamedNodeMap = /* module */[/* downcast */downcast$64];
+function cast_to_Dom_namedNodeMap(x) {
+  return x;
+}
+
+function cast_from_Dom_namedNodeMap(x) {
+  return x;
+}
+
+var NamedNodeMap = /* module */[
+  /* downcast */downcast$64,
+  /* cast_to_Dom_namedNodeMap */cast_to_Dom_namedNodeMap,
+  /* cast_from_Dom_namedNodeMap */cast_from_Dom_namedNodeMap
+];
 
 function downcast$65(x) {
   return x;
@@ -2851,6 +2963,14 @@ function downcast$83(x) {
   return x;
 }
 
+function cast_to_Dom_cssStyleDeclaration(x) {
+  return x;
+}
+
+function cast_from_Dom_cssStyleDeclaration(x) {
+  return x;
+}
+
 function setProperty(property, value, priority, cSSStyleDeclaration) {
   var priority$1 = Js_undefined.from_opt(priority);
   cSSStyleDeclaration.setProperty(property, value, priority$1);
@@ -2859,6 +2979,8 @@ function setProperty(property, value, priority, cSSStyleDeclaration) {
 
 var CSSStyleDeclaration = /* module */[
   /* downcast */downcast$83,
+  /* cast_to_Dom_cssStyleDeclaration */cast_to_Dom_cssStyleDeclaration,
+  /* cast_from_Dom_cssStyleDeclaration */cast_from_Dom_cssStyleDeclaration,
   /* setProperty */setProperty
 ];
 
@@ -2892,6 +3014,14 @@ function downcast$86(x) {
   return x;
 }
 
+function cast_to_Dom_domTokenList(x) {
+  return x;
+}
+
+function cast_from_Dom_domTokenList(x) {
+  return x;
+}
+
 function add(tokens, dOMTokenList) {
   var func = dOMTokenList.add;
   var args = to_arg(tokens);
@@ -2911,6 +3041,8 @@ function toggle(token, force, dOMTokenList) {
 
 var DOMTokenList = /* module */[
   /* downcast */downcast$86,
+  /* cast_to_Dom_domTokenList */cast_to_Dom_domTokenList,
+  /* cast_from_Dom_domTokenList */cast_from_Dom_domTokenList,
   /* add */add,
   /* remove */remove,
   /* toggle */toggle
@@ -3340,7 +3472,19 @@ function downcast$122(x) {
   return x;
 }
 
-var MutationRecord = /* module */[/* downcast */downcast$122];
+function cast_to_Dom_mutationRecord(x) {
+  return x;
+}
+
+function cast_from_Dom_mutationRecord(x) {
+  return x;
+}
+
+var MutationRecord = /* module */[
+  /* downcast */downcast$122,
+  /* cast_to_Dom_mutationRecord */cast_to_Dom_mutationRecord,
+  /* cast_from_Dom_mutationRecord */cast_from_Dom_mutationRecord
+];
 
 function downcast$123(x) {
   return x;
@@ -3352,6 +3496,14 @@ function downcast$124(x) {
   return x;
 }
 
+function cast_to_Dom_mutationObserver(x) {
+  return x;
+}
+
+function cast_from_Dom_mutationObserver(x) {
+  return x;
+}
+
 function observe(target, options, mutationObserver) {
   var options$1 = Js_undefined.from_opt(options);
   mutationObserver.observe(target, options$1);
@@ -3360,6 +3512,8 @@ function observe(target, options, mutationObserver) {
 
 var MutationObserver = /* module */[
   /* downcast */downcast$124,
+  /* cast_to_Dom_mutationObserver */cast_to_Dom_mutationObserver,
+  /* cast_from_Dom_mutationObserver */cast_from_Dom_mutationObserver,
   /* observe */observe
 ];
 
@@ -3393,8 +3547,18 @@ function downcast$128(x) {
   return x;
 }
 
+function cast_to_Dom_event(x) {
+  return x;
+}
+
+function cast_from_Dom_event(x) {
+  return x;
+}
+
 var Event = /* module */[
   /* downcast */downcast$128,
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -3495,7 +3659,19 @@ function downcast$135(x) {
   return x;
 }
 
-var DOMStringMap = /* module */[/* downcast */downcast$135];
+function cast_to_Dom_domStringMap(x) {
+  return x;
+}
+
+function cast_from_Dom_domStringMap(x) {
+  return x;
+}
+
+var DOMStringMap = /* module */[
+  /* downcast */downcast$135,
+  /* cast_to_Dom_domStringMap */cast_to_Dom_domStringMap,
+  /* cast_from_Dom_domStringMap */cast_from_Dom_domStringMap
+];
 
 function downcast$136(x) {
   return x;
@@ -3547,7 +3723,19 @@ function downcast$142(x) {
   return x;
 }
 
-var Attr = /* module */[/* downcast */downcast$142];
+function cast_to_Dom_attr(x) {
+  return x;
+}
+
+function cast_from_Dom_attr(x) {
+  return x;
+}
+
+var Attr = /* module */[
+  /* downcast */downcast$142,
+  /* cast_to_Dom_attr */cast_to_Dom_attr,
+  /* cast_from_Dom_attr */cast_from_Dom_attr
+];
 
 function downcast$143(x) {
   return x;
@@ -3800,6 +3988,8 @@ function downcast$181(x) {
 }
 
 var EventSource = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$181,
@@ -3852,12 +4042,24 @@ function downcast$184(x) {
   return x;
 }
 
+function cast_to_Dom_uiEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_uiEvent(x) {
+  return x;
+}
+
 var UIEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$184
+  /* downcast */downcast$184,
+  /* cast_to_Dom_uiEvent */cast_to_Dom_uiEvent,
+  /* cast_from_Dom_uiEvent */cast_from_Dom_uiEvent
 ];
 
 function downcast$185(x) {
@@ -3865,6 +4067,8 @@ function downcast$185(x) {
 }
 
 var GamepadEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -3891,6 +4095,8 @@ function add$1(element, before, hTMLOptionsCollection) {
 }
 
 var HTMLOptionsCollection = /* module */[
+  /* cast_to_Dom_htmlCollection */cast_to_Dom_htmlCollection,
+  /* cast_from_Dom_htmlCollection */cast_from_Dom_htmlCollection,
   /* downcast */downcast$186,
   /* add */add$1
 ];
@@ -4006,6 +4212,8 @@ function downcast$189(x) {
 }
 
 var ServiceWorkerRegistration = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$189
@@ -4021,6 +4229,8 @@ function register(scriptURL, options, serviceWorkerContainer) {
 }
 
 var ServiceWorkerContainer = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$190,
@@ -4031,12 +4241,24 @@ function downcast$191(x) {
   return x;
 }
 
+function cast_to_Dom_errorEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_errorEvent(x) {
+  return x;
+}
+
 var ErrorEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$191
+  /* downcast */downcast$191,
+  /* cast_to_Dom_errorEvent */cast_to_Dom_errorEvent,
+  /* cast_from_Dom_errorEvent */cast_from_Dom_errorEvent
 ];
 
 function downcast$192(x) {
@@ -4044,6 +4266,8 @@ function downcast$192(x) {
 }
 
 var PermissionStatus = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$192
@@ -4054,6 +4278,8 @@ function downcast$193(x) {
 }
 
 var MessageEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -4065,12 +4291,24 @@ function downcast$194(x) {
   return x;
 }
 
+function cast_to_Dom_beforeUnloadEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_beforeUnloadEvent(x) {
+  return x;
+}
+
 var BeforeUnloadEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$194
+  /* downcast */downcast$194,
+  /* cast_to_Dom_beforeUnloadEvent */cast_to_Dom_beforeUnloadEvent,
+  /* cast_from_Dom_beforeUnloadEvent */cast_from_Dom_beforeUnloadEvent
 ];
 
 function downcast$195(x) {
@@ -4078,6 +4316,8 @@ function downcast$195(x) {
 }
 
 var VR = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$195
@@ -4087,13 +4327,27 @@ function downcast$196(x) {
   return x;
 }
 
-var DOMRect = /* module */[/* downcast */downcast$196];
+function cast_to_Dom_domRect(x) {
+  return x;
+}
+
+function cast_from_Dom_domRect(x) {
+  return x;
+}
+
+var DOMRect = /* module */[
+  /* downcast */downcast$196,
+  /* cast_to_Dom_domRect */cast_to_Dom_domRect,
+  /* cast_from_Dom_domRect */cast_from_Dom_domRect
+];
 
 function downcast$197(x) {
   return x;
 }
 
 var BluetoothDevice = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$197
@@ -4123,7 +4377,11 @@ function downcast$199(x) {
   return x;
 }
 
-var RadioNodeList = /* module */[/* downcast */downcast$199];
+var RadioNodeList = /* module */[
+  /* cast_to_Dom_nodeList */cast_to_Dom_nodeList,
+  /* cast_from_Dom_nodeList */cast_from_Dom_nodeList,
+  /* downcast */downcast$199
+];
 
 function downcast$200(x) {
   return x;
@@ -4138,15 +4396,35 @@ function downcast$201(x) {
   return x;
 }
 
+function cast_to_Dom_storageEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_storageEvent(x) {
+  return x;
+}
+
 var StorageEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$201
+  /* downcast */downcast$201,
+  /* cast_to_Dom_storageEvent */cast_to_Dom_storageEvent,
+  /* cast_from_Dom_storageEvent */cast_from_Dom_storageEvent
 ];
 
 function downcast$202(x) {
+  return x;
+}
+
+function cast_to_Dom_node(x) {
+  return x;
+}
+
+function cast_from_Dom_node(x) {
   return x;
 }
 
@@ -4156,9 +4434,13 @@ function cloneNode(deep, node) {
 }
 
 var Node = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$202,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -4185,6 +4467,8 @@ function downcast$203(x) {
 }
 
 var VRDisplayEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -4196,12 +4480,24 @@ function downcast$204(x) {
   return x;
 }
 
+function cast_to_Dom_popStateEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_popStateEvent(x) {
+  return x;
+}
+
 var PopStateEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$204
+  /* downcast */downcast$204,
+  /* cast_to_Dom_popStateEvent */cast_to_Dom_popStateEvent,
+  /* cast_from_Dom_popStateEvent */cast_from_Dom_popStateEvent
 ];
 
 function downcast$205(x) {
@@ -4221,6 +4517,8 @@ function getEyeParameters(whichEye, vRDisplay) {
 }
 
 var VRDisplay = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$205,
@@ -4231,12 +4529,24 @@ function downcast$206(x) {
   return x;
 }
 
+function cast_to_Dom_webGlContextEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_webGlContextEvent(x) {
+  return x;
+}
+
 var WebGLContextEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$206
+  /* downcast */downcast$206,
+  /* cast_to_Dom_webGlContextEvent */cast_to_Dom_webGlContextEvent,
+  /* cast_from_Dom_webGlContextEvent */cast_from_Dom_webGlContextEvent
 ];
 
 function downcast$207(x) {
@@ -4266,6 +4576,8 @@ function getDescriptors(descriptor, bluetoothRemoteGATTCharacteristic) {
 }
 
 var BluetoothRemoteGATTCharacteristic = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$208,
@@ -4310,6 +4622,8 @@ function downcast$212(x) {
 }
 
 var GlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$212
@@ -4487,18 +4801,34 @@ function downcast$214(x) {
   return x;
 }
 
-var HTMLFormControlsCollection = /* module */[/* downcast */downcast$214];
+var HTMLFormControlsCollection = /* module */[
+  /* cast_to_Dom_htmlCollection */cast_to_Dom_htmlCollection,
+  /* cast_from_Dom_htmlCollection */cast_from_Dom_htmlCollection,
+  /* downcast */downcast$214
+];
 
 function downcast$215(x) {
   return x;
 }
 
+function cast_to_Dom_customEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_customEvent(x) {
+  return x;
+}
+
 var CustomEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$215
+  /* downcast */downcast$215,
+  /* cast_to_Dom_customEvent */cast_to_Dom_customEvent,
+  /* cast_from_Dom_customEvent */cast_from_Dom_customEvent
 ];
 
 function downcast$216(x) {
@@ -4511,12 +4841,24 @@ function downcast$217(x) {
   return x;
 }
 
+function cast_to_Dom_pageTransitionEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_pageTransitionEvent(x) {
+  return x;
+}
+
 var PageTransitionEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$217
+  /* downcast */downcast$217,
+  /* cast_to_Dom_pageTransitionEvent */cast_to_Dom_pageTransitionEvent,
+  /* cast_from_Dom_pageTransitionEvent */cast_from_Dom_pageTransitionEvent
 ];
 
 function downcast$218(x) {
@@ -4524,6 +4866,8 @@ function downcast$218(x) {
 }
 
 var ServiceWorker = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$218
@@ -4533,12 +4877,24 @@ function downcast$219(x) {
   return x;
 }
 
+function cast_to_Dom_closeEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_closeEvent(x) {
+  return x;
+}
+
 var CloseEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$219
+  /* downcast */downcast$219,
+  /* cast_to_Dom_closeEvent */cast_to_Dom_closeEvent,
+  /* cast_from_Dom_closeEvent */cast_from_Dom_closeEvent
 ];
 
 function downcast$220(x) {
@@ -4559,6 +4915,8 @@ function send(data, webSocket) {
 }
 
 var WebSocket = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$220,
@@ -4575,6 +4933,8 @@ function downcast$221(x) {
 }
 
 var MediaQueryListEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -4613,6 +4973,8 @@ function downcast$224(x) {
 }
 
 var ExtendableEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -4624,12 +4986,24 @@ function downcast$225(x) {
   return x;
 }
 
+function cast_to_Dom_progressEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_progressEvent(x) {
+  return x;
+}
+
 var ProgressEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$225
+  /* downcast */downcast$225,
+  /* cast_to_Dom_progressEvent */cast_to_Dom_progressEvent,
+  /* cast_from_Dom_progressEvent */cast_from_Dom_progressEvent
 ];
 
 function downcast$226(x) {
@@ -4648,6 +5022,8 @@ function requestDevice(options, bluetooth) {
 }
 
 var Bluetooth = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$227,
@@ -4659,6 +5035,8 @@ function downcast$228(x) {
 }
 
 var Worker = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$228
@@ -4668,12 +5046,24 @@ function downcast$229(x) {
   return x;
 }
 
+function cast_to_Dom_transitionEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_transitionEvent(x) {
+  return x;
+}
+
 var TransitionEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$229
+  /* downcast */downcast$229,
+  /* cast_to_Dom_transitionEvent */cast_to_Dom_transitionEvent,
+  /* cast_from_Dom_transitionEvent */cast_from_Dom_transitionEvent
 ];
 
 function downcast$230(x) {
@@ -4681,6 +5071,8 @@ function downcast$230(x) {
 }
 
 var MediaQueryList = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$230
@@ -4691,6 +5083,8 @@ function downcast$231(x) {
 }
 
 var XMLHttpRequestEventTarget = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$231
@@ -4721,6 +5115,8 @@ function downcast$233(x) {
 }
 
 var BluetoothAdvertisingEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -4753,6 +5149,8 @@ function downcast$235(x) {
 }
 
 var HashChangeEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -4817,6 +5215,8 @@ function getIncludedServices(service, bluetoothRemoteGATTService) {
 }
 
 var BluetoothRemoteGATTService = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$237,
@@ -4843,6 +5243,8 @@ function readAsText(blob, label, fileReader) {
 }
 
 var FileReader = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$239,
@@ -4856,7 +5258,19 @@ function downcast$240(x) {
   return x;
 }
 
-var CSSStyleSheet = /* module */[/* downcast */downcast$240];
+function cast_to_Dom_cssStyleSheet(x) {
+  return x;
+}
+
+function cast_from_Dom_cssStyleSheet(x) {
+  return x;
+}
+
+var CSSStyleSheet = /* module */[
+  /* downcast */downcast$240,
+  /* cast_to_Dom_cssStyleSheet */cast_to_Dom_cssStyleSheet,
+  /* cast_from_Dom_cssStyleSheet */cast_from_Dom_cssStyleSheet
+];
 
 function downcast$241(x) {
   return x;
@@ -5001,6 +5415,8 @@ function downcast$264(x) {
 }
 
 var XMLHttpRequestUpload = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$264
@@ -5023,6 +5439,8 @@ function send$1(data, xMLHttpRequest) {
 }
 
 var $$XMLHttpRequest = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$265,
@@ -5039,6 +5457,8 @@ function downcast$266(x) {
 }
 
 var BluetoothPermissionResult = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$266
@@ -5049,10 +5469,14 @@ function downcast$267(x) {
 }
 
 var ForceTouchEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
+  /* cast_to_Dom_uiEvent */cast_to_Dom_uiEvent,
+  /* cast_from_Dom_uiEvent */cast_from_Dom_uiEvent,
   /* downcast */downcast$267
 ];
 
@@ -5061,6 +5485,8 @@ function downcast$268(x) {
 }
 
 var DissimilarOriginWindow = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$268
@@ -5070,12 +5496,26 @@ function downcast$269(x) {
   return x;
 }
 
+function cast_to_Dom_keyboardEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_keyboardEvent(x) {
+  return x;
+}
+
 var KeyboardEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
+  /* cast_to_Dom_uiEvent */cast_to_Dom_uiEvent,
+  /* cast_from_Dom_uiEvent */cast_from_Dom_uiEvent,
   /* downcast */downcast$269,
+  /* cast_to_Dom_keyboardEvent */cast_to_Dom_keyboardEvent,
+  /* cast_from_Dom_keyboardEvent */cast_from_Dom_keyboardEvent,
   /* _DOM_KEY_LOCATION_STANDARD */0,
   /* _DOM_KEY_LOCATION_LEFT */1,
   /* _DOM_KEY_LOCATION_RIGHT */2,
@@ -5086,15 +5526,37 @@ function downcast$270(x) {
   return x;
 }
 
+function cast_to_Dom_touchEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_touchEvent(x) {
+  return x;
+}
+
 var TouchEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$270
+  /* cast_to_Dom_uiEvent */cast_to_Dom_uiEvent,
+  /* cast_from_Dom_uiEvent */cast_from_Dom_uiEvent,
+  /* downcast */downcast$270,
+  /* cast_to_Dom_touchEvent */cast_to_Dom_touchEvent,
+  /* cast_from_Dom_touchEvent */cast_from_Dom_touchEvent
 ];
 
 function downcast$271(x) {
+  return x;
+}
+
+function cast_to_Dom_documentFragment(x) {
+  return x;
+}
+
+function cast_from_Dom_documentFragment(x) {
   return x;
 }
 
@@ -5123,8 +5585,12 @@ function prepend$1(nodes, documentFragment) {
 }
 
 var DocumentFragment = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5145,6 +5611,8 @@ var DocumentFragment = /* module */[
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
   /* downcast */downcast$271,
+  /* cast_to_Dom_documentFragment */cast_to_Dom_documentFragment,
+  /* cast_from_Dom_documentFragment */cast_from_Dom_documentFragment,
   /* append */append$2,
   /* prepend */prepend$1
 ];
@@ -5154,6 +5622,8 @@ function downcast$272(x) {
 }
 
 var ExtendableMessageEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
@@ -5182,6 +5652,14 @@ var CSSConditionRule = /* module */[
 ];
 
 function downcast$274(x) {
+  return x;
+}
+
+function cast_to_Dom_documentType(x) {
+  return x;
+}
+
+function cast_from_Dom_documentType(x) {
   return x;
 }
 
@@ -5222,8 +5700,12 @@ function replaceWith$1(nodes, documentType) {
 }
 
 var DocumentType = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5244,12 +5726,22 @@ var DocumentType = /* module */[
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
   /* downcast */downcast$274,
+  /* cast_to_Dom_documentType */cast_to_Dom_documentType,
+  /* cast_from_Dom_documentType */cast_from_Dom_documentType,
   /* after */after$1,
   /* before */before$1,
   /* replaceWith */replaceWith$1
 ];
 
 function downcast$275(x) {
+  return x;
+}
+
+function cast_to_Dom_document(x) {
+  return x;
+}
+
+function cast_from_Dom_document(x) {
   return x;
 }
 
@@ -5329,8 +5821,12 @@ function writeln(text, $$document) {
 }
 
 var Document = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5351,6 +5847,8 @@ var Document = /* module */[
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
   /* downcast */downcast$275,
+  /* cast_to_Dom_document */cast_to_Dom_document,
+  /* cast_from_Dom_document */cast_from_Dom_document,
   /* append */append$3,
   /* createElement */createElement,
   /* createElementNS */createElementNS,
@@ -5365,6 +5863,14 @@ var Document = /* module */[
 ];
 
 function downcast$276(x) {
+  return x;
+}
+
+function cast_to_Dom_characterData(x) {
+  return x;
+}
+
+function cast_from_Dom_characterData(x) {
   return x;
 }
 
@@ -5405,8 +5911,12 @@ function replaceWith$2(nodes, characterData) {
 }
 
 var CharacterData = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5427,6 +5937,8 @@ var CharacterData = /* module */[
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
   /* downcast */downcast$276,
+  /* cast_to_Dom_characterData */cast_to_Dom_characterData,
+  /* cast_from_Dom_characterData */cast_from_Dom_characterData,
   /* after */after$2,
   /* before */before$2,
   /* replaceWith */replaceWith$2
@@ -5436,15 +5948,37 @@ function downcast$277(x) {
   return x;
 }
 
+function cast_to_Dom_mouseEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_mouseEvent(x) {
+  return x;
+}
+
 var MouseEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$277
+  /* cast_to_Dom_uiEvent */cast_to_Dom_uiEvent,
+  /* cast_from_Dom_uiEvent */cast_from_Dom_uiEvent,
+  /* downcast */downcast$277,
+  /* cast_to_Dom_mouseEvent */cast_to_Dom_mouseEvent,
+  /* cast_from_Dom_mouseEvent */cast_from_Dom_mouseEvent
 ];
 
 function downcast$278(x) {
+  return x;
+}
+
+function cast_to_Dom_element(x) {
+  return x;
+}
+
+function cast_from_Dom_element(x) {
   return x;
 }
 
@@ -5509,8 +6043,12 @@ function replaceWith$3(nodes, element) {
 }
 
 var Element = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5531,6 +6069,8 @@ var Element = /* module */[
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
   /* downcast */downcast$278,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
@@ -5542,15 +6082,37 @@ function downcast$279(x) {
   return x;
 }
 
+function cast_to_Dom_focusEvent(x) {
+  return x;
+}
+
+function cast_from_Dom_focusEvent(x) {
+  return x;
+}
+
 var FocusEvent = /* module */[
+  /* cast_to_Dom_event */cast_to_Dom_event,
+  /* cast_from_Dom_event */cast_from_Dom_event,
   /* _NONE */0,
   /* _CAPTURING_PHASE */1,
   /* _AT_TARGET */2,
   /* _BUBBLING_PHASE */3,
-  /* downcast */downcast$279
+  /* cast_to_Dom_uiEvent */cast_to_Dom_uiEvent,
+  /* cast_from_Dom_uiEvent */cast_from_Dom_uiEvent,
+  /* downcast */downcast$279,
+  /* cast_to_Dom_focusEvent */cast_to_Dom_focusEvent,
+  /* cast_from_Dom_focusEvent */cast_from_Dom_focusEvent
 ];
 
 function downcast$280(x) {
+  return x;
+}
+
+function cast_to_Dom_window(x) {
+  return x;
+}
+
+function cast_from_Dom_window(x) {
   return x;
 }
 
@@ -5623,9 +6185,13 @@ function webdriverCallback(result, $$window) {
 }
 
 var Window = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$280,
+  /* cast_to_Dom_window */cast_to_Dom_window,
+  /* cast_from_Dom_window */cast_from_Dom_window,
   /* clearInterval */$$clearInterval$1,
   /* clearTimeout */$$clearTimeout$1,
   /* fetch */fetch$1,
@@ -5703,6 +6269,8 @@ function $$setTimeout$2(handler, timeout, $$arguments, workerGlobalScope) {
 }
 
 var WorkerGlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$281,
@@ -5719,6 +6287,8 @@ function downcast$282(x) {
 }
 
 var WorkletGlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$282
@@ -5746,9 +6316,21 @@ function downcast$286(x) {
   return x;
 }
 
+function cast_to_Dom_comment(x) {
+  return x;
+}
+
+function cast_from_Dom_comment(x) {
+  return x;
+}
+
 var Comment = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5768,19 +6350,35 @@ var Comment = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_characterData */cast_to_Dom_characterData,
+  /* cast_from_Dom_characterData */cast_from_Dom_characterData,
   /* after */after$2,
   /* before */before$2,
   /* replaceWith */replaceWith$2,
-  /* downcast */downcast$286
+  /* downcast */downcast$286,
+  /* cast_to_Dom_comment */cast_to_Dom_comment,
+  /* cast_from_Dom_comment */cast_from_Dom_comment
 ];
 
 function downcast$287(x) {
   return x;
 }
 
+function cast_to_Dom_htmlElement(x) {
+  return x;
+}
+
+function cast_from_Dom_htmlElement(x) {
+  return x;
+}
+
 var HTMLElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5800,12 +6398,16 @@ var HTMLElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
-  /* downcast */downcast$287
+  /* downcast */downcast$287,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement
 ];
 
 function downcast$288(x) {
@@ -5833,6 +6435,8 @@ function downcast$289(x) {
 }
 
 var PaintWorkletGlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$289
@@ -5843,6 +6447,8 @@ function downcast$290(x) {
 }
 
 var ServiceWorkerGlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* clearInterval */$$clearInterval$2,
@@ -5859,6 +6465,8 @@ function downcast$291(x) {
 }
 
 var DedicatedWorkerGlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* clearInterval */$$clearInterval$2,
@@ -5894,9 +6502,21 @@ function downcast$293(x) {
   return x;
 }
 
+function cast_to_Dom_processingInstruction(x) {
+  return x;
+}
+
+function cast_from_Dom_processingInstruction(x) {
+  return x;
+}
+
 var ProcessingInstruction = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5916,19 +6536,35 @@ var ProcessingInstruction = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_characterData */cast_to_Dom_characterData,
+  /* cast_from_Dom_characterData */cast_from_Dom_characterData,
   /* after */after$2,
   /* before */before$2,
   /* replaceWith */replaceWith$2,
-  /* downcast */downcast$293
+  /* downcast */downcast$293,
+  /* cast_to_Dom_processingInstruction */cast_to_Dom_processingInstruction,
+  /* cast_from_Dom_processingInstruction */cast_from_Dom_processingInstruction
 ];
 
 function downcast$294(x) {
   return x;
 }
 
+function cast_to_Dom_xmlDocument(x) {
+  return x;
+}
+
+function cast_from_Dom_xmlDocument(x) {
+  return x;
+}
+
 var XMLDocument = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5948,6 +6584,8 @@ var XMLDocument = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_document */cast_to_Dom_document,
+  /* cast_from_Dom_document */cast_from_Dom_document,
   /* append */append$3,
   /* createElement */createElement,
   /* createElementNS */createElementNS,
@@ -5959,7 +6597,9 @@ var XMLDocument = /* module */[
   /* prepend */prepend$2,
   /* write */write,
   /* writeln */writeln,
-  /* downcast */downcast$294
+  /* downcast */downcast$294,
+  /* cast_to_Dom_xmlDocument */cast_to_Dom_xmlDocument,
+  /* cast_from_Dom_xmlDocument */cast_from_Dom_xmlDocument
 ];
 
 function downcast$295(x) {
@@ -5967,6 +6607,8 @@ function downcast$295(x) {
 }
 
 var TestWorkletGlobalScope = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
   /* downcast */downcast$295
@@ -5977,8 +6619,12 @@ function downcast$296(x) {
 }
 
 var SVGElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -5998,6 +6644,8 @@ var SVGElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
@@ -6010,9 +6658,21 @@ function downcast$297(x) {
   return x;
 }
 
+function cast_to_Dom_text(x) {
+  return x;
+}
+
+function cast_from_Dom_text(x) {
+  return x;
+}
+
 var Text = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6032,10 +6692,14 @@ var Text = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_characterData */cast_to_Dom_characterData,
+  /* cast_from_Dom_characterData */cast_from_Dom_characterData,
   /* after */after$2,
   /* before */before$2,
   /* replaceWith */replaceWith$2,
-  /* downcast */downcast$297
+  /* downcast */downcast$297,
+  /* cast_to_Dom_text */cast_to_Dom_text,
+  /* cast_from_Dom_text */cast_from_Dom_text
 ];
 
 function downcast$298(x) {
@@ -6061,8 +6725,12 @@ function reload$2(hardReload, hTMLIFrameElement) {
 }
 
 var HTMLIFrameElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6082,11 +6750,15 @@ var HTMLIFrameElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$300,
   /* reload */reload$2
 ];
@@ -6096,8 +6768,12 @@ function downcast$301(x) {
 }
 
 var SVGGraphicsElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6117,6 +6793,8 @@ var SVGGraphicsElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
@@ -6130,8 +6808,12 @@ function downcast$302(x) {
 }
 
 var HTMLScriptElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6151,11 +6833,15 @@ var HTMLScriptElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$302
 ];
 
@@ -6164,8 +6850,12 @@ function downcast$303(x) {
 }
 
 var HTMLObjectElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6185,11 +6875,15 @@ var HTMLObjectElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$303
 ];
 
@@ -6198,8 +6892,12 @@ function downcast$304(x) {
 }
 
 var HTMLMediaElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6219,11 +6917,15 @@ var HTMLMediaElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$304,
   /* _NETWORK_EMPTY */0,
   /* _NETWORK_IDLE */1,
@@ -6241,8 +6943,12 @@ function downcast$305(x) {
 }
 
 var HTMLImageElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6262,11 +6968,15 @@ var HTMLImageElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$305
 ];
 
@@ -6275,8 +6985,12 @@ function downcast$306(x) {
 }
 
 var HTMLTableColElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6296,11 +7010,15 @@ var HTMLTableColElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$306
 ];
 
@@ -6309,8 +7027,12 @@ function downcast$307(x) {
 }
 
 var HTMLTitleElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6330,11 +7052,15 @@ var HTMLTitleElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$307
 ];
 
@@ -6343,8 +7069,12 @@ function downcast$308(x) {
 }
 
 var HTMLDataElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6364,11 +7094,15 @@ var HTMLDataElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$308
 ];
 
@@ -6377,8 +7111,12 @@ function downcast$309(x) {
 }
 
 var HTMLMetaElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6398,11 +7136,15 @@ var HTMLMetaElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$309
 ];
 
@@ -6411,8 +7153,12 @@ function downcast$310(x) {
 }
 
 var HTMLLIElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6432,11 +7178,15 @@ var HTMLLIElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$310
 ];
 
@@ -6445,8 +7195,12 @@ function downcast$311(x) {
 }
 
 var HTMLOptGroupElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6466,11 +7220,15 @@ var HTMLOptGroupElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$311
 ];
 
@@ -6479,8 +7237,12 @@ function downcast$312(x) {
 }
 
 var HTMLFieldSetElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6500,11 +7262,15 @@ var HTMLFieldSetElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$312
 ];
 
@@ -6513,8 +7279,12 @@ function downcast$313(x) {
 }
 
 var HTMLDListElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6534,11 +7304,15 @@ var HTMLDListElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$313
 ];
 
@@ -6547,8 +7321,12 @@ function downcast$314(x) {
 }
 
 var HTMLBodyElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6568,11 +7346,15 @@ var HTMLBodyElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$314
 ];
 
@@ -6581,8 +7363,12 @@ function downcast$315(x) {
 }
 
 var HTMLLegendElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6602,11 +7388,15 @@ var HTMLLegendElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$315
 ];
 
@@ -6615,8 +7405,12 @@ function downcast$316(x) {
 }
 
 var HTMLBaseElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6636,11 +7430,15 @@ var HTMLBaseElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$316
 ];
 
@@ -6649,8 +7447,12 @@ function downcast$317(x) {
 }
 
 var HTMLUListElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6670,11 +7472,15 @@ var HTMLUListElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$317
 ];
 
@@ -6683,8 +7489,12 @@ function downcast$318(x) {
 }
 
 var HTMLHtmlElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6704,11 +7514,15 @@ var HTMLHtmlElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$318
 ];
 
@@ -6717,8 +7531,12 @@ function downcast$319(x) {
 }
 
 var HTMLTimeElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6738,11 +7556,15 @@ var HTMLTimeElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$319
 ];
 
@@ -6756,8 +7578,12 @@ function insertRow(index, hTMLTableSectionElement) {
 }
 
 var HTMLTableSectionElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6777,11 +7603,15 @@ var HTMLTableSectionElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$320,
   /* insertRow */insertRow
 ];
@@ -6791,8 +7621,12 @@ function downcast$321(x) {
 }
 
 var HTMLFrameElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6812,11 +7646,15 @@ var HTMLFrameElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$321
 ];
 
@@ -6825,8 +7663,12 @@ function downcast$322(x) {
 }
 
 var HTMLLinkElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6846,11 +7688,15 @@ var HTMLLinkElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$322
 ];
 
@@ -6859,8 +7705,12 @@ function downcast$323(x) {
 }
 
 var HTMLEmbedElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6880,11 +7730,15 @@ var HTMLEmbedElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$323
 ];
 
@@ -6893,8 +7747,12 @@ function downcast$324(x) {
 }
 
 var HTMLMeterElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6914,11 +7772,15 @@ var HTMLMeterElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$324
 ];
 
@@ -6927,8 +7789,12 @@ function downcast$325(x) {
 }
 
 var HTMLTableCaptionElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6948,11 +7814,15 @@ var HTMLTableCaptionElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$325
 ];
 
@@ -6961,8 +7831,12 @@ function downcast$326(x) {
 }
 
 var HTMLLabelElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -6982,11 +7856,15 @@ var HTMLLabelElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$326
 ];
 
@@ -6995,8 +7873,12 @@ function downcast$327(x) {
 }
 
 var HTMLAnchorElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7016,11 +7898,15 @@ var HTMLAnchorElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$327
 ];
 
@@ -7029,8 +7915,12 @@ function downcast$328(x) {
 }
 
 var HTMLHeadElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7050,11 +7940,15 @@ var HTMLHeadElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$328
 ];
 
@@ -7063,8 +7957,12 @@ function downcast$329(x) {
 }
 
 var HTMLOutputElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7084,11 +7982,15 @@ var HTMLOutputElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$329
 ];
 
@@ -7097,8 +7999,12 @@ function downcast$330(x) {
 }
 
 var HTMLUnknownElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7118,11 +8024,15 @@ var HTMLUnknownElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$330
 ];
 
@@ -7131,8 +8041,12 @@ function downcast$331(x) {
 }
 
 var HTMLParamElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7152,11 +8066,15 @@ var HTMLParamElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$331
 ];
 
@@ -7165,8 +8083,12 @@ function downcast$332(x) {
 }
 
 var HTMLOptionElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7186,11 +8108,15 @@ var HTMLOptionElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$332
 ];
 
@@ -7199,8 +8125,12 @@ function downcast$333(x) {
 }
 
 var HTMLOListElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7220,11 +8150,15 @@ var HTMLOListElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$333
 ];
 
@@ -7247,8 +8181,12 @@ function add$2(element, before, hTMLSelectElement) {
 }
 
 var HTMLSelectElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7268,11 +8206,15 @@ var HTMLSelectElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$334,
   /* add */add$2
 ];
@@ -7282,8 +8224,12 @@ function downcast$335(x) {
 }
 
 var HTMLStyleElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7303,11 +8249,15 @@ var HTMLStyleElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$335
 ];
 
@@ -7316,8 +8266,12 @@ function downcast$336(x) {
 }
 
 var HTMLQuoteElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7337,11 +8291,15 @@ var HTMLQuoteElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$336
 ];
 
@@ -7350,8 +8308,12 @@ function downcast$337(x) {
 }
 
 var HTMLBRElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7371,11 +8333,15 @@ var HTMLBRElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$337
 ];
 
@@ -7384,8 +8350,12 @@ function downcast$338(x) {
 }
 
 var HTMLButtonElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7405,11 +8375,15 @@ var HTMLButtonElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$338
 ];
 
@@ -7418,8 +8392,12 @@ function downcast$339(x) {
 }
 
 var HTMLHRElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7439,11 +8417,15 @@ var HTMLHRElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$339
 ];
 
@@ -7458,8 +8440,12 @@ function setSelectionRange(start, end_, direction, hTMLTextAreaElement) {
 }
 
 var HTMLTextAreaElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7479,11 +8465,15 @@ var HTMLTextAreaElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$340,
   /* setSelectionRange */setSelectionRange
 ];
@@ -7493,8 +8483,12 @@ function downcast$341(x) {
 }
 
 var HTMLSourceElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7514,11 +8508,15 @@ var HTMLSourceElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$341
 ];
 
@@ -7527,8 +8525,12 @@ function downcast$342(x) {
 }
 
 var HTMLPreElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7548,11 +8550,15 @@ var HTMLPreElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$342
 ];
 
@@ -7561,8 +8567,12 @@ function downcast$343(x) {
 }
 
 var HTMLModElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7582,11 +8592,15 @@ var HTMLModElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$343
 ];
 
@@ -7595,8 +8609,12 @@ function downcast$344(x) {
 }
 
 var HTMLMapElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7616,11 +8634,15 @@ var HTMLMapElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$344
 ];
 
@@ -7629,8 +8651,12 @@ function downcast$345(x) {
 }
 
 var HTMLTemplateElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7650,11 +8676,15 @@ var HTMLTemplateElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$345
 ];
 
@@ -7663,8 +8693,12 @@ function downcast$346(x) {
 }
 
 var HTMLDirectoryElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7684,11 +8718,15 @@ var HTMLDirectoryElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$346
 ];
 
@@ -7703,8 +8741,12 @@ function setSelectionRange$1(start, end_, direction, hTMLInputElement) {
 }
 
 var HTMLInputElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7724,11 +8766,15 @@ var HTMLInputElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$347,
   /* setSelectionRange */setSelectionRange$1
 ];
@@ -7738,8 +8784,12 @@ function downcast$348(x) {
 }
 
 var HTMLParagraphElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7759,11 +8809,15 @@ var HTMLParagraphElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$348
 ];
 
@@ -7772,8 +8826,12 @@ function downcast$349(x) {
 }
 
 var HTMLAreaElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7793,11 +8851,15 @@ var HTMLAreaElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$349
 ];
 
@@ -7806,8 +8868,12 @@ function downcast$350(x) {
 }
 
 var HTMLSpanElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7827,11 +8893,15 @@ var HTMLSpanElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$350
 ];
 
@@ -7840,8 +8910,12 @@ function downcast$351(x) {
 }
 
 var HTMLFormElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7861,11 +8935,15 @@ var HTMLFormElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$351
 ];
 
@@ -7874,8 +8952,12 @@ function downcast$352(x) {
 }
 
 var HTMLDataListElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7895,11 +8977,15 @@ var HTMLDataListElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$352
 ];
 
@@ -7930,8 +9016,12 @@ function toDataURL(type_, $$arguments, hTMLCanvasElement) {
 }
 
 var HTMLCanvasElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7951,11 +9041,15 @@ var HTMLCanvasElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$353,
   /* getContext */getContext$1,
   /* toDataURL */toDataURL
@@ -7966,8 +9060,12 @@ function downcast$354(x) {
 }
 
 var HTMLTrackElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -7987,11 +9085,15 @@ var HTMLTrackElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$354
 ];
 
@@ -8005,8 +9107,12 @@ function insertCell(index, hTMLTableRowElement) {
 }
 
 var HTMLTableRowElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8026,11 +9132,15 @@ var HTMLTableRowElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$355,
   /* insertCell */insertCell
 ];
@@ -8040,8 +9150,12 @@ function downcast$356(x) {
 }
 
 var HTMLDivElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8061,11 +9175,15 @@ var HTMLDivElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$356
 ];
 
@@ -8074,8 +9192,12 @@ function downcast$357(x) {
 }
 
 var HTMLAppletElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8095,11 +9217,15 @@ var HTMLAppletElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$357
 ];
 
@@ -8114,8 +9240,12 @@ function close$1(returnValue, hTMLDialogElement) {
 }
 
 var HTMLDialogElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8135,11 +9265,15 @@ var HTMLDialogElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$358,
   /* close */close$1
 ];
@@ -8149,8 +9283,12 @@ function downcast$359(x) {
 }
 
 var HTMLFrameSetElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8170,11 +9308,15 @@ var HTMLFrameSetElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$359
 ];
 
@@ -8183,8 +9325,12 @@ function downcast$360(x) {
 }
 
 var HTMLDetailsElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8204,11 +9350,15 @@ var HTMLDetailsElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$360
 ];
 
@@ -8217,8 +9367,12 @@ function downcast$361(x) {
 }
 
 var HTMLProgressElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8238,11 +9392,15 @@ var HTMLProgressElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$361
 ];
 
@@ -8251,8 +9409,12 @@ function downcast$362(x) {
 }
 
 var HTMLFontElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8272,11 +9434,15 @@ var HTMLFontElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$362
 ];
 
@@ -8285,8 +9451,12 @@ function downcast$363(x) {
 }
 
 var HTMLTableCellElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8306,11 +9476,15 @@ var HTMLTableCellElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$363
 ];
 
@@ -8324,8 +9498,12 @@ function insertRow$1(index, hTMLTableElement) {
 }
 
 var HTMLTableElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8345,11 +9523,15 @@ var HTMLTableElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$364,
   /* insertRow */insertRow$1
 ];
@@ -8359,8 +9541,12 @@ function downcast$365(x) {
 }
 
 var HTMLHeadingElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8380,11 +9566,15 @@ var HTMLHeadingElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$365
 ];
 
@@ -8393,8 +9583,12 @@ function downcast$366(x) {
 }
 
 var HTMLAudioElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8414,11 +9608,15 @@ var HTMLAudioElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* _NETWORK_EMPTY */0,
   /* _NETWORK_IDLE */1,
   /* _NETWORK_LOADING */2,
@@ -8436,8 +9634,12 @@ function downcast$367(x) {
 }
 
 var HTMLTableHeaderCellElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8457,11 +9659,15 @@ var HTMLTableHeaderCellElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$367
 ];
 
@@ -8470,8 +9676,12 @@ function downcast$368(x) {
 }
 
 var SVGSVGElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8491,6 +9701,8 @@ var SVGSVGElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
@@ -8504,8 +9716,12 @@ function downcast$369(x) {
 }
 
 var HTMLVideoElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8525,11 +9741,15 @@ var HTMLVideoElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* _NETWORK_EMPTY */0,
   /* _NETWORK_IDLE */1,
   /* _NETWORK_LOADING */2,
@@ -8547,8 +9767,12 @@ function downcast$370(x) {
 }
 
 var HTMLTableDataCellElement = /* module */[
+  /* cast_to_Dom_eventTarget */cast_to_Dom_eventTarget,
+  /* cast_from_Dom_eventTarget */cast_from_Dom_eventTarget,
   /* addEventListener */addEventListener,
   /* removeEventListener */removeEventListener,
+  /* cast_to_Dom_node */cast_to_Dom_node,
+  /* cast_from_Dom_node */cast_from_Dom_node,
   /* _ELEMENT_NODE */1,
   /* _ATTRIBUTE_NODE */2,
   /* _TEXT_NODE */3,
@@ -8568,11 +9792,15 @@ var HTMLTableDataCellElement = /* module */[
   /* _DOCUMENT_POSITION_CONTAINED_BY */16,
   /* _DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC */32,
   /* cloneNode */cloneNode,
+  /* cast_to_Dom_element */cast_to_Dom_element,
+  /* cast_from_Dom_element */cast_from_Dom_element,
   /* after */after$3,
   /* append */append$4,
   /* before */before$3,
   /* prepend */prepend$3,
   /* replaceWith */replaceWith$3,
+  /* cast_to_Dom_htmlElement */cast_to_Dom_htmlElement,
+  /* cast_from_Dom_htmlElement */cast_from_Dom_htmlElement,
   /* downcast */downcast$370
 ];
 

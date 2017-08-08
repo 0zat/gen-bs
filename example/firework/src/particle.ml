@@ -1,11 +1,10 @@
-open Servo_dom  
 open Draw_objects
 
 module Conf : Draw_objects.Conf = struct
 
   let is_delete_elem elem = elem.alpha <= elem.decay
 
-  let action_when_delete elem = ()
+  let action_when_delete _ = ()
 
   let create_elem base_hue x y =
     Draw_objects.create_elem
